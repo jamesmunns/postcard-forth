@@ -2,7 +2,7 @@ use proc_macro2::{Span, TokenStream};
 use quote::{quote, quote_spanned};
 use syn::{
     parse_macro_input, parse_quote, spanned::Spanned, Data, DeriveInput, Fields, GenericParam,
-    Generics,
+    Generics, ImplGenerics, TypeGenerics, WhereClause,
 };
 
 pub fn do_derive_serialize(item: proc_macro::TokenStream) -> proc_macro::TokenStream {
@@ -15,45 +15,82 @@ pub fn do_derive_serialize(item: proc_macro::TokenStream) -> proc_macro::TokenSt
     let generics = add_trait_bounds(input.generics);
     let (impl_generics, ty_generics, where_clause) = generics.split_for_impl();
 
-    let ty = generate_type(&input.data, span, name.to_string(), name.clone())
+    let expanded = generate_type(&input.data, span, name.to_string(), name.clone(), impl_generics, ty_generics, where_clause)
         .unwrap_or_else(syn::Error::into_compile_error);
-
-    let expanded = quote! {
-        unsafe impl #impl_generics ::postcard_forth::Serialize for #name #ty_generics #where_clause {
-            const FIELDS: &'static [::postcard_forth::SerField] = &[
-                #ty
-            ];
-        }
-    };
 
     expanded.into()
 }
 
-fn generate_type(data: &Data, span: Span, _name: String, tyident: syn::Ident) -> Result<TokenStream, syn::Error> {
-    let ty = match data {
-        Data::Struct(data) => generate_struct(tyident, &data.fields),
-        Data::Enum(_data) => {
-            // let name = data.variants.iter().map(|v| v.ident.to_string());
-            // let ty = data.variants.iter().map(|v| generate_variants(&v.fields));
+fn generate_type(data: &Data, span: Span, _name: String, tyident: syn::Ident, impl_generics: ImplGenerics, ty_generics: TypeGenerics, where_clause: Option<&WhereClause>) -> Result<TokenStream, syn::Error> {
+    match data {
+        Data::Struct(data) => {
+            let ty = generate_struct(tyident.clone(), &data.fields);
+            Ok(quote! {
+                unsafe impl #impl_generics ::postcard_forth::Serialize for #tyident #ty_generics #where_clause {
+                    const FIELDS: &'static [::postcard_forth::SerField] = &[
+                        #ty
+                    ];
+                }
+            })
+        }
+        Data::Enum(data) => {
 
-            // quote! {
-            //     &::postcard::experimental::schema::SdmTy::Enum(&[
-            //         #( &::postcard::experimental::schema::NamedVariant { name: #name, ty: #ty } ),*
-            //     ])
+            // #[inline]
+            // pub unsafe fn ser_dolsot(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
+            //     let eref = base.cast::<Dolsot>().as_ref();
+            //     let (var, fun, valref): (u32, SerFunc, NonNull<()>) = match eref {
+            //         Dolsot::Bib(x) => (0, ser_fields::<Alpha>, NonNull::from(x).cast::<()>()),
+            //         Dolsot::Bim(x) => (1, ser_fields::<Beta>, NonNull::from(x).cast::<()>()),
+            //         Dolsot::Bap(x) => (2, impls::ser_u32, NonNull::from(x).cast::<()>()),
+            //         Dolsot::Bowl => (3, impls::ser_nothing, NonNull::<()>::dangling()),
+            //     };
+
+            //     // serialize the discriminant as a u32
+            //     if impls::ser_u32(stream, NonNull::from(&var).cast()).is_err() {
+            //         return Err(());
+            //     }
+
+            //     // Serialize the payload
+            //     (fun)(stream, valref)
             // }
-            todo!()
+
+            let serfunc_name = format!("ser_{}", tyident);
+            let sername_ident = syn::Ident::new(&serfunc_name, tyident.span());
+            let mut arms = TokenStream::new();
+            for (i, var) in data.variants.iter().enumerate() {
+                let ident = &var.ident;
+                let fields = generate_arm(&var.fields, tyident.clone(), ident, i as u32);
+                arms.extend(quote! {
+                    #fields
+                });
+            }
+
+
+            let out = quote! {
+                #[inline]
+                pub unsafe fn #sername_ident(stream: &mut ::postcard_forth::SerStream, base: core::ptr::NonNull<()>) -> Result<(), ()> {
+                    let eref = base.cast::<#tyident>().as_ref();
+                    match eref {
+                        #arms
+                    }
+                }
+
+                unsafe impl ::postcard_forth::Serialize for #tyident {
+                    const FIELDS: &'static [::postcard_forth::SerField] = &[::postcard_forth::SerField {
+                        offset: 0,
+                        func: #sername_ident,
+                    }];
+                }
+            };
+            Ok(out)
         }
         Data::Union(_) => {
-            return Err(syn::Error::new(
+            Err(syn::Error::new(
                 span,
                 "unions are not supported by `postcard::experimental::schema`",
             ))
         }
-    };
-
-    Ok(quote! {
-        #ty
-    })
+    }
 }
 
 fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
@@ -131,32 +168,76 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
     out
 }
 
-fn _generate_variants(_fields: &Fields) -> TokenStream {
-    // match fields {
-    //     syn::Fields::Named(fields) => {
-    //         let fields = fields.named.iter().map(|f| {
-    //             let ty = &f.ty;
-    //             let name = f.ident.as_ref().unwrap().to_string();
-    //             quote_spanned!(f.span() => &::postcard::experimental::schema::NamedValue { name: #name, ty: <#ty as ::postcard::experimental::schema::Schema>::SCHEMA })
-    //         });
-    //         quote! { &::postcard::experimental::schema::SdmTy::StructVariant(&[
-    //             #( #fields ),*
-    //         ]) }
-    //     }
-    //     syn::Fields::Unnamed(fields) => {
-    //         let fields = fields.unnamed.iter().map(|f| {
-    //             let ty = &f.ty;
-    //             quote_spanned!(f.span() => <#ty as ::postcard::experimental::schema::Schema>::SCHEMA)
-    //         });
-    //         quote! { &::postcard::experimental::schema::SdmTy::TupleVariant(&[
-    //             #( #fields ),*
-    //         ]) }
-    //     }
-    //     syn::Fields::Unit => {
-    //         quote! { &::postcard::experimental::schema::SdmTy::UnitVariant }
-    //     }
-    // }
-    quote! { }
+fn generate_arm(fields: &Fields, tyident: syn::Ident, varident: &syn::Ident, idx: u32) -> TokenStream {
+    match fields {
+        syn::Fields::Named(fields) => {
+            let just_names: Vec<_> = fields.named.iter().map(|f| {
+                &f.ident
+            }).collect();
+
+            let just_names = just_names.as_slice();
+
+            quote! {
+                #tyident :: #varident { #(#just_names),* } => {
+                    // serialize the discriminant as a u32
+                    let var: u32 = #idx;
+                    if ::postcard_forth::impls::ser_u32(stream, core::ptr::NonNull::from(&var).cast()).is_err() {
+                        return Err(());
+                    }
+
+                    // Serialize the payload
+                    #(
+                        if ::postcard_forth::ser_fields_ref(stream, #just_names).is_err() {
+                            return Err(());
+                        }
+                    )*
+
+                    Ok(())
+
+                }
+            }
+        }
+        syn::Fields::Unnamed(fields) => {
+            let names = b"abcdefghijklmnopqrstuvwxyz";
+
+
+            let just_names: Vec<_> = fields.unnamed.iter().zip(names.iter()).map(|(f, c)| {
+                let ch = &[*c];
+                let name = syn::Ident::new(core::str::from_utf8(ch).unwrap(), f.span());
+                quote_spanned! {f.span() => #name}
+            }).collect();
+
+            let just_names = just_names.as_slice();
+
+            quote! {
+                #tyident :: #varident ( #(#just_names),* ) => {
+                    // serialize the discriminant as a u32
+                    let var: u32 = #idx;
+                    if ::postcard_forth::impls::ser_u32(stream, core::ptr::NonNull::from(&var).cast()).is_err() {
+                        return Err(());
+                    }
+
+                    // Serialize the payload
+                    #(
+                        if ::postcard_forth::ser_fields_ref(stream, #just_names).is_err() {
+                            return Err(());
+                        }
+                    )*
+
+                    Ok(())
+
+                }
+            }
+        }
+        syn::Fields::Unit => {
+            quote! {
+                #tyident :: #varident => {
+                    let var: u32 = #idx;
+                    ::postcard_forth::impls::ser_u32(stream, core::ptr::NonNull::from(&var).cast())
+                }
+            }
+        }
+    }
 }
 
 /// Add a bound `T: MaxSize` to every type parameter T.
