@@ -15,8 +15,16 @@ pub fn do_derive_deserialize(item: proc_macro::TokenStream) -> proc_macro::Token
     let generics = add_trait_bounds(input.generics);
     let (impl_generics, ty_generics, where_clause) = generics.split_for_impl();
 
-    let expanded = generate_type(&input.data, span, name.to_string(), name.clone(), impl_generics, ty_generics, where_clause)
-        .unwrap_or_else(syn::Error::into_compile_error);
+    let expanded = generate_type(
+        &input.data,
+        span,
+        name.to_string(),
+        name.clone(),
+        impl_generics,
+        ty_generics,
+        where_clause,
+    )
+    .unwrap_or_else(syn::Error::into_compile_error);
 
     // let expanded = quote! {
     //     unsafe impl #impl_generics ::postcard_forth::Deserialize for #name #ty_generics #where_clause {
@@ -53,7 +61,7 @@ fn generate_type(
             };
 
             Ok(expanded)
-        },
+        }
         Data::Enum(data) => {
             let deserfunc_name = format!("deser_{}", tyident);
             let desername_ident = syn::Ident::new(&deserfunc_name, tyident.span());
@@ -88,12 +96,10 @@ fn generate_type(
             };
             Ok(out)
         }
-        Data::Union(_) => {
-            Err(syn::Error::new(
-                span,
-                "unions are not supported by `postcard::experimental::schema`",
-            ))
-        }
+        Data::Union(_) => Err(syn::Error::new(
+            span,
+            "unions are not supported by `postcard::experimental::schema`",
+        )),
     }
 }
 
@@ -176,9 +182,7 @@ fn generate_arm(
             let just_names: Vec<_> = fields.named.iter().map(|f| &f.ident).collect();
             let just_names = just_names.as_slice();
 
-            let just_tys: Vec<_> = fields.named.iter().map(|f| {
-                &f.ty
-            }).collect();
+            let just_tys: Vec<_> = fields.named.iter().map(|f| &f.ty).collect();
             let just_tys = just_tys.as_slice();
 
             quote! {
@@ -215,9 +219,7 @@ fn generate_arm(
 
             let just_names = just_names.as_slice();
 
-            let just_tys: Vec<_> = fields.unnamed.iter().map(|f| {
-                &f.ty
-            }).collect();
+            let just_tys: Vec<_> = fields.unnamed.iter().map(|f| &f.ty).collect();
             let just_tys = just_tys.as_slice();
 
             quote! {

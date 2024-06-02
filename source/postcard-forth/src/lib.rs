@@ -214,7 +214,16 @@ pub unsafe fn deser_fields<D: Deserialize>(
 pub mod impls {
     use core::mem::size_of;
 
-    use self::{de_varint::{de_zig_zag_i128, de_zig_zag_i16, de_zig_zag_i32, de_zig_zag_i64, try_take_varint_u128, try_take_varint_u16, try_take_varint_u32, try_take_varint_u64, try_take_varint_usize}, ser_varint::{varint_max, varint_u128, varint_u16, varint_u32, varint_u64, varint_usize, zig_zag_i128, zig_zag_i16, zig_zag_i32, zig_zag_i64}};
+    use self::{
+        de_varint::{
+            de_zig_zag_i128, de_zig_zag_i16, de_zig_zag_i32, de_zig_zag_i64, try_take_varint_u128,
+            try_take_varint_u16, try_take_varint_u32, try_take_varint_u64, try_take_varint_usize,
+        },
+        ser_varint::{
+            varint_max, varint_u128, varint_u16, varint_u32, varint_u64, varint_usize,
+            zig_zag_i128, zig_zag_i16, zig_zag_i32, zig_zag_i64,
+        },
+    };
 
     use super::*;
 
@@ -339,7 +348,10 @@ pub mod impls {
     }
 
     #[inline]
-    pub unsafe fn ser_vec<T: Serialize>(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
+    pub unsafe fn ser_vec<T: Serialize>(
+        stream: &mut SerStream,
+        base: NonNull<()>,
+    ) -> Result<(), ()> {
         let val: &Vec<T> = base.cast::<Vec<T>>().as_ref();
         let len = val.len();
         ser_usize(stream, NonNull::from(&len).cast())?;
@@ -350,7 +362,10 @@ pub mod impls {
     }
 
     #[inline]
-    pub unsafe fn ser_arr<T: Serialize, const N: usize>(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
+    pub unsafe fn ser_arr<T: Serialize, const N: usize>(
+        stream: &mut SerStream,
+        base: NonNull<()>,
+    ) -> Result<(), ()> {
         let val: &[T; N] = base.cast::<[T; N]>().as_ref();
         for t in val.iter() {
             ser_fields_ref(stream, t)?;
@@ -359,7 +374,10 @@ pub mod impls {
     }
 
     #[inline]
-    pub unsafe fn ser_option<T: Serialize>(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
+    pub unsafe fn ser_option<T: Serialize>(
+        stream: &mut SerStream,
+        base: NonNull<()>,
+    ) -> Result<(), ()> {
         let val: &Option<T> = base.cast::<Option<T>>().as_ref();
         let disc = val.is_some();
         ser_bool(stream, NonNull::from(&disc).cast())?;
@@ -511,29 +529,33 @@ pub mod impls {
     }
 
     unsafe impl<T: Serialize, U: Serialize> Serialize for (T, U) {
-        const FIELDS: &'static [SerField] = &[SerField {
-            offset: core::mem::offset_of!((T, U), 0),
-            func: impls::ser_fields::<T>,
-        },
-        SerField {
-            offset: core::mem::offset_of!((T, U), 1),
-            func: impls::ser_fields::<U>,
-        }];
+        const FIELDS: &'static [SerField] = &[
+            SerField {
+                offset: core::mem::offset_of!((T, U), 0),
+                func: impls::ser_fields::<T>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U), 1),
+                func: impls::ser_fields::<U>,
+            },
+        ];
     }
 
     unsafe impl<T: Serialize, U: Serialize, V: Serialize> Serialize for (T, U, V) {
-        const FIELDS: &'static [SerField] = &[SerField {
-            offset: core::mem::offset_of!((T, U, V), 0),
-            func: impls::ser_fields::<T>,
-        },
-        SerField {
-            offset: core::mem::offset_of!((T, U, V), 1),
-            func: impls::ser_fields::<U>,
-        },
-        SerField {
-            offset: core::mem::offset_of!((T, U, V), 2),
-            func: impls::ser_fields::<V>,
-        }];
+        const FIELDS: &'static [SerField] = &[
+            SerField {
+                offset: core::mem::offset_of!((T, U, V), 0),
+                func: impls::ser_fields::<T>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V), 1),
+                func: impls::ser_fields::<U>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V), 2),
+                func: impls::ser_fields::<V>,
+            },
+        ];
     }
 
     #[inline]
@@ -720,7 +742,10 @@ pub mod impls {
     }
 
     #[inline]
-    pub unsafe fn deser_vec<T: Deserialize>(stream: &mut DeserStream, base: NonNull<()>) -> Result<(), ()> {
+    pub unsafe fn deser_vec<T: Deserialize>(
+        stream: &mut DeserStream,
+        base: NonNull<()>,
+    ) -> Result<(), ()> {
         let mut len = MaybeUninit::<usize>::uninit();
         deser_usize(stream, NonNull::from(&mut len).cast())?;
         let len = len.assume_init();
@@ -737,7 +762,10 @@ pub mod impls {
     }
 
     #[inline]
-    pub unsafe fn deser_arr<T: Deserialize, const N: usize>(stream: &mut DeserStream, base: NonNull<()>) -> Result<(), ()> {
+    pub unsafe fn deser_arr<T: Deserialize, const N: usize>(
+        stream: &mut DeserStream,
+        base: NonNull<()>,
+    ) -> Result<(), ()> {
         let mut cursor: *mut T = base.as_ptr().cast();
         let end = cursor.wrapping_add(N);
         while cursor != end {
@@ -748,7 +776,10 @@ pub mod impls {
     }
 
     #[inline]
-    pub unsafe fn deser_option<T: Deserialize>(stream: &mut DeserStream, base: NonNull<()>) -> Result<(), ()> {
+    pub unsafe fn deser_option<T: Deserialize>(
+        stream: &mut DeserStream,
+        base: NonNull<()>,
+    ) -> Result<(), ()> {
         let mut disc = MaybeUninit::<bool>::uninit();
         deser_bool(stream, NonNull::from(&mut disc).cast())?;
         let disc = disc.assume_init();
@@ -756,7 +787,9 @@ pub mod impls {
         if disc {
             let mut out = MaybeUninit::<T>::uninit();
             deser_fields_ref(stream, &mut out)?;
-            base.cast::<Option<T>>().as_ptr().write(Some(out.assume_init()));
+            base.cast::<Option<T>>()
+                .as_ptr()
+                .write(Some(out.assume_init()));
         } else {
             base.cast::<Option<T>>().as_ptr().write(None);
         }
@@ -905,29 +938,33 @@ pub mod impls {
     }
 
     unsafe impl<T: Deserialize, U: Deserialize> Deserialize for (T, U) {
-        const FIELDS: &'static [DeserField] = &[DeserField {
-            offset: core::mem::offset_of!((T, U), 0),
-            func: deser_fields::<T>,
-        },
-        DeserField {
-            offset: core::mem::offset_of!((T, U), 1),
-            func: deser_fields::<U>,
-        }];
+        const FIELDS: &'static [DeserField] = &[
+            DeserField {
+                offset: core::mem::offset_of!((T, U), 0),
+                func: deser_fields::<T>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U), 1),
+                func: deser_fields::<U>,
+            },
+        ];
     }
 
     unsafe impl<T: Deserialize, U: Deserialize, V: Deserialize> Deserialize for (T, U, V) {
-        const FIELDS: &'static [DeserField] = &[DeserField {
-            offset: core::mem::offset_of!((T, U, V), 0),
-            func: deser_fields::<T>,
-        },
-        DeserField {
-            offset: core::mem::offset_of!((T, U, V), 1),
-            func: deser_fields::<U>,
-        },
-        DeserField {
-            offset: core::mem::offset_of!((T, U, V), 2),
-            func: deser_fields::<V>,
-        }];
+        const FIELDS: &'static [DeserField] = &[
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V), 0),
+                func: deser_fields::<T>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V), 1),
+                func: deser_fields::<U>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V), 2),
+                func: deser_fields::<V>,
+            },
+        ];
     }
 }
 
