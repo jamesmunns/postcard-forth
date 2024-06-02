@@ -238,41 +238,31 @@ pub mod impls {
     #[inline]
     pub unsafe fn ser_u16(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
         let val: u16 = base.cast::<u16>().as_ptr().read();
-        let mut out = [0u8; varint_max::<u16>()];
-        let used = varint_u16(val, &mut out);
-        stream.push_n(used)
+        varint_u16(val, stream)
     }
 
     #[inline]
     pub unsafe fn ser_u32(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
         let val: u32 = base.cast::<u32>().as_ptr().read();
-        let mut out = [0u8; varint_max::<u32>()];
-        let used = varint_u32(val, &mut out);
-        stream.push_n(used)
+        varint_u32(val, stream)
     }
 
     #[inline]
     pub unsafe fn ser_u64(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
         let val: u64 = base.cast::<u64>().as_ptr().read();
-        let mut out = [0u8; varint_max::<u64>()];
-        let used = varint_u64(val, &mut out);
-        stream.push_n(used)
+        varint_u64(val, stream)
     }
 
     #[inline]
     pub unsafe fn ser_u128(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
         let val: u128 = base.cast::<u128>().as_ptr().read();
-        let mut out = [0u8; varint_max::<u128>()];
-        let used = varint_u128(val, &mut out);
-        stream.push_n(used)
+        varint_u128(val, stream)
     }
 
     #[inline]
     pub unsafe fn ser_usize(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
         let val: usize = base.cast::<usize>().as_ptr().read();
-        let mut out = [0u8; varint_max::<usize>()];
-        let used = varint_usize(val, &mut out);
-        stream.push_n(used)
+        varint_usize(val, stream)
     }
 
     #[inline]
@@ -299,36 +289,28 @@ pub mod impls {
     pub unsafe fn ser_i16(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
         let val: i16 = base.cast::<i16>().as_ptr().read();
         let val: u16 = zig_zag_i16(val);
-        let mut out = [0u8; varint_max::<u16>()];
-        let used = varint_u16(val, &mut out);
-        stream.push_n(used)
+        varint_u16(val, stream)
     }
 
     #[inline]
     pub unsafe fn ser_i32(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
         let val: i32 = base.cast::<i32>().as_ptr().read();
         let val: u32 = zig_zag_i32(val);
-        let mut out = [0u8; varint_max::<u32>()];
-        let used = varint_u32(val, &mut out);
-        stream.push_n(used)
+        varint_u32(val, stream)
     }
 
     #[inline]
     pub unsafe fn ser_i64(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
         let val: i64 = base.cast::<i64>().as_ptr().read();
         let val: u64 = zig_zag_i64(val);
-        let mut out = [0u8; varint_max::<u64>()];
-        let used = varint_u64(val, &mut out);
-        stream.push_n(used)
+        varint_u64(val, stream)
     }
 
     #[inline]
     pub unsafe fn ser_i128(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
         let val: i128 = base.cast::<i128>().as_ptr().read();
         let val: u128 = zig_zag_i128(val);
-        let mut out = [0u8; varint_max::<u128>()];
-        let used = varint_u128(val, &mut out);
-        stream.push_n(used)
+        varint_u128(val, stream)
     }
 
     #[inline]
@@ -344,9 +326,7 @@ pub mod impls {
         #[cfg(target_pointer_width = "64")]
         let val: usize = zig_zag_i64(val as i64) as usize;
 
-        let mut out = [0u8; varint_max::<usize>()];
-        let used = varint_usize(val, &mut out);
-        stream.push_n(used)
+        varint_usize(val, stream)
     }
 
     #[inline]
@@ -954,6 +934,8 @@ pub mod impls {
 pub(crate) mod ser_varint {
     // copy and paste from postcard
 
+    use crate::SerStream;
+
     /// Returns the maximum number of bytes required to encode T.
     pub const fn varint_max<T: Sized>() -> usize {
         const BITS_PER_BYTE: usize = 8;
@@ -972,83 +954,73 @@ pub(crate) mod ser_varint {
     }
 
     #[inline]
-    pub fn varint_usize(n: usize, out: &mut [u8; varint_max::<usize>()]) -> &mut [u8] {
-        let mut value = n;
-        for i in 0..varint_max::<usize>() {
-            out[i] = value.to_le_bytes()[0];
+    pub fn varint_usize(mut value: usize, out: &mut SerStream) -> Result<(), ()> {
+        loop {
+            let now = value.to_le_bytes()[0];
             if value < 128 {
-                return &mut out[..=i];
+                return out.push_one(now);
+            } else {
+                out.push_one(now | 0x80)?;
             }
 
-            out[i] |= 0x80;
             value >>= 7;
         }
-        debug_assert_eq!(value, 0);
-        &mut out[..]
     }
 
     #[inline]
-    pub fn varint_u16(n: u16, out: &mut [u8; varint_max::<u16>()]) -> &mut [u8] {
-        let mut value = n;
-        for i in 0..varint_max::<u16>() {
-            out[i] = value.to_le_bytes()[0];
+    pub fn varint_u16(mut value: u16, out: &mut SerStream) -> Result<(), ()> {
+        loop {
+            let now = value.to_le_bytes()[0];
             if value < 128 {
-                return &mut out[..=i];
+                return out.push_one(now);
+            } else {
+                out.push_one(now | 0x80)?;
             }
 
-            out[i] |= 0x80;
             value >>= 7;
         }
-        debug_assert_eq!(value, 0);
-        &mut out[..]
     }
 
     #[inline]
-    pub fn varint_u32(n: u32, out: &mut [u8; varint_max::<u32>()]) -> &mut [u8] {
-        let mut value = n;
-        for i in 0..varint_max::<u32>() {
-            out[i] = value.to_le_bytes()[0];
+    pub fn varint_u32(mut value: u32, out: &mut SerStream) -> Result<(), ()> {
+        loop {
+            let now = value.to_le_bytes()[0];
             if value < 128 {
-                return &mut out[..=i];
+                return out.push_one(now);
+            } else {
+                out.push_one(now | 0x80)?;
             }
 
-            out[i] |= 0x80;
             value >>= 7;
         }
-        debug_assert_eq!(value, 0);
-        &mut out[..]
     }
 
     #[inline]
-    pub fn varint_u64(n: u64, out: &mut [u8; varint_max::<u64>()]) -> &mut [u8] {
-        let mut value = n;
-        for i in 0..varint_max::<u64>() {
-            out[i] = value.to_le_bytes()[0];
+    pub fn varint_u64(mut value: u64, out: &mut SerStream) -> Result<(), ()> {
+        loop {
+            let now = value.to_le_bytes()[0];
             if value < 128 {
-                return &mut out[..=i];
+                return out.push_one(now);
+            } else {
+                out.push_one(now | 0x80)?;
             }
 
-            out[i] |= 0x80;
             value >>= 7;
         }
-        debug_assert_eq!(value, 0);
-        &mut out[..]
     }
 
     #[inline]
-    pub fn varint_u128(n: u128, out: &mut [u8; varint_max::<u128>()]) -> &mut [u8] {
-        let mut value = n;
-        for i in 0..varint_max::<u128>() {
-            out[i] = value.to_le_bytes()[0];
+    pub fn varint_u128(mut value: u128, out: &mut SerStream) -> Result<(), ()> {
+        loop {
+            let now = value.to_le_bytes()[0];
             if value < 128 {
-                return &mut out[..=i];
+                return out.push_one(now);
+            } else {
+                out.push_one(now | 0x80)?;
             }
 
-            out[i] |= 0x80;
             value >>= 7;
         }
-        debug_assert_eq!(value, 0);
-        &mut out[..]
     }
 
     pub fn zig_zag_i16(n: i16) -> u16 {
