@@ -25,7 +25,7 @@ struct Beta {
     g: Vec<u16>,
 }
 
-#[derive(Debug, PartialEq, Serialize)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 enum Dolsot {
     Bib(Alpha),
     Bim(Beta),
@@ -106,20 +106,20 @@ fn main() {
 
     // ---
 
-    // let bytes = &[1, 1, 128, 2, 128, 128, 4, 255, 129, 2, 129, 128, 4, 4, 1, 2, 3, 4];
+    let bytes = &[1, 1, 128, 2, 128, 128, 4, 255, 129, 2, 129, 128, 4, 4, 1, 2, 3, 4];
 
-    // let mut desers = DeserStream::from(bytes.as_slice());
-    // let mut out = MaybeUninit::<Dolsot>::uninit();
-    // unsafe {
-    //     deser_fields_ref(&mut desers, &mut out).unwrap();
-    // }
-    // let remain = desers.remain();
-    // assert_eq!(remain, 0);
-    // let out = unsafe { out.assume_init() };
-    // assert_eq!(
-    //     a,
-    //     out,
-    // );
+    let mut desers = DeserStream::from(bytes.as_slice());
+    let mut out = MaybeUninit::<Dolsot>::uninit();
+    unsafe {
+        deser_fields_ref(&mut desers, &mut out).unwrap();
+    }
+    let remain = desers.remain();
+    assert_eq!(remain, 0);
+    let out = unsafe { out.assume_init() };
+    assert_eq!(
+        a,
+        out,
+    );
 
     println!("Passed!");
 }

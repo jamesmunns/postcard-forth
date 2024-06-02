@@ -15,13 +15,29 @@ pub fn do_derive_serialize(item: proc_macro::TokenStream) -> proc_macro::TokenSt
     let generics = add_trait_bounds(input.generics);
     let (impl_generics, ty_generics, where_clause) = generics.split_for_impl();
 
-    let expanded = generate_type(&input.data, span, name.to_string(), name.clone(), impl_generics, ty_generics, where_clause)
-        .unwrap_or_else(syn::Error::into_compile_error);
+    let expanded = generate_type(
+        &input.data,
+        span,
+        name.to_string(),
+        name.clone(),
+        impl_generics,
+        ty_generics,
+        where_clause,
+    )
+    .unwrap_or_else(syn::Error::into_compile_error);
 
     expanded.into()
 }
 
-fn generate_type(data: &Data, span: Span, _name: String, tyident: syn::Ident, impl_generics: ImplGenerics, ty_generics: TypeGenerics, where_clause: Option<&WhereClause>) -> Result<TokenStream, syn::Error> {
+fn generate_type(
+    data: &Data,
+    span: Span,
+    _name: String,
+    tyident: syn::Ident,
+    impl_generics: ImplGenerics,
+    ty_generics: TypeGenerics,
+    where_clause: Option<&WhereClause>,
+) -> Result<TokenStream, syn::Error> {
     match data {
         Data::Struct(data) => {
             let ty = generate_struct(tyident.clone(), &data.fields);
@@ -34,26 +50,6 @@ fn generate_type(data: &Data, span: Span, _name: String, tyident: syn::Ident, im
             })
         }
         Data::Enum(data) => {
-
-            // #[inline]
-            // pub unsafe fn ser_dolsot(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
-            //     let eref = base.cast::<Dolsot>().as_ref();
-            //     let (var, fun, valref): (u32, SerFunc, NonNull<()>) = match eref {
-            //         Dolsot::Bib(x) => (0, ser_fields::<Alpha>, NonNull::from(x).cast::<()>()),
-            //         Dolsot::Bim(x) => (1, ser_fields::<Beta>, NonNull::from(x).cast::<()>()),
-            //         Dolsot::Bap(x) => (2, impls::ser_u32, NonNull::from(x).cast::<()>()),
-            //         Dolsot::Bowl => (3, impls::ser_nothing, NonNull::<()>::dangling()),
-            //     };
-
-            //     // serialize the discriminant as a u32
-            //     if impls::ser_u32(stream, NonNull::from(&var).cast()).is_err() {
-            //         return Err(());
-            //     }
-
-            //     // Serialize the payload
-            //     (fun)(stream, valref)
-            // }
-
             let serfunc_name = format!("ser_{}", tyident);
             let sername_ident = syn::Ident::new(&serfunc_name, tyident.span());
             let mut arms = TokenStream::new();
@@ -64,7 +60,6 @@ fn generate_type(data: &Data, span: Span, _name: String, tyident: syn::Ident, im
                     #fields
                 });
             }
-
 
             let out = quote! {
                 #[inline]
@@ -84,12 +79,10 @@ fn generate_type(data: &Data, span: Span, _name: String, tyident: syn::Ident, im
             };
             Ok(out)
         }
-        Data::Union(_) => {
-            Err(syn::Error::new(
-                span,
-                "unions are not supported by `postcard::experimental::schema`",
-            ))
-        }
+        Data::Union(_) => Err(syn::Error::new(
+            span,
+            "unions are not supported by `postcard::experimental::schema`",
+        )),
     }
 }
 
@@ -168,12 +161,15 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
     out
 }
 
-fn generate_arm(fields: &Fields, tyident: syn::Ident, varident: &syn::Ident, idx: u32) -> TokenStream {
+fn generate_arm(
+    fields: &Fields,
+    tyident: syn::Ident,
+    varident: &syn::Ident,
+    idx: u32,
+) -> TokenStream {
     match fields {
         syn::Fields::Named(fields) => {
-            let just_names: Vec<_> = fields.named.iter().map(|f| {
-                &f.ident
-            }).collect();
+            let just_names: Vec<_> = fields.named.iter().map(|f| &f.ident).collect();
 
             let just_names = just_names.as_slice();
 
@@ -200,12 +196,16 @@ fn generate_arm(fields: &Fields, tyident: syn::Ident, varident: &syn::Ident, idx
         syn::Fields::Unnamed(fields) => {
             let names = b"abcdefghijklmnopqrstuvwxyz";
 
-
-            let just_names: Vec<_> = fields.unnamed.iter().zip(names.iter()).map(|(f, c)| {
-                let ch = &[*c];
-                let name = syn::Ident::new(core::str::from_utf8(ch).unwrap(), f.span());
-                quote_spanned! {f.span() => #name}
-            }).collect();
+            let just_names: Vec<_> = fields
+                .unnamed
+                .iter()
+                .zip(names.iter())
+                .map(|(f, c)| {
+                    let ch = &[*c];
+                    let name = syn::Ident::new(core::str::from_utf8(ch).unwrap(), f.span());
+                    quote_spanned! {f.span() => #name}
+                })
+                .collect();
 
             let just_names = just_names.as_slice();
 

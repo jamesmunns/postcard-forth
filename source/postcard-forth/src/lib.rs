@@ -556,10 +556,6 @@ pub mod impls {
         }];
     }
 
-    unsafe impl<T: Serialize> Serialize for &T {
-        const FIELDS: &'static [SerField] = T::FIELDS;
-    }
-
     #[inline]
     pub unsafe fn deser_nothing(_stream: &mut DeserStream, _base: NonNull<()>) -> Result<(), ()> {
         Ok(())
@@ -952,10 +948,6 @@ pub mod impls {
             offset: core::mem::offset_of!((T, U, V), 2),
             func: deser_fields::<V>,
         }];
-    }
-
-    unsafe impl<T: Deserialize> Deserialize for &T {
-        const FIELDS: &'static [DeserField] = T::FIELDS;
     }
 }
 
