@@ -1,0 +1,61 @@
+[package]
+edition = "2021"
+name = "embassy-rp-examples"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+
+
+[dependencies]
+embassy-executor = { version = "0.5.0", features = ["task-arena-size-32768", "arch-cortex-m", "executor-thread", "executor-interrupt", "defmt", "integrated-timers"] }
+embassy-rp = { version = "0.1.0", features = ["defmt", "unstable-pac", "time-driver", "critical-section-impl"] }
+
+defmt = "0.3"
+defmt-rtt = "0.4"
+
+cortex-m = { version = "0.7.6", features = ["inline-asm"] }
+cortex-m-rt = "0.7.0"
+panic-probe = { version = "0.3", features = ["print-defmt"] }
+static_cell = "2.1.0"
+portable-atomic = { version = "1.5", features = ["critical-section"] }
+
+[dependencies.postcard-forth]
+path = "../postcard-forth"
+default-features = false
+optional = true
+
+[dependencies.postcard-forth-derive]
+path = "../postcard-forth-derive"
+optional = true
+
+[dependencies.postcard]
+version = "=1.0.8"
+default-features = false
+optional = true
+
+[dependencies.serde]
+version = "1.0"
+default-features = false
+features = ["derive"]
+optional = true
+
+[profile.release]
+debug = 2
+lto = true
+opt-level = 's'
+codegen-units = 1
+incremental = false
+
+[features]
+default = ["serde"]
+serde = [
+    "dep:serde",
+    "dep:postcard",
+]
+postcard-forth = [
+    "dep:postcard-forth",
+    "dep:postcard-forth-derive",
+]
+
+[patch.crates-io]
+embassy-rp = { git = "https://github.com/embassy-rs/embassy/", rev = "3e2b015dc477023887ae9b0e5e3adf5deb7af362" }
+embassy-executor = { git = "https://github.com/embassy-rs/embassy/", rev = "3e2b015dc477023887ae9b0e5e3adf5deb7af362" }

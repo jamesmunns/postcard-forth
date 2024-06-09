@@ -96,6 +96,32 @@ fn deserialize<T: ::postcard_forth::Deserialize>(
     }}
     Ok(unsafe {{ out.assume_init() }})
 }}
+
+#[cfg(feature = "serde")]
+#[inline]
+fn serialize<T: ::serde::Serialize>(
+    t: &T,
+    out_buf: &mut [u8],
+) -> Result<usize, ()> {{
+    ::postcard::to_slice(t, out_buf).map_err(drop).map(|u| u.len())
+}}
+
+#[cfg(feature = "postcard-forth")]
+#[inline]
+fn serialize<T: ::postcard_forth::Serialize>(
+    t: &T,
+    out_buf: &mut [u8],
+) -> Result<usize, ()> {{
+    let olen = out_buf.len();
+    let mut sers = ::postcard_forth::SerStream::from(out_buf);
+    unsafe {{
+        ::postcard_forth::ser_fields_ref(&mut sers, t).map_err(drop)?;
+    }}
+    let remain = sers.remain();
+    let used = olen - remain;
+    Ok(used)
+}}
+
     "#);
 
     println!(r#"
@@ -104,7 +130,7 @@ pub(crate) fn round_trip_all<FI, FD, FO>(
     out_buf: &mut [u8],
     mut recv_fn: FI,
     debg_fn: FD,
-    _send_fn: FO,
+    send_fn: FO,
 ) -> Result<(), ()>
 where
     FI: FnMut(&mut [u8]),
@@ -118,8 +144,10 @@ where
     {{
         recv_fn(in_buf);
         let t: {ty} = deserialize(in_buf)?;
-        let len = debug::<{ty}>(&t, out_buf)?;
-        debg_fn(&out_buf[..len]);
+        // let len = debug::<{ty}>(&t, out_buf)?;
+        // debg_fn(&out_buf[..len]);
+        let len = serialize(&t, out_buf)?;
+        send_fn(&out_buf[..len]);
     }}
         "#);
     }

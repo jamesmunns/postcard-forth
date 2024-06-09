@@ -160,7 +160,8 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
                         quote!(::postcard_forth::deser_fields::<#ty>)
                     },
                 };
-                let out = quote_spanned!(f.span() => ::postcard_forth::DeserField { offset: ::core::mem::offset_of!(#tyname, #i), func: #deserf });
+                let tupidx = syn::Index::from(i);
+                let out = quote_spanned!(f.span() => ::postcard_forth::DeserField { offset: ::core::mem::offset_of!(#tyname, #tupidx), func: #deserf });
                 out
             });
             out.extend(quote! {

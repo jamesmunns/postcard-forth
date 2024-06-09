@@ -1,0 +1,20 @@
+# serde
+
+`cargo size --release`
+
+```
+   text	   data	    bss	    dec	    hex	filename
+ 250124	      0	 165300	 415424	  656c0	embassy-rp-examples
+```
+
+`cargo expand | wc -l`
+
+```
+   44067
+```
+
+# postcard-forth
+
+`cargo size --release --no-default-features --features=postcard-forth`
+
+
