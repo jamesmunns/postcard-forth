@@ -75,6 +75,7 @@ fn generate_type(
             }
 
             let out = quote! {
+                #[allow(non_snake_case)]
                 #[inline]
                 pub unsafe fn #desername_ident(stream: &mut ::postcard_forth::DeserStream, base: core::ptr::NonNull<()>) -> Result<(), ()> {
                     let mut variant = core::mem::MaybeUninit::<u32>::uninit();

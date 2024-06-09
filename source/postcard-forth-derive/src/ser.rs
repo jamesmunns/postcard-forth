@@ -62,6 +62,7 @@ fn generate_type(
             }
 
             let out = quote! {
+                #[allow(non_snake_case)]
                 #[inline]
                 pub unsafe fn #sername_ident(stream: &mut ::postcard_forth::SerStream, base: core::ptr::NonNull<()>) -> Result<(), ()> {
                     let eref = base.cast::<#tyident>().as_ref();

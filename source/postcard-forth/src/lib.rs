@@ -1,4 +1,4 @@
-// #![no_std]
+#![cfg_attr(not(any(test, feature = "std")), no_std)]
 #![allow(clippy::result_unit_err, clippy::missing_safety_doc)]
 
 use core::{marker::PhantomData, mem::MaybeUninit, ptr::NonNull};
@@ -220,7 +220,7 @@ pub mod impls {
             try_take_varint_u16, try_take_varint_u32, try_take_varint_u64, try_take_varint_usize,
         },
         ser_varint::{
-            varint_max, varint_u128, varint_u16, varint_u32, varint_u64, varint_usize,
+            varint_u128, varint_u16, varint_u32, varint_u64, varint_usize,
             zig_zag_i128, zig_zag_i16, zig_zag_i32, zig_zag_i64,
         },
     };
@@ -338,6 +338,7 @@ pub mod impls {
         varint_usize(val, stream)
     }
 
+    #[cfg(feature = "std")]
     #[inline]
     pub unsafe fn ser_string(stream: &mut SerStream, base: NonNull<()>) -> Result<(), ()> {
         let val: &String = base.cast::<String>().as_ref();
@@ -347,6 +348,7 @@ pub mod impls {
         stream.push_n(bytes)
     }
 
+    #[cfg(feature = "std")]
     #[inline]
     pub unsafe fn ser_vec<T: Serialize>(
         stream: &mut SerStream,
@@ -493,6 +495,7 @@ pub mod impls {
         }];
     }
 
+    #[cfg(feature = "std")]
     unsafe impl Serialize for String {
         const FIELDS: &'static [SerField] = &[SerField {
             offset: 0,
@@ -500,6 +503,7 @@ pub mod impls {
         }];
     }
 
+    #[cfg(feature = "std")]
     unsafe impl<T: Serialize> Serialize for Vec<T> {
         const FIELDS: &'static [SerField] = &[SerField {
             offset: 0,
@@ -579,7 +583,9 @@ pub mod impls {
         ];
     }
 
-    unsafe impl<T: Serialize, U: Serialize, V: Serialize, W: Serialize, X: Serialize> Serialize for (T, U, V, W, X) {
+    unsafe impl<T: Serialize, U: Serialize, V: Serialize, W: Serialize, X: Serialize> Serialize
+        for (T, U, V, W, X)
+    {
         const FIELDS: &'static [SerField] = &[
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 0),
@@ -604,7 +610,9 @@ pub mod impls {
         ];
     }
 
-    unsafe impl<T: Serialize, U: Serialize, V: Serialize, W: Serialize, X: Serialize, Y: Serialize> Serialize for (T, U, V, W, X, Y) {
+    unsafe impl<T: Serialize, U: Serialize, V: Serialize, W: Serialize, X: Serialize, Y: Serialize>
+        Serialize for (T, U, V, W, X, Y)
+    {
         const FIELDS: &'static [SerField] = &[
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 0),
@@ -633,7 +641,16 @@ pub mod impls {
         ];
     }
 
-    unsafe impl<T: Serialize, U: Serialize, V: Serialize, W: Serialize, X: Serialize, Y: Serialize, Z: Serialize> Serialize for (T, U, V, W, X, Y, Z) {
+    unsafe impl<
+            T: Serialize,
+            U: Serialize,
+            V: Serialize,
+            W: Serialize,
+            X: Serialize,
+            Y: Serialize,
+            Z: Serialize,
+        > Serialize for (T, U, V, W, X, Y, Z)
+    {
         const FIELDS: &'static [SerField] = &[
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 0),
@@ -837,6 +854,7 @@ pub mod impls {
         }
     }
 
+    #[cfg(feature = "std")]
     #[inline]
     pub unsafe fn deser_string(stream: &mut DeserStream, base: NonNull<()>) -> Result<(), ()> {
         let mut len = MaybeUninit::<usize>::uninit();
@@ -849,6 +867,7 @@ pub mod impls {
         Ok(())
     }
 
+    #[cfg(feature = "std")]
     #[inline]
     pub unsafe fn deser_vec<T: Deserialize>(
         stream: &mut DeserStream,
@@ -1010,6 +1029,7 @@ pub mod impls {
         }];
     }
 
+    #[cfg(feature = "std")]
     unsafe impl Deserialize for String {
         const FIELDS: &'static [DeserField] = &[DeserField {
             offset: 0,
@@ -1017,6 +1037,7 @@ pub mod impls {
         }];
     }
 
+    #[cfg(feature = "std")]
     unsafe impl<T: Deserialize> Deserialize for Vec<T> {
         const FIELDS: &'static [DeserField] = &[DeserField {
             offset: 0,
@@ -1075,7 +1096,9 @@ pub mod impls {
         ];
     }
 
-    unsafe impl<T: Deserialize, U: Deserialize, V: Deserialize, W: Deserialize> Deserialize for (T, U, V, W) {
+    unsafe impl<T: Deserialize, U: Deserialize, V: Deserialize, W: Deserialize> Deserialize
+        for (T, U, V, W)
+    {
         const FIELDS: &'static [DeserField] = &[
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W), 0),
@@ -1096,7 +1119,9 @@ pub mod impls {
         ];
     }
 
-    unsafe impl<T: Deserialize, U: Deserialize, V: Deserialize, W: Deserialize, X: Deserialize> Deserialize for (T, U, V, W, X) {
+    unsafe impl<T: Deserialize, U: Deserialize, V: Deserialize, W: Deserialize, X: Deserialize>
+        Deserialize for (T, U, V, W, X)
+    {
         const FIELDS: &'static [DeserField] = &[
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 0),
@@ -1121,7 +1146,15 @@ pub mod impls {
         ];
     }
 
-    unsafe impl<T: Deserialize, U: Deserialize, V: Deserialize, W: Deserialize, X: Deserialize, Y: Deserialize> Deserialize for (T, U, V, W, X, Y) {
+    unsafe impl<
+            T: Deserialize,
+            U: Deserialize,
+            V: Deserialize,
+            W: Deserialize,
+            X: Deserialize,
+            Y: Deserialize,
+        > Deserialize for (T, U, V, W, X, Y)
+    {
         const FIELDS: &'static [DeserField] = &[
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 0),
@@ -1150,7 +1183,16 @@ pub mod impls {
         ];
     }
 
-    unsafe impl<T: Deserialize, U: Deserialize, V: Deserialize, W: Deserialize, X: Deserialize, Y: Deserialize, Z: Deserialize> Deserialize for (T, U, V, W, X, Y, Z) {
+    unsafe impl<
+            T: Deserialize,
+            U: Deserialize,
+            V: Deserialize,
+            W: Deserialize,
+            X: Deserialize,
+            Y: Deserialize,
+            Z: Deserialize,
+        > Deserialize for (T, U, V, W, X, Y, Z)
+    {
         const FIELDS: &'static [DeserField] = &[
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 0),
@@ -1416,7 +1458,7 @@ mod de_varint {
     }
 }
 
-#[cfg(test)]
+#[cfg(all(test, feature = "std"))]
 mod test {
     use super::*;
     use core::mem::offset_of;
