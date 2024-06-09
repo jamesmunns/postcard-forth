@@ -2,7 +2,7 @@ use rand::seq::SliceRandom;
 use rand_chacha::ChaCha20Rng;
 use rand_core::{RngCore, SeedableRng};
 
-const TYPES_TO_GEN: usize = 128;
+const TYPES_TO_GEN: usize = 512;
 const SEED: u64 = 0x1234_5678_9ABC_DEF0;
 const BASE_TYS: &[&str] = &[
     "u8", "u16", "u32", "u64", "u128", "usize", "i8", "i16", "i32", "i64", "i128", "isize", "f32",
