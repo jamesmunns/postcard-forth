@@ -34,7 +34,8 @@ enum Dolsot {
     Sticks {
         left: u32,
         right: u8,
-    }
+    },
+    Banchan(i32, u8),
 }
 
 fn main() {
