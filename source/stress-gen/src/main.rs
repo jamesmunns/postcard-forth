@@ -14,6 +14,7 @@ type GenTyFn = fn(usize, &mut ChaCha20Rng, &[String]) -> (String, String);
 fn main() {
     let mut rng = ChaCha20Rng::seed_from_u64(SEED);
     let mut tys: Vec<String> = BASE_TYS.iter().map(ToString::to_string).collect();
+    let prim_tys = tys.clone();
     let mut generated: Vec<String> = vec![];
 
     let generators: &[GenTyFn] = &[
@@ -29,7 +30,7 @@ fn main() {
 
     for i in 0..TYPES_TO_GEN {
         let gen_fn = generators.choose(&mut rng).unwrap();
-        let (tyname, tybody) = (gen_fn)(i, &mut rng, &tys);
+        let (tyname, tybody) = (gen_fn)(i, &mut rng, &prim_tys);
         tys.push(tyname);
         generated.push(tybody);
     }
