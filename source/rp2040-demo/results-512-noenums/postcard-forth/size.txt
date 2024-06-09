@@ -1,0 +1,20 @@
+warning: unused variable: `debg_fn`
+    --> src/gen.rs:3118:5
+     |
+3118 |     debg_fn: FD,
+     |     ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_debg_fn`
+     |
+     = note: `#[warn(unused_variables)]` on by default
+
+warning: function `debug` is never used
+    --> src/gen.rs:3057:15
+     |
+3057 | pub(crate) fn debug<T: core::fmt::Debug>(
+     |               ^^^^^
+     |
+     = note: `#[warn(dead_code)]` on by default
+
+warning: 2 warnings emitted
+
+   text	   data	    bss	    dec	    hex	filename
+ 223492	      0	 165300	 388792	  5eeb8	embassy-rp-examples

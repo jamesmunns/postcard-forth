@@ -19,8 +19,8 @@ fn main() {
     let generators: &[GenTyFn] = &[
         gen_struct,
         gen_struct,
-        gen_enum,
-        gen_enum,
+        // gen_enum,
+        // gen_enum,
         gen_array,
         gen_option,
         gen_tuple,
