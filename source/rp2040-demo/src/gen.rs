@@ -11,399 +11,478 @@ struct GenStruct00000000;
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000001 {
-    field00: i64,
-    field01: i32,
-    field02: usize,
+    field00: i8,
+    field01: u8,
+    field02: u16,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000002;
+struct GenTupStruct00000002(usize, i64, usize, isize, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000003(u128, f32, i8, u128, );
-
-/// generated
-type GenArray00000004 = [u32; 1];
+struct GenTupStruct00000003(i8, u32, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000005 {
+struct GenStruct00000004 {
+    field00: isize,
+    field01: i8,
+    field02: i8,
+    field03: u8,
+    field04: i128,
+}
+
+/// generated
+type GenTup00000005 = (GenTupStruct00000003, u8, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000006 {
     VarEmpty00,
-    VarNewTy01(u16),
+    VarNewTy01(usize),
+    VarStruct02 {
+        field00: i128,
+        field01: u64,
+        field02: bool,
+    },
+    VarTuple03(i8, isize, ),
+    VarNewTy04(GenTupStruct00000002),
+    VarTuple05(u32, f64, i8, GenStruct00000001, ),
+    VarTuple06(i16, u64, GenTupStruct00000003, ),
+    VarTuple07(i16, ),
+    VarEmpty08,
+    VarStruct09 {
+        field00: GenStruct00000000,
+        field01: u32,
+    },
+    VarStruct0A {
+        field00: i32,
+    },
+    VarEmpty0B,
+    VarTuple0C(u16, i32, ),
+    VarStruct0D {
+        field00: bool,
+        field01: GenTupStruct00000002,
+        field02: GenTupStruct00000003,
+    },
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000006 {
-    field00: i64,
-    field01: i16,
-    field02: usize,
-    field03: u128,
-    field04: u8,
+enum GenEnum00000007 {
+    VarNewTy00(GenEnum00000006),
+    VarTuple01(GenEnum00000006, i8, GenStruct00000004, i64, ),
+    VarNewTy02(u64),
+    VarNewTy03(GenStruct00000001),
 }
 
 /// generated
-type GenArray00000007 = [i32; 30];
+type GenArray00000008 = [GenTupStruct00000003; 12];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000008(i8, i128, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000009 {
-    field00: f32,
+enum GenEnum00000009 {
+    VarStruct00 {
+        field00: u128,
+        field01: isize,
+        field02: f32,
+    },
+    VarStruct01 {
+        field00: usize,
+    },
+    VarEmpty02,
+    VarNewTy03(i64),
+    VarEmpty04,
+    VarStruct05 {
+        field00: GenArray00000008,
+    },
+    VarEmpty06,
+    VarNewTy07(usize),
+    VarEmpty08,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000000A(u32, i128, i128, i8, );
+struct GenStruct0000000A;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum0000000B {
-    VarNewTy00(bool),
-    VarTuple01(u128, f32, ),
-    VarTuple02(i64, u16, bool, u16, ),
+    VarTuple00(GenArray00000008, ),
+    VarNewTy01(f32),
 }
 
 /// generated
-type GenOpt0000000C = Option<u128>;
-
-/// generated
-type GenTup0000000D = (i16, u32, i8, usize, );
+type GenTup0000000C = (GenTupStruct00000003, GenStruct00000004, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000000E {
-    field00: i8,
-    field01: i8,
-    field02: i16,
-    field03: u128,
-    field04: usize,
-    field05: u16,
-}
+struct GenTupStruct0000000D(u128, isize, GenStruct00000004, );
+
+/// generated
+type GenTup0000000E = (GenArray00000008, i128, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct0000000F {
-    field00: i64,
-    field01: i128,
-    field02: u16,
-    field03: u64,
+    field00: GenArray00000008,
 }
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000010(usize, i8, );
+type GenArray00000010 = [GenTupStruct00000002; 30];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum00000011 {
-    VarTuple00(u16, usize, ),
-    VarStruct01 {
-        field00: i128,
-        field01: u8,
-        field02: f32,
+    VarEmpty00,
+    VarTuple01(usize, ),
+    VarTuple02(GenEnum00000009, GenEnum0000000B, i16, GenEnum0000000B, ),
+    VarNewTy03(i32),
+    VarTuple04(GenEnum00000006, i8, ),
+    VarStruct05 {
+        field00: GenTup0000000E,
+        field01: u64,
+        field02: GenTupStruct00000002,
+        field03: i128,
     },
-    VarNewTy02(bool),
-    VarNewTy03(bool),
-    VarTuple04(bool, u128, f64, i8, ),
-    VarNewTy05(u32),
-    VarNewTy06(isize),
-    VarTuple07(f32, u128, bool, isize, ),
-    VarTuple08(u8, u32, i16, i16, ),
+    VarStruct06 {
+        field00: GenStruct00000004,
+    },
+    VarEmpty07,
+    VarNewTy08(i8),
+    VarNewTy09(GenTupStruct00000003),
 }
 
 /// generated
-type GenTup00000012 = (u64, );
+type GenOpt00000012 = Option<GenTupStruct0000000D>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000013(usize, u8, );
+struct GenTupStruct00000013(GenArray00000008, isize, GenOpt00000012, );
 
 /// generated
-type GenTup00000014 = (bool, );
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000014(u64, GenOpt00000012, f32, i64, );
 
 /// generated
-type GenOpt00000015 = Option<bool>;
+type GenOpt00000015 = Option<f64>;
 
 /// generated
-type GenOpt00000016 = Option<bool>;
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000016(GenArray00000010, isize, u128, GenOpt00000012, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000017 {
-    field00: u64,
+    field00: GenOpt00000012,
+    field01: u64,
+    field02: GenArray00000008,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000018 {
-    field00: i8,
-    field01: i32,
-    field02: i64,
-    field03: u8,
-    field04: u16,
-    field05: i16,
+enum GenEnum00000018 {
+    VarEmpty00,
+    VarTuple01(GenTupStruct00000014, GenEnum00000007, ),
 }
+
+/// generated
+type GenOpt00000019 = Option<f32>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000019 {
-    VarTuple00(bool, ),
-    VarNewTy01(i8),
+struct GenStruct0000001A {
+    field00: GenTupStruct00000013,
+    field01: isize,
+    field02: GenStruct00000001,
+    field03: GenTupStruct00000014,
 }
 
 /// generated
-type GenTup0000001A = (i128, i128, );
+type GenOpt0000001B = Option<GenTupStruct00000013>;
+
+/// generated
+type GenArray0000001C = [GenOpt00000019; 21];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000001B(u32, i8, i128, );
-
-/// generated
-type GenTup0000001C = (f32, usize, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000001D {
-    field00: isize,
+enum GenEnum0000001D {
+    VarEmpty00,
+    VarStruct01 {
+        field00: GenTupStruct00000003,
+        field01: GenStruct0000000F,
+        field02: GenEnum0000000B,
+        field03: GenTup0000000C,
+    },
+    VarEmpty02,
+    VarStruct03 {
+        field00: GenEnum00000009,
+        field01: GenStruct00000000,
+        field02: GenArray00000010,
+        field03: GenStruct00000004,
+    },
+    VarNewTy04(i128),
+    VarEmpty05,
+    VarTuple06(GenStruct0000001A, isize, ),
 }
 
 /// generated
-type GenArray0000001E = [i32; 30];
+type GenTup0000001E = (GenStruct00000000, GenArray00000008, GenArray00000008, GenStruct0000000A, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum0000001F {
-    VarEmpty00,
-    VarTuple01(i32, ),
-    VarStruct02 {
-        field00: i32,
-        field01: u128,
-        field02: u32,
+    VarNewTy00(GenTup00000005),
+    VarEmpty01,
+    VarNewTy02(GenTupStruct00000014),
+    VarStruct03 {
+        field00: f64,
+        field01: u16,
+        field02: isize,
     },
-    VarEmpty03,
-    VarNewTy04(isize),
+    VarStruct04 {
+        field00: GenStruct0000000F,
+    },
     VarStruct05 {
-        field00: u64,
-        field01: usize,
+        field00: u32,
+        field01: GenTup0000000C,
+        field02: i64,
     },
     VarStruct06 {
-        field00: usize,
+        field00: GenStruct00000001,
+        field01: GenStruct00000000,
     },
-    VarTuple07(u16, ),
-    VarNewTy08(i16),
-    VarEmpty09,
+    VarNewTy07(GenEnum00000006),
+    VarTuple08(GenOpt0000001B, isize, GenEnum0000000B, GenStruct00000017, ),
+    VarStruct09 {
+        field00: GenEnum00000009,
+        field01: u16,
+        field02: GenTupStruct00000013,
+    },
+    VarTuple0A(f32, GenStruct0000000A, u64, u8, ),
+    VarEmpty0B,
+    VarStruct0C {
+        field00: GenArray00000008,
+    },
 }
 
 /// generated
-type GenOpt00000020 = Option<u64>;
+type GenArray00000020 = [GenEnum0000001F; 21];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000021(i8, f32, i16, u32, );
+struct GenTupStruct00000021(bool, GenOpt0000001B, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000022(i32, u128, u64, );
-
-/// generated
-type GenArray00000023 = [u8; 27];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000024 {
-    VarNewTy00(f32),
-    VarNewTy01(i32),
-    VarStruct02 {
-        field00: u32,
-    },
-    VarNewTy03(i32),
-    VarNewTy04(usize),
-    VarEmpty05,
-    VarTuple06(bool, ),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000025 {
+struct GenStruct00000022 {
     field00: i64,
-    field01: u64,
-    field02: u16,
-    field03: usize,
-    field04: u8,
-    field05: i64,
-    field06: u8,
+    field01: GenTupStruct00000016,
+    field02: usize,
+    field03: GenTupStruct00000014,
+    field04: GenEnum00000006,
+    field05: GenTupStruct00000002,
 }
+
+/// generated
+type GenArray00000023 = [GenStruct00000000; 23];
+
+/// generated
+type GenArray00000024 = [GenStruct0000000A; 21];
+
+/// generated
+type GenTup00000025 = (GenArray00000020, GenOpt00000019, );
+
+/// generated
+type GenOpt00000026 = Option<GenEnum0000001F>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000026 {
-    field00: f64,
-    field01: u32,
-    field02: f32,
-    field03: isize,
-    field04: u128,
+struct GenStruct00000027 {
+    field00: GenEnum0000001F,
+    field01: GenTup0000001E,
+    field02: GenStruct00000004,
+    field03: GenStruct0000000F,
+    field04: GenEnum00000007,
 }
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000027(isize, f64, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum00000028 {
-    VarEmpty00,
-    VarTuple01(i64, f32, ),
+    VarTuple00(u64, GenEnum00000009, GenStruct00000017, GenOpt00000015, ),
+    VarStruct01 {
+        field00: GenEnum0000001D,
+        field01: GenStruct00000017,
+        field02: GenArray00000010,
+        field03: GenStruct00000022,
+    },
+    VarStruct02 {
+        field00: GenTupStruct00000014,
+        field01: GenTupStruct00000002,
+        field02: GenTup0000000E,
+        field03: GenTupStruct00000013,
+    },
+    VarEmpty03,
 }
-
-/// generated
-type GenOpt00000029 = Option<isize>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000002A(i32, i8, f32, );
+enum GenEnum00000029 {
+    VarStruct00 {
+        field00: u16,
+    },
+    VarNewTy01(u8),
+    VarEmpty02,
+    VarTuple03(i8, GenEnum00000028, GenTup0000000C, ),
+    VarNewTy04(GenStruct0000000A),
+    VarNewTy05(GenStruct00000000),
+    VarNewTy06(GenTupStruct00000003),
+}
 
 /// generated
-type GenOpt0000002B = Option<i16>;
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000002A(i8, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000002B(GenOpt00000019, GenArray00000024, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum0000002C {
-    VarStruct00 {
-        field00: u16,
-        field01: i128,
-        field02: i64,
-    },
-    VarEmpty01,
-    VarStruct02 {
-        field00: u16,
-    },
-    VarNewTy03(i32),
-    VarEmpty04,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000002D {
-    VarTuple00(u64, u8, ),
-    VarTuple01(i16, i128, ),
+    VarEmpty00,
+    VarNewTy01(GenEnum0000001F),
     VarEmpty02,
-    VarStruct03 {
-        field00: i32,
-        field01: usize,
-        field02: i128,
+    VarEmpty03,
+    VarStruct04 {
+        field00: GenStruct00000000,
+        field01: i8,
+        field02: GenTupStruct0000002B,
         field03: i8,
     },
-    VarNewTy04(u64),
-    VarEmpty05,
-    VarTuple06(bool, u64, ),
-    VarStruct07 {
-        field00: i16,
-        field01: usize,
+    VarTuple05(GenStruct00000017, GenStruct00000001, ),
+    VarNewTy06(GenTupStruct0000002B),
+    VarNewTy07(GenOpt00000026),
+    VarStruct08 {
+        field00: GenOpt0000001B,
     },
-    VarTuple08(i32, u16, ),
-    VarNewTy09(u16),
-    VarNewTy0A(f64),
 }
+
+/// generated
+type GenTup0000002D = (GenEnum00000007, GenTupStruct00000016, );
+
+/// generated
+type GenTup0000002E = (i32, GenTup0000001E, GenEnum0000001D, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000002E {
-    field00: u128,
-    field01: isize,
-    field02: u32,
-    field03: u64,
-    field04: u64,
-    field05: i16,
+enum GenEnum0000002F {
+    VarEmpty00,
+    VarNewTy01(GenTupStruct00000003),
+    VarTuple02(GenStruct00000017, GenTup0000002E, i8, GenEnum00000006, ),
+    VarNewTy03(u16),
+    VarTuple04(GenTupStruct0000000D, ),
+    VarTuple05(GenTup00000005, ),
+    VarStruct06 {
+        field00: u64,
+        field01: GenArray00000020,
+        field02: GenStruct00000000,
+    },
+    VarStruct07 {
+        field00: i64,
+        field01: GenStruct00000022,
+        field02: i32,
+        field03: GenEnum0000000B,
+    },
+    VarEmpty08,
+    VarEmpty09,
+    VarStruct0A {
+        field00: GenTupStruct00000003,
+        field01: GenEnum0000002C,
+    },
+    VarTuple0B(GenEnum00000011, GenStruct0000000F, ),
+    VarTuple0C(GenEnum00000028, GenOpt0000001B, GenEnum00000011, ),
+    VarTuple0D(GenEnum0000000B, GenTupStruct00000016, u128, ),
+    VarTuple0E(GenTupStruct00000002, ),
+    VarTuple0F(GenEnum00000029, GenOpt00000019, GenTupStruct00000013, ),
 }
-
-/// generated
-type GenTup0000002F = (i64, u128, i16, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000030 {
-    field00: f32,
-    field01: f32,
-    field02: isize,
-    field03: i64,
+    field00: GenTup0000000C,
+    field01: GenStruct0000001A,
+    field02: GenArray00000020,
 }
 
 /// generated
-type GenTup00000031 = (u128, i8, );
+type GenOpt00000031 = Option<GenStruct00000000>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000032(bool, f32, f32, );
+struct GenTupStruct00000032(GenEnum00000018, f32, GenEnum0000000B, GenStruct0000001A, );
 
 /// generated
 #[derive(Debug)]
@@ -411,812 +490,521 @@ struct GenTupStruct00000032(bool, f32, f32, );
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum00000033 {
     VarStruct00 {
-        field00: i16,
-        field01: i16,
-        field02: i8,
+        field00: GenStruct00000001,
+        field01: GenTup0000001E,
+        field02: GenStruct00000000,
+        field03: GenEnum00000029,
     },
-    VarNewTy01(i32),
-    VarStruct02 {
-        field00: i32,
-        field01: i32,
-        field02: u8,
-    },
-    VarTuple03(usize, i32, u16, u8, ),
-    VarEmpty04,
+    VarEmpty01,
+    VarNewTy02(GenTupStruct0000002A),
+    VarNewTy03(i32),
+    VarTuple04(GenTup00000005, ),
     VarStruct05 {
-        field00: i16,
+        field00: usize,
+        field01: GenEnum00000007,
+        field02: GenTupStruct00000016,
     },
-    VarTuple06(bool, ),
+    VarStruct06 {
+        field00: GenEnum00000011,
+        field01: GenTup0000002D,
+        field02: GenStruct00000001,
+    },
+    VarTuple07(i32, GenStruct0000000F, ),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000034(u128, f64, );
+enum GenEnum00000034 {
+    VarStruct00 {
+        field00: GenEnum0000001F,
+    },
+    VarNewTy01(GenTupStruct0000000D),
+    VarNewTy02(GenOpt00000015),
+    VarStruct03 {
+        field00: GenStruct0000000A,
+        field01: i128,
+        field02: GenStruct0000000F,
+    },
+    VarNewTy04(GenStruct00000001),
+    VarEmpty05,
+    VarNewTy06(u16),
+    VarNewTy07(GenTup0000000C),
+    VarEmpty08,
+    VarTuple09(GenArray00000024, GenTup00000005, GenArray00000010, ),
+    VarEmpty0A,
+    VarEmpty0B,
+    VarTuple0C(GenStruct00000017, GenStruct00000030, ),
+    VarNewTy0D(GenArray00000024),
+    VarStruct0E {
+        field00: GenTup00000025,
+        field01: GenArray00000024,
+    },
+}
+
+/// generated
+type GenOpt00000035 = Option<GenTupStruct0000002A>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000035 {
-    field00: u32,
-    field01: isize,
-    field02: u16,
-    field03: i128,
-    field04: i8,
-    field05: usize,
+struct GenTupStruct00000036(u32, GenTupStruct00000021, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000037 {
+    VarStruct00 {
+        field00: GenStruct00000017,
+        field01: i32,
+        field02: GenTupStruct00000036,
+    },
+    VarStruct01 {
+        field00: GenOpt00000012,
+    },
+    VarEmpty02,
+    VarStruct03 {
+        field00: GenTupStruct00000032,
+    },
+    VarTuple04(GenEnum00000011, ),
+    VarNewTy05(GenTupStruct00000013),
+    VarNewTy06(GenOpt00000015),
 }
 
 /// generated
-type GenArray00000036 = [u128; 23];
-
-/// generated
-type GenArray00000037 = [i128; 21];
-
-/// generated
-type GenArray00000038 = [u8; 3];
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000038 {
+    VarNewTy00(bool),
+    VarNewTy01(i64),
+    VarNewTy02(GenEnum00000011),
+    VarStruct03 {
+        field00: GenTupStruct00000036,
+    },
+    VarEmpty04,
+    VarNewTy05(GenOpt0000001B),
+    VarStruct06 {
+        field00: GenEnum00000011,
+        field01: GenOpt00000031,
+    },
+    VarEmpty07,
+    VarNewTy08(GenStruct00000004),
+    VarTuple09(GenEnum00000006, GenEnum0000001F, ),
+    VarStruct0A {
+        field00: u64,
+        field01: GenTupStruct0000000D,
+    },
+    VarStruct0B {
+        field00: GenOpt00000035,
+    },
+    VarEmpty0C,
+    VarNewTy0D(GenTup00000025),
+}
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000039 {
-    field00: f32,
+    field00: GenEnum00000028,
+    field01: GenEnum00000006,
 }
-
-/// generated
-type GenTup0000003A = (i8, f64, u64, u16, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000003B {
-    field00: f32,
-    field01: f32,
-    field02: usize,
-    field03: i32,
-    field04: i8,
+struct GenStruct0000003A {
+    field00: i8,
 }
+
+/// generated
+type GenTup0000003B = (GenEnum00000033, GenEnum00000007, GenTupStruct00000014, GenStruct0000000A, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum0000003C {
-    VarTuple00(i8, i128, u8, f32, ),
-    VarTuple01(bool, isize, i64, ),
-    VarNewTy02(i16),
-    VarEmpty03,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000003D {
-    VarStruct00 {
-        field00: u8,
-    },
-    VarNewTy01(u8),
-    VarEmpty02,
-    VarTuple03(u16, u16, i16, ),
-    VarNewTy04(i8),
-    VarNewTy05(u128),
-    VarNewTy06(usize),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000003E(u16, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000003F(i128, f64, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000040 {
-    VarEmpty00,
-    VarNewTy01(isize),
-    VarEmpty02,
-    VarEmpty03,
-    VarStruct04 {
-        field00: u64,
-        field01: i64,
-        field02: u16,
-        field03: bool,
-    },
-    VarEmpty05,
-    VarTuple06(i64, u128, ),
-    VarNewTy07(bool),
-    VarNewTy08(i32),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000041(i128, isize, isize, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000042 {
-    VarStruct00 {
-        field00: u32,
-        field01: isize,
-        field02: i128,
-    },
+    VarTuple00(i128, ),
     VarEmpty01,
-    VarNewTy02(u128),
-    VarTuple03(i64, bool, u16, usize, ),
-    VarNewTy04(u8),
-    VarTuple05(i8, ),
-    VarTuple06(u128, ),
-    VarStruct07 {
-        field00: u8,
-        field01: isize,
-        field02: u64,
-    },
-    VarStruct08 {
-        field00: u32,
-        field01: isize,
-        field02: u32,
-        field03: i8,
-    },
-    VarEmpty09,
-    VarEmpty0A,
-    VarStruct0B {
-        field00: u128,
-        field01: bool,
-    },
-    VarTuple0C(u64, i16, ),
-    VarTuple0D(f64, i128, i16, ),
-    VarTuple0E(i8, i64, i32, ),
-    VarNewTy0F(i64),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000043(i32, u32, i128, );
-
-/// generated
-type GenOpt00000044 = Option<isize>;
-
-/// generated
-type GenOpt00000045 = Option<u64>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000046(u64, i32, i64, u32, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000047 {
-    VarNewTy00(i16),
-    VarStruct01 {
-        field00: u64,
-        field01: i128,
-        field02: u64,
-        field03: u64,
-    },
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000048 {
-    VarEmpty00,
-    VarStruct01 {
-        field00: u16,
-    },
-    VarTuple02(u64, ),
-    VarEmpty03,
-    VarNewTy04(f64),
-    VarStruct05 {
-        field00: u16,
-        field01: usize,
-        field02: u128,
-    },
-    VarTuple06(f64, i32, i16, ),
-    VarTuple07(u8, f64, ),
-    VarTuple08(f64, ),
-    VarTuple09(i8, u128, u8, isize, ),
-    VarTuple0A(i128, i64, usize, ),
-    VarNewTy0B(i64),
-    VarNewTy0C(i32),
-    VarStruct0D {
-        field00: usize,
-        field01: bool,
-        field02: u32,
-    },
-    VarNewTy0E(u64),
-    VarEmpty0F,
-}
-
-/// generated
-type GenOpt00000049 = Option<u64>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000004A {
-    field00: u128,
-    field01: i32,
-    field02: bool,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000004B {
-    VarEmpty00,
-    VarTuple01(isize, u128, u16, ),
-    VarEmpty02,
-    VarEmpty03,
-}
-
-/// generated
-type GenArray0000004C = [i32; 6];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000004D {
-    field00: f64,
-    field01: u128,
-    field02: u16,
-    field03: isize,
-    field04: i128,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000004E {
-    VarNewTy00(isize),
-    VarStruct01 {
-        field00: u64,
-        field01: i32,
-        field02: f32,
-    },
-    VarEmpty02,
-    VarEmpty03,
-    VarTuple04(i128, i32, ),
-    VarEmpty05,
-    VarEmpty06,
-    VarStruct07 {
-        field00: i16,
-    },
-    VarEmpty08,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000004F {
-    field00: f64,
-    field01: i16,
-    field02: u64,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000050 {
-    field00: usize,
-    field01: i16,
-    field02: u64,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000051 {
-    VarNewTy00(u8),
-}
-
-/// generated
-type GenTup00000052 = (usize, u16, );
-
-/// generated
-type GenTup00000053 = (u32, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000054 {
-    VarEmpty00,
-    VarNewTy01(u8),
-    VarTuple02(u32, u32, ),
+    VarNewTy02(GenTupStruct0000000D),
     VarStruct03 {
-        field00: i8,
-        field01: f64,
+        field00: GenStruct00000017,
+        field01: GenTupStruct00000003,
+        field02: GenStruct0000000F,
     },
     VarEmpty04,
-    VarNewTy05(u128),
-    VarTuple06(u128, i64, ),
-    VarStruct07 {
-        field00: u8,
-        field01: bool,
+}
+
+/// generated
+type GenArray0000003D = [GenEnum00000033; 30];
+
+/// generated
+type GenOpt0000003E = Option<GenArray00000008>;
+
+/// generated
+type GenTup0000003F = (GenTup0000002D, GenEnum00000006, usize, GenOpt0000001B, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000040 {
+    field00: GenStruct0000000A,
+    field01: GenEnum00000028,
+    field02: GenTup0000000E,
+    field03: GenTupStruct0000002B,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000041 {
+    field00: GenStruct0000000F,
+    field01: u128,
+    field02: GenTup0000000E,
+    field03: GenStruct0000003A,
+    field04: GenEnum0000003C,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000042 {
+    field00: GenTup00000025,
+    field01: GenTup0000003B,
+    field02: GenTupStruct00000016,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000043 {
+    VarEmpty00,
+    VarStruct01 {
+        field00: GenStruct00000042,
     },
+    VarEmpty02,
+    VarEmpty03,
+    VarEmpty04,
+    VarNewTy05(GenEnum0000002C),
+    VarEmpty06,
+    VarNewTy07(GenTupStruct00000016),
     VarStruct08 {
-        field00: bool,
+        field00: GenTup0000002E,
+        field01: GenTupStruct00000032,
+        field02: GenTupStruct00000036,
     },
-    VarEmpty09,
-    VarNewTy0A(isize),
-    VarEmpty0B,
-    VarNewTy0C(i32),
-    VarStruct0D {
-        field00: u16,
-        field01: u128,
-        field02: u32,
-        field03: u128,
+    VarTuple09(GenOpt00000012, GenEnum00000018, i16, ),
+    VarNewTy0A(GenArray00000024),
+    VarTuple0B(GenEnum00000037, GenEnum00000007, ),
+    VarStruct0C {
+        field00: GenOpt00000035,
+        field01: GenOpt0000003E,
+        field02: GenEnum0000001F,
+        field03: GenEnum0000001F,
     },
 }
 
 /// generated
-type GenTup00000055 = (i128, u128, f64, f64, );
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000044 {
+    field00: GenArray0000001C,
+    field01: u8,
+    field02: GenOpt00000035,
+}
 
 /// generated
-type GenArray00000056 = [i16; 22];
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000045 {
+    field00: GenOpt0000001B,
+    field01: GenTupStruct00000032,
+    field02: f32,
+    field03: GenStruct00000030,
+    field04: GenTup0000001E,
+    field05: GenTupStruct0000000D,
+}
 
 /// generated
-type GenTup00000057 = (u32, i64, i16, );
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000046 {
+    VarStruct00 {
+        field00: u16,
+        field01: GenStruct00000017,
+    },
+}
+
+/// generated
+type GenTup00000047 = (GenTupStruct00000021, GenTupStruct00000021, u32, GenArray00000023, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000048(GenEnum00000006, GenTup0000001E, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000049 {
+    VarTuple00(GenTup00000047, ),
+    VarNewTy01(GenEnum00000034),
+    VarEmpty02,
+    VarStruct03 {
+        field00: u32,
+    },
+    VarStruct04 {
+        field00: GenOpt00000015,
+        field01: i32,
+    },
+    VarEmpty05,
+    VarTuple06(u16, GenTupStruct00000036, GenEnum00000037, GenTupStruct00000021, ),
+    VarNewTy07(f32),
+    VarStruct08 {
+        field00: GenEnum00000006,
+        field01: GenEnum0000003C,
+    },
+    VarTuple09(i8, GenStruct00000041, GenStruct00000044, GenEnum00000046, ),
+    VarEmpty0A,
+}
+
+/// generated
+type GenArray0000004A = [GenEnum00000037; 5];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct0000004B {
+    field00: GenStruct00000039,
+    field01: GenStruct00000017,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000004C(GenEnum00000009, bool, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000004D(GenEnum00000049, GenEnum00000028, GenEnum00000046, );
+
+/// generated
+type GenArray0000004E = [GenOpt00000015; 12];
+
+/// generated
+type GenTup0000004F = (u8, GenOpt00000035, GenTup0000002D, i64, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000050;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000051(GenEnum0000001F, GenArray00000020, GenTup0000002E, GenTupStruct00000048, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000052(isize, GenEnum00000028, u64, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000053 {
+    VarEmpty00,
+    VarStruct01 {
+        field00: GenEnum00000011,
+        field01: GenTup0000000C,
+        field02: GenOpt00000012,
+    },
+    VarNewTy02(GenStruct00000027),
+    VarEmpty03,
+    VarStruct04 {
+        field00: GenEnum00000018,
+        field01: GenStruct0000001A,
+    },
+    VarNewTy05(GenStruct0000001A),
+    VarTuple06(GenEnum0000002F, GenTupStruct00000013, GenStruct0000003A, ),
+    VarNewTy07(GenOpt00000012),
+}
+
+/// generated
+type GenTup00000054 = (GenEnum0000000B, u64, GenOpt00000035, GenEnum00000018, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000055 {
+    VarStruct00 {
+        field00: GenStruct00000027,
+    },
+    VarEmpty01,
+    VarEmpty02,
+    VarEmpty03,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000056(GenTupStruct00000021, GenTupStruct00000036, u64, );
+
+/// generated
+type GenOpt00000057 = Option<GenStruct00000004>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000058 {
-    field00: u16,
-    field01: u128,
-    field02: usize,
+    field00: GenArray0000004E,
 }
 
 /// generated
-type GenTup00000059 = (i16, u64, i16, );
+type GenArray00000059 = [f32; 11];
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000005A {
-    VarEmpty00,
-    VarTuple01(f64, i8, ),
-    VarNewTy02(isize),
-    VarStruct03 {
-        field00: f64,
-        field01: u16,
-        field02: i128,
-        field03: u16,
-    },
-    VarNewTy04(i32),
-}
+type GenArray0000005A = [GenTupStruct00000036; 32];
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000005B {
-    field00: i16,
-    field01: u128,
-    field02: f32,
-    field03: i128,
-}
+type GenOpt0000005B = Option<GenArray00000008>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct0000005C {
-    field00: usize,
-    field01: u8,
-    field02: usize,
-    field03: f64,
-    field04: f64,
+    field00: GenEnum00000007,
+    field01: GenTup0000004F,
+    field02: GenTup0000002D,
+    field03: GenEnum00000053,
+    field04: GenTupStruct00000051,
+    field05: bool,
+    field06: GenTupStruct00000032,
 }
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000005D {
-    field00: u8,
-    field01: i64,
-    field02: f64,
-}
+type GenOpt0000005D = Option<GenEnum00000009>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum0000005E {
-    VarEmpty00,
-    VarStruct01 {
-        field00: i128,
-    },
-    VarEmpty02,
-    VarEmpty03,
-    VarEmpty04,
-    VarNewTy05(i128),
-    VarEmpty06,
-    VarNewTy07(i8),
-    VarStruct08 {
-        field00: isize,
-        field01: isize,
-        field02: f32,
-    },
-    VarTuple09(i8, i16, u16, ),
-    VarNewTy0A(i64),
-    VarTuple0B(f32, u128, ),
-    VarStruct0C {
-        field00: u64,
-        field01: f32,
-        field02: bool,
-        field03: i32,
-    },
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000005F {
-    field00: i32,
-    field01: i16,
-    field02: u8,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000060 {
-    field00: i16,
-    field01: f32,
-    field02: isize,
-    field03: u32,
-    field04: isize,
-    field05: i16,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000061(usize, u16, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000062 {
     VarStruct00 {
-        field00: u8,
-        field01: i8,
-    },
-}
-
-/// generated
-type GenTup00000063 = (i32, i32, u8, i32, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000064(u64, i16, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000065 {
-    VarTuple00(u64, ),
-    VarNewTy01(u32),
-    VarStruct02 {
-        field00: u8,
-        field01: bool,
-    },
-    VarStruct03 {
-        field00: u8,
-    },
-    VarStruct04 {
-        field00: f32,
-        field01: i8,
-    },
-    VarEmpty05,
-    VarEmpty06,
-    VarTuple07(u8, isize, i64, i32, ),
-    VarNewTy08(u32),
-    VarStruct09 {
-        field00: u64,
-        field01: f32,
-    },
-    VarTuple0A(bool, u16, f64, u8, ),
-}
-
-/// generated
-type GenOpt00000066 = Option<f32>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000067 {
-    field00: u64,
-    field01: i16,
-    field02: f32,
-    field03: isize,
-    field04: i16,
-    field05: isize,
-    field06: isize,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000068 {
-    field00: f32,
-    field01: i8,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000069(u32, f64, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000006A {
-    field00: i64,
-    field01: f64,
-}
-
-/// generated
-type GenArray0000006B = [usize; 12];
-
-/// generated
-type GenTup0000006C = (u8, i128, i16, i64, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000006D;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000006E(i16, i16, i64, f64, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000006F(i8, u16, f64, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000070 {
-    field00: i128,
-    field01: i128,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000071 {
-    VarEmpty00,
-    VarStruct01 {
-        field00: u128,
-        field01: u128,
-        field02: usize,
-    },
-    VarNewTy02(f64),
-    VarTuple03(i8, ),
-    VarEmpty04,
-    VarStruct05 {
-        field00: i8,
-        field01: i8,
-    },
-    VarNewTy06(i8),
-    VarTuple07(i64, usize, isize, ),
-}
-
-/// generated
-type GenTup00000072 = (usize, usize, i128, i32, );
-
-/// generated
-type GenTup00000073 = (u128, u8, i128, f64, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000074 {
-    VarEmpty00,
-    VarNewTy01(isize),
-    VarStruct02 {
-        field00: i32,
-    },
-    VarEmpty03,
-    VarEmpty04,
-    VarEmpty05,
-    VarTuple06(i16, i128, u8, u8, ),
-    VarStruct07 {
-        field00: i64,
-    },
-    VarEmpty08,
-    VarTuple09(u16, usize, i16, ),
-    VarEmpty0A,
-    VarEmpty0B,
-    VarStruct0C {
-        field00: i64,
-        field01: u64,
-    },
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000075 {
-    field00: u64,
-    field01: u8,
-    field02: f64,
-    field03: i32,
-    field04: f64,
-    field05: f64,
-    field06: bool,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000076 {
-    field00: u16,
-    field01: i64,
-    field02: i32,
-    field03: u64,
-    field04: i64,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000077 {
-    VarStruct00 {
-        field00: i64,
-        field01: i8,
-        field02: f64,
-        field03: i16,
+        field00: GenTupStruct00000032,
+        field01: GenStruct00000022,
+        field02: GenTupStruct00000051,
+        field03: GenEnum00000028,
     },
     VarStruct01 {
-        field00: i64,
-        field01: u16,
-        field02: u32,
-    },
-    VarEmpty02,
-    VarEmpty03,
-    VarStruct04 {
-        field00: i32,
-        field01: u128,
-        field02: i16,
-    },
-    VarTuple05(bool, i32, ),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000078;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000079 {
-    VarStruct00 {
-        field00: f32,
-    },
-    VarNewTy01(f32),
-    VarStruct02 {
-        field00: i64,
-        field01: i128,
-        field02: i8,
-        field03: i32,
-    },
-    VarNewTy03(i64),
-    VarTuple04(usize, i128, u16, i8, ),
-    VarStruct05 {
-        field00: isize,
-        field01: i8,
-        field02: u64,
-    },
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000007A {
-    VarEmpty00,
-}
-
-/// generated
-type GenArray0000007B = [bool; 26];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000007C {
-    field00: f32,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000007D {
-    VarStruct00 {
-        field00: bool,
+        field00: GenTupStruct00000036,
         field01: i64,
-        field02: f32,
-        field03: u128,
+        field02: GenTup00000005,
     },
-    VarNewTy01(i64),
-    VarNewTy02(u64),
-    VarTuple03(bool, f64, u16, ),
-    VarEmpty04,
-    VarStruct05 {
-        field00: i32,
-        field01: i32,
+    VarEmpty02,
+    VarEmpty03,
+    VarStruct04 {
+        field00: GenEnum0000002C,
+        field01: GenEnum00000011,
+        field02: GenTup00000025,
     },
-    VarTuple06(bool, u32, i16, ),
-    VarNewTy07(f32),
+    VarTuple05(GenArray00000059, GenOpt00000031, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct0000005F;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000060 {
+    VarStruct00 {
+        field00: GenTupStruct00000016,
+    },
+    VarStruct01 {
+        field00: GenEnum00000038,
+        field01: GenStruct00000040,
+        field02: GenEnum0000001D,
+    },
+    VarTuple02(GenArray00000008, GenEnum00000018, GenOpt0000005D, ),
+    VarTuple03(GenEnum00000018, GenEnum0000003C, i32, GenTupStruct00000021, ),
+    VarStruct04 {
+        field00: GenTupStruct00000048,
+        field01: GenArray00000024,
+        field02: GenTupStruct0000000D,
+    },
+    VarTuple05(GenTup0000000E, GenStruct00000017, ),
+}
+
+/// generated
+type GenArray00000061 = [GenStruct0000005F; 26];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000062 {
+    field00: GenTupStruct00000052,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000063 {
+    VarStruct00 {
+        field00: GenStruct0000005C,
+        field01: GenTup0000003B,
+        field02: GenTup0000004F,
+        field03: GenArray00000010,
+    },
+    VarNewTy01(GenEnum00000038),
+    VarNewTy02(GenTupStruct0000004C),
+    VarTuple03(GenStruct00000062, GenArray00000059, i32, ),
+    VarStruct04 {
+        field00: GenEnum00000034,
+        field01: GenEnum0000002F,
+    },
+    VarTuple05(GenStruct0000005F, GenStruct00000001, GenEnum00000028, ),
+    VarNewTy06(GenTup0000004F),
+    VarEmpty07,
     VarEmpty08,
-    VarEmpty09,
-    VarNewTy0A(i32),
-    VarTuple0B(u128, i32, ),
-    VarTuple0C(i8, i32, ),
-    VarNewTy0D(i64),
+    VarNewTy09(GenEnum0000002F),
+    VarTuple0A(GenTupStruct00000014, GenTupStruct00000016, ),
+    VarTuple0B(GenEnum00000029, GenStruct00000000, GenArray00000024, ),
+    VarTuple0C(GenArray00000023, GenOpt00000031, ),
+    VarNewTy0D(GenStruct00000039),
     VarEmpty0E,
 }
 
@@ -1224,204 +1012,502 @@ enum GenEnum0000007D {
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000007E {
-    field00: f64,
-    field01: isize,
+struct GenStruct00000064 {
+    field00: GenArray00000059,
+    field01: i16,
+}
+
+/// generated
+type GenTup00000065 = (GenStruct00000022, GenOpt0000003E, );
+
+/// generated
+type GenTup00000066 = (GenArray00000024, GenOpt00000031, GenTupStruct0000002B, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000067 {
+    field00: GenTupStruct0000004D,
+    field01: GenEnum00000046,
+    field02: GenTup0000000C,
+    field03: GenTupStruct00000021,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000007F(i8, );
-
-/// generated
-type GenOpt00000080 = Option<isize>;
+struct GenTupStruct00000068(GenTupStruct00000032, usize, f32, GenEnum00000033, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000081(i32, i16, u32, );
-
-/// generated
-type GenOpt00000082 = Option<isize>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000083 {
-    VarTuple00(u16, ),
-    VarTuple01(u128, u16, i128, f32, ),
-    VarNewTy02(i64),
-    VarTuple03(u16, ),
-    VarStruct04 {
-        field00: u128,
-        field01: i64,
-        field02: u32,
-        field03: u8,
+enum GenEnum00000069 {
+    VarStruct00 {
+        field00: GenTup0000003F,
+        field01: GenStruct00000027,
+        field02: isize,
+        field03: GenOpt00000026,
     },
+    VarStruct01 {
+        field00: GenOpt00000015,
+        field01: GenTup0000003F,
+        field02: GenEnum00000007,
+        field03: u32,
+    },
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000006A(i16, GenOpt0000003E, GenArray00000059, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct0000006B {
+    field00: GenTupStruct0000000D,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct0000006C {
+    field00: GenTupStruct00000003,
+    field01: GenStruct00000000,
+    field02: GenStruct00000027,
+    field03: GenStruct0000005F,
+    field04: GenTupStruct0000004C,
+}
+
+/// generated
+type GenTup0000006D = (GenStruct00000067, GenArray00000061, GenArray0000001C, );
+
+/// generated
+type GenOpt0000006E = Option<i32>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000006F(GenStruct0000000A, );
+
+/// generated
+type GenTup00000070 = (GenOpt0000005D, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000071 {
+    VarTuple00(GenEnum00000038, GenEnum0000005E, GenEnum0000002C, GenEnum00000006, ),
+    VarNewTy01(i32),
+    VarNewTy02(GenStruct0000000A),
+    VarEmpty03,
+    VarTuple04(GenTupStruct0000002B, GenStruct0000003A, u128, GenTup00000065, ),
     VarEmpty05,
-    VarStruct06 {
-        field00: i8,
-        field01: u64,
-    },
-    VarStruct07 {
-        field00: bool,
-        field01: f64,
-        field02: usize,
-    },
+    VarTuple06(GenOpt0000005D, GenTupStruct0000002A, ),
+    VarEmpty07,
     VarEmpty08,
     VarEmpty09,
-    VarStruct0A {
-        field00: f32,
+    VarNewTy0A(GenTupStruct0000004C),
+    VarEmpty0B,
+    VarNewTy0C(GenTup0000000E),
+    VarEmpty0D,
+    VarStruct0E {
+        field00: GenOpt00000057,
     },
-    VarTuple0B(usize, f32, f32, u64, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000072(GenStruct0000003A, GenEnum00000011, GenTupStruct00000056, GenArray0000004E, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000073 {
+    field00: GenTupStruct00000002,
+    field01: i16,
+    field02: GenEnum00000053,
+    field03: GenEnum00000060,
+    field04: GenArray00000061,
+}
+
+/// generated
+type GenOpt00000074 = Option<GenEnum00000028>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000075 {
+    VarNewTy00(GenArray0000001C),
+    VarEmpty01,
+    VarNewTy02(GenStruct0000003A),
+    VarNewTy03(GenEnum00000037),
+    VarStruct04 {
+        field00: GenStruct0000001A,
+        field01: GenTup00000054,
+        field02: GenTupStruct0000006F,
+        field03: GenTup0000002E,
+    },
+    VarStruct05 {
+        field00: GenArray0000001C,
+        field01: GenTup00000025,
+    },
+    VarNewTy06(GenEnum00000071),
+    VarEmpty07,
+    VarEmpty08,
+    VarTuple09(GenTup0000002D, GenOpt0000005D, GenEnum00000049, ),
+    VarNewTy0A(GenStruct00000027),
+    VarNewTy0B(GenEnum00000043),
     VarEmpty0C,
 }
 
 /// generated
-type GenOpt00000084 = Option<i32>;
+type GenArray00000076 = [GenEnum0000000B; 10];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000085 {
-    field00: u16,
+struct GenStruct00000077 {
+    field00: GenTupStruct0000000D,
+    field01: GenStruct00000022,
+    field02: GenOpt0000005D,
+    field03: GenTup0000001E,
 }
-
-/// generated
-type GenOpt00000086 = Option<i16>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000087 {
-    field00: i128,
+struct GenStruct00000078 {
+    field00: GenEnum00000006,
+    field01: GenStruct00000040,
+    field02: usize,
+    field03: u32,
 }
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000079 {
+    field00: GenStruct0000006B,
+}
+
+/// generated
+type GenOpt0000007A = Option<GenTup0000001E>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct0000007B {
+    field00: GenTupStruct00000052,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000007C(GenTup00000025, GenEnum00000053, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000007D {
+    VarTuple00(u128, GenEnum0000002C, GenEnum00000006, GenEnum00000029, ),
+    VarNewTy01(GenStruct00000050),
+    VarTuple02(GenTupStruct00000013, i16, GenEnum00000006, i128, ),
+    VarStruct03 {
+        field00: GenEnum00000049,
+        field01: GenStruct00000078,
+        field02: GenTupStruct0000004D,
+        field03: GenTup0000000E,
+    },
+    VarEmpty04,
+    VarNewTy05(GenEnum00000037),
+    VarStruct06 {
+        field00: GenArray00000024,
+    },
+    VarNewTy07(GenTupStruct0000004C),
+    VarEmpty08,
+    VarEmpty09,
+    VarEmpty0A,
+    VarTuple0B(GenEnum00000033, i8, ),
+    VarTuple0C(GenStruct0000000F, GenOpt00000031, GenTupStruct0000004C, GenEnum00000018, ),
+}
+
+/// generated
+type GenArray0000007E = [GenOpt0000007A; 16];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000007F {
+    VarStruct00 {
+        field00: GenTupStruct00000003,
+        field01: GenTup0000001E,
+        field02: GenStruct00000027,
+    },
+    VarTuple01(GenArray0000003D, GenStruct0000000F, ),
+    VarStruct02 {
+        field00: f64,
+        field01: GenEnum00000018,
+        field02: GenArray00000059,
+    },
+    VarNewTy03(GenTup00000005),
+    VarNewTy04(GenTupStruct0000004D),
+    VarTuple05(GenEnum00000053, GenEnum00000060, i32, ),
+    VarNewTy06(GenTup0000002D),
+    VarNewTy07(GenTupStruct0000004D),
+    VarNewTy08(GenEnum00000028),
+    VarNewTy09(GenTup00000066),
+    VarEmpty0A,
+    VarStruct0B {
+        field00: GenOpt0000001B,
+    },
+    VarTuple0C(GenEnum00000075, GenStruct00000044, GenOpt00000031, GenTup0000002E, ),
+    VarTuple0D(GenEnum00000049, GenEnum00000007, ),
+    VarEmpty0E,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000080 {
+    VarStruct00 {
+        field00: GenArray00000076,
+        field01: i8,
+        field02: i32,
+        field03: GenEnum00000069,
+    },
+    VarStruct01 {
+        field00: GenTupStruct00000051,
+        field01: GenStruct00000041,
+        field02: i8,
+    },
+    VarTuple02(GenOpt00000015, GenArray0000004E, GenStruct00000073, ),
+    VarNewTy03(GenTupStruct00000072),
+    VarStruct04 {
+        field00: GenStruct00000067,
+    },
+    VarEmpty05,
+    VarEmpty06,
+    VarEmpty07,
+    VarNewTy08(GenTupStruct00000051),
+    VarStruct09 {
+        field00: GenStruct0000005F,
+        field01: GenTup0000002E,
+        field02: GenEnum00000075,
+    },
+    VarNewTy0A(GenEnum00000009),
+    VarNewTy0B(GenTup00000025),
+    VarTuple0C(GenArray00000061, GenTup00000066, ),
+    VarTuple0D(GenStruct00000017, ),
+    VarNewTy0E(i64),
+    VarEmpty0F,
+}
+
+/// generated
+type GenTup00000081 = (GenEnum0000002C, GenOpt00000012, GenEnum00000034, GenEnum00000037, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000082 {
+    VarNewTy00(GenEnum00000075),
+    VarTuple01(GenOpt00000012, GenStruct00000078, ),
+    VarStruct02 {
+        field00: bool,
+        field01: GenTupStruct0000000D,
+        field02: GenOpt0000001B,
+        field03: GenEnum0000001F,
+    },
+    VarEmpty03,
+    VarStruct04 {
+        field00: GenArray0000001C,
+    },
+    VarStruct05 {
+        field00: GenStruct00000004,
+        field01: GenTup00000054,
+    },
+    VarNewTy06(GenStruct0000004B),
+    VarStruct07 {
+        field00: GenEnum0000005E,
+        field01: GenStruct00000022,
+    },
+    VarStruct08 {
+        field00: GenTup0000002E,
+        field01: GenStruct00000078,
+        field02: GenEnum00000075,
+        field03: i16,
+    },
+    VarNewTy09(GenTupStruct00000072),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000083 {
+    field00: GenEnum00000075,
+    field01: GenArray0000004A,
+    field02: GenStruct00000045,
+    field03: GenArray00000024,
+    field04: GenStruct0000007B,
+    field05: GenStruct00000041,
+    field06: GenEnum0000000B,
+}
+
+/// generated
+type GenArray00000084 = [GenEnum00000046; 25];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000085 {
+    VarTuple00(i16, GenTupStruct00000048, GenEnum00000006, GenStruct0000006B, ),
+    VarEmpty01,
+    VarStruct02 {
+        field00: GenStruct00000001,
+    },
+    VarNewTy03(GenEnum00000037),
+    VarNewTy04(GenTup00000065),
+    VarEmpty05,
+}
+
+/// generated
+type GenOpt00000086 = Option<GenTup00000081>;
+
+/// generated
+type GenTup00000087 = (GenOpt00000035, GenStruct00000004, GenStruct0000001A, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000088 {
-    field00: i16,
-    field01: f64,
-    field02: isize,
-    field03: u8,
-    field04: u128,
-    field05: i8,
-    field06: i8,
+    field00: GenTup0000001E,
+    field01: GenEnum00000038,
+    field02: GenEnum0000000B,
+    field03: GenStruct00000077,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000089 {
-    field00: u64,
-    field01: f64,
-    field02: u8,
-    field03: i16,
-    field04: u16,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000008A {
+enum GenEnum00000089 {
     VarStruct00 {
-        field00: isize,
-        field01: i8,
-        field02: u64,
+        field00: GenTup00000005,
+        field01: GenEnum0000007F,
     },
-    VarEmpty01,
+    VarNewTy01(GenStruct0000003A),
     VarEmpty02,
-}
-
-/// generated
-type GenOpt0000008B = Option<isize>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000008C {
-    VarEmpty00,
-    VarNewTy01(u64),
-    VarEmpty02,
-    VarStruct03 {
-        field00: f32,
-    },
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000008D(i32, u64, isize, bool, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000008E {
-    field00: bool,
-    field01: isize,
-    field02: i64,
-    field03: u8,
-    field04: isize,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000008F(i32, );
-
-/// generated
-type GenOpt00000090 = Option<u32>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000091 {
-    field00: i8,
-    field01: u128,
-    field02: f32,
-    field03: i8,
-    field04: u128,
-    field05: u128,
-}
-
-/// generated
-type GenArray00000092 = [f64; 14];
-
-/// generated
-type GenArray00000093 = [i128; 28];
-
-/// generated
-type GenTup00000094 = (i8, f32, bool, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000095 {
-    VarStruct00 {
-        field00: i128,
-        field01: u128,
-    },
-    VarNewTy01(u128),
-    VarNewTy02(bool),
     VarEmpty03,
-    VarEmpty04,
-    VarTuple05(i8, f32, i128, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct0000008A {
+    field00: GenStruct00000004,
+    field01: GenStruct00000000,
+    field02: GenStruct0000007B,
+    field03: GenStruct00000044,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct0000008B {
+    field00: GenOpt0000005B,
+    field01: GenEnum0000001D,
+    field02: GenOpt0000001B,
+    field03: GenEnum00000055,
+    field04: GenStruct0000008A,
+    field05: GenEnum0000002F,
+}
+
+/// generated
+type GenArray0000008C = [GenTup0000003B; 11];
+
+/// generated
+type GenTup0000008D = (GenArray0000004A, GenOpt00000026, );
+
+/// generated
+type GenTup0000008E = (GenEnum0000007D, GenTupStruct00000032, GenEnum00000028, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000008F {
+    VarEmpty00,
+    VarTuple01(GenStruct0000007B, GenStruct0000007B, GenStruct0000004B, GenTup0000008E, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000090 {
+    field00: GenEnum00000049,
+    field01: GenEnum00000034,
+    field02: isize,
+    field03: GenTup00000054,
+    field04: GenEnum0000002F,
+}
+
+/// generated
+type GenOpt00000091 = Option<GenTupStruct00000002>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000092 {
+    field00: GenEnum0000001D,
+    field01: GenEnum0000001F,
+    field02: GenStruct0000006B,
+    field03: GenTupStruct00000003,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000093;
+
+/// generated
+type GenTup00000094 = (GenOpt0000006E, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000095 {
+    field00: GenStruct0000000F,
+    field01: GenStruct00000050,
 }
 
 /// generated
@@ -1429,9 +1515,9 @@ enum GenEnum00000095 {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000096 {
-    field00: isize,
-    field01: f64,
-    field02: u32,
+    field00: i16,
+    field01: GenTupStruct00000032,
+    field02: GenArray00000020,
 }
 
 /// generated
@@ -1439,37 +1525,35 @@ struct GenStruct00000096 {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000097 {
-    field00: bool,
-    field01: usize,
-    field02: u64,
-    field03: i64,
+    field00: GenTupStruct00000068,
+    field01: GenEnum0000003C,
+    field02: GenArray0000001C,
+    field03: GenEnum00000060,
+    field04: GenStruct00000030,
+    field05: GenStruct00000042,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000098 {
-    field00: i32,
-    field01: u8,
-    field02: u128,
-}
+struct GenStruct00000098;
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000099(f32, usize, );
+type GenArray00000099 = [i64; 8];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct0000009A {
-    field00: u32,
-    field01: i16,
-    field02: i128,
-    field03: i32,
+    field00: f64,
+    field01: GenStruct00000096,
+    field02: GenStruct00000022,
+    field03: GenEnum00000011,
+    field04: GenEnum00000033,
+    field05: GenTup00000087,
+    field06: GenTupStruct00000052,
 }
 
 /// generated
@@ -1477,132 +1561,107 @@ struct GenStruct0000009A {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct0000009B {
-    field00: u128,
-    field01: i128,
-    field02: u64,
-    field03: u128,
-    field04: f64,
-    field05: f32,
-    field06: usize,
-}
-
-/// generated
-type GenOpt0000009C = Option<u128>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000009D {
-    field00: i128,
+    field00: GenOpt00000019,
+    field01: GenStruct00000045,
+    field02: GenOpt00000015,
+    field03: GenTup00000087,
+    field04: GenOpt00000026,
+    field05: GenTup00000025,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000009E(f64, usize, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000009F {
-    VarTuple00(isize, u8, i8, f32, ),
-    VarNewTy01(u16),
-    VarStruct02 {
-        field00: i64,
-        field01: u128,
-    },
-    VarEmpty03,
-    VarTuple04(f32, u32, u32, bool, ),
-    VarNewTy05(bool),
-    VarEmpty06,
+enum GenEnum0000009C {
+    VarNewTy00(GenTupStruct0000006A),
+    VarEmpty01,
+    VarNewTy02(i128),
+    VarNewTy03(GenArray0000005A),
+    VarNewTy04(GenArray0000003D),
+    VarEmpty05,
+    VarTuple06(GenEnum00000069, GenEnum00000038, GenStruct00000062, ),
     VarStruct07 {
-        field00: i64,
-        field01: u32,
-        field02: i128,
-        field03: bool,
+        field00: GenStruct0000001A,
+        field01: GenOpt00000086,
     },
-    VarNewTy08(i64),
+    VarNewTy08(GenStruct00000079),
     VarEmpty09,
-    VarNewTy0A(usize),
-    VarTuple0B(isize, u64, u64, usize, ),
-    VarNewTy0C(i64),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000A0;
+enum GenEnum0000009D {
+    VarNewTy00(GenStruct00000088),
+    VarEmpty01,
+    VarNewTy02(GenStruct00000083),
+    VarStruct03 {
+        field00: GenStruct00000058,
+        field01: GenArray00000059,
+    },
+    VarNewTy04(GenArray0000005A),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000009E {
+    VarStruct00 {
+        field00: GenOpt00000015,
+        field01: GenTupStruct0000004D,
+        field02: GenStruct00000090,
+        field03: GenArray0000004E,
+    },
+}
+
+/// generated
+type GenTup0000009F = (GenTupStruct00000068, GenTup0000000C, GenStruct0000003A, );
+
+/// generated
+type GenArray000000A0 = [GenStruct00000041; 31];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000000A1 {
-    field00: i8,
-    field01: i16,
-    field02: u32,
+    field00: GenArray00000020,
+    field01: GenStruct00000001,
+}
+
+/// generated
+type GenTup000000A2 = (isize, GenOpt00000035, GenStruct00000093, );
+
+/// generated
+type GenTup000000A3 = (GenStruct0000000F, GenEnum0000003C, GenArray00000010, GenEnum00000053, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000A4 {
+    VarEmpty00,
+    VarStruct01 {
+        field00: GenEnum00000009,
+        field01: GenStruct00000077,
+        field02: GenTupStruct00000013,
+    },
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000A2 {
-    field00: bool,
-    field01: i16,
-    field02: u128,
-    field03: u64,
-}
-
-/// generated
-type GenOpt000000A3 = Option<u128>;
-
-/// generated
-type GenArray000000A4 = [bool; 16];
+struct GenTupStruct000000A5(GenEnum0000009C, GenTupStruct00000048, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000A5 {
-    VarStruct00 {
-        field00: u128,
-        field01: u32,
-        field02: f64,
-    },
-    VarTuple01(u16, i32, ),
-    VarStruct02 {
-        field00: u16,
-        field01: isize,
-        field02: i64,
-    },
-    VarNewTy03(isize),
-    VarNewTy04(u32),
-    VarNewTy05(i64),
-    VarTuple06(i128, i32, u128, ),
-    VarStruct07 {
-        field00: usize,
-    },
-    VarNewTy08(i8),
-    VarNewTy09(u8),
-    VarNewTy0A(u32),
-    VarNewTy0B(f32),
-    VarEmpty0C,
-    VarStruct0D {
-        field00: u128,
-    },
-    VarTuple0E(i16, i32, i8, i8, ),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000A6(f64, i64, u32, f64, );
+struct GenTupStruct000000A6(GenTupStruct0000004D, );
 
 /// generated
 #[derive(Debug)]
@@ -1610,213 +1669,168 @@ struct GenTupStruct000000A6(f64, i64, u32, f64, );
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000000A7 {
     VarStruct00 {
-        field00: i16,
-        field01: bool,
-        field02: u8,
-        field03: u8,
+        field00: GenStruct00000058,
+        field01: GenTup00000025,
     },
-    VarEmpty01,
-    VarStruct02 {
-        field00: i64,
-        field01: i128,
-        field02: u32,
-        field03: i32,
-    },
-    VarEmpty03,
-    VarTuple04(u64, f32, i64, ),
-    VarNewTy05(f64),
-    VarTuple06(f32, ),
-    VarEmpty07,
-    VarStruct08 {
-        field00: f64,
-        field01: u8,
-        field02: u32,
-    },
-    VarEmpty09,
-    VarEmpty0A,
-    VarNewTy0B(i128),
-    VarStruct0C {
-        field00: isize,
-        field01: i8,
-        field02: i8,
-    },
-    VarNewTy0D(u32),
-    VarNewTy0E(usize),
-    VarTuple0F(isize, f32, ),
 }
+
+/// generated
+type GenTup000000A8 = (GenStruct00000042, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000A8 {
-    VarTuple00(i64, i8, f64, ),
-    VarNewTy01(isize),
-    VarEmpty02,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000A9(bool, isize, );
+struct GenTupStruct000000A9(GenTup0000001E, GenOpt00000074, GenOpt00000091, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000000AA {
-    field00: f32,
-    field01: i8,
-    field02: bool,
+    field00: GenStruct00000064,
+    field01: GenTupStruct00000068,
+    field02: GenTupStruct0000000D,
+    field03: bool,
+    field04: GenTupStruct00000048,
+    field05: GenTupStruct00000032,
+    field06: GenTupStruct0000006F,
+}
+
+/// generated
+type GenOpt000000AB = Option<GenTupStruct0000006F>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000000AC {
+    field00: GenTup000000A2,
+    field01: GenEnum0000001D,
+    field02: u64,
+    field03: GenStruct00000097,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000AB {
-    VarNewTy00(f64),
-    VarTuple01(u8, u64, ),
-    VarStruct02 {
-        field00: bool,
-        field01: f32,
-    },
-    VarEmpty03,
-    VarTuple04(u128, u128, ),
-    VarEmpty05,
-    VarStruct06 {
-        field00: u128,
-    },
-    VarStruct07 {
-        field00: u32,
-        field01: i128,
-    },
-    VarNewTy08(i64),
-    VarStruct09 {
-        field00: isize,
-        field01: u32,
-    },
+struct GenStruct000000AD {
+    field00: GenOpt00000086,
+    field01: GenStruct00000022,
+    field02: GenTupStruct0000007C,
+    field03: GenEnum00000089,
+    field04: GenTupStruct00000051,
+    field05: GenTupStruct0000004C,
+    field06: GenEnum0000008F,
 }
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000AC(bool, i8, f64, i32, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000AD(usize, f64, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000000AE {
-    field00: f64,
-    field01: i64,
-    field02: i16,
-    field03: i32,
-    field04: u32,
-    field05: i32,
-    field06: usize,
+    field00: GenArray0000001C,
+    field01: GenEnum0000008F,
+    field02: GenTupStruct00000021,
 }
 
 /// generated
-type GenArray000000AF = [u32; 7];
-
-/// generated
-type GenArray000000B0 = [i32; 25];
+type GenOpt000000AF = Option<GenTupStruct00000056>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000B1 {
-    VarTuple00(u8, i32, u32, f32, ),
-    VarEmpty01,
-    VarStruct02 {
-        field00: u16,
-    },
-    VarNewTy03(u64),
-    VarNewTy04(u32),
-    VarNewTy05(i8),
+struct GenStruct000000B0 {
+    field00: isize,
+    field01: GenEnum00000055,
+    field02: GenEnum0000009E,
+    field03: GenEnum0000002C,
 }
 
 /// generated
-type GenOpt000000B2 = Option<i32>;
+type GenArray000000B1 = [GenTupStruct00000021; 29];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000B3 {
-    VarEmpty00,
-    VarNewTy01(bool),
-    VarStruct02 {
-        field00: i8,
-        field01: u128,
-        field02: i8,
+enum GenEnum000000B2 {
+    VarStruct00 {
+        field00: GenStruct0000006B,
+    },
+    VarTuple01(GenTupStruct00000032, GenStruct00000045, GenEnum0000007D, GenStruct00000039, ),
+    VarNewTy02(GenStruct00000079),
+    VarEmpty03,
+    VarNewTy04(GenTup00000087),
+    VarNewTy05(GenStruct00000097),
+    VarStruct06 {
+        field00: GenStruct00000058,
+        field01: i128,
+        field02: GenTupStruct0000006F,
+        field03: GenArray0000003D,
+    },
+    VarEmpty07,
+    VarStruct08 {
+        field00: f32,
+        field01: GenEnum00000034,
+        field02: GenStruct00000067,
+    },
+    VarTuple09(f32, ),
+    VarStruct0A {
+        field00: GenArray00000084,
+        field01: GenTupStruct00000013,
+        field02: GenTup00000081,
+        field03: GenStruct00000079,
+    },
+    VarStruct0B {
+        field00: GenTup00000087,
+        field01: GenStruct00000030,
+        field02: GenEnum0000002C,
     },
 }
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000000B3;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000000B4 {
-    field00: u128,
-    field01: i16,
-    field02: u32,
-    field03: f64,
+    field00: GenArray00000059,
+    field01: GenTupStruct0000007C,
+    field02: GenOpt0000005B,
+    field03: GenTup0000008E,
+    field04: GenTupStruct00000003,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000B5 {
-    VarStruct00 {
-        field00: f32,
-        field01: u32,
-    },
-    VarNewTy01(u32),
-    VarNewTy02(i16),
-    VarEmpty03,
-}
+struct GenTupStruct000000B5(GenOpt00000031, GenStruct000000AC, GenTupStruct00000014, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000B6 {
-    field00: u8,
-    field01: u16,
-}
+struct GenTupStruct000000B6(GenOpt00000035, GenTup00000065, GenTup0000008E, );
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000B7(u8, );
+type GenArray000000B7 = [GenTupStruct000000B5; 2];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000000B8 {
-    VarEmpty00,
-    VarEmpty01,
-    VarNewTy02(bool),
-    VarTuple03(isize, i16, i64, ),
-    VarTuple04(usize, isize, ),
-    VarEmpty05,
-    VarNewTy06(i16),
-    VarTuple07(u32, u64, u64, ),
-    VarTuple08(f64, f64, f32, i32, ),
+    VarTuple00(GenEnum00000071, GenEnum00000028, GenTupStruct0000007C, ),
+    VarTuple01(GenTupStruct0000006A, GenStruct0000001A, GenStruct0000008B, GenEnum0000002F, ),
 }
 
 /// generated
@@ -1824,46 +1838,113 @@ enum GenEnum000000B8 {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000000B9 {
-    field00: i32,
-    field01: i8,
-    field02: u8,
-    field03: u64,
-    field04: u16,
-}
-
-/// generated
-type GenOpt000000BA = Option<i16>;
-
-/// generated
-type GenTup000000BB = (u64, i128, i64, i64, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000BC {
-    field00: u128,
-    field01: u128,
-    field02: isize,
-    field03: u16,
+    field00: GenTupStruct00000003,
+    field01: GenTupStruct0000007C,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000BD;
+enum GenEnum000000BA {
+    VarEmpty00,
+    VarStruct01 {
+        field00: GenStruct000000B0,
+    },
+    VarNewTy02(usize),
+    VarStruct03 {
+        field00: GenStruct00000090,
+        field01: GenStruct00000017,
+    },
+    VarTuple04(GenTupStruct0000004C, ),
+    VarStruct05 {
+        field00: GenTup00000087,
+        field01: GenEnum00000089,
+        field02: GenArray00000020,
+    },
+    VarEmpty06,
+    VarStruct07 {
+        field00: GenArray00000084,
+        field01: GenOpt00000012,
+        field02: GenTup00000005,
+    },
+    VarEmpty08,
+    VarEmpty09,
+}
 
 /// generated
-type GenTup000000BE = (isize, );
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000BB {
+    VarNewTy00(GenOpt000000AB),
+    VarStruct01 {
+        field00: GenTup0000009F,
+        field01: f32,
+        field02: GenOpt00000012,
+        field03: GenEnum0000001D,
+    },
+    VarTuple02(GenTupStruct0000002B, GenEnum0000009E, GenStruct00000041, ),
+    VarNewTy03(GenTup00000094),
+    VarStruct04 {
+        field00: GenTupStruct00000048,
+        field01: GenTupStruct00000052,
+        field02: f64,
+        field03: GenTupStruct000000B5,
+    },
+    VarNewTy05(GenStruct0000009A),
+    VarStruct06 {
+        field00: GenOpt0000007A,
+        field01: GenArray00000023,
+    },
+    VarStruct07 {
+        field00: GenEnum00000038,
+        field01: GenOpt0000001B,
+    },
+    VarTuple08(GenOpt00000019, GenTupStruct00000032, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000BC {
+    VarTuple00(GenTupStruct000000A9, GenArray00000084, ),
+    VarNewTy01(GenTupStruct00000072),
+    VarTuple02(GenTupStruct0000004D, GenTup00000047, GenEnum00000089, bool, ),
+    VarEmpty03,
+    VarStruct04 {
+        field00: GenOpt00000086,
+        field01: usize,
+    },
+    VarNewTy05(GenTupStruct00000003),
+    VarNewTy06(GenEnum00000046),
+    VarTuple07(GenStruct000000AC, i64, GenEnum00000029, ),
+    VarEmpty08,
+    VarNewTy09(GenArray00000061),
+    VarTuple0A(GenOpt00000091, GenStruct0000008A, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000000BD {
+    field00: GenStruct000000B3,
+    field01: GenStruct00000092,
+    field02: u64,
+    field03: GenOpt00000019,
+}
+
+/// generated
+type GenOpt000000BE = Option<GenEnum0000008F>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000000BF {
-    field00: u32,
-    field01: i32,
+    field00: GenEnum00000075,
 }
 
 /// generated
@@ -1871,205 +1952,205 @@ struct GenStruct000000BF {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000000C0 {
-    field00: u8,
-    field01: u16,
-    field02: usize,
+    field00: GenStruct0000007B,
+    field01: GenTupStruct0000007C,
+    field02: GenTupStruct0000006A,
+    field03: GenArray000000B1,
+    field04: GenArray00000023,
+    field05: GenEnum00000060,
+    field06: GenTup0000000E,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000C1 {
-    VarEmpty00,
-    VarNewTy01(i128),
-    VarStruct02 {
-        field00: i16,
-        field01: u64,
-        field02: i16,
-        field03: u8,
-    },
-    VarTuple03(i32, u8, u8, u8, ),
+struct GenStruct000000C1 {
+    field00: GenStruct000000B3,
 }
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000C2 {
-    VarTuple00(f32, u8, ),
-    VarNewTy01(i32),
-    VarTuple02(usize, f64, ),
-    VarTuple03(i128, u64, ),
-}
+type GenArray000000C2 = [GenArray00000059; 13];
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000C3 {
-    VarNewTy00(i8),
-    VarStruct01 {
-        field00: u128,
-    },
-    VarTuple02(i8, f32, ),
-    VarNewTy03(i128),
-    VarEmpty04,
-}
+type GenOpt000000C3 = Option<f32>;
 
 /// generated
-type GenOpt000000C4 = Option<usize>;
+type GenTup000000C4 = (GenEnum00000043, GenEnum00000089, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000000C5 {
-    field00: u128,
-    field01: i64,
-    field02: u64,
-    field03: i8,
+    field00: GenOpt00000035,
 }
 
 /// generated
-type GenArray000000C6 = [i128; 27];
+type GenOpt000000C6 = Option<GenTupStruct00000003>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000C7 {
+struct GenTupStruct000000C7(u32, usize, GenOpt00000057, GenTup00000005, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000C8 {
     VarStruct00 {
-        field00: u64,
-        field01: f64,
+        field00: GenEnum000000BB,
+        field01: i8,
+        field02: GenStruct00000017,
+        field03: GenArray0000004E,
     },
-    VarNewTy01(isize),
+    VarNewTy01(GenEnum00000029),
     VarEmpty02,
-    VarNewTy03(f32),
-    VarNewTy04(f64),
+    VarNewTy03(GenArray00000076),
+    VarEmpty04,
+    VarStruct05 {
+        field00: GenEnum00000037,
+        field01: GenTup0000000E,
+        field02: GenTup00000070,
+        field03: u16,
+    },
+    VarStruct06 {
+        field00: GenTup00000094,
+        field01: GenOpt0000006E,
+        field02: GenStruct000000C5,
+    },
+    VarEmpty07,
+    VarNewTy08(GenStruct0000005F),
+    VarEmpty09,
+    VarNewTy0A(GenEnum00000049),
+    VarEmpty0B,
+    VarNewTy0C(GenOpt000000AF),
+    VarNewTy0D(GenStruct00000088),
+    VarEmpty0E,
+}
+
+/// generated
+type GenOpt000000C9 = Option<GenTupStruct00000068>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000000CA;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000CB {
+    VarTuple00(GenTup00000054, GenOpt00000019, GenEnum00000011, GenTupStruct000000A5, ),
+    VarEmpty01,
+    VarNewTy02(GenStruct000000C5),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000000CC(GenEnum00000011, );
+
+/// generated
+type GenOpt000000CD = Option<GenStruct0000009A>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000CE {
+    VarNewTy00(GenArray0000003D),
+    VarEmpty01,
+    VarTuple02(GenTup000000A2, ),
+    VarStruct03 {
+        field00: GenTup00000047,
+        field01: GenOpt0000001B,
+        field02: GenTupStruct00000056,
+    },
+    VarNewTy04(GenOpt0000003E),
     VarEmpty05,
-    VarNewTy06(f32),
-    VarStruct07 {
-        field00: i64,
-        field01: i64,
+    VarStruct06 {
+        field00: GenEnum000000BC,
+        field01: GenStruct00000092,
     },
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000C8(i64, u64, u128, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000C9 {
-    field00: bool,
-}
-
-/// generated
-type GenArray000000CA = [i32; 11];
-
-/// generated
-type GenTup000000CB = (i128, isize, u32, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000CC {
-    VarTuple00(i128, i32, i128, ),
-    VarTuple01(u8, u128, u16, i16, ),
-    VarStruct02 {
-        field00: f32,
-        field01: u32,
-        field02: f32,
-    },
-    VarEmpty03,
-    VarNewTy04(u64),
-    VarNewTy05(f32),
-    VarNewTy06(u32),
-    VarTuple07(i128, i8, bool, ),
+    VarNewTy07(GenArray0000007E),
     VarEmpty08,
-    VarStruct09 {
-        field00: u32,
-        field01: i128,
-        field02: isize,
-    },
+    VarEmpty09,
 }
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000CD(isize, u128, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000CE;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000CF(usize, );
+type GenArray000000CF = [GenEnum0000009E; 18];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000000D0 {
-    VarTuple00(f32, ),
-    VarStruct01 {
-        field00: i32,
-        field01: u128,
+    VarTuple00(GenTupStruct0000006F, u32, GenEnum00000043, GenArray000000B1, ),
+    VarNewTy01(GenEnum000000BB),
+    VarTuple02(GenStruct000000A1, ),
+    VarStruct03 {
+        field00: GenStruct0000005F,
+        field01: GenTupStruct00000052,
     },
-    VarTuple02(u128, isize, u32, ),
-    VarNewTy03(u64),
     VarStruct04 {
-        field00: f64,
-        field01: u8,
-        field02: u64,
-        field03: i64,
+        field00: GenEnum00000018,
+        field01: GenEnum0000009E,
     },
-    VarEmpty05,
-    VarEmpty06,
-    VarNewTy07(i128),
-    VarNewTy08(u64),
-    VarEmpty09,
-    VarEmpty0A,
+    VarNewTy05(GenStruct00000001),
+    VarNewTy06(GenArray0000003D),
+    VarStruct07 {
+        field00: f64,
+    },
+    VarStruct08 {
+        field00: GenTupStruct0000006F,
+    },
+    VarStruct09 {
+        field00: i32,
+        field01: GenStruct000000A1,
+        field02: GenEnum0000009E,
+    },
+    VarNewTy0A(GenOpt0000003E),
     VarEmpty0B,
     VarEmpty0C,
+    VarTuple0D(GenArray00000076, GenOpt000000CD, GenStruct000000BD, ),
+    VarEmpty0E,
 }
+
+/// generated
+type GenOpt000000D1 = Option<bool>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000D1 {
-    field00: u32,
-    field01: u16,
-    field02: bool,
+struct GenStruct000000D2 {
+    field00: GenStruct00000095,
+    field01: GenTupStruct0000006A,
+    field02: GenEnum0000001F,
+    field03: GenOpt000000CD,
+    field04: GenTupStruct00000052,
+    field05: GenEnum00000007,
 }
 
 /// generated
-type GenTup000000D2 = (isize, );
-
-/// generated
-type GenTup000000D3 = (i16, u32, i32, f32, );
+type GenArray000000D3 = [GenOpt000000AB; 24];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000000D4 {
-    field00: u64,
-    field01: u128,
-    field02: f32,
+    field00: GenStruct0000001A,
+    field01: GenEnum000000C8,
+    field02: GenEnum00000053,
+    field03: GenEnum000000B2,
+    field04: GenTupStruct000000B6,
 }
 
 /// generated
@@ -2077,114 +2158,157 @@ struct GenStruct000000D4 {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000000D5 {
-    VarTuple00(i32, bool, ),
-    VarEmpty01,
-    VarEmpty02,
-    VarNewTy03(i16),
-    VarNewTy04(i16),
-    VarEmpty05,
-}
-
-/// generated
-type GenOpt000000D6 = Option<u64>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000D7 {
-    VarStruct00 {
-        field00: i64,
-    },
-    VarTuple01(usize, i8, i128, usize, ),
-    VarNewTy02(bool),
-    VarEmpty03,
-    VarNewTy04(isize),
-    VarNewTy05(i16),
-    VarStruct06 {
-        field00: i32,
-        field01: i64,
-        field02: u8,
-        field03: i64,
-    },
-    VarNewTy07(u8),
-    VarStruct08 {
-        field00: usize,
-        field01: i64,
-        field02: f64,
-    },
-    VarTuple09(f32, ),
-    VarTuple0A(isize, u32, ),
-    VarStruct0B {
-        field00: u16,
-        field01: isize,
-        field02: u128,
-    },
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000D8 {
-    VarTuple00(i32, f32, u128, ),
-    VarEmpty01,
-    VarNewTy02(u128),
-    VarNewTy03(i32),
-    VarStruct04 {
-        field00: usize,
-        field01: bool,
-        field02: usize,
-        field03: bool,
-    },
-    VarEmpty05,
-    VarStruct06 {
-        field00: isize,
-    },
-    VarNewTy07(i128),
-}
-
-/// generated
-type GenArray000000D9 = [i64; 32];
-
-/// generated
-type GenTup000000DA = (i32, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000DB {
-    field00: u16,
-    field01: u16,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000DC {
-    VarEmpty00,
+    VarNewTy00(GenStruct0000005F),
     VarStruct01 {
-        field00: bool,
+        field00: u128,
+        field01: GenArray00000059,
+        field02: GenStruct000000C5,
+        field03: GenEnum00000028,
     },
-    VarNewTy02(u8),
+    VarTuple02(i16, ),
     VarStruct03 {
-        field00: isize,
-        field01: u32,
+        field00: GenOpt00000086,
+        field01: GenTup0000002D,
     },
-    VarTuple04(i8, ),
+    VarNewTy04(GenEnum00000063),
     VarStruct05 {
-        field00: isize,
-        field01: isize,
-        field02: u64,
+        field00: GenTupStruct0000004C,
+        field01: GenTupStruct00000013,
+        field02: GenOpt000000AF,
+        field03: GenTupStruct0000004C,
     },
     VarEmpty06,
     VarStruct07 {
-        field00: isize,
-        field01: u32,
-        field02: u16,
+        field00: GenTupStruct0000000D,
+        field01: GenTupStruct0000006F,
     },
+    VarNewTy08(GenStruct000000BF),
+    VarNewTy09(GenTup00000087),
+    VarTuple0A(GenEnum00000046, GenEnum00000037, ),
+    VarStruct0B {
+        field00: GenArray0000004A,
+        field01: GenOpt0000005B,
+        field02: GenEnum00000037,
+    },
+    VarStruct0C {
+        field00: GenTupStruct0000004C,
+    },
+}
+
+/// generated
+type GenArray000000D6 = [GenTupStruct000000B5; 9];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000000D7(GenTupStruct00000021, GenStruct00000088, GenEnum000000C8, );
+
+/// generated
+type GenOpt000000D8 = Option<GenArray00000084>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000D9 {
+    VarEmpty00,
+    VarStruct01 {
+        field00: GenStruct00000050,
+    },
+    VarEmpty02,
+    VarNewTy03(GenStruct00000083),
+    VarStruct04 {
+        field00: GenArray000000CF,
+    },
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000000DA;
+
+/// generated
+type GenOpt000000DB = Option<GenArray000000D3>;
+
+/// generated
+type GenOpt000000DC = Option<GenOpt00000015>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000000DD(i32, GenOpt00000086, GenStruct00000064, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000000DE(GenTupStruct0000004C, GenTupStruct00000013, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000DF {
+    VarEmpty00,
+    VarStruct01 {
+        field00: GenStruct00000064,
+        field01: GenTup00000025,
+    },
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000000E0(GenTup00000087, GenStruct00000044, GenEnum00000043, i128, );
+
+/// generated
+type GenOpt000000E1 = Option<GenStruct00000062>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000000E2(GenEnum00000080, );
+
+/// generated
+type GenOpt000000E3 = Option<GenStruct0000000A>;
+
+/// generated
+type GenOpt000000E4 = Option<GenOpt000000E1>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000000E5(i8, GenEnum00000053, GenEnum00000075, GenStruct0000005F, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000000E6(GenArray00000059, GenEnum000000BC, GenOpt00000091, GenTupStruct00000072, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000E7 {
+    VarStruct00 {
+        field00: GenTupStruct000000A9,
+        field01: GenTupStruct000000B5,
+        field02: GenOpt00000031,
+    },
+    VarNewTy01(GenTupStruct00000048),
+    VarEmpty02,
+    VarEmpty03,
+    VarEmpty04,
+    VarEmpty05,
+    VarTuple06(u8, GenEnum00000038, GenEnum00000034, ),
+    VarEmpty07,
     VarEmpty08,
     VarEmpty09,
 }
@@ -2193,523 +2317,580 @@ enum GenEnum000000DC {
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000DD {
-    VarNewTy00(f64),
-    VarStruct01 {
-        field00: u8,
-        field01: u32,
-        field02: i16,
-        field03: u64,
+enum GenEnum000000E8 {
+    VarTuple00(GenOpt000000AB, GenOpt00000057, GenStruct0000006C, GenTup0000006D, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000000E9(GenEnum000000CE, GenEnum000000C8, GenTup0000002E, GenTupStruct0000002B, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000EA {
+    VarTuple00(usize, GenTup00000065, ),
+    VarNewTy01(GenStruct000000B3),
+    VarStruct02 {
+        field00: GenEnum00000055,
+        field01: GenOpt000000CD,
     },
-    VarTuple02(u32, u128, f32, ),
-    VarNewTy03(f32),
+    VarEmpty03,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000EB {
+    VarStruct00 {
+        field00: GenEnum000000B8,
+        field01: GenEnum000000D5,
+    },
+    VarStruct01 {
+        field00: GenTupStruct00000072,
+        field01: GenTupStruct00000068,
+        field02: GenStruct000000DA,
+    },
+    VarTuple02(GenTup0000004F, GenStruct00000088, ),
+    VarStruct03 {
+        field00: GenStruct000000B3,
+        field01: GenStruct0000006B,
+        field02: GenTupStruct000000E6,
+        field03: GenEnum000000DF,
+    },
     VarStruct04 {
-        field00: i8,
-        field01: u8,
-        field02: i16,
-        field03: u16,
+        field00: GenEnum00000033,
+        field01: GenTupStruct0000004C,
     },
-    VarNewTy05(f64),
-    VarStruct06 {
-        field00: u64,
-        field01: i128,
-        field02: u64,
-        field03: u64,
-    },
-    VarStruct07 {
-        field00: usize,
-        field01: f64,
-    },
-    VarNewTy08(bool),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000DE {
-    VarNewTy00(isize),
-    VarStruct01 {
-        field00: i128,
-        field01: isize,
-    },
-    VarTuple02(f64, i128, ),
-    VarNewTy03(i64),
-    VarTuple04(i8, u64, i8, isize, ),
-    VarNewTy05(u16),
+    VarTuple05(GenStruct000000AD, ),
     VarEmpty06,
-    VarStruct07 {
-        field00: isize,
-        field01: u8,
+    VarNewTy07(GenTupStruct0000007C),
+    VarEmpty08,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000EC {
+    VarStruct00 {
+        field00: GenTup00000066,
     },
-    VarNewTy08(u16),
-    VarNewTy09(i8),
-    VarTuple0A(f64, u8, i8, ),
-    VarNewTy0B(f64),
-    VarEmpty0C,
-    VarNewTy0D(i32),
+    VarTuple01(GenTup00000005, GenEnum000000EB, GenEnum00000085, ),
+    VarStruct02 {
+        field00: GenStruct0000009A,
+        field01: GenEnum00000080,
+    },
+    VarEmpty03,
+    VarEmpty04,
+    VarNewTy05(GenEnum000000BC),
+    VarTuple06(i32, usize, GenTup0000004F, ),
+    VarNewTy07(GenOpt000000D8),
+    VarEmpty08,
+    VarTuple09(i8, GenEnum000000CE, ),
+    VarTuple0A(GenStruct00000083, ),
+    VarTuple0B(GenEnum0000000B, GenOpt000000E3, ),
+    VarTuple0C(GenEnum0000009D, GenTupStruct000000E9, ),
+    VarTuple0D(GenOpt00000091, ),
 }
-
-/// generated
-type GenArray000000DF = [isize; 14];
-
-/// generated
-type GenTup000000E0 = (u8, u32, );
-
-/// generated
-type GenTup000000E1 = (u8, i128, f32, i128, );
-
-/// generated
-type GenOpt000000E2 = Option<isize>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000E3 {
-    field00: i64,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000E4 {
-    field00: i8,
-    field01: i128,
-    field02: u64,
-    field03: i128,
-    field04: i32,
-    field05: u64,
-    field06: i32,
-}
-
-/// generated
-type GenTup000000E5 = (u16, i128, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000E6 {
-    field00: i64,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000E7(i16, );
-
-/// generated
-type GenOpt000000E8 = Option<u128>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000E9 {
-    field00: usize,
-    field01: isize,
-    field02: i8,
-    field03: usize,
-    field04: i128,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000EA {
-    field00: u128,
-}
-
-/// generated
-type GenOpt000000EB = Option<u16>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000EC(u8, u8, i16, u8, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000000ED {
-    VarStruct00 {
-        field00: bool,
-        field01: u8,
-        field02: u32,
-        field03: i8,
+    VarTuple00(GenTupStruct0000004D, GenTup00000070, GenArray00000010, GenTupStruct000000D7, ),
+    VarStruct01 {
+        field00: GenOpt00000057,
+        field01: GenStruct0000005F,
+        field02: GenStruct000000AC,
+        field03: GenOpt0000001B,
     },
-    VarNewTy01(i8),
-    VarEmpty02,
-    VarNewTy03(i64),
+    VarNewTy02(GenEnum00000075),
+    VarStruct03 {
+        field00: GenStruct00000042,
+        field01: GenStruct00000077,
+    },
     VarEmpty04,
     VarStruct05 {
-        field00: u128,
-        field01: u32,
-        field02: i32,
-        field03: u8,
+        field00: GenEnum000000B2,
+        field01: GenArray000000A0,
+        field02: GenEnum000000CB,
     },
     VarStruct06 {
-        field00: isize,
-        field01: i32,
-        field02: bool,
+        field00: GenEnum00000049,
+        field01: GenTupStruct00000052,
+        field02: GenStruct000000C5,
     },
-    VarEmpty07,
-    VarNewTy08(i16),
-    VarEmpty09,
-    VarNewTy0A(i8),
-    VarEmpty0B,
-    VarNewTy0C(u16),
-    VarEmpty0D,
-    VarNewTy0E(i128),
+    VarTuple07(GenTup00000005, GenArray00000061, GenTupStruct0000004C, ),
+    VarStruct08 {
+        field00: u32,
+    },
+    VarNewTy09(GenTupStruct0000004C),
+    VarStruct0A {
+        field00: GenStruct00000017,
+        field01: GenOpt000000CD,
+    },
+    VarNewTy0B(GenTupStruct0000006F),
+}
+
+/// generated
+type GenArray000000EE = [GenTupStruct000000A6; 5];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000000EF {
+    field00: GenEnum0000002C,
+    field01: GenArray00000020,
+    field02: bool,
+    field03: GenTupStruct000000E2,
+}
+
+/// generated
+type GenOpt000000F0 = Option<i16>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000000F1 {
+    field00: GenEnum0000000B,
+    field01: isize,
+    field02: GenEnum00000018,
+    field03: GenEnum000000EA,
+    field04: GenArray000000A0,
+    field05: GenStruct000000BD,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000EE;
-
-/// generated
-type GenArray000000EF = [u64; 20];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000F0;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000F1 {
-    VarTuple00(i8, u32, u32, f32, ),
+enum GenEnum000000F2 {
+    VarEmpty00,
     VarEmpty01,
-    VarNewTy02(bool),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000F2(u32, );
-
-/// generated
-type GenOpt000000F3 = Option<isize>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000000F4 {
-    VarNewTy00(usize),
-    VarEmpty01,
-    VarTuple02(f32, ),
-    VarStruct03 {
-        field00: usize,
-        field01: i32,
-        field02: u32,
+    VarTuple02(i64, GenEnum00000028, GenEnum0000002C, ),
+    VarNewTy03(GenTupStruct000000E2),
+    VarStruct04 {
+        field00: GenOpt0000001B,
+        field01: GenTup0000002E,
+        field02: GenStruct000000BD,
+        field03: GenTup00000005,
     },
-    VarNewTy04(usize),
     VarEmpty05,
-    VarStruct06 {
-        field00: f64,
-        field01: u32,
-    },
-    VarNewTy07(i64),
+    VarNewTy06(GenStruct00000045),
+    VarNewTy07(GenOpt000000DB),
     VarEmpty08,
-    VarEmpty09,
+    VarStruct09 {
+        field00: GenEnum00000085,
+        field01: GenArray000000CF,
+        field02: GenEnum00000011,
+        field03: GenEnum00000080,
+    },
+    VarTuple0A(u8, GenTupStruct00000051, GenEnum00000037, ),
+    VarStruct0B {
+        field00: GenStruct00000045,
+        field01: GenTupStruct000000A6,
+    },
+    VarTuple0C(GenOpt00000015, GenOpt000000E3, GenEnum0000002F, ),
 }
-
-/// generated
-type GenArray000000F5 = [i32; 18];
-
-/// generated
-type GenTup000000F6 = (bool, u32, i16, usize, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000F7 {
-    field00: f32,
-    field01: usize,
-    field02: f64,
-    field03: u64,
-    field04: i32,
-    field05: usize,
+struct GenStruct000000F3 {
+    field00: GenEnum00000063,
+    field01: GenArray0000007E,
+    field02: GenEnum000000EC,
+    field03: GenStruct0000006C,
+    field04: GenTupStruct000000CC,
+    field05: GenTupStruct000000C7,
+    field06: GenTupStruct000000A5,
 }
-
-/// generated
-type GenTup000000F8 = (i8, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000F9;
+struct GenStruct000000F4 {
+    field00: GenTupStruct00000068,
+    field01: GenArray0000004A,
+    field02: GenTup00000054,
+    field03: GenStruct00000083,
+    field04: GenTupStruct000000E0,
+    field05: GenOpt000000E4,
+    field06: GenEnum000000BB,
+}
+
+/// generated
+type GenArray000000F5 = [GenArray0000004E; 18];
+
+/// generated
+type GenOpt000000F6 = Option<GenTup000000A3>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000000F7(GenArray0000005A, GenArray00000059, );
+
+/// generated
+type GenOpt000000F8 = Option<GenEnum00000075>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000000F9 {
+    VarTuple00(GenStruct00000001, GenOpt0000003E, GenEnum0000001D, GenTup00000066, ),
+    VarEmpty01,
+    VarNewTy02(GenTup00000047),
+    VarTuple03(GenStruct0000003A, GenOpt000000C6, GenTup0000000E, ),
+    VarTuple04(GenEnum0000002F, GenEnum0000009E, ),
+    VarStruct05 {
+        field00: GenTup00000025,
+        field01: GenTupStruct000000E5,
+        field02: GenArray0000004A,
+    },
+    VarStruct06 {
+        field00: GenTup00000054,
+        field01: GenStruct00000050,
+    },
+}
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000000FA {
-    VarStruct00 {
-        field00: u32,
-        field01: isize,
-    },
-    VarNewTy01(u16),
-    VarNewTy02(usize),
-    VarStruct03 {
-        field00: u8,
-    },
+    VarTuple00(GenTupStruct000000DD, GenStruct0000001A, GenTupStruct00000002, GenEnum00000037, ),
 }
 
 /// generated
-type GenTup000000FB = (i32, );
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000000FB {
+    field00: GenStruct00000078,
+    field01: GenStruct00000062,
+    field02: GenStruct00000030,
+    field03: GenTup0000003B,
+    field04: GenStruct000000CA,
+}
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000000FC {
-    field00: isize,
-    field01: u128,
-    field02: usize,
-    field03: u16,
-    field04: bool,
-    field05: u64,
-    field06: u8,
+    field00: GenEnum00000043,
+    field01: GenOpt00000035,
+    field02: GenOpt000000AF,
+    field03: GenTup0000008E,
 }
 
 /// generated
-type GenArray000000FD = [bool; 27];
+type GenOpt000000FD = Option<f32>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000000FE(i8, i64, bool, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000000FF {
-    field00: i16,
-    field01: u32,
-    field02: i16,
-    field03: u64,
-    field04: i32,
+enum GenEnum000000FE {
+    VarTuple00(GenArray000000A0, GenOpt000000C9, f32, ),
+    VarTuple01(GenArray0000001C, GenArray0000001C, GenEnum00000080, ),
 }
 
 /// generated
-type GenArray00000100 = [bool; 27];
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000000FF;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000101 {
-    VarTuple00(f32, i16, usize, u8, ),
-    VarEmpty01,
+struct GenTupStruct00000100(GenArray0000004E, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000101(GenStruct000000C1, GenEnum00000060, GenArray00000076, GenStruct00000064, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000102 {
+    VarTuple00(GenOpt0000003E, GenStruct00000042, ),
+    VarTuple01(GenEnum000000E7, GenStruct0000003A, GenStruct00000083, ),
     VarStruct02 {
-        field00: bool,
-        field01: u128,
-        field02: u16,
+        field00: GenEnum00000082,
+        field01: GenOpt0000007A,
+        field02: GenTupStruct000000E2,
     },
-    VarNewTy03(i16),
-    VarStruct04 {
-        field00: u8,
-        field01: i8,
-        field02: u64,
-        field03: bool,
-    },
-    VarTuple05(u8, ),
-    VarStruct06 {
-        field00: i64,
-        field01: u128,
-    },
-    VarNewTy07(i16),
-    VarStruct08 {
-        field00: i8,
-        field01: u32,
-        field02: f32,
-        field03: i8,
-    },
-    VarEmpty09,
-    VarStruct0A {
-        field00: u16,
-        field01: i32,
-    },
-    VarNewTy0B(f64),
 }
-
-/// generated
-type GenOpt00000102 = Option<i32>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum00000103 {
+    VarNewTy00(u128),
+    VarStruct01 {
+        field00: GenArray00000084,
+    },
+    VarTuple02(GenEnum000000ED, GenEnum00000034, GenOpt00000074, GenArray0000005A, ),
+    VarNewTy03(GenEnum0000009D),
+    VarStruct04 {
+        field00: GenStruct00000088,
+        field01: GenStruct0000007B,
+    },
+    VarStruct05 {
+        field00: GenEnum00000011,
+        field01: GenStruct00000041,
+    },
+    VarStruct06 {
+        field00: GenOpt00000015,
+        field01: GenStruct00000096,
+        field02: GenEnum00000006,
+        field03: u64,
+    },
+    VarNewTy07(bool),
+}
+
+/// generated
+type GenArray00000104 = [GenStruct00000088; 26];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000105 {
+    field00: GenStruct00000067,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000106 {
+    VarNewTy00(GenArray00000084),
+    VarTuple01(GenOpt000000DB, GenTupStruct0000006F, GenArray00000059, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000107(GenArray0000003D, GenEnum00000028, GenTupStruct000000A6, );
+
+/// generated
+type GenArray00000108 = [GenTupStruct000000B6; 4];
+
+/// generated
+type GenOpt00000109 = Option<GenTupStruct000000CC>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000010A {
     VarStruct00 {
-        field00: u128,
-        field01: f32,
-        field02: i128,
-        field03: f64,
+        field00: GenOpt000000BE,
+        field01: GenTupStruct00000014,
     },
     VarStruct01 {
-        field00: u128,
-        field01: f32,
-        field02: i128,
+        field00: GenStruct0000009A,
+        field01: GenStruct000000AC,
+        field02: GenEnum000000D9,
     },
-    VarEmpty02,
-    VarNewTy03(u64),
-    VarNewTy04(i64),
-    VarEmpty05,
-    VarStruct06 {
-        field00: i8,
+    VarTuple02(GenEnum00000082, GenOpt000000F6, GenOpt00000109, ),
+    VarStruct03 {
+        field00: GenTupStruct000000CC,
     },
-    VarEmpty07,
-    VarNewTy08(i64),
-    VarStruct09 {
-        field00: bool,
+    VarTuple04(GenTupStruct0000006F, GenArray00000104, GenStruct00000040, ),
+    VarStruct05 {
+        field00: GenTup0000008E,
+        field01: GenTup00000047,
+        field02: GenStruct00000090,
     },
+    VarEmpty06,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000104;
-
-/// generated
-type GenOpt00000105 = Option<f64>;
-
-/// generated
-type GenOpt00000106 = Option<u32>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000107(u8, i64, i16, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000108(u32, usize, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000109 {
-    field00: u16,
-    field01: u64,
-    field02: u64,
-    field03: u128,
-    field04: isize,
-}
-
-/// generated
-type GenArray0000010A = [u64; 25];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000010B(i64, usize, usize, u8, );
-
-/// generated
-type GenOpt0000010C = Option<i16>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000010D(i128, );
-
-/// generated
-type GenOpt0000010E = Option<bool>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000010F(u8, i8, i32, i8, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000110(u32, i8, f32, i64, );
-
-/// generated
-type GenArray00000111 = [f64; 30];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000112(i128, f32, isize, );
-
-/// generated
-type GenTup00000113 = (i64, u128, usize, u16, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000114 {
-    field00: i128,
-    field01: u64,
-    field02: u8,
-    field03: usize,
-    field04: u32,
-    field05: i64,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000115 {
-    VarNewTy00(u128),
-    VarEmpty01,
+enum GenEnum0000010B {
+    VarTuple00(GenTupStruct0000002A, GenStruct000000F3, GenStruct000000AC, ),
+    VarTuple01(GenEnum000000EB, ),
     VarEmpty02,
     VarEmpty03,
-    VarTuple04(isize, i8, i16, i16, ),
-    VarStruct05 {
-        field00: u64,
-        field01: u128,
-        field02: bool,
-        field03: i64,
-    },
-    VarNewTy06(u8),
-    VarNewTy07(isize),
-    VarStruct08 {
-        field00: i8,
-        field01: f64,
-    },
-    VarEmpty09,
-    VarNewTy0A(u128),
-    VarStruct0B {
-        field00: f64,
-        field01: isize,
+    VarEmpty04,
+    VarNewTy05(GenEnum00000080),
+    VarStruct06 {
+        field00: GenTup0000000C,
     },
 }
 
 /// generated
-type GenArray00000116 = [u64; 14];
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000010C {
+    VarEmpty00,
+    VarEmpty01,
+    VarNewTy02(GenOpt0000003E),
+    VarEmpty03,
+    VarTuple04(GenArray0000005A, GenStruct00000030, GenArray00000099, ),
+    VarEmpty05,
+    VarTuple06(GenOpt0000007A, GenEnum0000010A, GenEnum00000037, GenStruct00000083, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000010D {
+    VarStruct00 {
+        field00: GenStruct0000001A,
+        field01: GenArray000000CF,
+        field02: GenTup000000C4,
+        field03: GenEnum0000007F,
+    },
+    VarStruct01 {
+        field00: GenEnum00000033,
+    },
+    VarEmpty02,
+    VarNewTy03(GenEnum0000003C),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct0000010E {
+    field00: GenStruct00000044,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000010F {
+    VarTuple00(GenEnum000000EA, GenTup0000009F, GenEnum0000009C, ),
+    VarEmpty01,
+    VarStruct02 {
+        field00: GenEnum0000008F,
+        field01: GenArray000000F5,
+        field02: GenOpt00000031,
+    },
+    VarEmpty03,
+    VarTuple04(u8, ),
+    VarEmpty05,
+    VarNewTy06(GenEnum000000F9),
+    VarStruct07 {
+        field00: GenEnum0000005E,
+        field01: GenTupStruct000000C7,
+        field02: GenTupStruct00000016,
+    },
+    VarTuple08(GenOpt00000091, GenTupStruct00000100, GenArray00000104, GenEnum000000F9, ),
+    VarEmpty09,
+    VarNewTy0A(u8),
+    VarEmpty0B,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000110 {
+    VarTuple00(GenTupStruct00000051, ),
+    VarTuple01(i128, ),
+    VarEmpty02,
+    VarNewTy03(GenTup00000047),
+    VarStruct04 {
+        field00: GenEnum00000006,
+        field01: GenOpt000000D1,
+    },
+    VarStruct05 {
+        field00: GenEnum000000D9,
+    },
+    VarTuple06(GenOpt00000015, GenEnum0000001D, GenTupStruct000000D7, ),
+    VarNewTy07(GenStruct000000C0),
+    VarEmpty08,
+    VarStruct09 {
+        field00: GenEnum000000D9,
+    },
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000111 {
+    field00: GenEnum00000033,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000112 {
+    field00: GenArray0000008C,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000113 {
+    VarTuple00(GenStruct00000090, GenTupStruct0000006F, ),
+    VarTuple01(GenTupStruct000000E6, ),
+    VarTuple02(GenStruct00000078, ),
+    VarEmpty03,
+    VarNewTy04(GenOpt000000D8),
+    VarEmpty05,
+    VarTuple06(GenArray000000A0, GenArray00000076, ),
+    VarNewTy07(GenEnum0000000B),
+    VarStruct08 {
+        field00: GenEnum0000010B,
+        field01: GenStruct00000050,
+        field02: GenStruct000000C5,
+    },
+    VarStruct09 {
+        field00: i16,
+    },
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000114(GenArray000000F5, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000115 {
+    field00: GenArray0000008C,
+    field01: GenEnum000000EC,
+    field02: GenTup0000000C,
+}
+
+/// generated
+type GenTup00000116 = (GenTupStruct00000021, GenOpt000000DB, );
 
 /// generated
 #[derive(Debug)]
@@ -2717,300 +2898,230 @@ type GenArray00000116 = [u64; 14];
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum00000117 {
     VarStruct00 {
-        field00: isize,
-        field01: i16,
-        field02: bool,
-        field03: bool,
+        field00: GenTup0000003F,
+        field01: i32,
+        field02: u8,
     },
-    VarStruct01 {
-        field00: usize,
-        field01: i16,
-    },
-    VarTuple02(isize, ),
-    VarEmpty03,
-    VarNewTy04(i32),
-    VarEmpty05,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000118 {
-    VarStruct00 {
-        field00: i16,
-    },
-    VarTuple01(u16, i32, isize, ),
-    VarTuple02(i32, u64, ),
-    VarEmpty03,
-    VarEmpty04,
-    VarNewTy05(f32),
-    VarTuple06(u8, u8, usize, ),
-    VarNewTy07(f64),
-    VarEmpty08,
-    VarTuple09(u8, f64, ),
-    VarTuple0A(i32, ),
-    VarTuple0B(u16, bool, ),
-    VarTuple0C(i128, bool, ),
-    VarTuple0D(i64, ),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000119 {
-    VarTuple00(usize, i16, u16, f64, ),
-    VarStruct01 {
-        field00: i8,
-        field01: i8,
-        field02: isize,
-        field03: u32,
-    },
-    VarNewTy02(i16),
-    VarStruct03 {
-        field00: u128,
-        field01: u8,
-    },
-    VarStruct04 {
-        field00: isize,
-        field01: i128,
-        field02: f32,
-    },
-    VarStruct05 {
-        field00: usize,
-        field01: f32,
-    },
-    VarTuple06(u16, i8, usize, ),
-    VarStruct07 {
-        field00: u8,
-    },
-    VarNewTy08(usize),
-    VarStruct09 {
-        field00: u32,
-        field01: f64,
-    },
-    VarNewTy0A(i16),
-    VarEmpty0B,
-}
-
-/// generated
-type GenArray0000011A = [i128; 5];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000011B {
-    field00: u64,
-    field01: u32,
-    field02: u8,
-    field03: bool,
-}
-
-/// generated
-type GenOpt0000011C = Option<u8>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000011D {
-    field00: u16,
-    field01: usize,
-    field02: u8,
-    field03: u32,
-    field04: bool,
-    field05: i128,
-}
-
-/// generated
-type GenTup0000011E = (u16, u16, u64, u16, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000011F {
-    field00: u8,
-    field01: u8,
-    field02: i16,
-    field03: u64,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000120 {
-    VarStruct00 {
-        field00: isize,
-        field01: u32,
-        field02: u32,
-        field03: u64,
-    },
-    VarStruct01 {
-        field00: bool,
-        field01: u16,
-    },
-    VarNewTy02(u128),
-    VarNewTy03(f32),
-}
-
-/// generated
-type GenOpt00000121 = Option<f64>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000122(i128, u32, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000123 {
-    VarTuple00(i8, u16, ),
-    VarTuple01(i32, ),
-    VarTuple02(u8, usize, u128, ),
-    VarStruct03 {
-        field00: u128,
-        field01: i128,
-    },
-    VarTuple04(u16, u128, u32, ),
-    VarTuple05(bool, u64, ),
-    VarEmpty06,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000124 {
-    field00: u16,
-}
-
-/// generated
-type GenArray00000125 = [i8; 6];
-
-/// generated
-type GenTup00000126 = (f32, f32, u16, i64, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000127 {
-    field00: f32,
-    field01: u64,
-    field02: i8,
-    field03: usize,
-    field04: f64,
-    field05: i32,
-    field06: usize,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000128 {
-    field00: u32,
-    field01: i32,
-    field02: f64,
-    field03: bool,
-    field04: isize,
-    field05: i32,
-    field06: bool,
-}
-
-/// generated
-type GenOpt00000129 = Option<u16>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000012A {
-    field00: f64,
-    field01: u128,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000012B {
-    VarEmpty00,
     VarEmpty01,
-    VarTuple02(usize, ),
-    VarTuple03(u32, u8, u8, i8, ),
-    VarNewTy04(u16),
+    VarEmpty02,
+    VarEmpty03,
+    VarTuple04(GenEnum0000007D, ),
+    VarStruct05 {
+        field00: GenTup000000C4,
+    },
+    VarStruct06 {
+        field00: GenOpt000000F0,
+    },
+    VarStruct07 {
+        field00: GenStruct000000AC,
+        field01: GenStruct00000098,
+        field02: GenStruct000000A1,
+        field03: GenStruct000000BD,
+    },
+    VarNewTy08(GenTup0000008D),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000012C {
-    field00: f32,
-    field01: i8,
-    field02: bool,
-    field03: u64,
-    field04: bool,
-    field05: bool,
-    field06: u16,
+struct GenStruct00000118 {
+    field00: GenArray00000020,
+    field01: GenTup00000005,
+    field02: GenEnum000000F9,
 }
 
 /// generated
-type GenArray0000012D = [u128; 3];
+type GenTup00000119 = (GenEnum000000D0, GenArray00000024, GenArray00000076, );
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000012E {
-    field00: u16,
-    field01: i16,
-    field02: u32,
-    field03: u64,
-    field04: bool,
-    field05: i16,
-    field06: i16,
-}
+type GenOpt0000011A = Option<GenStruct000000D4>;
+
+/// generated
+type GenArray0000011B = [GenStruct00000093; 29];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000012F {
-    field00: f64,
-    field01: i64,
-    field02: isize,
+struct GenStruct0000011C {
+    field00: GenTupStruct0000002B,
+    field01: GenTup0000000E,
+    field02: GenStruct00000062,
+    field03: GenOpt00000035,
+    field04: GenEnum00000029,
+    field05: GenEnum000000EC,
+}
+
+/// generated
+type GenOpt0000011D = Option<GenStruct00000096>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000011E {
+    VarTuple00(GenEnum00000043, ),
+}
+
+/// generated
+type GenTup0000011F = (GenTup00000070, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000120 {
+    field00: GenStruct00000062,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000130 {
-    field00: f64,
+enum GenEnum00000121 {
+    VarStruct00 {
+        field00: GenTupStruct0000002A,
+        field01: GenEnum000000C8,
+        field02: GenEnum000000FE,
+        field03: GenStruct00000042,
+    },
+    VarStruct01 {
+        field00: GenEnum00000018,
+    },
+    VarTuple02(GenStruct0000010E, GenTupStruct0000002A, ),
+    VarStruct03 {
+        field00: GenArray000000C2,
+        field01: GenArray00000023,
+        field02: GenEnum000000E8,
+        field03: GenTup000000C4,
+    },
+    VarNewTy04(GenEnum000000D0),
+    VarTuple05(GenEnum00000037, GenArray0000005A, GenEnum00000049, ),
+    VarNewTy06(GenEnum000000CE),
+    VarEmpty07,
+    VarEmpty08,
+    VarEmpty09,
+    VarStruct0A {
+        field00: GenStruct000000FB,
+        field01: GenStruct00000112,
+    },
+    VarStruct0B {
+        field00: GenTup0000004F,
+        field01: GenTupStruct0000004D,
+    },
+    VarNewTy0C(u16),
+    VarNewTy0D(GenTup0000000C),
 }
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000122(GenOpt0000001B, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000123 {
+    field00: GenStruct00000050,
+    field01: GenArray00000024,
+}
+
+/// generated
+type GenOpt00000124 = Option<GenTupStruct000000E2>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000125 {
+    field00: GenTupStruct0000004C,
+    field01: GenOpt000000D1,
+}
+
+/// generated
+type GenArray00000126 = [GenTup00000066; 14];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000127(GenEnum000000B8, GenTup0000008D, GenTup0000002E, );
+
+/// generated
+type GenArray00000128 = [GenOpt0000005B; 27];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000129;
+
+/// generated
+type GenOpt0000012A = Option<GenStruct0000003A>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct0000012B {
+    field00: GenStruct000000BD,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000012C {
+    VarStruct00 {
+        field00: GenOpt00000124,
+        field01: GenTupStruct00000003,
+    },
+    VarEmpty01,
+    VarTuple02(GenTupStruct000000A9, ),
+    VarTuple03(GenEnum00000117, GenArray00000126, ),
+    VarEmpty04,
+    VarTuple05(GenStruct00000105, GenArray00000059, GenStruct00000039, ),
+    VarNewTy06(GenEnum000000B2),
+    VarEmpty07,
+    VarEmpty08,
+    VarEmpty09,
+}
+
+/// generated
+type GenArray0000012D = [GenStruct000000AD; 8];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000012E {
+    VarNewTy00(GenStruct000000D4),
+    VarEmpty01,
+}
+
+/// generated
+type GenTup0000012F = (GenStruct000000AA, GenStruct00000078, GenEnum00000043, );
+
+/// generated
+type GenTup00000130 = (GenStruct00000092, GenOpt00000124, GenStruct000000A1, GenArray0000012D, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum00000131 {
-    VarStruct00 {
-        field00: usize,
-        field01: i16,
+    VarTuple00(GenEnum0000009D, ),
+    VarNewTy01(GenEnum000000B2),
+    VarTuple02(GenTupStruct000000E6, ),
+    VarStruct03 {
+        field00: GenEnum000000CB,
+        field01: GenTup0000000C,
+        field02: GenTupStruct0000006A,
+        field03: GenArray00000020,
     },
-    VarNewTy01(usize),
-    VarNewTy02(i32),
-    VarEmpty03,
-    VarNewTy04(u64),
 }
 
 /// generated
@@ -3018,658 +3129,615 @@ enum GenEnum00000131 {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000132 {
-    field00: f64,
-    field01: i16,
-    field02: u64,
-    field03: i8,
-    field04: u8,
+    field00: GenEnum00000113,
+    field01: GenStruct0000011C,
+    field02: GenEnum00000106,
 }
+
+/// generated
+type GenArray00000133 = [usize; 13];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000133 {
-    VarNewTy00(u128),
+enum GenEnum00000134 {
+    VarNewTy00(GenEnum00000106),
     VarStruct01 {
-        field00: f32,
+        field00: GenTup0000008E,
     },
     VarNewTy02(i8),
-    VarNewTy03(i128),
-    VarNewTy04(bool),
-    VarTuple05(usize, i64, u32, ),
+    VarStruct03 {
+        field00: GenStruct000000C5,
+    },
+    VarStruct04 {
+        field00: GenOpt000000C9,
+        field01: bool,
+        field02: GenTupStruct000000E6,
+        field03: GenStruct000000FB,
+    },
+    VarTuple05(GenArray00000133, ),
     VarEmpty06,
-    VarTuple07(i32, i8, u16, ),
-    VarTuple08(usize, f32, u8, ),
-    VarTuple09(u32, f32, u16, ),
-    VarStruct0A {
-        field00: f32,
-        field01: u8,
-        field02: bool,
-        field03: f64,
-    },
-    VarStruct0B {
-        field00: usize,
-        field01: i64,
-    },
+    VarEmpty07,
+    VarTuple08(GenOpt000000DB, GenTupStruct00000002, GenTup00000065, GenEnum000000B2, ),
+    VarEmpty09,
+    VarEmpty0A,
+    VarNewTy0B(GenTup00000047),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000134(u64, u128, u64, u64, );
-
-/// generated
-type GenTup00000135 = (i16, usize, i8, u128, );
-
-/// generated
-type GenArray00000136 = [f64; 28];
-
-/// generated
-type GenArray00000137 = [usize; 9];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000138 {
-    VarNewTy00(u16),
+enum GenEnum00000135 {
+    VarStruct00 {
+        field00: GenEnum00000043,
+        field01: GenTupStruct00000107,
+    },
     VarEmpty01,
-    VarEmpty02,
-    VarTuple03(bool, i16, f64, usize, ),
-    VarNewTy04(u32),
+    VarNewTy02(GenTupStruct0000002B),
+    VarNewTy03(GenStruct00000088),
+    VarTuple04(GenTupStruct000000E5, GenEnum00000075, GenTupStruct0000002A, GenTupStruct00000014, ),
+    VarNewTy05(GenStruct000000F4),
+    VarEmpty06,
+    VarNewTy07(GenStruct0000010E),
 }
+
+/// generated
+type GenTup00000136 = (GenEnum000000F2, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000139 {
-    field00: f32,
-    field01: i8,
-    field02: usize,
-    field03: i32,
-    field04: i16,
+enum GenEnum00000137 {
+    VarTuple00(GenOpt00000015, GenEnum000000BC, ),
+    VarTuple01(GenStruct00000083, ),
+    VarTuple02(GenStruct00000098, GenOpt000000D8, ),
+    VarNewTy03(GenTupStruct000000E0),
+    VarStruct04 {
+        field00: GenStruct0000010E,
+        field01: GenTupStruct000000A6,
+        field02: GenStruct00000083,
+    },
+    VarNewTy05(GenTup0000000E),
+    VarNewTy06(GenStruct0000006C),
 }
 
 /// generated
-type GenArray0000013A = [f64; 7];
+type GenTup00000138 = (GenEnum00000033, );
 
 /// generated
-type GenArray0000013B = [u32; 1];
+type GenTup00000139 = (GenStruct00000097, GenStruct000000F4, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000013C {
-    field00: usize,
-    field01: i128,
-    field02: i64,
-    field03: isize,
-    field04: i8,
-    field05: i32,
-    field06: u32,
+struct GenStruct0000013A {
+    field00: GenEnum00000049,
+    field01: GenOpt00000124,
+    field02: GenStruct00000132,
 }
 
 /// generated
-type GenTup0000013D = (i16, f64, i128, );
+type GenOpt0000013B = Option<GenTup00000065>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000013E(i32, u16, u128, u32, );
+struct GenTupStruct0000013C(GenArray0000004E, GenTup00000116, GenStruct00000030, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000013D(GenOpt00000074, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000013E(GenEnum000000A7, GenArray00000104, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct0000013F {
-    field00: i32,
+    field00: GenTupStruct0000013C,
+    field01: GenOpt00000074,
+    field02: GenEnum00000037,
+    field03: GenTup0000003B,
+    field04: GenEnum000000EC,
+    field05: GenTup00000136,
 }
 
 /// generated
-type GenOpt00000140 = Option<bool>;
+type GenOpt00000140 = Option<GenStruct00000062>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000141 {
-    field00: isize,
-    field01: u8,
-    field02: u64,
-    field03: isize,
+    field00: GenStruct0000010E,
+    field01: GenEnum000000CE,
+    field02: GenOpt00000057,
+    field03: i16,
+    field04: GenStruct00000090,
+    field05: GenStruct000000C0,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000142(i32, u8, u32, i8, );
+struct GenTupStruct00000142(GenEnum0000009D, GenTup0000004F, GenEnum00000113, );
+
+/// generated
+type GenOpt00000143 = Option<GenOpt000000E1>;
+
+/// generated
+type GenTup00000144 = (GenTupStruct00000122, GenTupStruct0000006A, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000143 {
-    VarNewTy00(f64),
-    VarTuple01(f32, i8, usize, ),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000144(u128, u64, u16, );
-
-/// generated
-type GenOpt00000145 = Option<u16>;
-
-/// generated
-type GenArray00000146 = [i128; 4];
-
-/// generated
-type GenOpt00000147 = Option<isize>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000148 {
-    VarStruct00 {
-        field00: u128,
-        field01: u16,
+enum GenEnum00000145 {
+    VarNewTy00(GenTupStruct00000107),
+    VarNewTy01(GenOpt0000005D),
+    VarStruct02 {
+        field00: GenEnum00000018,
     },
-    VarStruct01 {
-        field00: i64,
-        field01: i32,
-        field02: f32,
-    },
-    VarTuple02(isize, i64, i32, ),
-    VarTuple03(u128, i32, f64, f32, ),
-    VarTuple04(u32, isize, u8, ),
+    VarEmpty03,
+    VarTuple04(GenArray00000023, GenOpt000000E3, GenTup00000139, ),
     VarStruct05 {
-        field00: i8,
+        field00: GenEnum00000134,
+        field01: GenEnum00000034,
+        field02: GenArray000000A0,
     },
-    VarTuple06(isize, bool, ),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000149 {
-    VarTuple00(i32, u8, u128, ),
-    VarNewTy01(f64),
-    VarTuple02(u16, i64, u64, ),
-    VarTuple03(f64, ),
-    VarEmpty04,
-    VarEmpty05,
-    VarEmpty06,
-    VarNewTy07(i32),
-    VarNewTy08(i16),
-    VarStruct09 {
-        field00: u16,
+    VarStruct06 {
+        field00: GenStruct00000017,
+        field01: GenTupStruct0000002B,
     },
-    VarNewTy0A(u32),
-    VarEmpty0B,
+    VarNewTy07(GenStruct00000092),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000014A {
-    field00: u128,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000014B {
+enum GenEnum00000146 {
     VarEmpty00,
-    VarTuple01(usize, usize, f64, ),
-    VarTuple02(u64, u16, i16, i8, ),
-    VarTuple03(u128, bool, ),
-    VarNewTy04(u64),
-    VarTuple05(isize, u16, usize, ),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000014C {
-    field00: i16,
-    field01: u32,
-    field02: isize,
+struct GenStruct00000147;
+
+/// generated
+type GenOpt00000148 = Option<GenArray00000061>;
+
+/// generated
+type GenTup00000149 = (GenEnum00000043, GenStruct000000FB, GenArray0000008C, GenEnum000000EA, );
+
+/// generated
+type GenTup0000014A = (GenTupStruct0000013C, GenStruct00000111, GenEnum00000011, GenStruct000000BF, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct0000014B {
+    field00: GenEnum00000103,
+    field01: GenTupStruct000000E2,
+    field02: GenOpt00000148,
+    field03: GenEnum00000043,
+    field04: GenEnum000000CE,
+    field05: GenStruct000000EF,
 }
 
 /// generated
-type GenTup0000014D = (i16, isize, u64, u128, );
+type GenArray0000014C = [GenTup00000119; 8];
+
+/// generated
+type GenTup0000014D = (GenStruct0000003A, GenTupStruct000000B6, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000014E;
+struct GenTupStruct0000014E(GenStruct00000044, GenOpt0000013B, GenTupStruct00000100, GenStruct000000AD, );
+
+/// generated
+type GenOpt0000014F = Option<GenEnum000000A4>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000014F {
-    VarStruct00 {
-        field00: i8,
-        field01: i8,
-    },
-    VarEmpty01,
-    VarNewTy02(u32),
-    VarNewTy03(bool),
-    VarStruct04 {
-        field00: bool,
-    },
-    VarTuple05(i128, f64, i64, ),
-    VarTuple06(u8, f32, f64, f32, ),
-    VarTuple07(u32, u64, ),
-    VarEmpty08,
-    VarTuple09(u16, ),
-    VarTuple0A(u8, ),
-    VarEmpty0B,
-    VarNewTy0C(i128),
-    VarNewTy0D(u32),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000150(f32, i128, );
+struct GenTupStruct00000150(u32, GenTupStruct000000E6, GenStruct000000B4, u8, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum00000151 {
-    VarTuple00(i32, i32, i32, bool, ),
-    VarTuple01(bool, f64, u16, i128, ),
-    VarNewTy02(u32),
-    VarEmpty03,
-    VarEmpty04,
-    VarTuple05(usize, ),
-    VarTuple06(f32, ),
-    VarStruct07 {
-        field00: u8,
-        field01: i128,
-        field02: u16,
-        field03: usize,
+    VarStruct00 {
+        field00: GenEnum00000007,
+        field01: GenStruct0000008B,
     },
-    VarNewTy08(i8),
+    VarNewTy01(GenStruct000000F3),
+    VarStruct02 {
+        field00: GenEnum00000006,
+        field01: GenEnum0000002C,
+        field02: GenOpt0000005D,
+        field03: GenStruct0000009A,
+    },
+    VarTuple03(GenArray0000014C, GenOpt000000FD, GenStruct0000006B, ),
+    VarNewTy04(GenTupStruct000000E2),
+    VarTuple05(GenTupStruct000000E9, ),
+    VarEmpty06,
+    VarEmpty07,
+    VarStruct08 {
+        field00: GenStruct000000BD,
+    },
+    VarNewTy09(GenStruct0000008A),
+    VarStruct0A {
+        field00: GenEnum00000145,
+    },
+    VarEmpty0B,
+    VarEmpty0C,
+    VarTuple0D(GenStruct00000115, ),
 }
 
 /// generated
-type GenTup00000152 = (u32, f32, );
+type GenOpt00000152 = Option<GenOpt000000E4>;
 
 /// generated
-type GenTup00000153 = (i32, u16, );
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000153 {
+    field00: GenTupStruct00000122,
+    field01: GenEnum00000117,
+    field02: GenTup0000000E,
+}
 
 /// generated
-type GenArray00000154 = [f32; 19];
+type GenOpt00000154 = Option<GenArray00000008>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000155 {
-    field00: f32,
-    field01: i16,
-    field02: u128,
-    field03: i128,
-    field04: f64,
-    field05: i64,
-    field06: f32,
+    field00: GenTup000000A3,
+    field01: GenEnum00000137,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000156 {
-    field00: u16,
-    field01: f32,
-    field02: u16,
+enum GenEnum00000156 {
+    VarNewTy00(GenOpt000000AF),
+    VarTuple01(GenStruct000000B3, GenArray00000104, GenTup0000014A, ),
+    VarEmpty02,
+    VarStruct03 {
+        field00: GenTupStruct000000A5,
+        field01: GenStruct00000095,
+        field02: GenEnum0000002C,
+        field03: i32,
+    },
+    VarEmpty04,
+    VarEmpty05,
+    VarStruct06 {
+        field00: GenArray000000EE,
+        field01: GenStruct0000014B,
+    },
+    VarTuple07(GenOpt0000011A, GenTupStruct000000F7, GenOpt000000CD, ),
 }
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000157 {
-    field00: u64,
-}
+type GenOpt00000157 = Option<GenArray00000024>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000158 {
-    field00: i8,
+    field00: GenEnum00000102,
+    field01: GenTup0000008E,
+    field02: GenStruct0000014B,
+    field03: GenStruct000000FB,
 }
-
-/// generated
-type GenArray00000159 = [i128; 7];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000015A {
-    VarTuple00(u32, usize, ),
-    VarTuple01(i8, i32, f64, u128, ),
-    VarStruct02 {
-        field00: i32,
-        field01: u8,
-        field02: usize,
-        field03: bool,
+enum GenEnum00000159 {
+    VarStruct00 {
+        field00: GenStruct000000A1,
+        field01: GenTup0000001E,
     },
-    VarStruct03 {
-        field00: isize,
-        field01: f64,
-        field02: i64,
-    },
-    VarNewTy04(i8),
+    VarNewTy01(GenOpt000000E4),
+    VarEmpty02,
+    VarNewTy03(GenOpt000000F0),
+    VarTuple04(GenOpt000000DB, GenStruct00000067, GenEnum00000028, ),
     VarEmpty05,
     VarStruct06 {
-        field00: u128,
-        field01: bool,
-        field02: f32,
+        field00: GenEnum000000FE,
+        field01: GenEnum00000135,
     },
-    VarEmpty07,
+    VarNewTy07(GenStruct00000132),
     VarStruct08 {
-        field00: f32,
-        field01: u32,
-        field02: f32,
-        field03: f32,
+        field00: GenEnum00000034,
     },
-    VarEmpty09,
+    VarNewTy09(GenTupStruct00000101),
+    VarStruct0A {
+        field00: GenArray00000076,
+        field01: GenTup00000119,
+        field02: GenEnum00000113,
+        field03: GenStruct0000005F,
+    },
 }
 
 /// generated
-type GenTup0000015B = (u32, i16, );
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000015A(GenTupStruct00000068, );
 
 /// generated
-type GenTup0000015C = (usize, i8, );
+type GenOpt0000015B = Option<GenTupStruct00000100>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000015C(GenArray00000104, GenStruct00000001, GenTup00000094, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct0000015D {
-    field00: u64,
-    field01: i8,
-    field02: isize,
+    field00: GenTup0000014D,
+    field01: GenStruct00000098,
+    field02: GenStruct00000045,
+    field03: GenTupStruct00000068,
+    field04: GenTup0000002D,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000015E {
-    VarTuple00(f32, u8, ),
+struct GenStruct0000015E {
+    field00: GenStruct00000095,
+    field01: GenTup0000008D,
+    field02: GenOpt000000D1,
+    field03: GenTup00000119,
+    field04: GenTup0000006D,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000015F {
+    VarNewTy00(GenOpt00000086),
     VarEmpty01,
     VarEmpty02,
-    VarEmpty03,
-    VarTuple04(i64, ),
-    VarStruct05 {
-        field00: i128,
+    VarNewTy03(GenStruct0000007B),
+    VarStruct04 {
+        field00: GenStruct000000D2,
     },
-    VarStruct06 {
-        field00: u32,
-    },
-    VarStruct07 {
-        field00: i8,
-        field01: i8,
-        field02: f32,
-    },
+    VarNewTy05(GenArray000000D3),
+    VarNewTy06(GenStruct00000004),
+    VarNewTy07(GenTupStruct00000056),
+    VarNewTy08(i8),
+    VarTuple09(GenEnum00000029, ),
+    VarTuple0A(GenEnum00000137, GenArray000000A0, GenEnum00000159, ),
+    VarNewTy0B(GenEnum000000E8),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000160(GenTupStruct000000B5, GenTupStruct00000013, );
+
+/// generated
+type GenOpt00000161 = Option<GenStruct000000BF>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000162 {
+    VarEmpty00,
+    VarTuple01(GenArray00000128, GenStruct000000BD, ),
+    VarTuple02(GenStruct00000022, GenArray0000001C, GenTupStruct000000E9, ),
+    VarNewTy03(GenEnum000000BA),
+    VarEmpty04,
+    VarTuple05(u128, GenEnum0000005E, GenEnum0000007F, ),
+    VarEmpty06,
+    VarNewTy07(GenOpt0000003E),
     VarStruct08 {
-        field00: i64,
-        field01: i32,
+        field00: GenOpt000000F8,
     },
-    VarTuple09(i128, bool, ),
-    VarNewTy0A(u8),
-    VarTuple0B(u8, i8, u32, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000163 {
+    field00: GenTupStruct00000002,
+    field01: GenTup0000011F,
+    field02: GenStruct0000013F,
+    field03: GenStruct000000AD,
+    field04: GenOpt0000005D,
+}
+
+/// generated
+type GenOpt00000164 = Option<GenTupStruct000000A9>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000165;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000166(GenArray0000014C, GenTupStruct000000A9, GenTupStruct00000056, );
+
+/// generated
+type GenOpt00000167 = Option<GenEnum0000008F>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000168(GenOpt000000E3, GenTupStruct000000CC, GenTupStruct0000013D, GenTup0000006D, );
+
+/// generated
+type GenArray00000169 = [GenArray00000128; 19];
+
+/// generated
+type GenArray0000016A = [GenStruct00000093; 5];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct0000016B {
+    field00: GenStruct0000015E,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum0000016C {
+    VarTuple00(GenEnum0000009D, GenEnum0000010C, GenOpt00000031, ),
+    VarNewTy01(GenOpt000000C6),
+    VarStruct02 {
+        field00: GenOpt0000011D,
+    },
+    VarStruct03 {
+        field00: GenStruct000000BD,
+    },
+    VarTuple04(GenEnum00000113, GenStruct00000062, GenEnum0000009C, GenOpt0000011D, ),
+    VarStruct05 {
+        field00: GenTupStruct000000F7,
+        field01: GenTupStruct00000014,
+        field02: GenTup0000006D,
+    },
+    VarTuple06(GenEnum000000EB, GenStruct00000064, i16, GenEnum000000EA, ),
+    VarStruct07 {
+        field00: GenEnum00000063,
+    },
+    VarNewTy08(GenStruct000000B4),
+    VarEmpty09,
+    VarTuple0A(GenEnum00000075, ),
+    VarNewTy0B(GenStruct00000045),
     VarEmpty0C,
     VarStruct0D {
-        field00: f32,
+        field00: GenOpt0000015B,
+        field01: GenTupStruct0000015A,
+        field02: GenOpt00000012,
     },
-    VarTuple0E(u8, isize, ),
-}
-
-/// generated
-type GenOpt0000015F = Option<u32>;
-
-/// generated
-type GenOpt00000160 = Option<isize>;
-
-/// generated
-type GenArray00000161 = [i32; 29];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000162 {
-    field00: isize,
-    field01: u32,
-    field02: u16,
-    field03: usize,
-    field04: f32,
-    field05: u64,
-}
-
-/// generated
-type GenOpt00000163 = Option<i32>;
-
-/// generated
-type GenArray00000164 = [i64; 19];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000165 {
-    field00: u128,
-    field01: u8,
-    field02: i8,
+    VarTuple0E(GenStruct00000153, GenArray00000024, ),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000166 {
-    field00: usize,
+struct GenStruct0000016D {
+    field00: GenStruct0000011C,
+    field01: GenStruct00000112,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000167 {
-    VarStruct00 {
-        field00: i32,
-        field01: u32,
-        field02: i128,
-        field03: f64,
-    },
-    VarTuple01(i64, f32, i64, u8, ),
-    VarNewTy02(i32),
-    VarStruct03 {
-        field00: i128,
-        field01: u32,
-        field02: f32,
-        field03: i128,
-    },
-    VarNewTy04(i16),
-    VarTuple05(u128, bool, u64, ),
-    VarNewTy06(u128),
-    VarNewTy07(i16),
-    VarEmpty08,
-    VarEmpty09,
-    VarEmpty0A,
-    VarStruct0B {
-        field00: f64,
-        field01: f64,
-    },
-    VarTuple0C(f64, ),
-    VarStruct0D {
-        field00: u128,
-        field01: f32,
-    },
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000168 {
-    VarNewTy00(f32),
-    VarEmpty01,
-    VarNewTy02(i8),
-    VarStruct03 {
-        field00: u16,
-        field01: f64,
-    },
-    VarEmpty04,
-    VarNewTy05(usize),
-    VarTuple06(i16, u128, i32, u32, ),
-    VarStruct07 {
-        field00: i32,
-        field01: u16,
-    },
-    VarNewTy08(i128),
-    VarTuple09(usize, isize, ),
-    VarTuple0A(f32, i32, ),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000169(i16, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000016A;
-
-/// generated
-type GenOpt0000016B = Option<u32>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000016C {
-    field00: i64,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000016D {
-    VarStruct00 {
-        field00: bool,
-        field01: f64,
-    },
-    VarTuple01(u16, ),
-    VarEmpty02,
-    VarEmpty03,
-    VarTuple04(i32, ),
-    VarTuple05(bool, bool, ),
-    VarEmpty06,
-    VarTuple07(f64, i128, bool, ),
-    VarNewTy08(u64),
-    VarNewTy09(i32),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000016E(u8, u8, );
+struct GenTupStruct0000016E(GenTup0000001E, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct0000016F {
-    field00: usize,
-    field01: i64,
-    field02: usize,
-    field03: bool,
+    field00: GenArray00000104,
+    field01: GenEnum000000EC,
+    field02: GenStruct00000040,
+    field03: GenStruct00000105,
+    field04: GenEnum00000037,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000170 {
-    field00: f32,
-    field01: i128,
-    field02: i32,
-    field03: i8,
-    field04: u64,
-    field05: usize,
-    field06: isize,
+enum GenEnum00000170 {
+    VarStruct00 {
+        field00: GenTup0000004F,
+        field01: GenEnum000000CE,
+    },
+    VarEmpty01,
+    VarEmpty02,
+    VarEmpty03,
+    VarTuple04(GenStruct00000125, GenEnum0000010C, ),
+    VarStruct05 {
+        field00: GenStruct00000118,
+    },
 }
 
 /// generated
-type GenTup00000171 = (bool, f32, i32, i128, );
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000171 {
+    field00: GenStruct00000129,
+    field01: GenStruct00000129,
+}
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum00000172 {
-    VarTuple00(i32, ),
-    VarNewTy01(u8),
-    VarStruct02 {
-        field00: i64,
-        field01: i16,
-        field02: usize,
+    VarStruct00 {
+        field00: GenTupStruct000000E2,
+        field01: GenEnum000000D9,
+        field02: GenArray0000016A,
     },
-    VarStruct03 {
-        field00: f32,
-        field01: isize,
-        field02: f64,
-        field03: i128,
-    },
+    VarNewTy01(GenEnum0000009D),
+    VarTuple02(usize, GenStruct000000EF, ),
+    VarTuple03(GenTupStruct00000101, ),
+    VarTuple04(u8, GenEnum000000FA, GenTup00000139, GenArray000000B7, ),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000173 {
-    VarEmpty00,
-    VarStruct01 {
-        field00: u128,
-        field01: u8,
-        field02: f32,
-    },
-    VarEmpty02,
-    VarNewTy03(f64),
-    VarTuple04(f64, u64, u32, f32, ),
-    VarStruct05 {
-        field00: i16,
-    },
+struct GenStruct00000173 {
+    field00: GenStruct0000010E,
 }
 
 /// generated
@@ -3677,12 +3745,7 @@ enum GenEnum00000173 {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000174 {
-    field00: u64,
-    field01: u8,
-    field02: f32,
-    field03: u8,
-    field04: i64,
-    field05: isize,
+    field00: GenTupStruct000000D7,
 }
 
 /// generated
@@ -3690,589 +3753,456 @@ struct GenStruct00000174 {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000175 {
-    field00: u8,
-    field01: isize,
-    field02: u8,
-    field03: f32,
+    field00: GenStruct000000AD,
+    field01: GenStruct0000005F,
+    field02: GenEnum0000010B,
+    field03: GenStruct00000078,
+    field04: GenTupStruct00000100,
 }
 
 /// generated
-type GenArray00000176 = [isize; 5];
+type GenArray00000176 = [GenTupStruct000000DD; 19];
+
+/// generated
+type GenOpt00000177 = Option<GenStruct00000041>;
+
+/// generated
+type GenTup00000178 = (GenArray00000126, GenArray00000008, GenEnum000000BA, GenTupStruct000000E0, );
+
+/// generated
+type GenOpt00000179 = Option<GenTupStruct00000036>;
+
+/// generated
+type GenOpt0000017A = Option<GenStruct00000175>;
+
+/// generated
+type GenOpt0000017B = Option<GenTup00000087>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000177 {
+enum GenEnum0000017C {
+    VarNewTy00(GenStruct000000C5),
+}
+
+/// generated
+type GenOpt0000017D = Option<GenEnum00000043>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000017E(GenTupStruct000000E2, GenTup00000136, GenStruct00000045, GenOpt00000026, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000017F(GenEnum00000106, GenStruct00000040, );
+
+/// generated
+type GenArray00000180 = [GenTupStruct0000006F; 12];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000181(GenOpt00000035, GenTup0000002D, GenEnum00000159, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000182 {
+    VarEmpty00,
+    VarStruct01 {
+        field00: GenStruct00000125,
+        field01: GenTup000000A8,
+        field02: GenEnum0000000B,
+    },
+    VarEmpty02,
+    VarTuple03(GenTup00000066, GenStruct00000129, GenArray00000169, GenArray000000B7, ),
+    VarEmpty04,
+    VarTuple05(GenStruct0000005F, ),
+    VarStruct06 {
+        field00: GenArray00000133,
+        field01: GenTupStruct0000015A,
+        field02: GenOpt000000FD,
+        field03: GenEnum000000E8,
+    },
+    VarStruct07 {
+        field00: i128,
+        field01: GenOpt000000C3,
+        field02: GenTupStruct00000160,
+        field03: GenOpt00000035,
+    },
+    VarTuple08(GenEnum00000055, GenEnum0000003C, GenTup0000002D, ),
+    VarTuple09(GenStruct000000F4, GenTupStruct00000168, GenTupStruct00000160, ),
+    VarNewTy0A(GenTupStruct00000021),
+}
+
+/// generated
+type GenArray00000183 = [GenTupStruct000000C7; 14];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000184 {
+    field00: GenEnum00000075,
+    field01: GenArray00000108,
+    field02: GenOpt0000001B,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000185(GenStruct000000D4, GenStruct00000120, GenArray0000005A, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000186 {
+    field00: GenStruct00000123,
+    field01: GenOpt00000109,
+    field02: GenEnum0000002F,
+    field03: i8,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum00000187 {
     VarEmpty00,
     VarEmpty01,
-    VarTuple02(i128, u8, usize, i16, ),
-    VarTuple03(i8, u16, i8, u32, ),
-    VarEmpty04,
-    VarNewTy05(f32),
-    VarNewTy06(i32),
-    VarNewTy07(u64),
-    VarNewTy08(i16),
-    VarStruct09 {
-        field00: u64,
-        field01: f32,
-    },
+    VarTuple02(GenStruct000000D4, ),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000178(u16, u128, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000179 {
-    field00: f64,
-    field01: i128,
-    field02: i128,
-    field03: u64,
-    field04: usize,
-    field05: i16,
-    field06: f64,
-}
-
-/// generated
-type GenTup0000017A = (i8, u32, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000017B(u128, isize, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000017C {
-    field00: isize,
-    field01: isize,
-    field02: f64,
-    field03: i64,
-}
-
-/// generated
-type GenTup0000017D = (isize, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000017E {
-    VarTuple00(u16, i64, ),
-    VarTuple01(i8, ),
-    VarTuple02(usize, f64, ),
-    VarStruct03 {
-        field00: i128,
-        field01: isize,
-    },
-    VarStruct04 {
-        field00: f64,
-        field01: i32,
-        field02: bool,
-    },
-    VarNewTy05(i32),
-    VarEmpty06,
-}
-
-/// generated
-type GenOpt0000017F = Option<u32>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000180 {
-    VarStruct00 {
-        field00: u16,
-    },
-    VarStruct01 {
-        field00: i64,
-        field01: u32,
-    },
-    VarTuple02(f64, u64, i32, ),
-    VarEmpty03,
-    VarNewTy04(bool),
-    VarNewTy05(usize),
-    VarTuple06(bool, ),
-    VarNewTy07(u128),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000181(f64, u32, i16, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000182(u16, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum00000183 {
-    VarTuple00(f32, ),
-    VarTuple01(u32, usize, i16, u64, ),
-    VarStruct02 {
-        field00: bool,
-        field01: i32,
-    },
-}
-
-/// generated
-type GenOpt00000184 = Option<usize>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000185 {
-    field00: f32,
-    field01: usize,
-    field02: i64,
-    field03: u128,
-    field04: u8,
-    field05: i16,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000186;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000187(i16, u128, f32, );
-
-/// generated
-type GenOpt00000188 = Option<i32>;
+struct GenTupStruct00000188(GenTupStruct000000E2, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct00000189 {
-    field00: f32,
-    field01: isize,
-    field02: isize,
-    field03: i16,
-    field04: f64,
+    field00: GenOpt00000019,
+    field01: GenArray00000128,
+    field02: GenEnum00000007,
+    field03: GenStruct00000147,
 }
+
+/// generated
+type GenTup0000018A = (GenTup00000094, GenStruct00000184, GenOpt00000152, GenStruct000000FC, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000018A {
-    VarNewTy00(bool),
-    VarStruct01 {
-        field00: u128,
-        field01: u128,
-        field02: f32,
-    },
-    VarEmpty02,
-    VarEmpty03,
-    VarEmpty04,
-    VarTuple05(i32, u32, i128, ),
-    VarTuple06(u32, ),
-    VarTuple07(u16, i16, f64, ),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000018B {
-    field00: u32,
-    field01: u16,
-    field02: u8,
-    field03: usize,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000018C {
-    field00: u64,
-    field01: i16,
-    field02: i64,
-    field03: u64,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum0000018D {
+enum GenEnum0000018B {
     VarEmpty00,
+    VarTuple01(GenOpt00000057, GenTupStruct00000016, ),
+    VarNewTy02(GenArray00000183),
+    VarNewTy03(GenStruct00000079),
+    VarEmpty04,
+    VarStruct05 {
+        field00: GenTupStruct00000122,
+        field01: GenOpt00000177,
+        field02: GenStruct00000155,
+        field03: GenOpt0000011A,
+    },
+    VarEmpty06,
+    VarNewTy07(GenStruct0000015E),
+    VarNewTy08(bool),
+    VarTuple09(GenTup0000018A, GenStruct000000AC, GenOpt000000F0, GenEnum00000018, ),
+}
+
+/// generated
+type GenOpt0000018C = Option<f32>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000018D(GenTupStruct00000032, GenTup0000003B, GenEnum000000B2, );
+
+/// generated
+type GenArray0000018E = [GenTup0000014A; 28];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000018F(GenTupStruct0000006A, GenStruct000000F3, GenOpt000000CD, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct00000190(u16, GenArray00000099, GenTupStruct00000036, );
+
+/// generated
+type GenArray00000191 = [GenOpt0000012A; 32];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000192 {
+    field00: GenStruct00000067,
+    field01: GenOpt0000014F,
+    field02: GenOpt0000014F,
+    field03: GenArray0000001C,
+    field04: GenStruct00000153,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000018E;
+enum GenEnum00000193 {
+    VarNewTy00(GenStruct00000174),
+}
 
 /// generated
-type GenOpt0000018F = Option<u128>;
-
-/// generated
-type GenTup00000190 = (u16, u64, u128, f64, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000191(isize, i8, i128, );
-
-/// generated
-type GenTup00000192 = (u64, bool, f32, u16, );
+type GenOpt00000194 = Option<GenStruct00000096>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct00000193 {
-    field00: u16,
+struct GenStruct00000195 {
+    field00: GenStruct00000155,
+    field01: GenTup00000130,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000196 {
+    field00: GenTupStruct00000107,
     field01: isize,
-    field02: usize,
-    field03: i128,
-    field04: bool,
-    field05: u64,
+    field02: GenStruct00000022,
+    field03: GenStruct000000D4,
+    field04: GenOpt00000026,
 }
 
 /// generated
-type GenOpt00000194 = Option<isize>;
-
-/// generated
-type GenArray00000195 = [f32; 8];
-
-/// generated
-type GenTup00000196 = (usize, u64, );
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct00000197 {
+    field00: GenTupStruct00000002,
+    field01: GenStruct000000BF,
+}
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct00000197(u64, bool, isize, i32, );
-
-/// generated
-type GenOpt00000198 = Option<isize>;
-
-/// generated
-type GenArray00000199 = [f32; 13];
-
-/// generated
-type GenArray0000019A = [i128; 2];
+struct GenTupStruct00000198(GenOpt0000003E, GenArray00000059, GenTup0000003F, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct0000019B;
+enum GenEnum00000199 {
+    VarTuple00(GenTupStruct000000F7, GenStruct00000067, ),
+    VarNewTy01(GenOpt0000005D),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000019A(GenTupStruct00000056, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct0000019B(GenOpt000000C9, GenStruct0000015E, GenArray000000F5, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct0000019C {
-    field00: i8,
-    field01: u64,
-    field02: bool,
-    field03: i128,
+    field00: isize,
+    field01: GenStruct0000016D,
 }
 
 /// generated
-type GenArray0000019D = [i8; 26];
+type GenArray0000019D = [GenOpt000000E3; 25];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct0000019E(u32, u128, i8, );
-
-/// generated
-type GenArray0000019F = [bool; 3];
-
-/// generated
-type GenTup000001A0 = (usize, u64, usize, );
+struct GenTupStruct0000019E(GenOpt000000AB, GenStruct00000041, GenTupStruct000000C7, GenStruct000000EF, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001A1(i8, );
+struct GenTupStruct0000019F(GenTupStruct0000018F, GenTup0000003B, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001A2 {
-    VarEmpty00,
-    VarEmpty01,
-    VarStruct02 {
-        field00: bool,
-    },
-    VarTuple03(i8, ),
-    VarStruct04 {
-        field00: bool,
-    },
-    VarEmpty05,
-    VarEmpty06,
-    VarTuple07(u32, ),
-    VarStruct08 {
-        field00: bool,
-    },
-    VarTuple09(bool, u128, i128, u16, ),
-    VarStruct0A {
-        field00: u128,
-        field01: f32,
-        field02: u64,
-        field03: u16,
-    },
-    VarNewTy0B(u16),
+struct GenStruct000001A0 {
+    field00: GenOpt00000031,
+    field01: GenStruct00000173,
+    field02: GenTup000000A8,
+    field03: GenTup000000A8,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001A3 {
-    VarTuple00(u32, u64, i16, f64, ),
-    VarNewTy01(u8),
-    VarTuple02(i32, u16, u64, i32, ),
-    VarStruct03 {
-        field00: u8,
-        field01: f32,
-        field02: i32,
-    },
-    VarStruct04 {
-        field00: i16,
-        field01: i8,
-    },
-    VarEmpty05,
-    VarEmpty06,
-    VarEmpty07,
-    VarStruct08 {
-        field00: i128,
-        field01: u8,
-    },
-    VarTuple09(f32, isize, i64, ),
-    VarNewTy0A(u32),
-    VarNewTy0B(isize),
-    VarNewTy0C(u8),
-    VarStruct0D {
-        field00: i16,
-        field01: u16,
-    },
-    VarNewTy0E(i128),
-    VarEmpty0F,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001A4 {
-    VarTuple00(i64, i64, u128, ),
-    VarEmpty01,
-    VarStruct02 {
-        field00: isize,
-        field01: u32,
-    },
-    VarNewTy03(f64),
-    VarStruct04 {
-        field00: u32,
-    },
-    VarNewTy05(isize),
-    VarStruct06 {
-        field00: usize,
-        field01: i64,
-        field02: f32,
-        field03: f32,
-    },
-    VarNewTy07(f64),
-    VarNewTy08(i64),
-    VarNewTy09(f64),
-    VarNewTy0A(isize),
-    VarStruct0B {
-        field00: i32,
-        field01: u8,
-        field02: u16,
-    },
-    VarNewTy0C(isize),
-    VarNewTy0D(u64),
-    VarNewTy0E(i128),
-    VarNewTy0F(u16),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001A5 {
+enum GenEnum000001A1 {
     VarStruct00 {
-        field00: u128,
-        field01: f32,
-        field02: i64,
-        field03: usize,
+        field00: GenTup00000139,
+        field01: GenOpt000000F8,
+        field02: GenOpt0000013B,
     },
-    VarEmpty01,
-    VarEmpty02,
-    VarNewTy03(usize),
-    VarStruct04 {
-        field00: u16,
+    VarStruct01 {
+        field00: GenTup0000004F,
     },
-    VarTuple05(i64, i64, u128, u128, ),
-    VarEmpty06,
-    VarNewTy07(u128),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001A6 {
-    VarTuple00(u32, ),
-    VarTuple01(bool, f64, i16, ),
-    VarNewTy02(i64),
-    VarTuple03(i32, u16, u128, ),
-    VarNewTy04(i128),
-    VarTuple05(isize, i128, u16, bool, ),
-    VarTuple06(f32, u16, ),
-    VarTuple07(f32, usize, ),
-    VarEmpty08,
-    VarNewTy09(i32),
-    VarEmpty0A,
-    VarTuple0B(u128, u8, u128, ),
-    VarEmpty0C,
-    VarNewTy0D(u64),
-    VarStruct0E {
-        field00: i128,
+    VarStruct02 {
+        field00: GenStruct00000039,
     },
-    VarNewTy0F(u8),
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001A7(i8, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001A8 {
-    VarNewTy00(u8),
-    VarEmpty01,
-    VarEmpty02,
-    VarTuple03(usize, isize, i16, u128, ),
-}
-
-/// generated
-type GenOpt000001A9 = Option<i8>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001AA(i64, i32, f64, bool, );
-
-/// generated
-type GenArray000001AB = [f32; 19];
-
-/// generated
-type GenArray000001AC = [isize; 5];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001AD {
-    VarEmpty00,
-    VarTuple01(u128, usize, i8, i64, ),
-    VarTuple02(isize, u32, usize, ),
-    VarNewTy03(i8),
-    VarTuple04(isize, ),
-    VarStruct05 {
-        field00: u64,
-        field01: i32,
-        field02: i16,
-        field03: usize,
-    },
+    VarEmpty03,
+    VarEmpty04,
+    VarNewTy05(GenOpt00000177),
     VarStruct06 {
-        field00: i8,
-        field01: isize,
-        field02: isize,
+        field00: GenEnum00000009,
+        field01: GenEnum000000D0,
     },
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001AE {
-    VarEmpty00,
-    VarNewTy01(bool),
-    VarTuple02(i64, i8, u128, u8, ),
-    VarStruct03 {
-        field00: usize,
-    },
-    VarNewTy04(u128),
-    VarNewTy05(i16),
-    VarEmpty06,
-    VarTuple07(i128, ),
+    VarTuple07(GenEnum0000010C, f32, GenStruct000000F4, ),
     VarEmpty08,
-    VarNewTy09(u128),
+    VarNewTy09(GenArray00000059),
+    VarEmpty0A,
+    VarEmpty0B,
+}
+
+/// generated
+type GenTup000001A2 = (GenEnum0000001D, GenTup000000C4, );
+
+/// generated
+type GenArray000001A3 = [GenTup000000C4; 16];
+
+/// generated
+type GenOpt000001A4 = Option<GenTup00000136>;
+
+/// generated
+type GenTup000001A5 = (GenArray00000099, GenOpt0000005D, GenTupStruct000000CC, GenEnum00000060, );
+
+/// generated
+type GenOpt000001A6 = Option<GenTupStruct0000013D>;
+
+/// generated
+type GenTup000001A7 = (GenStruct0000006C, GenTup0000018A, GenEnum00000145, GenStruct00000158, );
+
+/// generated
+type GenArray000001A8 = [GenStruct000000F3; 9];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000001A9 {
+    field00: GenStruct00000125,
+    field01: GenEnum000000EA,
+    field02: GenStruct00000064,
+    field03: GenEnum000000BC,
+    field04: GenEnum0000010A,
+    field05: GenEnum0000008F,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001AF {
-    VarEmpty00,
+struct GenStruct000001AA {
+    field00: GenOpt000000C3,
+    field01: GenStruct0000016F,
+    field02: GenStruct00000197,
+    field03: GenEnum000000E8,
+    field04: GenArray00000059,
 }
 
 /// generated
-type GenTup000001B0 = (bool, u32, u32, i64, );
-
-/// generated
-type GenTup000001B1 = (isize, i16, u16, );
+type GenTup000001AB = (GenStruct000000BF, GenOpt0000018C, GenArray00000059, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001B2(u16, );
+struct GenTupStruct000001AC(GenStruct00000050, );
+
+/// generated
+type GenArray000001AD = [GenEnum00000162; 4];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000001AE {
+    field00: GenEnum00000033,
+    field01: GenStruct00000067,
+    field02: GenEnum0000011E,
+    field03: GenStruct0000009B,
+}
+
+/// generated
+type GenOpt000001AF = Option<GenStruct000000C0>;
+
+/// generated
+type GenOpt000001B0 = Option<GenStruct00000045>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001B1 {
+    VarStruct00 {
+        field00: GenTupStruct00000101,
+        field01: GenEnum0000010A,
+        field02: GenEnum000000EA,
+        field03: GenOpt00000157,
+    },
+    VarNewTy01(GenEnum00000082),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000001B2(GenStruct00000095, GenTupStruct000000E6, GenArray00000128, GenEnum0000000B, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000001B3 {
-    field00: i128,
-    field01: i64,
-    field02: u64,
-    field03: u128,
-    field04: i128,
+    field00: GenOpt0000011A,
+    field01: GenStruct0000014B,
+    field02: GenOpt00000164,
+    field03: GenStruct000000B9,
+    field04: GenTup000001A2,
+    field05: GenEnum00000071,
+    field06: GenEnum00000146,
 }
 
 /// generated
@@ -4280,209 +4210,268 @@ struct GenStruct000001B3 {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000001B4 {
-    field00: u64,
-    field01: i64,
-    field02: i64,
-    field03: u16,
-    field04: f32,
-    field05: u128,
-    field06: u32,
-}
-
-/// generated
-type GenTup000001B5 = (u64, i32, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001B6 {
-    field00: u16,
-    field01: i8,
-    field02: u16,
-    field03: i32,
-    field04: i32,
-    field05: usize,
-    field06: f32,
+    field00: GenTupStruct0000002A,
+    field01: GenStruct0000005C,
+    field02: GenOpt00000124,
+    field03: isize,
+    field04: GenEnum000000DF,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001B7 {
-    VarStruct00 {
-        field00: u32,
-        field01: i32,
-        field02: i128,
+struct GenStruct000001B5 {
+    field00: GenOpt00000161,
+    field01: GenStruct000000FF,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001B6 {
+    VarTuple00(GenStruct00000093, GenStruct00000042, GenOpt00000109, ),
+    VarEmpty01,
+    VarTuple02(GenEnum000000D0, GenOpt0000012A, ),
+    VarTuple03(GenEnum0000008F, GenEnum000000F9, GenStruct0000013F, ),
+    VarTuple04(GenTupStruct00000188, GenOpt00000157, ),
+    VarStruct05 {
+        field00: GenEnum000000C8,
     },
+    VarNewTy06(GenEnum0000002F),
+    VarStruct07 {
+        field00: GenStruct00000058,
+    },
+    VarEmpty08,
+    VarTuple09(GenTup00000138, GenTup0000011F, GenStruct00000171, GenEnum000000F2, ),
+    VarTuple0A(GenEnum0000010A, GenEnum00000063, GenStruct000000DA, GenOpt000000F8, ),
+    VarStruct0B {
+        field00: GenOpt0000015B,
+        field01: GenOpt00000019,
+        field02: GenStruct000000B4,
+    },
+    VarNewTy0C(GenStruct0000001A),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000001B7 {
+    field00: GenStruct00000163,
+    field01: GenStruct00000064,
+    field02: f32,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001B8 {
+    VarEmpty00,
+    VarTuple01(GenTupStruct0000006F, ),
+    VarNewTy02(GenOpt0000017D),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001B9 {
+    VarTuple00(GenEnum000000A7, GenArray0000014C, ),
     VarStruct01 {
-        field00: i128,
+        field00: GenOpt00000152,
+    },
+    VarNewTy02(GenTupStruct00000181),
+    VarEmpty03,
+    VarEmpty04,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001BA {
+    VarEmpty00,
+}
+
+/// generated
+type GenTup000001BB = (GenArray000000F5, GenEnum0000012C, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001BC {
+    VarNewTy00(GenTup00000070),
+    VarTuple01(GenOpt00000031, GenOpt00000031, GenTup00000116, ),
+    VarEmpty02,
+    VarStruct03 {
+        field00: GenTupStruct000001AC,
+    },
+    VarEmpty04,
+    VarTuple05(GenTup00000005, GenOpt0000017B, GenStruct000000AC, GenStruct00000096, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000001BD {
+    field00: GenArray00000008,
+}
+
+/// generated
+type GenTup000001BE = (GenTupStruct000000E6, GenStruct000000B4, GenEnum000000ED, GenTupStruct00000056, );
+
+/// generated
+type GenArray000001BF = [GenEnum00000034; 3];
+
+/// generated
+type GenArray000001C0 = [GenEnum0000009E; 32];
+
+/// generated
+type GenArray000001C1 = [GenTup00000066; 28];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000001C2(GenTupStruct0000013E, GenTupStruct00000013, );
+
+/// generated
+type GenOpt000001C3 = Option<GenStruct0000007B>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000001C4(GenArray00000099, GenEnum00000028, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001C5 {
+    VarTuple00(GenOpt00000148, GenTupStruct00000014, ),
+    VarStruct01 {
+        field00: GenTupStruct00000181,
+        field01: GenOpt0000005B,
+        field02: GenStruct0000000F,
     },
     VarStruct02 {
-        field00: usize,
-        field01: i128,
-        field02: i16,
-        field03: u32,
+        field00: GenTupStruct00000198,
+        field01: GenOpt000000AF,
+        field02: GenArray000001BF,
+        field03: GenEnum000000EA,
     },
-    VarStruct03 {
-        field00: i64,
-        field01: i64,
-        field02: bool,
+    VarNewTy03(GenStruct000000AA),
+    VarEmpty04,
+    VarStruct05 {
+        field00: GenStruct00000120,
     },
-    VarNewTy04(i8),
-    VarTuple05(u8, i64, ),
-    VarTuple06(i128, ),
-    VarTuple07(u8, i128, usize, f32, ),
-    VarTuple08(isize, isize, u32, u32, ),
-    VarTuple09(usize, u16, u32, ),
-    VarNewTy0A(i128),
-    VarNewTy0B(i128),
-    VarTuple0C(i64, usize, u64, ),
-}
-
-/// generated
-type GenOpt000001B8 = Option<u64>;
-
-/// generated
-type GenTup000001B9 = (isize, u8, i16, i64, );
-
-/// generated
-type GenOpt000001BA = Option<u8>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001BB {
-    field00: i64,
-    field01: bool,
-}
-
-/// generated
-type GenOpt000001BC = Option<usize>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001BD {
-    VarNewTy00(i8),
-}
-
-/// generated
-type GenArray000001BE = [i16; 28];
-
-/// generated
-type GenOpt000001BF = Option<u64>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001C0(i64, f32, u8, u64, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001C1 {
-    field00: i8,
-    field01: f64,
-    field02: u8,
-}
-
-/// generated
-type GenArray000001C2 = [u128; 12];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001C3(i32, u32, u16, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001C4;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001C5(bool, );
-
-/// generated
-type GenOpt000001C6 = Option<bool>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001C7;
-
-/// generated
-type GenTup000001C8 = (u16, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001C9 {
-    field00: i32,
-    field01: u16,
-    field02: i32,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001CA {
-    VarStruct00 {
-        field00: i16,
+    VarTuple06(GenArray00000191, GenOpt000001AF, GenEnum00000028, ),
+    VarEmpty07,
+    VarStruct08 {
+        field00: GenStruct00000083,
+        field01: GenEnum000000E8,
+        field02: GenEnum00000011,
     },
-    VarEmpty01,
-    VarTuple02(u128, ),
-    VarStruct03 {
-        field00: u128,
-        field01: f32,
-        field02: f64,
-        field03: u8,
+    VarStruct09 {
+        field00: GenTup00000066,
+        field01: GenTupStruct000000B5,
     },
-    VarNewTy04(i128),
-    VarTuple05(i128, u64, ),
-    VarStruct06 {
-        field00: u8,
-        field01: i16,
-        field02: u128,
-        field03: bool,
+    VarNewTy0A(GenStruct0000007B),
+    VarNewTy0B(GenEnum0000007F),
+    VarTuple0C(GenStruct000000C0, GenStruct000001B4, ),
+    VarStruct0D {
+        field00: GenStruct00000111,
+        field01: GenTupStruct000000DE,
+        field02: GenStruct0000008B,
     },
-    VarNewTy07(u32),
-    VarTuple08(usize, u64, u32, ),
-    VarTuple09(i64, bool, f64, ),
-    VarNewTy0A(u16),
-    VarTuple0B(i32, u8, ),
-    VarNewTy0C(i128),
-    VarEmpty0D,
+    VarNewTy0E(GenStruct000000C5),
+    VarTuple0F(GenEnum0000012C, ),
+}
+
+/// generated
+type GenOpt000001C6 = Option<GenTupStruct0000015A>;
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001C7 {
+    VarTuple00(GenEnum00000102, ),
+    VarTuple01(GenTup000001BE, GenArray0000008C, GenStruct000000A1, GenStruct0000009B, ),
+    VarStruct02 {
+        field00: GenArray00000183,
+        field01: GenEnum00000187,
+    },
+    VarTuple03(GenStruct00000067, ),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001CB(i32, isize, u64, );
+enum GenEnum000001C8 {
+    VarNewTy00(GenTup00000136),
+    VarNewTy01(GenStruct00000158),
+    VarStruct02 {
+        field00: GenEnum0000012C,
+        field01: GenTupStruct000000D7,
+    },
+}
+
+/// generated
+type GenArray000001C9 = [GenOpt0000018C; 16];
+
+/// generated
+type GenOpt000001CA = Option<GenTupStruct00000014>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001CC {
-    field00: isize,
-    field01: u8,
-    field02: isize,
-    field03: isize,
+struct GenStruct000001CB {
+    field00: GenArray000001AD,
+    field01: GenTup00000087,
+    field02: GenStruct00000147,
+    field03: GenOpt00000031,
+    field04: GenArray0000018E,
+    field05: GenOpt00000177,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001CC {
+    VarNewTy00(GenEnum00000117),
+    VarStruct01 {
+        field00: GenTup0000004F,
+    },
+    VarStruct02 {
+        field00: GenArray0000018E,
+        field01: GenEnum000000FE,
+        field02: GenEnum00000146,
+        field03: GenEnum000001BC,
+    },
+    VarEmpty03,
+    VarTuple04(GenStruct00000196, GenArray000000D3, GenTupStruct000000D7, GenStruct00000118, ),
+    VarNewTy05(GenTupStruct000000C7),
+    VarEmpty06,
+    VarNewTy07(GenStruct000000F1),
+    VarEmpty08,
+    VarNewTy09(GenEnum00000131),
+    VarEmpty0A,
+    VarStruct0B {
+        field00: u32,
+        field01: GenArray0000003D,
+        field02: GenStruct00000030,
+        field03: GenTupStruct00000190,
+    },
 }
 
 /// generated
@@ -4490,160 +4479,243 @@ struct GenStruct000001CC {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000001CD {
-    field00: u32,
-    field01: u8,
+    field00: GenStruct00000030,
+    field01: GenArray000001A8,
+    field02: GenOpt00000152,
+    field03: GenStruct0000008B,
+    field04: GenTup00000136,
+    field05: GenStruct00000189,
+    field06: GenArray00000126,
 }
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001CE {
-    VarEmpty00,
-    VarEmpty01,
-    VarTuple02(i32, ),
-}
+type GenTup000001CE = (GenTup00000116, GenStruct000001CD, );
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001CF(i32, );
+type GenTup000001CF = (GenEnum0000005E, GenTup00000116, GenTupStruct00000014, GenEnum00000134, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000001D0 {
-    field00: u16,
-    field01: isize,
-    field02: u8,
-    field03: f32,
+    field00: GenStruct000001AE,
+    field01: GenTupStruct00000190,
+    field02: GenArray0000003D,
+    field03: GenStruct000000B9,
+    field04: GenEnum0000001D,
+    field05: GenArray0000004A,
+    field06: GenArray0000016A,
 }
 
 /// generated
-type GenTup000001D1 = (usize, bool, i64, u16, );
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001D1 {
+    VarEmpty00,
+    VarStruct01 {
+        field00: GenTup0000012F,
+        field01: GenTup0000014D,
+        field02: GenTupStruct0000018F,
+        field03: GenOpt000000D8,
+    },
+    VarTuple02(GenStruct000000C1, ),
+    VarNewTy03(GenTup0000000C),
+    VarNewTy04(GenStruct00000111),
+    VarStruct05 {
+        field00: GenStruct00000125,
+        field01: GenOpt0000017B,
+        field02: GenEnum0000009E,
+    },
+    VarNewTy06(GenArray000000D6),
+    VarStruct07 {
+        field00: GenArray0000001C,
+        field01: GenTupStruct0000002B,
+        field02: GenTupStruct00000190,
+    },
+}
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000001D2 {
-    VarEmpty00,
-    VarTuple01(u64, f64, ),
-    VarEmpty02,
-    VarNewTy03(bool),
-    VarNewTy04(usize),
-    VarEmpty05,
-    VarStruct06 {
-        field00: isize,
-        field01: bool,
-        field02: isize,
-        field03: f64,
-    },
-    VarEmpty07,
-    VarNewTy08(f64),
-    VarNewTy09(u8),
+    VarNewTy00(GenTupStruct000000C7),
+    VarEmpty01,
 }
 
 /// generated
-type GenOpt000001D3 = Option<i32>;
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000001D3 {
+    field00: GenStruct00000153,
+    field01: GenStruct00000165,
+    field02: GenStruct00000096,
+    field03: GenStruct0000005F,
+    field04: GenStruct00000184,
+    field05: GenEnum00000145,
+}
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000001D4 {
-    VarEmpty00,
-    VarNewTy01(u32),
-    VarNewTy02(i16),
-    VarStruct03 {
-        field00: i128,
-        field01: u128,
-        field02: i64,
+    VarNewTy00(GenArray000001BF),
+    VarTuple01(GenStruct00000153, GenStruct00000090, ),
+    VarNewTy02(GenOpt0000014F),
+    VarNewTy03(GenStruct00000174),
+    VarNewTy04(GenOpt000000CD),
+    VarNewTy05(GenStruct0000009B),
+    VarTuple06(GenTupStruct00000051, GenTup00000081, GenEnum0000009D, ),
+    VarEmpty07,
+    VarNewTy08(GenStruct00000129),
+    VarStruct09 {
+        field00: GenStruct000000C1,
+        field01: GenEnum00000106,
+        field02: GenEnum00000060,
     },
-    VarTuple04(i16, u8, i8, ),
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001D5 {
+    VarStruct00 {
+        field00: GenStruct0000009B,
+        field01: GenStruct00000017,
+        field02: GenEnum0000010C,
+    },
+    VarStruct01 {
+        field00: GenArray00000128,
+        field01: GenOpt00000177,
+        field02: GenOpt0000001B,
+        field03: GenArray00000076,
+    },
+    VarStruct02 {
+        field00: GenEnum00000137,
+    },
+    VarNewTy03(GenEnum0000001F),
+    VarEmpty04,
     VarEmpty05,
+    VarNewTy06(GenOpt000000DC),
+    VarStruct07 {
+        field00: GenStruct00000197,
+        field01: GenOpt00000109,
+        field02: GenOpt000000FD,
+    },
+    VarTuple08(GenStruct00000173, i64, GenStruct000000C1, GenOpt000000C6, ),
+    VarNewTy09(GenEnum00000193),
+    VarNewTy0A(GenEnum000000FE),
+    VarStruct0B {
+        field00: GenStruct000000AE,
+        field01: GenStruct00000192,
+    },
+    VarEmpty0C,
 }
-
-/// generated
-type GenArray000001D5 = [isize; 32];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001D6 {
-    field00: u128,
-    field01: i8,
-    field02: f32,
-    field03: f32,
-    field04: u16,
+struct GenTupStruct000001D6(GenStruct00000132, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000001D7(GenOpt000000F6, GenTup000001AB, GenTup000001BB, GenTup0000008E, );
+
+/// generated
+type GenTup000001D8 = (GenOpt000000CD, GenArray0000019D, i128, );
+
+/// generated
+type GenTup000001D9 = (GenTup00000149, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001DA {
+    VarStruct00 {
+        field00: GenTup00000138,
+        field01: GenStruct00000092,
+        field02: GenTupStruct0000013C,
+    },
+    VarNewTy01(GenEnum0000009C),
+    VarEmpty02,
+    VarEmpty03,
+    VarStruct04 {
+        field00: GenTup00000138,
+    },
+    VarNewTy05(GenEnum000000FE),
+    VarNewTy06(GenStruct00000141),
+    VarTuple07(GenTupStruct0000002A, GenTup00000178, ),
+    VarTuple08(GenEnum00000007, ),
+    VarEmpty09,
+    VarStruct0A {
+        field00: GenEnum00000038,
+    },
+    VarNewTy0B(GenOpt0000005B),
+    VarTuple0C(GenEnum000001D4, GenArray00000061, GenEnum00000043, ),
+    VarNewTy0D(GenEnum000000DF),
+    VarEmpty0E,
+    VarNewTy0F(GenArray000001C1),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001D7 {
-    VarNewTy00(f64),
+struct GenStruct000001DB {
+    field00: GenOpt000001C6,
+    field01: GenTup00000094,
+    field02: GenStruct0000010E,
+    field03: GenTupStruct000000A5,
+    field04: GenStruct000001D0,
+    field05: GenStruct000001B5,
+    field06: GenTup000001D9,
 }
 
 /// generated
-type GenOpt000001D8 = Option<usize>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001D9 {
-    field00: bool,
-    field01: f32,
-}
-
-/// generated
-type GenTup000001DA = (u32, u16, );
-
-/// generated
-type GenOpt000001DB = Option<u8>;
-
-/// generated
-type GenArray000001DC = [i128; 30];
+type GenTup000001DC = (GenEnum000001B1, GenOpt00000161, u32, GenStruct0000016B, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000001DD {
-    field00: u8,
-    field01: i16,
+    field00: GenStruct0000009B,
+    field01: GenStruct000000D4,
 }
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001DE(u32, u64, isize, );
+type GenArray000001DE = [GenStruct0000013A; 9];
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001DF {
-    field00: usize,
-    field01: usize,
-    field02: i8,
-    field03: i128,
-}
+type GenOpt000001DF = Option<GenArray00000084>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000001E0 {
-    VarTuple00(i64, u128, ),
-    VarNewTy01(u64),
-    VarTuple02(usize, f64, ),
+    VarNewTy00(GenArray00000099),
+    VarStruct01 {
+        field00: GenTup000001A7,
+    },
+    VarNewTy02(GenStruct00000088),
+    VarNewTy03(GenEnum00000145),
+    VarNewTy04(i32),
+    VarTuple05(GenTupStruct00000160, GenStruct0000000F, ),
+    VarNewTy06(GenEnum0000001D),
+    VarTuple07(GenTupStruct00000014, u32, ),
+    VarEmpty08,
+    VarTuple09(GenStruct00000165, GenStruct00000192, ),
+    VarEmpty0A,
 }
 
 /// generated
@@ -4651,43 +4723,69 @@ enum GenEnum000001E0 {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000001E1 {
-    field00: i16,
-    field01: f32,
+    field00: GenStruct00000111,
+    field01: GenStruct00000153,
+    field02: GenTupStruct00000188,
 }
 
 /// generated
+type GenOpt000001E2 = Option<GenEnum00000028>;
+
+/// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001E2 {
-    field00: u8,
-    field01: f64,
+enum GenEnum000001E3 {
+    VarEmpty00,
+    VarStruct01 {
+        field00: GenStruct0000000A,
+        field01: GenEnum00000006,
+        field02: GenTupStruct0000016E,
+        field03: GenEnum000000B8,
+    },
+    VarNewTy02(GenTup0000014A),
+    VarEmpty03,
+    VarStruct04 {
+        field00: GenTupStruct0000013C,
+        field01: GenStruct00000039,
+        field02: GenEnum00000085,
+    },
+    VarTuple05(GenStruct00000077, GenTup0000014D, ),
+    VarTuple06(GenEnum0000018B, GenStruct00000173, isize, GenEnum00000199, ),
+    VarStruct07 {
+        field00: GenStruct000000CA,
+        field01: GenArray00000133,
+    },
+    VarEmpty08,
 }
 
 /// generated
-type GenArray000001E3 = [i32; 25];
+type GenArray000001E4 = [GenStruct0000009B; 1];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001E4(i8, usize, u32, i16, );
+struct GenStruct000001E5;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001E5(bool, u32, );
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001E6 {
-    field00: u32,
-    field01: f64,
-    field02: i8,
-    field03: i8,
+enum GenEnum000001E6 {
+    VarTuple00(GenEnum0000009D, GenStruct0000011C, GenEnum000001B6, ),
+    VarEmpty01,
+    VarTuple02(GenStruct0000006C, GenStruct0000008B, ),
+    VarTuple03(GenEnum00000009, GenTup0000002E, GenStruct000000DA, f64, ),
+    VarNewTy04(GenStruct000000BD),
+    VarStruct05 {
+        field00: GenOpt00000152,
+        field01: GenEnum000001B9,
+        field02: GenTupStruct0000019A,
+        field03: GenTup000001A7,
+    },
+    VarEmpty06,
+    VarTuple07(GenTup00000005, GenStruct000000CA, ),
 }
 
 /// generated
@@ -4696,60 +4794,46 @@ struct GenStruct000001E6 {
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000001E7 {
     VarStruct00 {
-        field00: isize,
-        field01: i64,
-        field02: isize,
+        field00: i16,
+        field01: GenOpt0000014F,
+        field02: GenEnum00000055,
     },
-    VarStruct01 {
-        field00: u64,
-    },
-    VarStruct02 {
-        field00: u32,
-    },
-    VarEmpty03,
-    VarEmpty04,
-    VarNewTy05(u128),
-    VarStruct06 {
-        field00: isize,
-        field01: i8,
-        field02: u8,
-    },
-    VarTuple07(i128, ),
-    VarEmpty08,
-    VarTuple09(i64, i8, u8, usize, ),
-    VarEmpty0A,
-    VarEmpty0B,
+    VarNewTy01(GenEnum000000DF),
 }
-
-/// generated
-type GenTup000001E8 = (u16, i16, );
-
-/// generated
-type GenArray000001E9 = [i16; 16];
-
-/// generated
-type GenOpt000001EA = Option<isize>;
-
-/// generated
-type GenTup000001EB = (u128, usize, u64, i16, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001EC {
-    VarStruct00 {
-        field00: isize,
-        field01: u128,
-    },
-    VarStruct01 {
-        field00: u32,
-        field01: i64,
-        field02: f32,
-        field03: i16,
-    },
-    VarTuple02(isize, ),
-    VarTuple03(u8, u16, ),
+struct GenTupStruct000001E8(GenEnum00000029, GenEnum000000DF, GenTupStruct0000006A, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenTupStruct000001E9(GenStruct0000016D, GenTupStruct000000DD, );
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000001EA {
+    field00: GenStruct00000158,
+    field01: GenArray0000012D,
+    field02: GenArray0000004E,
+    field03: GenEnum0000001D,
+}
+
+/// generated
+type GenArray000001EB = [GenTupStruct00000190; 18];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000001EC {
+    field00: GenStruct00000001,
+    field01: GenTupStruct0000019A,
 }
 
 /// generated
@@ -4757,36 +4841,18 @@ enum GenEnum000001EC {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000001ED {
-    VarNewTy00(f64),
-    VarEmpty01,
-    VarStruct02 {
-        field00: i32,
-        field01: u64,
-        field02: bool,
+    VarTuple00(GenArray0000012D, GenArray00000020, GenTup000001BE, ),
+    VarTuple01(GenTupStruct00000166, GenArray00000020, GenEnum0000001F, ),
+    VarNewTy02(GenTup000001D9),
+    VarTuple03(GenEnum00000172, ),
+    VarNewTy04(GenStruct000001D0),
+    VarStruct05 {
+        field00: GenTupStruct00000014,
+        field01: GenStruct00000118,
+        field02: GenOpt00000074,
     },
-    VarTuple03(f64, i16, u64, ),
-    VarEmpty04,
-    VarTuple05(f32, i128, f32, i128, ),
-    VarEmpty06,
-    VarStruct07 {
-        field00: u8,
-        field01: u8,
-        field02: u32,
-        field03: u128,
-    },
-    VarTuple08(i64, u64, i64, ),
-    VarEmpty09,
-    VarTuple0A(bool, i64, i64, i16, ),
-    VarNewTy0B(u32),
-    VarStruct0C {
-        field00: i64,
-        field01: i64,
-        field02: i32,
-        field03: f32,
-    },
-    VarNewTy0D(u128),
-    VarNewTy0E(i32),
-    VarEmpty0F,
+    VarTuple06(GenStruct00000001, GenStruct0000006C, GenStruct00000195, GenStruct0000005C, ),
+    VarTuple07(GenTup0000014A, GenStruct0000016D, GenTup0000014A, GenStruct000001EA, ),
 }
 
 /// generated
@@ -4794,240 +4860,170 @@ enum GenEnum000001ED {
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 struct GenStruct000001EE {
-    field00: i64,
-    field01: isize,
-    field02: f32,
-    field03: i8,
-    field04: bool,
-    field05: u128,
-    field06: isize,
+    field00: GenStruct0000000F,
+    field01: GenEnum0000010A,
+    field02: GenEnum0000009E,
+}
+
+/// generated
+type GenTup000001EF = (GenArray0000005A, i8, );
+
+/// generated
+type GenTup000001F0 = (GenStruct000001B4, GenStruct000000BD, );
+
+/// generated
+type GenArray000001F1 = [GenEnum0000003C; 4];
+
+/// generated
+type GenArray000001F2 = [GenStruct000000D2; 17];
+
+/// generated
+type GenOpt000001F3 = Option<GenStruct00000132>;
+
+/// generated
+type GenOpt000001F4 = Option<GenTupStruct00000072>;
+
+/// generated
+type GenArray000001F5 = [GenStruct000001EC; 19];
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+struct GenStruct000001F6 {
+    field00: GenStruct000000D2,
+    field01: GenEnum000000F2,
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001EF {
-    field00: u16,
-    field01: isize,
-    field02: i32,
-    field03: u64,
-    field04: i128,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001F0 {
-    field00: u32,
-    field01: f32,
-    field02: f32,
-    field03: usize,
-    field04: i8,
-}
-
-/// generated
-type GenArray000001F1 = [usize; 19];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenStruct000001F2 {
-    field00: bool,
-    field01: u16,
-    field02: bool,
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001F3 {
-    VarTuple00(i16, i32, ),
-    VarTuple01(usize, i32, isize, ),
-    VarTuple02(f64, isize, ),
-    VarStruct03 {
-        field00: i16,
-    },
-    VarNewTy04(u32),
-    VarStruct05 {
-        field00: u64,
-    },
-    VarEmpty06,
-    VarTuple07(i128, i128, f32, i32, ),
-    VarTuple08(i64, u64, i16, i32, ),
-    VarStruct09 {
-        field00: f32,
-        field01: u16,
-        field02: isize,
-    },
-    VarNewTy0A(u16),
-    VarNewTy0B(f32),
-    VarNewTy0C(u8),
-    VarStruct0D {
-        field00: u16,
-        field01: i128,
-        field02: u128,
-        field03: i64,
-    },
-}
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001F4 {
+enum GenEnum000001F7 {
     VarStruct00 {
-        field00: u64,
-        field01: i16,
+        field00: GenTup000000A3,
+        field01: GenTupStruct000001B2,
+        field02: GenArray00000059,
     },
-    VarTuple01(i8, isize, ),
+    VarNewTy01(GenTup00000119),
+    VarNewTy02(GenOpt000001DF),
+    VarEmpty03,
+}
+
+/// generated
+#[derive(Debug)]
+#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
+#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
+enum GenEnum000001F8 {
+    VarTuple00(GenStruct00000050, GenEnum00000103, ),
+    VarEmpty01,
     VarStruct02 {
-        field00: isize,
+        field00: GenStruct000000D2,
+        field01: GenOpt00000109,
+        field02: GenStruct00000096,
     },
-    VarNewTy03(f64),
-    VarEmpty04,
+    VarNewTy03(GenStruct00000186),
+    VarNewTy04(GenTup0000002D),
     VarEmpty05,
     VarStruct06 {
-        field00: i128,
-        field01: f64,
+        field00: GenTupStruct0000013C,
+        field01: GenTupStruct00000100,
     },
-    VarEmpty07,
+    VarTuple07(GenTupStruct0000004C, GenTup000001CF, GenStruct000000AA, ),
     VarStruct08 {
-        field00: i32,
-        field01: i128,
+        field00: GenStruct00000027,
     },
-    VarNewTy09(u128),
-    VarTuple0A(u32, u32, i64, ),
+    VarTuple09(GenStruct00000112, GenArray0000005A, GenOpt00000086, ),
+    VarNewTy0A(GenTupStruct0000004D),
+    VarTuple0B(GenOpt00000012, GenTupStruct0000006F, i16, GenEnum00000089, ),
+    VarNewTy0C(GenArray000000A0),
+    VarNewTy0D(GenOpt00000012),
+    VarNewTy0E(GenTupStruct0000013E),
+    VarTuple0F(GenOpt0000005D, GenOpt000001A4, ),
 }
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001F5 {
-    VarEmpty00,
+enum GenEnum000001F9 {
+    VarNewTy00(GenStruct0000013F),
     VarStruct01 {
-        field00: bool,
+        field00: GenOpt000001A4,
     },
-    VarEmpty02,
-    VarTuple03(f64, u8, f32, i8, ),
-    VarStruct04 {
-        field00: u32,
-        field01: u32,
-        field02: u8,
-    },
-    VarStruct05 {
-        field00: usize,
-        field01: i8,
-        field02: i32,
-        field03: u64,
-    },
-    VarTuple06(u32, i16, u16, ),
 }
-
-/// generated
-type GenArray000001F6 = [u64; 28];
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001F7(i128, u16, );
-
-/// generated
-type GenOpt000001F8 = Option<u128>;
-
-/// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001F9(usize, u16, );
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000001FA {
-    VarTuple00(u16, i8, ),
-    VarStruct01 {
-        field00: u64,
-        field01: f32,
-        field02: u64,
+    VarStruct00 {
+        field00: GenArray00000024,
     },
+    VarNewTy01(GenStruct00000115),
     VarEmpty02,
-    VarStruct03 {
-        field00: f64,
-        field01: i8,
-        field02: bool,
-        field03: i128,
+    VarEmpty03,
+    VarStruct04 {
+        field00: GenOpt0000011D,
+        field01: GenTupStruct000000B5,
     },
-    VarNewTy04(usize),
-    VarEmpty05,
-    VarStruct06 {
-        field00: i64,
-    },
-    VarTuple07(f64, bool, u16, ),
-    VarEmpty08,
-    VarStruct09 {
-        field00: u128,
-        field01: bool,
-        field02: i16,
-    },
-    VarEmpty0A,
-    VarStruct0B {
-        field00: u64,
-        field01: i8,
-    },
-    VarNewTy0C(u128),
-    VarNewTy0D(u128),
-    VarTuple0E(i8, bool, ),
-    VarStruct0F {
-        field00: i64,
-        field01: i16,
-        field02: i128,
+    VarNewTy05(GenStruct000000C0),
+    VarNewTy06(GenArray00000126),
+    VarNewTy07(GenEnum00000106),
+    VarTuple08(GenArray00000061, GenTupStruct000000D7, GenOpt00000035, GenOpt0000017A, ),
+    VarNewTy09(GenEnum0000001F),
+    VarStruct0A {
+        field00: GenTup00000054,
     },
 }
 
 /// generated
-#[derive(Debug)]
-#[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
-#[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-struct GenTupStruct000001FB(i8, i32, i128, i128, );
+type GenTup000001FB = (GenTupStruct00000168, GenEnum00000011, GenArray00000020, );
 
 /// generated
-type GenOpt000001FC = Option<isize>;
+type GenOpt000001FC = Option<GenTup00000130>;
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
 enum GenEnum000001FD {
-    VarTuple00(i32, ),
-    VarTuple01(bool, usize, usize, f64, ),
-    VarStruct02 {
-        field00: f32,
-        field01: bool,
+    VarEmpty00,
+    VarStruct01 {
+        field00: GenOpt000000AB,
     },
-    VarTuple03(u64, ),
+    VarEmpty02,
+    VarStruct03 {
+        field00: GenTupStruct0000004D,
+        field01: GenTupStruct000000A9,
+        field02: i16,
+        field03: GenEnum00000053,
+    },
+    VarEmpty04,
+    VarNewTy05(GenEnum00000071),
+    VarNewTy06(GenEnum00000156),
+    VarEmpty07,
+    VarNewTy08(GenStruct0000012B),
+    VarTuple09(GenStruct00000115, ),
+    VarStruct0A {
+        field00: GenEnum000000FA,
+    },
+    VarEmpty0B,
+    VarNewTy0C(GenTupStruct0000015A),
+    VarEmpty0D,
+    VarEmpty0E,
+    VarNewTy0F(GenEnum000001D2),
 }
+
+/// generated
+type GenArray000001FE = [GenTupStruct00000056; 10];
 
 /// generated
 #[derive(Debug)]
 #[cfg_attr(feature = "serde", derive(::serde::Serialize, ::serde::Deserialize))]
 #[cfg_attr(feature = "postcard-forth", derive(::postcard_forth_derive::Serialize, ::postcard_forth_derive::Deserialize))]
-enum GenEnum000001FE {
-    VarNewTy00(i128),
-    VarNewTy01(i16),
-    VarStruct02 {
-        field00: isize,
-    },
-}
-
-/// generated
-type GenOpt000001FF = Option<u16>;
+struct GenTupStruct000001FF(GenStruct000000F4, GenStruct00000141, GenOpt00000194, );
 
 
 use core::fmt::Write;
@@ -5147,8 +5143,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000002 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000002>(&t, out_buf)?;
+        let t: GenTupStruct00000002 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000002>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5167,8 +5163,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000004 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000004>(&t, out_buf)?;
+        let t: GenStruct00000004 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000004>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5177,8 +5173,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000005 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000005>(&t, out_buf)?;
+        let t: GenTup00000005 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000005>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5187,8 +5183,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000006 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000006>(&t, out_buf)?;
+        let t: GenEnum00000006 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000006>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5197,8 +5193,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000007 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000007>(&t, out_buf)?;
+        let t: GenEnum00000007 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000007>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5207,8 +5203,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000008 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000008>(&t, out_buf)?;
+        let t: GenArray00000008 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000008>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5217,8 +5213,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000009 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000009>(&t, out_buf)?;
+        let t: GenEnum00000009 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000009>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5227,8 +5223,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000000A = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000000A>(&t, out_buf)?;
+        let t: GenStruct0000000A = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000000A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5247,8 +5243,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt0000000C = deserialize(in_buf)?;
-        // let len = debug::<GenOpt0000000C>(&t, out_buf)?;
+        let t: GenTup0000000C = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000000C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5257,8 +5253,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000000D = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000000D>(&t, out_buf)?;
+        let t: GenTupStruct0000000D = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000000D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5267,8 +5263,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000000E = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000000E>(&t, out_buf)?;
+        let t: GenTup0000000E = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000000E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5287,8 +5283,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000010 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000010>(&t, out_buf)?;
+        let t: GenArray00000010 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000010>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5307,8 +5303,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000012 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000012>(&t, out_buf)?;
+        let t: GenOpt00000012 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000012>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5327,8 +5323,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000014 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000014>(&t, out_buf)?;
+        let t: GenTupStruct00000014 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000014>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5347,8 +5343,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000016 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000016>(&t, out_buf)?;
+        let t: GenTupStruct00000016 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000016>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5367,8 +5363,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000018 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000018>(&t, out_buf)?;
+        let t: GenEnum00000018 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000018>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5377,8 +5373,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000019 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000019>(&t, out_buf)?;
+        let t: GenOpt00000019 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000019>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5387,8 +5383,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000001A = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000001A>(&t, out_buf)?;
+        let t: GenStruct0000001A = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000001A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5397,8 +5393,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000001B = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000001B>(&t, out_buf)?;
+        let t: GenOpt0000001B = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000001B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5407,8 +5403,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000001C = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000001C>(&t, out_buf)?;
+        let t: GenArray0000001C = deserialize(in_buf)?;
+        // let len = debug::<GenArray0000001C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5417,8 +5413,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000001D = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000001D>(&t, out_buf)?;
+        let t: GenEnum0000001D = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000001D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5427,8 +5423,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray0000001E = deserialize(in_buf)?;
-        // let len = debug::<GenArray0000001E>(&t, out_buf)?;
+        let t: GenTup0000001E = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000001E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5447,8 +5443,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000020 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000020>(&t, out_buf)?;
+        let t: GenArray00000020 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000020>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5467,8 +5463,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000022 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000022>(&t, out_buf)?;
+        let t: GenStruct00000022 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000022>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5487,8 +5483,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000024 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000024>(&t, out_buf)?;
+        let t: GenArray00000024 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000024>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5497,8 +5493,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000025 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000025>(&t, out_buf)?;
+        let t: GenTup00000025 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000025>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5507,8 +5503,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000026 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000026>(&t, out_buf)?;
+        let t: GenOpt00000026 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000026>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5517,8 +5513,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000027 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000027>(&t, out_buf)?;
+        let t: GenStruct00000027 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000027>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5537,8 +5533,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000029 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000029>(&t, out_buf)?;
+        let t: GenEnum00000029 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000029>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5557,8 +5553,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt0000002B = deserialize(in_buf)?;
-        // let len = debug::<GenOpt0000002B>(&t, out_buf)?;
+        let t: GenTupStruct0000002B = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000002B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5577,8 +5573,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000002D = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000002D>(&t, out_buf)?;
+        let t: GenTup0000002D = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000002D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5587,8 +5583,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000002E = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000002E>(&t, out_buf)?;
+        let t: GenTup0000002E = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000002E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5597,8 +5593,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000002F = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000002F>(&t, out_buf)?;
+        let t: GenEnum0000002F = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000002F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5617,8 +5613,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000031 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000031>(&t, out_buf)?;
+        let t: GenOpt00000031 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000031>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5647,8 +5643,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000034 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000034>(&t, out_buf)?;
+        let t: GenEnum00000034 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000034>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5657,8 +5653,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000035 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000035>(&t, out_buf)?;
+        let t: GenOpt00000035 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000035>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5667,8 +5663,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000036 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000036>(&t, out_buf)?;
+        let t: GenTupStruct00000036 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000036>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5677,8 +5673,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000037 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000037>(&t, out_buf)?;
+        let t: GenEnum00000037 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000037>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5687,8 +5683,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000038 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000038>(&t, out_buf)?;
+        let t: GenEnum00000038 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000038>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5707,8 +5703,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000003A = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000003A>(&t, out_buf)?;
+        let t: GenStruct0000003A = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000003A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5717,8 +5713,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000003B = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000003B>(&t, out_buf)?;
+        let t: GenTup0000003B = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000003B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5737,8 +5733,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000003D = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000003D>(&t, out_buf)?;
+        let t: GenArray0000003D = deserialize(in_buf)?;
+        // let len = debug::<GenArray0000003D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5747,8 +5743,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000003E = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000003E>(&t, out_buf)?;
+        let t: GenOpt0000003E = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000003E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5757,8 +5753,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000003F = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000003F>(&t, out_buf)?;
+        let t: GenTup0000003F = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000003F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5767,8 +5763,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000040 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000040>(&t, out_buf)?;
+        let t: GenStruct00000040 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000040>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5777,8 +5773,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000041 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000041>(&t, out_buf)?;
+        let t: GenStruct00000041 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000041>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5787,8 +5783,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000042 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000042>(&t, out_buf)?;
+        let t: GenStruct00000042 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000042>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5797,8 +5793,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000043 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000043>(&t, out_buf)?;
+        let t: GenEnum00000043 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000043>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5807,8 +5803,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000044 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000044>(&t, out_buf)?;
+        let t: GenStruct00000044 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000044>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5817,8 +5813,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000045 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000045>(&t, out_buf)?;
+        let t: GenStruct00000045 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000045>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5827,8 +5823,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000046 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000046>(&t, out_buf)?;
+        let t: GenEnum00000046 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000046>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5837,8 +5833,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000047 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000047>(&t, out_buf)?;
+        let t: GenTup00000047 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000047>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5847,8 +5843,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000048 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000048>(&t, out_buf)?;
+        let t: GenTupStruct00000048 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000048>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5857,8 +5853,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000049 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000049>(&t, out_buf)?;
+        let t: GenEnum00000049 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000049>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5867,8 +5863,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000004A = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000004A>(&t, out_buf)?;
+        let t: GenArray0000004A = deserialize(in_buf)?;
+        // let len = debug::<GenArray0000004A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5877,8 +5873,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000004B = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000004B>(&t, out_buf)?;
+        let t: GenStruct0000004B = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000004B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5887,8 +5883,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray0000004C = deserialize(in_buf)?;
-        // let len = debug::<GenArray0000004C>(&t, out_buf)?;
+        let t: GenTupStruct0000004C = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000004C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5897,8 +5893,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000004D = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000004D>(&t, out_buf)?;
+        let t: GenTupStruct0000004D = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000004D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5907,8 +5903,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000004E = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000004E>(&t, out_buf)?;
+        let t: GenArray0000004E = deserialize(in_buf)?;
+        // let len = debug::<GenArray0000004E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5917,8 +5913,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000004F = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000004F>(&t, out_buf)?;
+        let t: GenTup0000004F = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000004F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5937,8 +5933,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000051 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000051>(&t, out_buf)?;
+        let t: GenTupStruct00000051 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000051>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5947,8 +5943,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000052 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000052>(&t, out_buf)?;
+        let t: GenTupStruct00000052 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000052>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5957,8 +5953,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000053 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000053>(&t, out_buf)?;
+        let t: GenEnum00000053 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000053>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5967,8 +5963,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000054 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000054>(&t, out_buf)?;
+        let t: GenTup00000054 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000054>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5977,8 +5973,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000055 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000055>(&t, out_buf)?;
+        let t: GenEnum00000055 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000055>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5987,8 +5983,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000056 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000056>(&t, out_buf)?;
+        let t: GenTupStruct00000056 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000056>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -5997,8 +5993,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000057 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000057>(&t, out_buf)?;
+        let t: GenOpt00000057 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000057>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6017,8 +6013,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000059 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000059>(&t, out_buf)?;
+        let t: GenArray00000059 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000059>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6027,8 +6023,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000005A = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000005A>(&t, out_buf)?;
+        let t: GenArray0000005A = deserialize(in_buf)?;
+        // let len = debug::<GenArray0000005A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6037,8 +6033,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000005B = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000005B>(&t, out_buf)?;
+        let t: GenOpt0000005B = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000005B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6057,8 +6053,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000005D = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000005D>(&t, out_buf)?;
+        let t: GenOpt0000005D = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000005D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6087,8 +6083,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000060 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000060>(&t, out_buf)?;
+        let t: GenEnum00000060 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000060>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6097,8 +6093,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000061 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000061>(&t, out_buf)?;
+        let t: GenArray00000061 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000061>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6107,8 +6103,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000062 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000062>(&t, out_buf)?;
+        let t: GenStruct00000062 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000062>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6117,8 +6113,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000063 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000063>(&t, out_buf)?;
+        let t: GenEnum00000063 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000063>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6127,8 +6123,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000064 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000064>(&t, out_buf)?;
+        let t: GenStruct00000064 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000064>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6137,8 +6133,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000065 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000065>(&t, out_buf)?;
+        let t: GenTup00000065 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000065>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6147,8 +6143,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000066 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000066>(&t, out_buf)?;
+        let t: GenTup00000066 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000066>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6167,8 +6163,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000068 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000068>(&t, out_buf)?;
+        let t: GenTupStruct00000068 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000068>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6177,8 +6173,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000069 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000069>(&t, out_buf)?;
+        let t: GenEnum00000069 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000069>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6187,8 +6183,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000006A = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000006A>(&t, out_buf)?;
+        let t: GenTupStruct0000006A = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000006A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6197,8 +6193,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray0000006B = deserialize(in_buf)?;
-        // let len = debug::<GenArray0000006B>(&t, out_buf)?;
+        let t: GenStruct0000006B = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000006B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6207,8 +6203,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000006C = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000006C>(&t, out_buf)?;
+        let t: GenStruct0000006C = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000006C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6217,8 +6213,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000006D = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000006D>(&t, out_buf)?;
+        let t: GenTup0000006D = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000006D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6227,8 +6223,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000006E = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000006E>(&t, out_buf)?;
+        let t: GenOpt0000006E = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000006E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6247,8 +6243,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000070 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000070>(&t, out_buf)?;
+        let t: GenTup00000070 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000070>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6267,8 +6263,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000072 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000072>(&t, out_buf)?;
+        let t: GenTupStruct00000072 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000072>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6277,8 +6273,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000073 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000073>(&t, out_buf)?;
+        let t: GenStruct00000073 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000073>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6287,8 +6283,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000074 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000074>(&t, out_buf)?;
+        let t: GenOpt00000074 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000074>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6297,8 +6293,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000075 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000075>(&t, out_buf)?;
+        let t: GenEnum00000075 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000075>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6307,8 +6303,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000076 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000076>(&t, out_buf)?;
+        let t: GenArray00000076 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000076>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6317,8 +6313,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000077 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000077>(&t, out_buf)?;
+        let t: GenStruct00000077 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000077>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6337,8 +6333,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000079 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000079>(&t, out_buf)?;
+        let t: GenStruct00000079 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000079>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6347,8 +6343,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000007A = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000007A>(&t, out_buf)?;
+        let t: GenOpt0000007A = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000007A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6357,8 +6353,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray0000007B = deserialize(in_buf)?;
-        // let len = debug::<GenArray0000007B>(&t, out_buf)?;
+        let t: GenStruct0000007B = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000007B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6367,8 +6363,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000007C = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000007C>(&t, out_buf)?;
+        let t: GenTupStruct0000007C = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000007C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6387,8 +6383,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000007E = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000007E>(&t, out_buf)?;
+        let t: GenArray0000007E = deserialize(in_buf)?;
+        // let len = debug::<GenArray0000007E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6397,8 +6393,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000007F = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000007F>(&t, out_buf)?;
+        let t: GenEnum0000007F = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000007F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6407,8 +6403,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000080 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000080>(&t, out_buf)?;
+        let t: GenEnum00000080 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000080>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6417,8 +6413,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000081 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000081>(&t, out_buf)?;
+        let t: GenTup00000081 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000081>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6427,8 +6423,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000082 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000082>(&t, out_buf)?;
+        let t: GenEnum00000082 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000082>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6437,8 +6433,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000083 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000083>(&t, out_buf)?;
+        let t: GenStruct00000083 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000083>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6447,8 +6443,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000084 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000084>(&t, out_buf)?;
+        let t: GenArray00000084 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000084>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6457,8 +6453,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000085 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000085>(&t, out_buf)?;
+        let t: GenEnum00000085 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000085>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6477,8 +6473,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000087 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000087>(&t, out_buf)?;
+        let t: GenTup00000087 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000087>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6497,8 +6493,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000089 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000089>(&t, out_buf)?;
+        let t: GenEnum00000089 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000089>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6507,8 +6503,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000008A = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000008A>(&t, out_buf)?;
+        let t: GenStruct0000008A = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000008A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6517,8 +6513,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt0000008B = deserialize(in_buf)?;
-        // let len = debug::<GenOpt0000008B>(&t, out_buf)?;
+        let t: GenStruct0000008B = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000008B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6527,8 +6523,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000008C = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000008C>(&t, out_buf)?;
+        let t: GenArray0000008C = deserialize(in_buf)?;
+        // let len = debug::<GenArray0000008C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6537,8 +6533,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000008D = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000008D>(&t, out_buf)?;
+        let t: GenTup0000008D = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000008D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6547,8 +6543,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000008E = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000008E>(&t, out_buf)?;
+        let t: GenTup0000008E = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000008E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6557,8 +6553,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000008F = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000008F>(&t, out_buf)?;
+        let t: GenEnum0000008F = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000008F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6567,8 +6563,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000090 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000090>(&t, out_buf)?;
+        let t: GenStruct00000090 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000090>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6577,8 +6573,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000091 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000091>(&t, out_buf)?;
+        let t: GenOpt00000091 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000091>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6587,8 +6583,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000092 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000092>(&t, out_buf)?;
+        let t: GenStruct00000092 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000092>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6597,8 +6593,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000093 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000093>(&t, out_buf)?;
+        let t: GenStruct00000093 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000093>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6617,8 +6613,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000095 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000095>(&t, out_buf)?;
+        let t: GenStruct00000095 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000095>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6657,8 +6653,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000099 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000099>(&t, out_buf)?;
+        let t: GenArray00000099 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000099>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6687,8 +6683,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt0000009C = deserialize(in_buf)?;
-        // let len = debug::<GenOpt0000009C>(&t, out_buf)?;
+        let t: GenEnum0000009C = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000009C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6697,8 +6693,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000009D = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000009D>(&t, out_buf)?;
+        let t: GenEnum0000009D = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000009D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6707,8 +6703,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000009E = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000009E>(&t, out_buf)?;
+        let t: GenEnum0000009E = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000009E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6717,8 +6713,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000009F = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000009F>(&t, out_buf)?;
+        let t: GenTup0000009F = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000009F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6727,8 +6723,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000A0 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000A0>(&t, out_buf)?;
+        let t: GenArray000000A0 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000000A0>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6747,8 +6743,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000A2 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000A2>(&t, out_buf)?;
+        let t: GenTup000000A2 = deserialize(in_buf)?;
+        // let len = debug::<GenTup000000A2>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6757,8 +6753,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000000A3 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000000A3>(&t, out_buf)?;
+        let t: GenTup000000A3 = deserialize(in_buf)?;
+        // let len = debug::<GenTup000000A3>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6767,8 +6763,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000000A4 = deserialize(in_buf)?;
-        // let len = debug::<GenArray000000A4>(&t, out_buf)?;
+        let t: GenEnum000000A4 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000A4>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6777,8 +6773,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000A5 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000A5>(&t, out_buf)?;
+        let t: GenTupStruct000000A5 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000A5>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6807,8 +6803,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000A8 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000A8>(&t, out_buf)?;
+        let t: GenTup000000A8 = deserialize(in_buf)?;
+        // let len = debug::<GenTup000000A8>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6837,8 +6833,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000AB = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000AB>(&t, out_buf)?;
+        let t: GenOpt000000AB = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000AB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6847,8 +6843,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000000AC = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000000AC>(&t, out_buf)?;
+        let t: GenStruct000000AC = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000AC>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6857,8 +6853,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000000AD = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000000AD>(&t, out_buf)?;
+        let t: GenStruct000000AD = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000AD>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6877,8 +6873,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000000AF = deserialize(in_buf)?;
-        // let len = debug::<GenArray000000AF>(&t, out_buf)?;
+        let t: GenOpt000000AF = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000AF>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6887,8 +6883,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000000B0 = deserialize(in_buf)?;
-        // let len = debug::<GenArray000000B0>(&t, out_buf)?;
+        let t: GenStruct000000B0 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000B0>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6897,8 +6893,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000B1 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000B1>(&t, out_buf)?;
+        let t: GenArray000000B1 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000000B1>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6907,8 +6903,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000000B2 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000000B2>(&t, out_buf)?;
+        let t: GenEnum000000B2 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000B2>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6917,8 +6913,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000B3 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000B3>(&t, out_buf)?;
+        let t: GenStruct000000B3 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000B3>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6937,8 +6933,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000B5 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000B5>(&t, out_buf)?;
+        let t: GenTupStruct000000B5 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000B5>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6947,8 +6943,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000B6 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000B6>(&t, out_buf)?;
+        let t: GenTupStruct000000B6 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000B6>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6957,8 +6953,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000000B7 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000000B7>(&t, out_buf)?;
+        let t: GenArray000000B7 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000000B7>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6987,8 +6983,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000000BA = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000000BA>(&t, out_buf)?;
+        let t: GenEnum000000BA = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000BA>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -6997,8 +6993,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000BB = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000BB>(&t, out_buf)?;
+        let t: GenEnum000000BB = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000BB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7007,8 +7003,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000BC = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000BC>(&t, out_buf)?;
+        let t: GenEnum000000BC = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000BC>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7027,8 +7023,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000BE = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000BE>(&t, out_buf)?;
+        let t: GenOpt000000BE = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000BE>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7057,8 +7053,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000C1 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000C1>(&t, out_buf)?;
+        let t: GenStruct000000C1 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000C1>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7067,8 +7063,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000C2 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000C2>(&t, out_buf)?;
+        let t: GenArray000000C2 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000000C2>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7077,8 +7073,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000C3 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000C3>(&t, out_buf)?;
+        let t: GenOpt000000C3 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000C3>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7087,8 +7083,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000000C4 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000000C4>(&t, out_buf)?;
+        let t: GenTup000000C4 = deserialize(in_buf)?;
+        // let len = debug::<GenTup000000C4>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7107,8 +7103,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000000C6 = deserialize(in_buf)?;
-        // let len = debug::<GenArray000000C6>(&t, out_buf)?;
+        let t: GenOpt000000C6 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000C6>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7117,8 +7113,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000C7 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000C7>(&t, out_buf)?;
+        let t: GenTupStruct000000C7 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000C7>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7127,8 +7123,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000000C8 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000000C8>(&t, out_buf)?;
+        let t: GenEnum000000C8 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000C8>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7137,8 +7133,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000C9 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000C9>(&t, out_buf)?;
+        let t: GenOpt000000C9 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000C9>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7147,8 +7143,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000000CA = deserialize(in_buf)?;
-        // let len = debug::<GenArray000000CA>(&t, out_buf)?;
+        let t: GenStruct000000CA = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000CA>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7157,8 +7153,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000CB = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000CB>(&t, out_buf)?;
+        let t: GenEnum000000CB = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000CB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7167,8 +7163,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000CC = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000CC>(&t, out_buf)?;
+        let t: GenTupStruct000000CC = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000CC>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7177,8 +7173,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000000CD = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000000CD>(&t, out_buf)?;
+        let t: GenOpt000000CD = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000CD>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7187,8 +7183,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000CE = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000CE>(&t, out_buf)?;
+        let t: GenEnum000000CE = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000CE>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7197,8 +7193,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000000CF = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000000CF>(&t, out_buf)?;
+        let t: GenArray000000CF = deserialize(in_buf)?;
+        // let len = debug::<GenArray000000CF>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7217,8 +7213,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000D1 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000D1>(&t, out_buf)?;
+        let t: GenOpt000000D1 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000D1>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7227,8 +7223,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000D2 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000D2>(&t, out_buf)?;
+        let t: GenStruct000000D2 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000D2>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7237,8 +7233,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000D3 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000D3>(&t, out_buf)?;
+        let t: GenArray000000D3 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000000D3>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7267,8 +7263,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000000D6 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000000D6>(&t, out_buf)?;
+        let t: GenArray000000D6 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000000D6>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7277,8 +7273,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000D7 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000D7>(&t, out_buf)?;
+        let t: GenTupStruct000000D7 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000D7>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7287,8 +7283,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000D8 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000D8>(&t, out_buf)?;
+        let t: GenOpt000000D8 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000D8>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7297,8 +7293,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000000D9 = deserialize(in_buf)?;
-        // let len = debug::<GenArray000000D9>(&t, out_buf)?;
+        let t: GenEnum000000D9 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000D9>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7307,8 +7303,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000DA = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000DA>(&t, out_buf)?;
+        let t: GenStruct000000DA = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000DA>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7317,8 +7313,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000DB = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000DB>(&t, out_buf)?;
+        let t: GenOpt000000DB = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000DB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7327,8 +7323,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000DC = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000DC>(&t, out_buf)?;
+        let t: GenOpt000000DC = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000DC>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7337,8 +7333,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000DD = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000DD>(&t, out_buf)?;
+        let t: GenTupStruct000000DD = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000DD>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7347,8 +7343,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000DE = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000DE>(&t, out_buf)?;
+        let t: GenTupStruct000000DE = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000DE>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7357,8 +7353,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000000DF = deserialize(in_buf)?;
-        // let len = debug::<GenArray000000DF>(&t, out_buf)?;
+        let t: GenEnum000000DF = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000DF>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7367,8 +7363,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000E0 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000E0>(&t, out_buf)?;
+        let t: GenTupStruct000000E0 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000E0>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7377,8 +7373,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000E1 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000E1>(&t, out_buf)?;
+        let t: GenOpt000000E1 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000E1>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7387,8 +7383,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000000E2 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000000E2>(&t, out_buf)?;
+        let t: GenTupStruct000000E2 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000E2>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7397,8 +7393,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000E3 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000E3>(&t, out_buf)?;
+        let t: GenOpt000000E3 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000E3>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7407,8 +7403,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000E4 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000E4>(&t, out_buf)?;
+        let t: GenOpt000000E4 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000E4>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7417,8 +7413,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000E5 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000E5>(&t, out_buf)?;
+        let t: GenTupStruct000000E5 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000E5>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7427,8 +7423,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000E6 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000E6>(&t, out_buf)?;
+        let t: GenTupStruct000000E6 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000E6>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7437,8 +7433,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000000E7 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000000E7>(&t, out_buf)?;
+        let t: GenEnum000000E7 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000E7>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7447,8 +7443,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000000E8 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000000E8>(&t, out_buf)?;
+        let t: GenEnum000000E8 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000E8>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7457,8 +7453,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000E9 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000E9>(&t, out_buf)?;
+        let t: GenTupStruct000000E9 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000E9>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7467,8 +7463,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000EA = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000EA>(&t, out_buf)?;
+        let t: GenEnum000000EA = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000EA>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7477,8 +7473,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000000EB = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000000EB>(&t, out_buf)?;
+        let t: GenEnum000000EB = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000EB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7487,8 +7483,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000000EC = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000000EC>(&t, out_buf)?;
+        let t: GenEnum000000EC = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000EC>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7507,8 +7503,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000EE = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000EE>(&t, out_buf)?;
+        let t: GenArray000000EE = deserialize(in_buf)?;
+        // let len = debug::<GenArray000000EE>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7517,8 +7513,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000000EF = deserialize(in_buf)?;
-        // let len = debug::<GenArray000000EF>(&t, out_buf)?;
+        let t: GenStruct000000EF = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000EF>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7527,8 +7523,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000F0 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000F0>(&t, out_buf)?;
+        let t: GenOpt000000F0 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000F0>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7537,8 +7533,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000F1 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000F1>(&t, out_buf)?;
+        let t: GenStruct000000F1 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000F1>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7547,8 +7543,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000000F2 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000000F2>(&t, out_buf)?;
+        let t: GenEnum000000F2 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000F2>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7557,8 +7553,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000000F3 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000000F3>(&t, out_buf)?;
+        let t: GenStruct000000F3 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000F3>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7567,8 +7563,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000000F4 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000000F4>(&t, out_buf)?;
+        let t: GenStruct000000F4 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000F4>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7587,8 +7583,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000F6 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000F6>(&t, out_buf)?;
+        let t: GenOpt000000F6 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000F6>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7597,8 +7593,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000F7 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000F7>(&t, out_buf)?;
+        let t: GenTupStruct000000F7 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000000F7>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7607,8 +7603,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000F8 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000F8>(&t, out_buf)?;
+        let t: GenOpt000000F8 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000F8>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7617,8 +7613,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000000F9 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000000F9>(&t, out_buf)?;
+        let t: GenEnum000000F9 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000F9>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7637,8 +7633,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000000FB = deserialize(in_buf)?;
-        // let len = debug::<GenTup000000FB>(&t, out_buf)?;
+        let t: GenStruct000000FB = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000000FB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7657,8 +7653,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000000FD = deserialize(in_buf)?;
-        // let len = debug::<GenArray000000FD>(&t, out_buf)?;
+        let t: GenOpt000000FD = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000000FD>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7667,8 +7663,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000000FE = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000000FE>(&t, out_buf)?;
+        let t: GenEnum000000FE = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000000FE>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7687,8 +7683,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000100 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000100>(&t, out_buf)?;
+        let t: GenTupStruct00000100 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000100>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7697,8 +7693,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000101 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000101>(&t, out_buf)?;
+        let t: GenTupStruct00000101 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000101>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7707,8 +7703,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000102 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000102>(&t, out_buf)?;
+        let t: GenEnum00000102 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000102>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7727,8 +7723,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000104 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000104>(&t, out_buf)?;
+        let t: GenArray00000104 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000104>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7737,8 +7733,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000105 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000105>(&t, out_buf)?;
+        let t: GenStruct00000105 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000105>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7747,8 +7743,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000106 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000106>(&t, out_buf)?;
+        let t: GenEnum00000106 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000106>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7767,8 +7763,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000108 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000108>(&t, out_buf)?;
+        let t: GenArray00000108 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000108>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7777,8 +7773,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000109 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000109>(&t, out_buf)?;
+        let t: GenOpt00000109 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000109>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7787,8 +7783,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray0000010A = deserialize(in_buf)?;
-        // let len = debug::<GenArray0000010A>(&t, out_buf)?;
+        let t: GenEnum0000010A = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000010A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7797,8 +7793,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000010B = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000010B>(&t, out_buf)?;
+        let t: GenEnum0000010B = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000010B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7807,8 +7803,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt0000010C = deserialize(in_buf)?;
-        // let len = debug::<GenOpt0000010C>(&t, out_buf)?;
+        let t: GenEnum0000010C = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000010C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7817,8 +7813,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000010D = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000010D>(&t, out_buf)?;
+        let t: GenEnum0000010D = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000010D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7827,8 +7823,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt0000010E = deserialize(in_buf)?;
-        // let len = debug::<GenOpt0000010E>(&t, out_buf)?;
+        let t: GenStruct0000010E = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000010E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7837,8 +7833,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000010F = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000010F>(&t, out_buf)?;
+        let t: GenEnum0000010F = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000010F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7847,8 +7843,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000110 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000110>(&t, out_buf)?;
+        let t: GenEnum00000110 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000110>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7857,8 +7853,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000111 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000111>(&t, out_buf)?;
+        let t: GenStruct00000111 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000111>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7867,8 +7863,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000112 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000112>(&t, out_buf)?;
+        let t: GenStruct00000112 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000112>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7877,8 +7873,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000113 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000113>(&t, out_buf)?;
+        let t: GenEnum00000113 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000113>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7887,8 +7883,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000114 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000114>(&t, out_buf)?;
+        let t: GenTupStruct00000114 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000114>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7897,8 +7893,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000115 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000115>(&t, out_buf)?;
+        let t: GenStruct00000115 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000115>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7907,8 +7903,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000116 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000116>(&t, out_buf)?;
+        let t: GenTup00000116 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000116>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7927,8 +7923,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000118 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000118>(&t, out_buf)?;
+        let t: GenStruct00000118 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000118>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7937,8 +7933,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000119 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000119>(&t, out_buf)?;
+        let t: GenTup00000119 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000119>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7947,8 +7943,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray0000011A = deserialize(in_buf)?;
-        // let len = debug::<GenArray0000011A>(&t, out_buf)?;
+        let t: GenOpt0000011A = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000011A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7957,8 +7953,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000011B = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000011B>(&t, out_buf)?;
+        let t: GenArray0000011B = deserialize(in_buf)?;
+        // let len = debug::<GenArray0000011B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7967,8 +7963,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt0000011C = deserialize(in_buf)?;
-        // let len = debug::<GenOpt0000011C>(&t, out_buf)?;
+        let t: GenStruct0000011C = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000011C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7977,8 +7973,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000011D = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000011D>(&t, out_buf)?;
+        let t: GenOpt0000011D = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000011D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7987,8 +7983,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000011E = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000011E>(&t, out_buf)?;
+        let t: GenEnum0000011E = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000011E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -7997,8 +7993,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000011F = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000011F>(&t, out_buf)?;
+        let t: GenTup0000011F = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000011F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8007,8 +8003,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000120 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000120>(&t, out_buf)?;
+        let t: GenStruct00000120 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000120>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8017,8 +8013,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000121 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000121>(&t, out_buf)?;
+        let t: GenEnum00000121 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000121>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8037,8 +8033,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000123 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000123>(&t, out_buf)?;
+        let t: GenStruct00000123 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000123>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8047,8 +8043,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000124 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000124>(&t, out_buf)?;
+        let t: GenOpt00000124 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000124>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8057,8 +8053,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000125 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000125>(&t, out_buf)?;
+        let t: GenStruct00000125 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000125>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8067,8 +8063,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000126 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000126>(&t, out_buf)?;
+        let t: GenArray00000126 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000126>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8077,8 +8073,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000127 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000127>(&t, out_buf)?;
+        let t: GenTupStruct00000127 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000127>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8087,8 +8083,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000128 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000128>(&t, out_buf)?;
+        let t: GenArray00000128 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000128>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8097,8 +8093,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000129 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000129>(&t, out_buf)?;
+        let t: GenStruct00000129 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000129>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8107,8 +8103,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000012A = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000012A>(&t, out_buf)?;
+        let t: GenOpt0000012A = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000012A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8117,8 +8113,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000012B = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000012B>(&t, out_buf)?;
+        let t: GenStruct0000012B = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000012B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8127,8 +8123,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000012C = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000012C>(&t, out_buf)?;
+        let t: GenEnum0000012C = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000012C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8147,8 +8143,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000012E = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000012E>(&t, out_buf)?;
+        let t: GenEnum0000012E = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000012E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8157,8 +8153,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000012F = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000012F>(&t, out_buf)?;
+        let t: GenTup0000012F = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000012F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8167,8 +8163,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000130 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000130>(&t, out_buf)?;
+        let t: GenTup00000130 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000130>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8197,8 +8193,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000133 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000133>(&t, out_buf)?;
+        let t: GenArray00000133 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000133>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8207,8 +8203,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000134 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000134>(&t, out_buf)?;
+        let t: GenEnum00000134 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000134>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8217,8 +8213,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000135 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000135>(&t, out_buf)?;
+        let t: GenEnum00000135 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000135>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8227,8 +8223,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000136 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000136>(&t, out_buf)?;
+        let t: GenTup00000136 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000136>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8237,8 +8233,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000137 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000137>(&t, out_buf)?;
+        let t: GenEnum00000137 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000137>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8247,8 +8243,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000138 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000138>(&t, out_buf)?;
+        let t: GenTup00000138 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000138>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8257,8 +8253,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000139 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000139>(&t, out_buf)?;
+        let t: GenTup00000139 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000139>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8267,8 +8263,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray0000013A = deserialize(in_buf)?;
-        // let len = debug::<GenArray0000013A>(&t, out_buf)?;
+        let t: GenStruct0000013A = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000013A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8277,8 +8273,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray0000013B = deserialize(in_buf)?;
-        // let len = debug::<GenArray0000013B>(&t, out_buf)?;
+        let t: GenOpt0000013B = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000013B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8287,8 +8283,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000013C = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000013C>(&t, out_buf)?;
+        let t: GenTupStruct0000013C = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000013C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8297,8 +8293,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000013D = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000013D>(&t, out_buf)?;
+        let t: GenTupStruct0000013D = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000013D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8357,8 +8353,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000143 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000143>(&t, out_buf)?;
+        let t: GenOpt00000143 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000143>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8367,8 +8363,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000144 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000144>(&t, out_buf)?;
+        let t: GenTup00000144 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000144>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8377,8 +8373,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000145 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000145>(&t, out_buf)?;
+        let t: GenEnum00000145 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000145>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8387,8 +8383,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000146 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000146>(&t, out_buf)?;
+        let t: GenEnum00000146 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000146>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8397,8 +8393,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000147 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000147>(&t, out_buf)?;
+        let t: GenStruct00000147 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000147>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8407,8 +8403,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000148 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000148>(&t, out_buf)?;
+        let t: GenOpt00000148 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000148>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8417,8 +8413,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000149 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000149>(&t, out_buf)?;
+        let t: GenTup00000149 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000149>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8427,8 +8423,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000014A = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000014A>(&t, out_buf)?;
+        let t: GenTup0000014A = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000014A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8437,8 +8433,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000014B = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000014B>(&t, out_buf)?;
+        let t: GenStruct0000014B = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000014B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8447,8 +8443,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000014C = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000014C>(&t, out_buf)?;
+        let t: GenArray0000014C = deserialize(in_buf)?;
+        // let len = debug::<GenArray0000014C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8467,8 +8463,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000014E = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000014E>(&t, out_buf)?;
+        let t: GenTupStruct0000014E = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000014E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8477,8 +8473,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000014F = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000014F>(&t, out_buf)?;
+        let t: GenOpt0000014F = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000014F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8507,8 +8503,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000152 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000152>(&t, out_buf)?;
+        let t: GenOpt00000152 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000152>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8517,8 +8513,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000153 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000153>(&t, out_buf)?;
+        let t: GenStruct00000153 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000153>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8527,8 +8523,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000154 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000154>(&t, out_buf)?;
+        let t: GenOpt00000154 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000154>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8547,8 +8543,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000156 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000156>(&t, out_buf)?;
+        let t: GenEnum00000156 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000156>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8557,8 +8553,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000157 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000157>(&t, out_buf)?;
+        let t: GenOpt00000157 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000157>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8577,8 +8573,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000159 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000159>(&t, out_buf)?;
+        let t: GenEnum00000159 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000159>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8587,8 +8583,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000015A = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000015A>(&t, out_buf)?;
+        let t: GenTupStruct0000015A = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000015A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8597,8 +8593,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000015B = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000015B>(&t, out_buf)?;
+        let t: GenOpt0000015B = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000015B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8607,8 +8603,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000015C = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000015C>(&t, out_buf)?;
+        let t: GenTupStruct0000015C = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000015C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8627,8 +8623,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000015E = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000015E>(&t, out_buf)?;
+        let t: GenStruct0000015E = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000015E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8637,8 +8633,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt0000015F = deserialize(in_buf)?;
-        // let len = debug::<GenOpt0000015F>(&t, out_buf)?;
+        let t: GenEnum0000015F = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000015F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8647,8 +8643,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000160 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000160>(&t, out_buf)?;
+        let t: GenTupStruct00000160 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000160>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8657,8 +8653,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000161 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000161>(&t, out_buf)?;
+        let t: GenOpt00000161 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000161>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8667,8 +8663,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000162 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000162>(&t, out_buf)?;
+        let t: GenEnum00000162 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000162>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8677,8 +8673,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000163 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000163>(&t, out_buf)?;
+        let t: GenStruct00000163 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000163>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8687,8 +8683,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000164 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000164>(&t, out_buf)?;
+        let t: GenOpt00000164 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000164>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8707,8 +8703,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000166 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000166>(&t, out_buf)?;
+        let t: GenTupStruct00000166 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000166>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8717,8 +8713,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000167 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000167>(&t, out_buf)?;
+        let t: GenOpt00000167 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000167>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8727,8 +8723,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000168 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000168>(&t, out_buf)?;
+        let t: GenTupStruct00000168 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000168>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8737,8 +8733,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000169 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000169>(&t, out_buf)?;
+        let t: GenArray00000169 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000169>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8747,8 +8743,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000016A = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000016A>(&t, out_buf)?;
+        let t: GenArray0000016A = deserialize(in_buf)?;
+        // let len = debug::<GenArray0000016A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8757,8 +8753,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt0000016B = deserialize(in_buf)?;
-        // let len = debug::<GenOpt0000016B>(&t, out_buf)?;
+        let t: GenStruct0000016B = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000016B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8767,8 +8763,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000016C = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000016C>(&t, out_buf)?;
+        let t: GenEnum0000016C = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000016C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8777,8 +8773,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000016D = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000016D>(&t, out_buf)?;
+        let t: GenStruct0000016D = deserialize(in_buf)?;
+        // let len = debug::<GenStruct0000016D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8807,8 +8803,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000170 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000170>(&t, out_buf)?;
+        let t: GenEnum00000170 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000170>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8817,8 +8813,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000171 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000171>(&t, out_buf)?;
+        let t: GenStruct00000171 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000171>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8837,8 +8833,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000173 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000173>(&t, out_buf)?;
+        let t: GenStruct00000173 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000173>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8877,8 +8873,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000177 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000177>(&t, out_buf)?;
+        let t: GenOpt00000177 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000177>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8887,8 +8883,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000178 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000178>(&t, out_buf)?;
+        let t: GenTup00000178 = deserialize(in_buf)?;
+        // let len = debug::<GenTup00000178>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8897,8 +8893,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000179 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000179>(&t, out_buf)?;
+        let t: GenOpt00000179 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt00000179>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8907,8 +8903,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000017A = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000017A>(&t, out_buf)?;
+        let t: GenOpt0000017A = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000017A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8917,8 +8913,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct0000017B = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct0000017B>(&t, out_buf)?;
+        let t: GenOpt0000017B = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000017B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8927,8 +8923,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000017C = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000017C>(&t, out_buf)?;
+        let t: GenEnum0000017C = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000017C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8937,8 +8933,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup0000017D = deserialize(in_buf)?;
-        // let len = debug::<GenTup0000017D>(&t, out_buf)?;
+        let t: GenOpt0000017D = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000017D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8947,8 +8943,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000017E = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000017E>(&t, out_buf)?;
+        let t: GenTupStruct0000017E = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000017E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8957,8 +8953,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt0000017F = deserialize(in_buf)?;
-        // let len = debug::<GenOpt0000017F>(&t, out_buf)?;
+        let t: GenTupStruct0000017F = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000017F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8967,8 +8963,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000180 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000180>(&t, out_buf)?;
+        let t: GenArray00000180 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000180>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8987,8 +8983,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000182 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000182>(&t, out_buf)?;
+        let t: GenEnum00000182 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000182>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -8997,8 +8993,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum00000183 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum00000183>(&t, out_buf)?;
+        let t: GenArray00000183 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000183>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9007,8 +9003,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000184 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000184>(&t, out_buf)?;
+        let t: GenStruct00000184 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000184>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9017,8 +9013,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000185 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000185>(&t, out_buf)?;
+        let t: GenTupStruct00000185 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000185>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9037,8 +9033,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000187 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000187>(&t, out_buf)?;
+        let t: GenEnum00000187 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000187>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9047,8 +9043,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000188 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000188>(&t, out_buf)?;
+        let t: GenTupStruct00000188 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000188>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9067,8 +9063,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000018A = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000018A>(&t, out_buf)?;
+        let t: GenTup0000018A = deserialize(in_buf)?;
+        // let len = debug::<GenTup0000018A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9077,8 +9073,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000018B = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000018B>(&t, out_buf)?;
+        let t: GenEnum0000018B = deserialize(in_buf)?;
+        // let len = debug::<GenEnum0000018B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9087,8 +9083,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000018C = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000018C>(&t, out_buf)?;
+        let t: GenOpt0000018C = deserialize(in_buf)?;
+        // let len = debug::<GenOpt0000018C>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9097,8 +9093,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum0000018D = deserialize(in_buf)?;
-        // let len = debug::<GenEnum0000018D>(&t, out_buf)?;
+        let t: GenTupStruct0000018D = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000018D>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9107,8 +9103,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000018E = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000018E>(&t, out_buf)?;
+        let t: GenArray0000018E = deserialize(in_buf)?;
+        // let len = debug::<GenArray0000018E>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9117,8 +9113,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt0000018F = deserialize(in_buf)?;
-        // let len = debug::<GenOpt0000018F>(&t, out_buf)?;
+        let t: GenTupStruct0000018F = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000018F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9127,8 +9123,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000190 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000190>(&t, out_buf)?;
+        let t: GenTupStruct00000190 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000190>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9137,8 +9133,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000191 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000191>(&t, out_buf)?;
+        let t: GenArray00000191 = deserialize(in_buf)?;
+        // let len = debug::<GenArray00000191>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9147,8 +9143,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000192 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000192>(&t, out_buf)?;
+        let t: GenStruct00000192 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000192>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9157,8 +9153,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct00000193 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct00000193>(&t, out_buf)?;
+        let t: GenEnum00000193 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000193>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9177,8 +9173,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000195 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000195>(&t, out_buf)?;
+        let t: GenStruct00000195 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000195>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9187,8 +9183,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup00000196 = deserialize(in_buf)?;
-        // let len = debug::<GenTup00000196>(&t, out_buf)?;
+        let t: GenStruct00000196 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000196>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9197,8 +9193,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct00000197 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct00000197>(&t, out_buf)?;
+        let t: GenStruct00000197 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct00000197>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9207,8 +9203,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt00000198 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt00000198>(&t, out_buf)?;
+        let t: GenTupStruct00000198 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct00000198>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9217,8 +9213,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray00000199 = deserialize(in_buf)?;
-        // let len = debug::<GenArray00000199>(&t, out_buf)?;
+        let t: GenEnum00000199 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum00000199>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9227,8 +9223,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray0000019A = deserialize(in_buf)?;
-        // let len = debug::<GenArray0000019A>(&t, out_buf)?;
+        let t: GenTupStruct0000019A = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000019A>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9237,8 +9233,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct0000019B = deserialize(in_buf)?;
-        // let len = debug::<GenStruct0000019B>(&t, out_buf)?;
+        let t: GenTupStruct0000019B = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000019B>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9277,8 +9273,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray0000019F = deserialize(in_buf)?;
-        // let len = debug::<GenArray0000019F>(&t, out_buf)?;
+        let t: GenTupStruct0000019F = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct0000019F>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9287,8 +9283,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000001A0 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000001A0>(&t, out_buf)?;
+        let t: GenStruct000001A0 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001A0>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9297,8 +9293,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001A1 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001A1>(&t, out_buf)?;
+        let t: GenEnum000001A1 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001A1>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9307,8 +9303,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001A2 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001A2>(&t, out_buf)?;
+        let t: GenTup000001A2 = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001A2>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9317,8 +9313,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001A3 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001A3>(&t, out_buf)?;
+        let t: GenArray000001A3 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001A3>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9327,8 +9323,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001A4 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001A4>(&t, out_buf)?;
+        let t: GenOpt000001A4 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000001A4>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9337,8 +9333,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001A5 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001A5>(&t, out_buf)?;
+        let t: GenTup000001A5 = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001A5>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9347,8 +9343,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001A6 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001A6>(&t, out_buf)?;
+        let t: GenOpt000001A6 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000001A6>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9357,8 +9353,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001A7 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001A7>(&t, out_buf)?;
+        let t: GenTup000001A7 = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001A7>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9367,8 +9363,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001A8 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001A8>(&t, out_buf)?;
+        let t: GenArray000001A8 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001A8>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9377,8 +9373,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000001A9 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000001A9>(&t, out_buf)?;
+        let t: GenStruct000001A9 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001A9>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9387,8 +9383,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001AA = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001AA>(&t, out_buf)?;
+        let t: GenStruct000001AA = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001AA>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9397,8 +9393,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000001AB = deserialize(in_buf)?;
-        // let len = debug::<GenArray000001AB>(&t, out_buf)?;
+        let t: GenTup000001AB = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001AB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9407,8 +9403,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000001AC = deserialize(in_buf)?;
-        // let len = debug::<GenArray000001AC>(&t, out_buf)?;
+        let t: GenTupStruct000001AC = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000001AC>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9417,8 +9413,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001AD = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001AD>(&t, out_buf)?;
+        let t: GenArray000001AD = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001AD>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9427,8 +9423,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001AE = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001AE>(&t, out_buf)?;
+        let t: GenStruct000001AE = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001AE>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9437,8 +9433,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001AF = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001AF>(&t, out_buf)?;
+        let t: GenOpt000001AF = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000001AF>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9447,8 +9443,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000001B0 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000001B0>(&t, out_buf)?;
+        let t: GenOpt000001B0 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000001B0>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9457,8 +9453,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000001B1 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000001B1>(&t, out_buf)?;
+        let t: GenEnum000001B1 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001B1>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9497,8 +9493,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000001B5 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000001B5>(&t, out_buf)?;
+        let t: GenStruct000001B5 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001B5>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9507,8 +9503,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001B6 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001B6>(&t, out_buf)?;
+        let t: GenEnum000001B6 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001B6>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9517,8 +9513,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001B7 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001B7>(&t, out_buf)?;
+        let t: GenStruct000001B7 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001B7>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9527,8 +9523,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000001B8 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000001B8>(&t, out_buf)?;
+        let t: GenEnum000001B8 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001B8>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9537,8 +9533,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000001B9 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000001B9>(&t, out_buf)?;
+        let t: GenEnum000001B9 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001B9>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9547,8 +9543,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000001BA = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000001BA>(&t, out_buf)?;
+        let t: GenEnum000001BA = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001BA>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9557,8 +9553,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001BB = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001BB>(&t, out_buf)?;
+        let t: GenTup000001BB = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001BB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9567,8 +9563,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000001BC = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000001BC>(&t, out_buf)?;
+        let t: GenEnum000001BC = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001BC>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9577,8 +9573,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001BD = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001BD>(&t, out_buf)?;
+        let t: GenStruct000001BD = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001BD>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9587,8 +9583,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000001BE = deserialize(in_buf)?;
-        // let len = debug::<GenArray000001BE>(&t, out_buf)?;
+        let t: GenTup000001BE = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001BE>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9597,8 +9593,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000001BF = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000001BF>(&t, out_buf)?;
+        let t: GenArray000001BF = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001BF>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9607,8 +9603,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001C0 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001C0>(&t, out_buf)?;
+        let t: GenArray000001C0 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001C0>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9617,8 +9613,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001C1 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001C1>(&t, out_buf)?;
+        let t: GenArray000001C1 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001C1>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9627,8 +9623,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000001C2 = deserialize(in_buf)?;
-        // let len = debug::<GenArray000001C2>(&t, out_buf)?;
+        let t: GenTupStruct000001C2 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000001C2>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9637,8 +9633,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001C3 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001C3>(&t, out_buf)?;
+        let t: GenOpt000001C3 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000001C3>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9647,8 +9643,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001C4 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001C4>(&t, out_buf)?;
+        let t: GenTupStruct000001C4 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000001C4>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9657,8 +9653,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001C5 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001C5>(&t, out_buf)?;
+        let t: GenEnum000001C5 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001C5>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9677,8 +9673,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001C7 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001C7>(&t, out_buf)?;
+        let t: GenEnum000001C7 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001C7>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9687,8 +9683,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000001C8 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000001C8>(&t, out_buf)?;
+        let t: GenEnum000001C8 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001C8>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9697,8 +9693,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001C9 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001C9>(&t, out_buf)?;
+        let t: GenArray000001C9 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001C9>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9707,8 +9703,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001CA = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001CA>(&t, out_buf)?;
+        let t: GenOpt000001CA = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000001CA>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9717,8 +9713,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001CB = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001CB>(&t, out_buf)?;
+        let t: GenStruct000001CB = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001CB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9727,8 +9723,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001CC = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001CC>(&t, out_buf)?;
+        let t: GenEnum000001CC = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001CC>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9747,8 +9743,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001CE = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001CE>(&t, out_buf)?;
+        let t: GenTup000001CE = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001CE>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9757,8 +9753,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001CF = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001CF>(&t, out_buf)?;
+        let t: GenTup000001CF = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001CF>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9777,8 +9773,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000001D1 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000001D1>(&t, out_buf)?;
+        let t: GenEnum000001D1 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001D1>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9797,8 +9793,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000001D3 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000001D3>(&t, out_buf)?;
+        let t: GenStruct000001D3 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001D3>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9817,8 +9813,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000001D5 = deserialize(in_buf)?;
-        // let len = debug::<GenArray000001D5>(&t, out_buf)?;
+        let t: GenEnum000001D5 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001D5>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9827,8 +9823,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001D6 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001D6>(&t, out_buf)?;
+        let t: GenTupStruct000001D6 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000001D6>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9837,8 +9833,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001D7 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001D7>(&t, out_buf)?;
+        let t: GenTupStruct000001D7 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000001D7>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9847,8 +9843,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000001D8 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000001D8>(&t, out_buf)?;
+        let t: GenTup000001D8 = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001D8>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9857,8 +9853,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001D9 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001D9>(&t, out_buf)?;
+        let t: GenTup000001D9 = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001D9>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9867,8 +9863,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000001DA = deserialize(in_buf)?;
-        // let len = debug::<GenTup000001DA>(&t, out_buf)?;
+        let t: GenEnum000001DA = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001DA>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9877,8 +9873,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000001DB = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000001DB>(&t, out_buf)?;
+        let t: GenStruct000001DB = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001DB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9887,8 +9883,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000001DC = deserialize(in_buf)?;
-        // let len = debug::<GenArray000001DC>(&t, out_buf)?;
+        let t: GenTup000001DC = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001DC>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9907,8 +9903,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001DE = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001DE>(&t, out_buf)?;
+        let t: GenArray000001DE = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001DE>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9917,8 +9913,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001DF = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001DF>(&t, out_buf)?;
+        let t: GenOpt000001DF = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000001DF>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9947,8 +9943,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001E2 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001E2>(&t, out_buf)?;
+        let t: GenOpt000001E2 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000001E2>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9957,8 +9953,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000001E3 = deserialize(in_buf)?;
-        // let len = debug::<GenArray000001E3>(&t, out_buf)?;
+        let t: GenEnum000001E3 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001E3>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9967,8 +9963,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001E4 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001E4>(&t, out_buf)?;
+        let t: GenArray000001E4 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001E4>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9977,8 +9973,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001E5 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001E5>(&t, out_buf)?;
+        let t: GenStruct000001E5 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001E5>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -9987,8 +9983,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001E6 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001E6>(&t, out_buf)?;
+        let t: GenEnum000001E6 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001E6>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10007,8 +10003,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000001E8 = deserialize(in_buf)?;
-        // let len = debug::<GenTup000001E8>(&t, out_buf)?;
+        let t: GenTupStruct000001E8 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000001E8>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10017,8 +10013,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000001E9 = deserialize(in_buf)?;
-        // let len = debug::<GenArray000001E9>(&t, out_buf)?;
+        let t: GenTupStruct000001E9 = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000001E9>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10027,8 +10023,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000001EA = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000001EA>(&t, out_buf)?;
+        let t: GenStruct000001EA = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001EA>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10037,8 +10033,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTup000001EB = deserialize(in_buf)?;
-        // let len = debug::<GenTup000001EB>(&t, out_buf)?;
+        let t: GenArray000001EB = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001EB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10047,8 +10043,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001EC = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001EC>(&t, out_buf)?;
+        let t: GenStruct000001EC = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001EC>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10077,8 +10073,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001EF = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001EF>(&t, out_buf)?;
+        let t: GenTup000001EF = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001EF>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10087,8 +10083,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001F0 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001F0>(&t, out_buf)?;
+        let t: GenTup000001F0 = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001F0>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10107,8 +10103,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenStruct000001F2 = deserialize(in_buf)?;
-        // let len = debug::<GenStruct000001F2>(&t, out_buf)?;
+        let t: GenArray000001F2 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001F2>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10117,8 +10113,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001F3 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001F3>(&t, out_buf)?;
+        let t: GenOpt000001F3 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000001F3>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10127,8 +10123,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001F4 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001F4>(&t, out_buf)?;
+        let t: GenOpt000001F4 = deserialize(in_buf)?;
+        // let len = debug::<GenOpt000001F4>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10137,8 +10133,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001F5 = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001F5>(&t, out_buf)?;
+        let t: GenArray000001F5 = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001F5>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10147,8 +10143,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenArray000001F6 = deserialize(in_buf)?;
-        // let len = debug::<GenArray000001F6>(&t, out_buf)?;
+        let t: GenStruct000001F6 = deserialize(in_buf)?;
+        // let len = debug::<GenStruct000001F6>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10157,8 +10153,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001F7 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001F7>(&t, out_buf)?;
+        let t: GenEnum000001F7 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001F7>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10167,8 +10163,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000001F8 = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000001F8>(&t, out_buf)?;
+        let t: GenEnum000001F8 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001F8>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10177,8 +10173,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001F9 = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001F9>(&t, out_buf)?;
+        let t: GenEnum000001F9 = deserialize(in_buf)?;
+        // let len = debug::<GenEnum000001F9>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10197,8 +10193,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenTupStruct000001FB = deserialize(in_buf)?;
-        // let len = debug::<GenTupStruct000001FB>(&t, out_buf)?;
+        let t: GenTup000001FB = deserialize(in_buf)?;
+        // let len = debug::<GenTup000001FB>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10227,8 +10223,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenEnum000001FE = deserialize(in_buf)?;
-        // let len = debug::<GenEnum000001FE>(&t, out_buf)?;
+        let t: GenArray000001FE = deserialize(in_buf)?;
+        // let len = debug::<GenArray000001FE>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
@@ -10237,8 +10233,8 @@ where
 
     {
         recv_fn(in_buf);
-        let t: GenOpt000001FF = deserialize(in_buf)?;
-        // let len = debug::<GenOpt000001FF>(&t, out_buf)?;
+        let t: GenTupStruct000001FF = deserialize(in_buf)?;
+        // let len = debug::<GenTupStruct000001FF>(&t, out_buf)?;
         // debg_fn(&out_buf[..len]);
         let len = serialize(&t, out_buf)?;
         send_fn(&out_buf[..len]);
