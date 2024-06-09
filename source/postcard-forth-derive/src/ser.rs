@@ -40,14 +40,26 @@ fn generate_type(
 ) -> Result<TokenStream, syn::Error> {
     match data {
         Data::Struct(data) => {
-            let ty = generate_struct(tyident.clone(), &data.fields);
-            Ok(quote! {
-                unsafe impl #impl_generics ::postcard_forth::Serialize for #tyident #ty_generics #where_clause {
-                    const FIELDS: &'static [::postcard_forth::SerField] = &[
-                        #ty
-                    ];
-                }
-            })
+            if data.fields.is_empty() {
+                Ok(quote! {
+                    unsafe impl #impl_generics ::postcard_forth::Serialize for #tyident #ty_generics #where_clause {
+                        const NODE: ::postcard_forth::SerNode = ::postcard_forth::SerNode::new_custom(::postcard_forth::impls::ser_nothing);
+                    }
+                })
+            } else {
+                let ty = generate_struct(tyident.clone(), &data.fields);
+                Ok(quote! {
+                    impl #impl_generics #tyident #ty_generics #where_clause {
+                        const SER_FIELDS: &'static [::postcard_forth::SerField] = &[
+                            #ty
+                        ];
+                    }
+
+                    unsafe impl #impl_generics ::postcard_forth::Serialize for #tyident #ty_generics #where_clause {
+                        const NODE: ::postcard_forth::SerNode = ::postcard_forth::SerNode::new_arry(Self::SER_FIELDS);
+                    }
+                })
+            }
         }
         Data::Enum(data) => {
             let serfunc_name = format!("ser_{}", tyident);
@@ -64,7 +76,7 @@ fn generate_type(
             let out = quote! {
                 #[allow(non_snake_case)]
                 #[inline]
-                pub unsafe fn #sername_ident(stream: &mut ::postcard_forth::SerStream, base: core::ptr::NonNull<()>) -> Result<(), ()> {
+                pub unsafe fn #sername_ident(stream: &mut ::postcard_forth::SerStream, base: ::core::ptr::NonNull<()>) -> Result<(), ()> {
                     let eref = base.cast::<#tyident>().as_ref();
                     match eref {
                         #arms
@@ -72,10 +84,7 @@ fn generate_type(
                 }
 
                 unsafe impl ::postcard_forth::Serialize for #tyident {
-                    const FIELDS: &'static [::postcard_forth::SerField] = &[::postcard_forth::SerField {
-                        offset: 0,
-                        func: #sername_ident,
-                    }];
+                    const NODE: ::postcard_forth::SerNode = ::postcard_forth::SerNode::new_custom(#sername_ident);
                 }
             };
             Ok(out)
@@ -95,29 +104,7 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
             let fields = fields.named.iter().map(|f| {
                 let ty = &f.ty;
                 let name = &f.ident;
-                let tystr = quote!( #ty ).to_string();
-
-                // This is probably not sound. Users could shadow real names with other types, breaking
-                // the safety guarantees.
-                let serf = match tystr.as_str() {
-                    // "u8" => quote!(::postcard_forth::impls::ser_u8),
-                    // "u16" => quote!(::postcard_forth::impls::ser_u16),
-                    // "u32" => quote!(::postcard_forth::impls::ser_u32),
-                    // "u64" => quote!(::postcard_forth::impls::ser_u64),
-                    // "u128" => quote!(::postcard_forth::impls::ser_u128),
-                    // "usize" => quote!(::postcard_forth::impls::ser_usize),
-                    // "i8" => quote!(::postcard_forth::impls::ser_i8),
-                    // "i16" => quote!(::postcard_forth::impls::ser_i16),
-                    // "i32" => quote!(::postcard_forth::impls::ser_i32),
-                    // "i64" => quote!(::postcard_forth::impls::ser_i64),
-                    // "i128" => quote!(::postcard_forth::impls::ser_i128),
-                    // "isize" => quote!(::postcard_forth::impls::ser_isize),
-                    // "String" => quote!(::postcard_forth::impls::ser_string),
-                    _other => {
-                        quote!(::postcard_forth::ser_fields::<#ty>)
-                    },
-                };
-                let out = quote_spanned!(f.span() => ::postcard_forth::SerField { offset: ::core::mem::offset_of!(#tyname, #name), func: #serf });
+                let out = quote_spanned!(f.span() => ::postcard_forth::SerField { offset: ::core::mem::offset_of!(#tyname, #name), node: &<#ty as ::postcard_forth::Serialize>::NODE });
                 out
             });
             out.extend(quote! {
@@ -127,31 +114,8 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
         syn::Fields::Unnamed(fields) => {
             let fields = fields.unnamed.iter().enumerate().map(|(i, f)| {
                 let ty = &f.ty;
-                // let name = &f.ident;
-                let tystr = quote!( #ty ).to_string();
-
-                // This is probably not sound. Users could shadow real names with other types, breaking
-                // the safety guarantees.
-                let serf = match tystr.as_str() {
-                    // "u8" => quote!(::postcard_forth::impls::ser_u8),
-                    // "u16" => quote!(::postcard_forth::impls::ser_u16),
-                    // "u32" => quote!(::postcard_forth::impls::ser_u32),
-                    // "u64" => quote!(::postcard_forth::impls::ser_u64),
-                    // "u128" => quote!(::postcard_forth::impls::ser_u128),
-                    // "usize" => quote!(::postcard_forth::impls::ser_usize),
-                    // "i8" => quote!(::postcard_forth::impls::ser_i8),
-                    // "i16" => quote!(::postcard_forth::impls::ser_i16),
-                    // "i32" => quote!(::postcard_forth::impls::ser_i32),
-                    // "i64" => quote!(::postcard_forth::impls::ser_i64),
-                    // "i128" => quote!(::postcard_forth::impls::ser_i128),
-                    // "isize" => quote!(::postcard_forth::impls::ser_isize),
-                    // "String" => quote!(::postcard_forth::impls::ser_string),
-                    _other => {
-                        quote!(::postcard_forth::ser_fields::<#ty>)
-                    },
-                };
                 let tupidx = syn::Index::from(i);
-                let out = quote_spanned!(f.span() => ::postcard_forth::SerField { offset: ::core::mem::offset_of!(#tyname, #tupidx), func: #serf });
+                let out = quote_spanned!(f.span() => ::postcard_forth::SerField { offset: ::core::mem::offset_of!(#tyname, #tupidx), node: &<#ty as ::postcard_forth::Serialize>::NODE });
                 out
             });
             out.extend(quote! {
@@ -172,20 +136,23 @@ fn generate_arm(
     match fields {
         syn::Fields::Named(fields) => {
             let just_names: Vec<_> = fields.named.iter().map(|f| &f.ident).collect();
+            let just_tys: Vec<_> = fields.named.iter().map(|f| &f.ty).collect();
 
             let just_names = just_names.as_slice();
+            let just_tys = just_tys.as_slice();
 
             quote! {
                 #tyident :: #varident { #(#just_names),* } => {
                     // serialize the discriminant as a u32
                     let var: u32 = #idx;
-                    if ::postcard_forth::impls::ser_u32(stream, core::ptr::NonNull::from(&var).cast()).is_err() {
+                    if ::postcard_forth::impls::ser_u32(stream, ::core::ptr::NonNull::from(&var).cast()).is_err() {
                         return Err(());
                     }
 
                     // Serialize the payload
                     #(
-                        if ::postcard_forth::ser_fields_ref(stream, #just_names).is_err() {
+                        let base: ::core::ptr::NonNull<#just_tys> = ::core::ptr::NonNull::from(#just_names);
+                        if ::postcard_forth::ser_node(stream, base.cast(), &<#just_tys as ::postcard_forth::Serialize>::NODE).is_err() {
                             return Err(());
                         }
                     )*
@@ -208,20 +175,24 @@ fn generate_arm(
                     quote_spanned! {f.span() => #name}
                 })
                 .collect();
+            let just_tys: Vec<_> = fields.unnamed.iter().map(|f| &f.ty).collect();
 
             let just_names = just_names.as_slice();
+            let just_tys = just_tys.as_slice();
+
 
             quote! {
                 #tyident :: #varident ( #(#just_names),* ) => {
                     // serialize the discriminant as a u32
                     let var: u32 = #idx;
-                    if ::postcard_forth::impls::ser_u32(stream, core::ptr::NonNull::from(&var).cast()).is_err() {
+                    if ::postcard_forth::impls::ser_u32(stream, ::core::ptr::NonNull::from(&var).cast()).is_err() {
                         return Err(());
                     }
 
                     // Serialize the payload
                     #(
-                        if ::postcard_forth::ser_fields_ref(stream, #just_names).is_err() {
+                        let base: ::core::ptr::NonNull<#just_tys> = ::core::ptr::NonNull::from(#just_names);
+                        if ::postcard_forth::ser_node(stream, base.cast(), &<#just_tys as ::postcard_forth::Serialize>::NODE).is_err() {
                             return Err(());
                         }
                     )*
@@ -235,7 +206,7 @@ fn generate_arm(
             quote! {
                 #tyident :: #varident => {
                     let var: u32 = #idx;
-                    ::postcard_forth::impls::ser_u32(stream, core::ptr::NonNull::from(&var).cast())
+                    ::postcard_forth::impls::ser_u32(stream, ::core::ptr::NonNull::from(&var).cast())
                 }
             }
         }
