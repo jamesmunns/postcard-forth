@@ -1,0 +1,26 @@
+warning: unused import: `core::hint::black_box`
+  --> src/main.rs:10:5
+   |
+10 | use core::hint::black_box;
+   |     ^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` on by default
+
+warning: unused variable: `in_buf`
+  --> src/main.rs:27:9
+   |
+27 |     let in_buf = IN_BUF.take();
+   |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_in_buf`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `out_buf`
+  --> src/main.rs:28:9
+   |
+28 |     let out_buf = OUT_BUF.take();
+   |         ^^^^^^^ help: if this is intentional, prefix it with an underscore: `_out_buf`
+
+warning: 3 warnings emitted
+
+   text	   data	    bss	    dec	    hex	filename
+  10584	      0	  34228	  44812	   af0c	embassy-rp-examples

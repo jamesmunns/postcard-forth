@@ -13,6 +13,8 @@ use embassy_executor::Spawner;
 // use embassy_rp::uart;
 use static_cell::ConstStaticCell;
 use {defmt_rtt as _, panic_probe as _};
+
+#[cfg(any(feature = "serde", feature = "postcard-forth"))]
 mod gen;
 
 static IN_BUF: ConstStaticCell<[u8; 64 * 1024]> = ConstStaticCell::new([0u8; 64 * 1024]);
@@ -25,6 +27,7 @@ async fn main(_spawner: Spawner) {
     let in_buf = IN_BUF.take();
     let out_buf = OUT_BUF.take();
 
+    #[cfg(any(feature = "serde", feature = "postcard-forth"))]
     gen::round_trip_all(
         in_buf,
         out_buf,

@@ -1,0 +1,9565 @@
+
+<html>
+<head>
+  <title>Cargo Build Timings — embassy-rp-examples 0.1.0</title>
+  <meta charset="utf-8">
+<style type="text/css">
+html {
+  font-family: sans-serif;
+}
+
+.canvas-container {
+  position: relative;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+h1 {
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.graph {
+  display: block;
+}
+
+.my-table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.my-table th {
+  color: #d5dde5;
+  background: #1b1e24;
+  border-bottom: 4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.my-table th:first-child {
+  border-top-left-radius: 3px;
+}
+
+.my-table th:last-child {
+  border-top-right-radius: 3px;
+  border-right:none;
+}
+
+.my-table tr {
+  border-top: 1px solid #c1c3d1;
+  border-bottom: 1px solid #c1c3d1;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.my-table tr:first-child {
+  border-top:none;
+}
+
+.my-table tr:last-child {
+  border-bottom:none;
+}
+
+.my-table tr:nth-child(odd) td {
+  background: #ebebeb;
+}
+
+.my-table tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+
+.my-table tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+
+.my-table td {
+  background: #ffffff;
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 14px;
+  border-right: 1px solid #C1C3D1;
+}
+
+.my-table td:last-child {
+  border-right: 0px;
+}
+
+.summary-table td:first-child {
+  vertical-align: top;
+  text-align: right;
+}
+
+.input-table td {
+  text-align: center;
+}
+
+.error-text {
+  color: #e80000;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Cargo Build Timings</h1>
+See <a href="https://doc.rust-lang.org/nightly/cargo/reference/timings.html">Documentation</a>
+
+<table class="my-table summary-table">
+  <tr>
+    <td>Targets:</td><td>embassy-rp-examples 0.1.0 (bin "embassy-rp-examples")</td>
+  </tr>
+  <tr>
+    <td>Profile:</td><td>release</td>
+  </tr>
+  <tr>
+    <td>Fresh units:</td><td>0</td>
+  </tr>
+  <tr>
+    <td>Dirty units:</td><td>211</td>
+  </tr>
+  <tr>
+    <td>Total units:</td><td>211</td>
+  </tr>
+  <tr>
+    <td>Max concurrency:</td><td>12 (jobs=12 ncpu=12)</td>
+  </tr>
+  <tr>
+    <td>Build start:</td><td>2024-06-09T11:53:32Z</td>
+  </tr>
+  <tr>
+    <td>Total time:</td><td>13.3s</td>
+  </tr>
+  <tr>
+    <td>rustc:</td><td>rustc 1.77.2 (25ef9e3d8 2024-04-09)<br>Host: aarch64-apple-darwin<br>Target: thumbv6m-none-eabi</td>
+  </tr>
+
+</table>
+
+<table class="input-table">
+  <tr>
+    <td><label for="min-unit-time">Min unit time:</label></td>
+    <td><label for="scale">Scale:</label></td>
+  </tr>
+  <tr>
+    <td><input type="range" min="0" max="30" step="0.1" value="0" id="min-unit-time"></td>
+    <td><input type="range" min="1" max="50" value="20" id="scale"></td>
+  </tr>
+  <tr>
+    <td><output for="min-unit-time" id="min-unit-time-output"></output></td>
+    <td><output for="scale" id="scale-output"></output></td>
+  </tr>
+</table>
+
+<div id="pipeline-container" class="canvas-container">
+ <canvas id="pipeline-graph" class="graph" style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+ <canvas id="pipeline-graph-lines" style="position: absolute; left: 0; top: 0; z-index: 1; pointer-events:none;"></canvas>
+</div>
+<div class="canvas-container">
+  <canvas id="timing-graph" class="graph"></canvas>
+</div>
+
+<table class="my-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Unit</th>
+      <th>Total</th>
+      <th>Codegen</th>
+      <th>Features</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<tr>
+  <td>1.</td>
+  <td>lalrpop v0.19.12</td>
+  <td>4.2s</td>
+  <td>2.0s (48%)</td>
+  <td>default, lexer</td>
+</tr>
+
+<tr>
+  <td>2.</td>
+  <td>fixed v1.27.0</td>
+  <td>4.1s</td>
+  <td>0.4s (10%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>3.</td>
+  <td>pio-parser v0.2.2 build script (run)</td>
+  <td>3.7s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>4.</td>
+  <td>syn v2.0.66</td>
+  <td>3.7s</td>
+  <td>2.4s (65%)</td>
+  <td>clone-impls, default, derive, extra-traits, full, parsing, printing, proc-macro</td>
+</tr>
+
+<tr>
+  <td>5.</td>
+  <td>syn v1.0.109</td>
+  <td>3.6s</td>
+  <td>2.4s (67%)</td>
+  <td>clone-impls, default, derive, extra-traits, full, parsing, printing, proc-macro, quote</td>
+</tr>
+
+<tr>
+  <td>6.</td>
+  <td>regex-automata v0.4.6</td>
+  <td>2.8s</td>
+  <td>1.9s (69%)</td>
+  <td>alloc, dfa-onepass, hybrid, meta, nfa-backtrack, nfa-pikevm, nfa-thompson, perf-inline, perf-literal, perf-literal-multisubstring, perf-literal-substring, std, syntax, unicode, unicode-age, unicode-bool, unicode-case, unicode-gencat, unicode-perl, unicode-script, unicode-segment, unicode-word-boundary</td>
+</tr>
+
+<tr>
+  <td>7.</td>
+  <td>darling_core v0.20.9</td>
+  <td>2.2s</td>
+  <td>1.5s (71%)</td>
+  <td>strsim, suggestions</td>
+</tr>
+
+<tr>
+  <td>8.</td>
+  <td>regex-syntax v0.6.29</td>
+  <td>1.8s</td>
+  <td>1.0s (54%)</td>
+  <td>unicode, unicode-age, unicode-bool, unicode-case, unicode-gencat, unicode-perl, unicode-script, unicode-segment</td>
+</tr>
+
+<tr>
+  <td>9.</td>
+  <td>regex-syntax v0.8.3</td>
+  <td>1.7s</td>
+  <td>1.0s (56%)</td>
+  <td>default, std, unicode, unicode-age, unicode-bool, unicode-case, unicode-gencat, unicode-perl, unicode-script, unicode-segment</td>
+</tr>
+
+<tr>
+  <td>10.</td>
+  <td>aho-corasick v1.1.3</td>
+  <td>1.2s</td>
+  <td>0.8s (68%)</td>
+  <td>perf-literal, std</td>
+</tr>
+
+<tr>
+  <td>11.</td>
+  <td>defmt-macros v0.3.9 build script (run)</td>
+  <td>1.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>12.</td>
+  <td>crunchy v0.2.2 build script (run)</td>
+  <td>1.1s</td>
+  <td></td>
+  <td>default, limit_128</td>
+</tr>
+
+<tr>
+  <td>13.</td>
+  <td>lock_api v0.4.12 build script (run)</td>
+  <td>1.1s</td>
+  <td></td>
+  <td>atomic_usize, default</td>
+</tr>
+
+<tr>
+  <td>14.</td>
+  <td>proc-macro-error v1.0.4 build script (run)</td>
+  <td>1.0s</td>
+  <td></td>
+  <td>default, syn, syn-error</td>
+</tr>
+
+<tr>
+  <td>15.</td>
+  <td>embassy-rp v0.1.0</td>
+  <td>1.0s</td>
+  <td>0.3s (27%)</td>
+  <td>critical-section-impl, default, defmt, rt, time-driver, unstable-pac</td>
+</tr>
+
+<tr>
+  <td>16.</td>
+  <td>embassy-time-driver v0.1.0 build script (run)</td>
+  <td>1.0s</td>
+  <td></td>
+  <td>tick-hz-1_000_000</td>
+</tr>
+
+<tr>
+  <td>17.</td>
+  <td>proc-macro-error-attr v1.0.4 build script (run)</td>
+  <td>0.9s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>18.</td>
+  <td>libc v0.2.155 build script (run)</td>
+  <td>0.8s</td>
+  <td></td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>19.</td>
+  <td>tiny-keccak v2.0.2 build script (run)</td>
+  <td>0.8s</td>
+  <td></td>
+  <td>default, sha3</td>
+</tr>
+
+<tr>
+  <td>20.</td>
+  <td>thiserror v1.0.61 build script (run)</td>
+  <td>0.7s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>21.</td>
+  <td>defmt-macros v0.3.9</td>
+  <td>0.7s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>22.</td>
+  <td>rp-pac v6.0.0</td>
+  <td>0.7s</td>
+  <td>0.0s (3%)</td>
+  <td>cortex-m-rt, rt</td>
+</tr>
+
+<tr>
+  <td>23.</td>
+  <td>futures-util v0.3.30</td>
+  <td>0.7s</td>
+  <td>0.0s (2%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>24.</td>
+  <td>petgraph v0.6.5</td>
+  <td>0.6s</td>
+  <td>0.1s (12%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>25.</td>
+  <td>bare-metal v0.2.5 build script (run)</td>
+  <td>0.6s</td>
+  <td></td>
+  <td>const-fn</td>
+</tr>
+
+<tr>
+  <td>26.</td>
+  <td>proc-macro2 v1.0.85 build script (run)</td>
+  <td>0.6s</td>
+  <td></td>
+  <td>default, proc-macro, span-locations</td>
+</tr>
+
+<tr>
+  <td>27.</td>
+  <td>itertools v0.10.5</td>
+  <td>0.6s</td>
+  <td>0.1s (12%)</td>
+  <td>use_alloc, use_std</td>
+</tr>
+
+<tr>
+  <td>28.</td>
+  <td>az v1.2.1</td>
+  <td>0.6s</td>
+  <td>0.2s (35%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>29.</td>
+  <td>proc-macro2 v1.0.85</td>
+  <td>0.6s</td>
+  <td>0.4s (69%)</td>
+  <td>default, proc-macro, span-locations</td>
+</tr>
+
+<tr>
+  <td>30.</td>
+  <td>cortex-m-rt v0.7.3 build script (run)</td>
+  <td>0.5s</td>
+  <td></td>
+  <td>device</td>
+</tr>
+
+<tr>
+  <td>31.</td>
+  <td>term v0.7.0</td>
+  <td>0.5s</td>
+  <td>0.4s (78%)</td>
+  <td>default</td>
+</tr>
+
+<tr>
+  <td>32.</td>
+  <td>defmt v0.3.8 build script (run)</td>
+  <td>0.5s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>33.</td>
+  <td>document-features v0.2.8</td>
+  <td>0.5s</td>
+  <td></td>
+  <td>default</td>
+</tr>
+
+<tr>
+  <td>34.</td>
+  <td>portable-atomic v1.6.0 build script (run)</td>
+  <td>0.5s</td>
+  <td></td>
+  <td>critical-section, default, fallback</td>
+</tr>
+
+<tr>
+  <td>35.</td>
+  <td>fixed v1.27.0 build script (run)</td>
+  <td>0.5s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>36.</td>
+  <td>thiserror-impl v1.0.61</td>
+  <td>0.5s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>37.</td>
+  <td>paste v1.0.15 build script (run)</td>
+  <td>0.5s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>38.</td>
+  <td>paste v1.0.15</td>
+  <td>0.5s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>39.</td>
+  <td>rp2040-boot2 v0.3.0 build script (run)</td>
+  <td>0.4s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>40.</td>
+  <td>typenum v1.17.0 build script (run)</td>
+  <td>0.4s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>41.</td>
+  <td>proc-macro-error v1.0.4</td>
+  <td>0.4s</td>
+  <td>0.1s (30%)</td>
+  <td>default, syn, syn-error</td>
+</tr>
+
+<tr>
+  <td>42.</td>
+  <td>embassy-executor v0.5.0 build script (run)</td>
+  <td>0.4s</td>
+  <td></td>
+  <td>_arch, arch-cortex-m, defmt, executor-interrupt, executor-thread, integrated-timers, task-arena-size-32768</td>
+</tr>
+
+<tr>
+  <td>43.</td>
+  <td>num_enum_derive v0.5.11</td>
+  <td>0.4s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>44.</td>
+  <td>pio-parser v0.2.2</td>
+  <td>0.4s</td>
+  <td>0.1s (27%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>45.</td>
+  <td>parking_lot_core v0.9.10 build script (run)</td>
+  <td>0.4s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>46.</td>
+  <td>litrs v0.4.1</td>
+  <td>0.4s</td>
+  <td>0.2s (59%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>47.</td>
+  <td>typenum v1.17.0 build script</td>
+  <td>0.4s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>48.</td>
+  <td>rp-pac v6.0.0 build script (run)</td>
+  <td>0.4s</td>
+  <td></td>
+  <td>cortex-m-rt, rt</td>
+</tr>
+
+<tr>
+  <td>49.</td>
+  <td>num-traits v0.2.19</td>
+  <td>0.4s</td>
+  <td>0.1s (17%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>50.</td>
+  <td>embassy-time-queue-driver v0.1.0 build script (run)</td>
+  <td>0.4s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>51.</td>
+  <td>panic-probe v0.3.2 build script (run)</td>
+  <td>0.4s</td>
+  <td></td>
+  <td>defmt, defmt-error, print-defmt</td>
+</tr>
+
+<tr>
+  <td>52.</td>
+  <td>embassy-executor v0.5.0 build script</td>
+  <td>0.4s</td>
+  <td></td>
+  <td>_arch, arch-cortex-m, defmt, executor-interrupt, executor-thread, integrated-timers, task-arena-size-32768</td>
+</tr>
+
+<tr>
+  <td>53.</td>
+  <td>strsim v0.11.1</td>
+  <td>0.3s</td>
+  <td>0.3s (78%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>54.</td>
+  <td>az v1.2.1 build script (run)</td>
+  <td>0.3s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>55.</td>
+  <td>embassy-hal-internal v0.1.0 build script</td>
+  <td>0.3s</td>
+  <td></td>
+  <td>cortex-m, defmt, prio-bits-2</td>
+</tr>
+
+<tr>
+  <td>56.</td>
+  <td>embassy-rp-examples v0.1.0 bin "embassy-rp-examples"</td>
+  <td>0.3s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>57.</td>
+  <td>num_enum v0.5.11</td>
+  <td>0.3s</td>
+  <td>0.0s (2%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>58.</td>
+  <td>codespan-reporting v0.11.1</td>
+  <td>0.3s</td>
+  <td>0.2s (52%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>59.</td>
+  <td>num_enum v0.5.11</td>
+  <td>0.3s</td>
+  <td>0.0s (2%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>60.</td>
+  <td>portable-atomic v1.6.0 build script</td>
+  <td>0.3s</td>
+  <td></td>
+  <td>critical-section, default, fallback</td>
+</tr>
+
+<tr>
+  <td>61.</td>
+  <td>memchr v2.7.2</td>
+  <td>0.3s</td>
+  <td>0.1s (23%)</td>
+  <td>alloc, std</td>
+</tr>
+
+<tr>
+  <td>62.</td>
+  <td>heapless v0.8.0 build script (run)</td>
+  <td>0.3s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>63.</td>
+  <td>embassy-sync v0.6.0 build script</td>
+  <td>0.3s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>64.</td>
+  <td>embassy-rp-examples v0.1.0 build script (run)</td>
+  <td>0.3s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>65.</td>
+  <td>cortex-m-rt-macros v0.7.0</td>
+  <td>0.3s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>66.</td>
+  <td>pio v0.2.1</td>
+  <td>0.3s</td>
+  <td>0.0s (6%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>67.</td>
+  <td>thiserror v1.0.61</td>
+  <td>0.3s</td>
+  <td>0.0s (1%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>68.</td>
+  <td>pio v0.2.1</td>
+  <td>0.3s</td>
+  <td>0.0s (6%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>69.</td>
+  <td>embassy-rp v0.1.0 build script (run)</td>
+  <td>0.3s</td>
+  <td></td>
+  <td>critical-section-impl, default, defmt, rt, time-driver, unstable-pac</td>
+</tr>
+
+<tr>
+  <td>70.</td>
+  <td>defmt v0.3.8</td>
+  <td>0.3s</td>
+  <td>0.1s (17%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>71.</td>
+  <td>typenum v1.17.0</td>
+  <td>0.3s</td>
+  <td>0.0s (5%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>72.</td>
+  <td>pio-proc v0.2.2</td>
+  <td>0.3s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>73.</td>
+  <td>cortex-m v0.7.7 build script (run)</td>
+  <td>0.3s</td>
+  <td></td>
+  <td>inline-asm</td>
+</tr>
+
+<tr>
+  <td>74.</td>
+  <td>autocfg v1.3.0</td>
+  <td>0.3s</td>
+  <td>0.2s (74%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>75.</td>
+  <td>regex v1.10.4</td>
+  <td>0.3s</td>
+  <td>0.1s (47%)</td>
+  <td>default, perf, perf-backtrack, perf-cache, perf-dfa, perf-inline, perf-literal, perf-onepass, std, unicode, unicode-age, unicode-bool, unicode-case, unicode-gencat, unicode-perl, unicode-script, unicode-segment</td>
+</tr>
+
+<tr>
+  <td>76.</td>
+  <td>portable-atomic v1.6.0</td>
+  <td>0.3s</td>
+  <td>0.0s (15%)</td>
+  <td>critical-section, default, fallback</td>
+</tr>
+
+<tr>
+  <td>77.</td>
+  <td>atomic-polyfill v1.0.3 build script (run)</td>
+  <td>0.3s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>78.</td>
+  <td>embassy-executor v0.5.0</td>
+  <td>0.3s</td>
+  <td>0.0s (16%)</td>
+  <td>_arch, arch-cortex-m, defmt, executor-interrupt, executor-thread, integrated-timers, task-arena-size-32768</td>
+</tr>
+
+<tr>
+  <td>79.</td>
+  <td>embedded-io-async v0.6.1 build script (run)</td>
+  <td>0.3s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>80.</td>
+  <td>hashbrown v0.14.5</td>
+  <td>0.3s</td>
+  <td>0.0s (7%)</td>
+  <td>raw</td>
+</tr>
+
+<tr>
+  <td>81.</td>
+  <td>indexmap v2.2.6</td>
+  <td>0.3s</td>
+  <td>0.0s (4%)</td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>82.</td>
+  <td>libc v0.2.155 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>83.</td>
+  <td>version_check v0.9.4</td>
+  <td>0.2s</td>
+  <td>0.2s (68%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>84.</td>
+  <td>semver v0.9.0</td>
+  <td>0.2s</td>
+  <td>0.1s (43%)</td>
+  <td>default</td>
+</tr>
+
+<tr>
+  <td>85.</td>
+  <td>darling v0.20.9</td>
+  <td>0.2s</td>
+  <td>0.0s (2%)</td>
+  <td>default, suggestions</td>
+</tr>
+
+<tr>
+  <td>86.</td>
+  <td>heapless v0.8.0</td>
+  <td>0.2s</td>
+  <td>0.0s (5%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>87.</td>
+  <td>az v1.2.1 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>88.</td>
+  <td>termcolor v1.4.1</td>
+  <td>0.2s</td>
+  <td>0.1s (56%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>89.</td>
+  <td>proc-macro-error-attr v1.0.4</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>90.</td>
+  <td>embassy-sync v0.6.0</td>
+  <td>0.2s</td>
+  <td>0.0s (14%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>91.</td>
+  <td>semver-parser v0.7.0</td>
+  <td>0.2s</td>
+  <td>0.1s (66%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>92.</td>
+  <td>proc-macro2 v1.0.85 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td>default, proc-macro, span-locations</td>
+</tr>
+
+<tr>
+  <td>93.</td>
+  <td>embassy-executor-macros v0.4.1</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>94.</td>
+  <td>thiserror v1.0.61 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>95.</td>
+  <td>parking_lot v0.12.3</td>
+  <td>0.2s</td>
+  <td>0.1s (65%)</td>
+  <td>default</td>
+</tr>
+
+<tr>
+  <td>96.</td>
+  <td>darling_macro v0.20.9</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>97.</td>
+  <td>embedded-io-async v0.6.1 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>98.</td>
+  <td>diff v0.1.13</td>
+  <td>0.2s</td>
+  <td>0.2s (72%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>99.</td>
+  <td>defmt-rtt v0.4.1 build script (run)</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>100.</td>
+  <td>atomic-polyfill v1.0.3</td>
+  <td>0.2s</td>
+  <td>0.1s (61%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>101.</td>
+  <td>embassy-sync v0.6.0 build script (run)</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>102.</td>
+  <td>heapless v0.8.0 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>103.</td>
+  <td>defmt v0.3.8 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>104.</td>
+  <td>num-traits v0.2.19 build script (run)</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>105.</td>
+  <td>embassy-embedded-hal v0.1.0</td>
+  <td>0.2s</td>
+  <td>0.0s (10%)</td>
+  <td>default, time</td>
+</tr>
+
+<tr>
+  <td>106.</td>
+  <td>embedded-hal-async v1.0.0 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>107.</td>
+  <td>cortex-m v0.7.7 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td>inline-asm</td>
+</tr>
+
+<tr>
+  <td>108.</td>
+  <td>syn v1.0.109 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td>clone-impls, default, derive, extra-traits, full, parsing, printing, proc-macro, quote</td>
+</tr>
+
+<tr>
+  <td>109.</td>
+  <td>libc v0.2.155</td>
+  <td>0.2s</td>
+  <td>0.0s (13%)</td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>110.</td>
+  <td>embassy-time-driver v0.1.0</td>
+  <td>0.2s</td>
+  <td>0.0s (6%)</td>
+  <td>tick-hz-1_000_000</td>
+</tr>
+
+<tr>
+  <td>111.</td>
+  <td>crc-any v2.5.0</td>
+  <td>0.2s</td>
+  <td>0.0s (29%)</td>
+  <td>alloc, debug-helper, default</td>
+</tr>
+
+<tr>
+  <td>112.</td>
+  <td>cortex-m-rt v0.7.3</td>
+  <td>0.2s</td>
+  <td>0.0s (4%)</td>
+  <td>device</td>
+</tr>
+
+<tr>
+  <td>113.</td>
+  <td>paste v1.0.15 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>114.</td>
+  <td>rp2040-boot2 v0.3.0 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>115.</td>
+  <td>parking_lot_core v0.9.10</td>
+  <td>0.2s</td>
+  <td>0.1s (53%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>116.</td>
+  <td>atomic-polyfill v1.0.3 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>117.</td>
+  <td>rp-pac v6.0.0 build script</td>
+  <td>0.2s</td>
+  <td></td>
+  <td>cortex-m-rt, rt</td>
+</tr>
+
+<tr>
+  <td>118.</td>
+  <td>quote v1.0.36</td>
+  <td>0.1s</td>
+  <td>0.1s (55%)</td>
+  <td>default, proc-macro</td>
+</tr>
+
+<tr>
+  <td>119.</td>
+  <td>syn v1.0.109 build script (run)</td>
+  <td>0.1s</td>
+  <td></td>
+  <td>clone-impls, default, derive, extra-traits, full, parsing, printing, proc-macro, quote</td>
+</tr>
+
+<tr>
+  <td>120.</td>
+  <td>defmt-rtt v0.4.1 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>121.</td>
+  <td>ascii-canvas v3.0.0</td>
+  <td>0.1s</td>
+  <td>0.1s (56%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>122.</td>
+  <td>embassy-rp v0.1.0 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td>critical-section-impl, default, defmt, rt, time-driver, unstable-pac</td>
+</tr>
+
+<tr>
+  <td>123.</td>
+  <td>cortex-m-rt v0.7.3 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td>device</td>
+</tr>
+
+<tr>
+  <td>124.</td>
+  <td>embedded-hal-async v1.0.0 build script (run)</td>
+  <td>0.1s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>125.</td>
+  <td>embassy-hal-internal v0.1.0 build script (run)</td>
+  <td>0.1s</td>
+  <td></td>
+  <td>cortex-m, defmt, prio-bits-2</td>
+</tr>
+
+<tr>
+  <td>126.</td>
+  <td>panic-probe v0.3.2 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td>defmt, defmt-error, print-defmt</td>
+</tr>
+
+<tr>
+  <td>127.</td>
+  <td>fixed v1.27.0 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>128.</td>
+  <td>rustc_version v0.2.3</td>
+  <td>0.1s</td>
+  <td>0.1s (65%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>129.</td>
+  <td>parking_lot_core v0.9.10 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>130.</td>
+  <td>half v2.4.1</td>
+  <td>0.1s</td>
+  <td>0.0s (25%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>131.</td>
+  <td>embassy-rp-examples v0.1.0 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>132.</td>
+  <td>num-traits v0.2.19 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>133.</td>
+  <td>pio-parser v0.2.2 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>134.</td>
+  <td>crunchy v0.2.2 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td>default, limit_128</td>
+</tr>
+
+<tr>
+  <td>135.</td>
+  <td>defmt-parser v0.3.4</td>
+  <td>0.1s</td>
+  <td>0.1s (43%)</td>
+  <td>unstable</td>
+</tr>
+
+<tr>
+  <td>136.</td>
+  <td>embassy-time-queue-driver v0.1.0 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>137.</td>
+  <td>embassy-hal-internal v0.1.0</td>
+  <td>0.1s</td>
+  <td>0.0s (28%)</td>
+  <td>cortex-m, defmt, prio-bits-2</td>
+</tr>
+
+<tr>
+  <td>138.</td>
+  <td>string_cache v0.8.7</td>
+  <td>0.1s</td>
+  <td>0.0s (42%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>139.</td>
+  <td>bitfield v0.13.2</td>
+  <td>0.1s</td>
+  <td>0.0s (5%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>140.</td>
+  <td>fixedbitset v0.4.2</td>
+  <td>0.1s</td>
+  <td>0.0s (45%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>141.</td>
+  <td>arrayvec v0.7.4</td>
+  <td>0.1s</td>
+  <td>0.0s (8%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>142.</td>
+  <td>arrayvec v0.7.4</td>
+  <td>0.1s</td>
+  <td>0.0s (9%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>143.</td>
+  <td>bit-vec v0.6.3</td>
+  <td>0.1s</td>
+  <td>0.0s (31%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>144.</td>
+  <td>tiny-keccak v2.0.2</td>
+  <td>0.1s</td>
+  <td>0.0s (28%)</td>
+  <td>default, sha3</td>
+</tr>
+
+<tr>
+  <td>145.</td>
+  <td>lalrpop-util v0.19.12</td>
+  <td>0.1s</td>
+  <td>0.0s (21%)</td>
+  <td>default, lexer, regex, std</td>
+</tr>
+
+<tr>
+  <td>146.</td>
+  <td>ena v0.14.3</td>
+  <td>0.1s</td>
+  <td>0.0s (7%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>147.</td>
+  <td>lock_api v0.4.12</td>
+  <td>0.1s</td>
+  <td>0.0s (7%)</td>
+  <td>atomic_usize, default</td>
+</tr>
+
+<tr>
+  <td>148.</td>
+  <td>once_cell v1.19.0</td>
+  <td>0.1s</td>
+  <td>0.0s (26%)</td>
+  <td>alloc, default, race, std</td>
+</tr>
+
+<tr>
+  <td>149.</td>
+  <td>bytemuck v1.16.0</td>
+  <td>0.1s</td>
+  <td>0.0s (13%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>150.</td>
+  <td>embassy-futures v0.1.1</td>
+  <td>0.1s</td>
+  <td>0.0s (23%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>151.</td>
+  <td>cortex-m v0.7.7</td>
+  <td>0.1s</td>
+  <td>0.0s (24%)</td>
+  <td>inline-asm</td>
+</tr>
+
+<tr>
+  <td>152.</td>
+  <td>log v0.4.21</td>
+  <td>0.1s</td>
+  <td>0.0s (44%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>153.</td>
+  <td>rand_core v0.6.4</td>
+  <td>0.1s</td>
+  <td>0.0s (22%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>154.</td>
+  <td>either v1.12.0</td>
+  <td>0.1s</td>
+  <td>0.0s (8%)</td>
+  <td>use_std</td>
+</tr>
+
+<tr>
+  <td>155.</td>
+  <td>smallvec v1.13.2</td>
+  <td>0.1s</td>
+  <td>0.0s (10%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>156.</td>
+  <td>embassy-time v0.3.1</td>
+  <td>0.1s</td>
+  <td>0.0s (34%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>157.</td>
+  <td>byteorder v1.5.0</td>
+  <td>0.1s</td>
+  <td>0.0s (15%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>158.</td>
+  <td>bare-metal v0.2.5 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td>const-fn</td>
+</tr>
+
+<tr>
+  <td>159.</td>
+  <td>embedded-hal v1.0.0</td>
+  <td>0.1s</td>
+  <td>0.0s (13%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>160.</td>
+  <td>lock_api v0.4.12 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td>atomic_usize, default</td>
+</tr>
+
+<tr>
+  <td>161.</td>
+  <td>embassy-usb-driver v0.1.0</td>
+  <td>0.1s</td>
+  <td>0.0s (19%)</td>
+  <td>defmt</td>
+</tr>
+
+<tr>
+  <td>162.</td>
+  <td>proc-macro-error-attr v1.0.4 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>163.</td>
+  <td>hash32 v0.3.1</td>
+  <td>0.1s</td>
+  <td>0.0s (28%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>164.</td>
+  <td>siphasher v0.3.11</td>
+  <td>0.1s</td>
+  <td>0.0s (20%)</td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>165.</td>
+  <td>proc-macro-error v1.0.4 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td>default, syn, syn-error</td>
+</tr>
+
+<tr>
+  <td>166.</td>
+  <td>embedded-io-async v0.6.1</td>
+  <td>0.1s</td>
+  <td>0.0s (31%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>167.</td>
+  <td>phf_shared v0.10.0</td>
+  <td>0.1s</td>
+  <td>0.0s (32%)</td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>168.</td>
+  <td>defmt-macros v0.3.9 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>169.</td>
+  <td>embassy-time-driver v0.1.0 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td>tick-hz-1_000_000</td>
+</tr>
+
+<tr>
+  <td>170.</td>
+  <td>tiny-keccak v2.0.2 build script</td>
+  <td>0.1s</td>
+  <td></td>
+  <td>default, sha3</td>
+</tr>
+
+<tr>
+  <td>171.</td>
+  <td>embedded-hal-async v1.0.0</td>
+  <td>0.1s</td>
+  <td>0.0s (14%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>172.</td>
+  <td>defmt-rtt v0.4.1</td>
+  <td>0.1s</td>
+  <td>0.0s (51%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>173.</td>
+  <td>bit-set v0.5.3</td>
+  <td>0.1s</td>
+  <td>0.0s (8%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>174.</td>
+  <td>futures-task v0.3.30</td>
+  <td>0.1s</td>
+  <td>0.0s (35%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>175.</td>
+  <td>embedded-io v0.6.1</td>
+  <td>0.1s</td>
+  <td>0.0s (25%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>176.</td>
+  <td>embedded-storage v0.3.1</td>
+  <td>0.1s</td>
+  <td>0.0s (25%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>177.</td>
+  <td>embedded-hal v0.2.7</td>
+  <td>0.1s</td>
+  <td>0.0s (11%)</td>
+  <td>unproven</td>
+</tr>
+
+<tr>
+  <td>178.</td>
+  <td>unicode-ident v1.0.12</td>
+  <td>0.1s</td>
+  <td>0.0s (27%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>179.</td>
+  <td>debug-helper v0.3.13</td>
+  <td>0.1s</td>
+  <td>0.0s (60%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>180.</td>
+  <td>unicode-width v0.1.13</td>
+  <td>0.0s</td>
+  <td>0.0s (30%)</td>
+  <td>default</td>
+</tr>
+
+<tr>
+  <td>181.</td>
+  <td>cfg-if v1.0.0</td>
+  <td>0.0s</td>
+  <td>0.0s (36%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>182.</td>
+  <td>nb v1.1.0</td>
+  <td>0.0s</td>
+  <td>0.0s (22%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>183.</td>
+  <td>unicode-xid v0.2.4</td>
+  <td>0.0s</td>
+  <td>0.0s (36%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>184.</td>
+  <td>stable_deref_trait v1.2.0</td>
+  <td>0.0s</td>
+  <td>0.0s (51%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>185.</td>
+  <td>ident_case v1.0.1</td>
+  <td>0.0s</td>
+  <td>0.0s (23%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>186.</td>
+  <td>dirs-sys-next v0.1.2</td>
+  <td>0.0s</td>
+  <td>0.0s (49%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>187.</td>
+  <td>critical-section v1.1.2</td>
+  <td>0.0s</td>
+  <td>0.0s (27%)</td>
+  <td>restore-state-u8</td>
+</tr>
+
+<tr>
+  <td>188.</td>
+  <td>futures-core v0.3.30</td>
+  <td>0.0s</td>
+  <td>0.0s (21%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>189.</td>
+  <td>panic-probe v0.3.2</td>
+  <td>0.0s</td>
+  <td>0.0s (41%)</td>
+  <td>defmt, defmt-error, print-defmt</td>
+</tr>
+
+<tr>
+  <td>190.</td>
+  <td>embassy-time-queue-driver v0.1.0</td>
+  <td>0.0s</td>
+  <td>0.0s (46%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>191.</td>
+  <td>fnv v1.0.7</td>
+  <td>0.0s</td>
+  <td>0.0s (25%)</td>
+  <td>default, std</td>
+</tr>
+
+<tr>
+  <td>192.</td>
+  <td>embedded-storage-async v0.4.1</td>
+  <td>0.0s</td>
+  <td>0.0s (32%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>193.</td>
+  <td>static_cell v2.1.0</td>
+  <td>0.0s</td>
+  <td>0.0s (20%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>194.</td>
+  <td>embedded-hal-nb v1.0.0</td>
+  <td>0.0s</td>
+  <td>0.0s (11%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>195.</td>
+  <td>pin-project-lite v0.2.14</td>
+  <td>0.0s</td>
+  <td>0.0s (15%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>196.</td>
+  <td>bare-metal v0.2.5</td>
+  <td>0.0s</td>
+  <td>0.0s (29%)</td>
+  <td>const-fn</td>
+</tr>
+
+<tr>
+  <td>197.</td>
+  <td>dirs-next v2.0.0</td>
+  <td>0.0s</td>
+  <td>0.0s (40%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>198.</td>
+  <td>rp2040-boot2 v0.3.0</td>
+  <td>0.0s</td>
+  <td>0.0s (25%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>199.</td>
+  <td>precomputed-hash v0.1.1</td>
+  <td>0.0s</td>
+  <td>0.0s (22%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>200.</td>
+  <td>pin-utils v0.1.0</td>
+  <td>0.0s</td>
+  <td>0.0s (31%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>201.</td>
+  <td>is-terminal v0.4.12</td>
+  <td>0.0s</td>
+  <td>0.0s (23%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>202.</td>
+  <td>void v1.0.2</td>
+  <td>0.0s</td>
+  <td>0.0s (25%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>203.</td>
+  <td>scopeguard v1.2.0</td>
+  <td>0.0s</td>
+  <td>0.0s (13%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>204.</td>
+  <td>cfg-if v1.0.0</td>
+  <td>0.0s</td>
+  <td>0.0s (23%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>205.</td>
+  <td>bitflags v1.3.2</td>
+  <td>0.0s</td>
+  <td>0.0s (30%)</td>
+  <td>default</td>
+</tr>
+
+<tr>
+  <td>206.</td>
+  <td>vcell v0.1.3</td>
+  <td>0.0s</td>
+  <td>0.0s (27%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>207.</td>
+  <td>volatile-register v0.2.2</td>
+  <td>0.0s</td>
+  <td>0.0s (18%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>208.</td>
+  <td>equivalent v1.0.1</td>
+  <td>0.0s</td>
+  <td>0.0s (16%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>209.</td>
+  <td>crunchy v0.2.2</td>
+  <td>0.0s</td>
+  <td>0.0s (18%)</td>
+  <td>default, limit_128</td>
+</tr>
+
+<tr>
+  <td>210.</td>
+  <td>new_debug_unreachable v1.0.6</td>
+  <td>0.0s</td>
+  <td>0.0s (19%)</td>
+  <td></td>
+</tr>
+
+<tr>
+  <td>211.</td>
+  <td>nb v0.1.3</td>
+  <td>0.0s</td>
+  <td>0.0s (19%)</td>
+  <td>unstable</td>
+</tr>
+</tbody>
+</table>
+<script>
+DURATION = 14;
+const UNIT_DATA = [
+  {
+    "i": 0,
+    "name": "proc-macro2",
+    "version": "1.0.85",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.2,
+    "duration": 0.22,
+    "rmeta_time": null,
+    "unlocked_units": [
+      20
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 1,
+    "name": "unicode-ident",
+    "version": "1.0.12",
+    "mode": "todo",
+    "target": "",
+    "start": 0.2,
+    "duration": 0.05,
+    "rmeta_time": 0.04,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 2,
+    "name": "autocfg",
+    "version": "1.3.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.2,
+    "duration": 0.27,
+    "rmeta_time": 0.07,
+    "unlocked_units": [
+      126,
+      27
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 3,
+    "name": "defmt",
+    "version": "0.3.8",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.2,
+    "duration": 0.2,
+    "rmeta_time": null,
+    "unlocked_units": [
+      19
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 4,
+    "name": "syn",
+    "version": "1.0.109",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.2,
+    "duration": 0.18,
+    "rmeta_time": null,
+    "unlocked_units": [
+      16
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 5,
+    "name": "libc",
+    "version": "0.2.155",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.2,
+    "duration": 0.24,
+    "rmeta_time": null,
+    "unlocked_units": [
+      24
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 6,
+    "name": "cortex-m",
+    "version": "0.7.7",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.2,
+    "duration": 0.18,
+    "rmeta_time": null,
+    "unlocked_units": [
+      17
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 7,
+    "name": "version_check",
+    "version": "0.9.4",
+    "mode": "todo",
+    "target": "",
+    "start": 0.2,
+    "duration": 0.24,
+    "rmeta_time": 0.08,
+    "unlocked_units": [
+      25,
+      23
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 8,
+    "name": "cfg-if",
+    "version": "1.0.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.2,
+    "duration": 0.05,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 9,
+    "name": "nb",
+    "version": "1.1.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.2,
+    "duration": 0.04,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      30
+    ]
+  },
+  {
+    "i": 10,
+    "name": "semver-parser",
+    "version": "0.7.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.2,
+    "duration": 0.22,
+    "rmeta_time": 0.08,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      15
+    ]
+  },
+  {
+    "i": 11,
+    "name": "thiserror",
+    "version": "1.0.61",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.2,
+    "duration": 0.22,
+    "rmeta_time": null,
+    "unlocked_units": [
+      21
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 12,
+    "name": "memchr",
+    "version": "2.7.2",
+    "mode": "todo",
+    "target": "",
+    "start": 0.25,
+    "duration": 0.32,
+    "rmeta_time": 0.25,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      28
+    ]
+  },
+  {
+    "i": 13,
+    "name": "critical-section",
+    "version": "1.1.2",
+    "mode": "todo",
+    "target": "",
+    "start": 0.25,
+    "duration": 0.04,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 14,
+    "name": "parking_lot_core",
+    "version": "0.9.10",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.26,
+    "duration": 0.13,
+    "rmeta_time": null,
+    "unlocked_units": [
+      18
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 15,
+    "name": "semver",
+    "version": "0.9.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.29,
+    "duration": 0.23,
+    "rmeta_time": 0.13,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      22
+    ]
+  },
+  {
+    "i": 16,
+    "name": "syn",
+    "version": "1.0.109",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.38,
+    "duration": 0.15,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 17,
+    "name": "cortex-m",
+    "version": "0.7.7",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.38,
+    "duration": 0.27,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 18,
+    "name": "parking_lot_core",
+    "version": "0.9.10",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.38,
+    "duration": 0.39,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 19,
+    "name": "defmt",
+    "version": "0.3.8",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.4,
+    "duration": 0.51,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 20,
+    "name": "proc-macro2",
+    "version": "1.0.85",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.42,
+    "duration": 0.63,
+    "rmeta_time": null,
+    "unlocked_units": [
+      46
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 21,
+    "name": "thiserror",
+    "version": "1.0.61",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.43,
+    "duration": 0.74,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 22,
+    "name": "rustc_version",
+    "version": "0.2.3",
+    "mode": "todo",
+    "target": "",
+    "start": 0.43,
+    "duration": 0.13,
+    "rmeta_time": 0.05,
+    "unlocked_units": [
+      41
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 23,
+    "name": "proc-macro-error-attr",
+    "version": "1.0.4",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.44,
+    "duration": 0.07,
+    "rmeta_time": null,
+    "unlocked_units": [
+      26
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 24,
+    "name": "libc",
+    "version": "0.2.155",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.44,
+    "duration": 0.83,
+    "rmeta_time": null,
+    "unlocked_units": [
+      52
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 25,
+    "name": "proc-macro-error",
+    "version": "1.0.4",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.47,
+    "duration": 0.07,
+    "rmeta_time": null,
+    "unlocked_units": [
+      29
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 26,
+    "name": "proc-macro-error-attr",
+    "version": "1.0.4",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.51,
+    "duration": 0.89,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 27,
+    "name": "lock_api",
+    "version": "0.4.12",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.52,
+    "duration": 0.07,
+    "rmeta_time": null,
+    "unlocked_units": [
+      34
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 28,
+    "name": "aho-corasick",
+    "version": "1.1.3",
+    "mode": "todo",
+    "target": "",
+    "start": 0.53,
+    "duration": 1.17,
+    "rmeta_time": 0.38,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 29,
+    "name": "proc-macro-error",
+    "version": "1.0.4",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.54,
+    "duration": 1.0,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 30,
+    "name": "nb",
+    "version": "0.1.3",
+    "mode": "todo",
+    "target": "",
+    "start": 0.56,
+    "duration": 0.02,
+    "rmeta_time": 0.01,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 31,
+    "name": "crunchy",
+    "version": "0.2.2",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.57,
+    "duration": 0.12,
+    "rmeta_time": null,
+    "unlocked_units": [
+      38
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 32,
+    "name": "scopeguard",
+    "version": "1.2.0",
+    "mode": "todo",
+    "target": "",
+    "start": 0.57,
+    "duration": 0.02,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 33,
+    "name": "smallvec",
+    "version": "1.13.2",
+    "mode": "todo",
+    "target": "",
+    "start": 0.59,
+    "duration": 0.08,
+    "rmeta_time": 0.07,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 34,
+    "name": "lock_api",
+    "version": "0.4.12",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.59,
+    "duration": 1.07,
+    "rmeta_time": null,
+    "unlocked_units": [
+      61
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 35,
+    "name": "void",
+    "version": "1.0.2",
+    "mode": "todo",
+    "target": "",
+    "start": 0.65,
+    "duration": 0.02,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      40
+    ]
+  },
+  {
+    "i": 36,
+    "name": "defmt-macros",
+    "version": "0.3.9",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.67,
+    "duration": 0.07,
+    "rmeta_time": null,
+    "unlocked_units": [
+      39
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 37,
+    "name": "regex-syntax",
+    "version": "0.8.3",
+    "mode": "todo",
+    "target": "",
+    "start": 0.67,
+    "duration": 1.74,
+    "rmeta_time": 0.77,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      58
+    ]
+  },
+  {
+    "i": 38,
+    "name": "crunchy",
+    "version": "0.2.2",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.69,
+    "duration": 1.07,
+    "rmeta_time": null,
+    "unlocked_units": [
+      65
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 39,
+    "name": "defmt-macros",
+    "version": "0.3.9",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 0.74,
+    "duration": 1.17,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 40,
+    "name": "embedded-hal",
+    "version": "0.2.7",
+    "mode": "todo",
+    "target": "",
+    "start": 0.77,
+    "duration": 0.06,
+    "rmeta_time": 0.05,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 41,
+    "name": "bare-metal",
+    "version": "0.2.5",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.83,
+    "duration": 0.07,
+    "rmeta_time": null,
+    "unlocked_units": [
+      63
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 42,
+    "name": "equivalent",
+    "version": "1.0.1",
+    "mode": "todo",
+    "target": "",
+    "start": 0.9,
+    "duration": 0.02,
+    "rmeta_time": 0.01,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 43,
+    "name": "hashbrown",
+    "version": "0.14.5",
+    "mode": "todo",
+    "target": "",
+    "start": 0.9,
+    "duration": 0.25,
+    "rmeta_time": 0.24,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      49
+    ]
+  },
+  {
+    "i": 44,
+    "name": "tiny-keccak",
+    "version": "2.0.2",
+    "mode": "todo",
+    "target": " build script",
+    "start": 0.92,
+    "duration": 0.06,
+    "rmeta_time": null,
+    "unlocked_units": [
+      55
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 45,
+    "name": "siphasher",
+    "version": "0.3.11",
+    "mode": "todo",
+    "target": "",
+    "start": 0.98,
+    "duration": 0.07,
+    "rmeta_time": 0.05,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      50
+    ]
+  },
+  {
+    "i": 46,
+    "name": "proc-macro2",
+    "version": "1.0.85",
+    "mode": "todo",
+    "target": "",
+    "start": 1.05,
+    "duration": 0.56,
+    "rmeta_time": 0.17,
+    "unlocked_units": [
+      60
+    ],
+    "unlocked_rmeta_units": [
+      51
+    ]
+  },
+  {
+    "i": 47,
+    "name": "embassy-time-driver",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 1.05,
+    "duration": 0.06,
+    "rmeta_time": null,
+    "unlocked_units": [
+      48
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 48,
+    "name": "embassy-time-driver",
+    "version": "0.1.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 1.12,
+    "duration": 0.96,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 49,
+    "name": "indexmap",
+    "version": "2.2.6",
+    "mode": "todo",
+    "target": "",
+    "start": 1.16,
+    "duration": 0.25,
+    "rmeta_time": 0.24,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 50,
+    "name": "phf_shared",
+    "version": "0.10.0",
+    "mode": "todo",
+    "target": "",
+    "start": 1.16,
+    "duration": 0.07,
+    "rmeta_time": 0.05,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 51,
+    "name": "quote",
+    "version": "1.0.36",
+    "mode": "todo",
+    "target": "",
+    "start": 1.23,
+    "duration": 0.15,
+    "rmeta_time": 0.07,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      53,
+      54
+    ]
+  },
+  {
+    "i": 52,
+    "name": "libc",
+    "version": "0.2.155",
+    "mode": "todo",
+    "target": "",
+    "start": 1.28,
+    "duration": 0.17,
+    "rmeta_time": 0.15,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      56,
+      59,
+      89
+    ]
+  },
+  {
+    "i": 53,
+    "name": "syn",
+    "version": "1.0.109",
+    "mode": "todo",
+    "target": "",
+    "start": 1.38,
+    "duration": 3.61,
+    "rmeta_time": 1.19,
+    "unlocked_units": [
+      182,
+      183
+    ],
+    "unlocked_rmeta_units": [
+      100
+    ]
+  },
+  {
+    "i": 54,
+    "name": "syn",
+    "version": "2.0.66",
+    "mode": "todo",
+    "target": "",
+    "start": 1.4,
+    "duration": 3.67,
+    "rmeta_time": 1.27,
+    "unlocked_units": [
+      186
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 55,
+    "name": "tiny-keccak",
+    "version": "2.0.2",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 1.41,
+    "duration": 0.79,
+    "rmeta_time": null,
+    "unlocked_units": [
+      85
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 56,
+    "name": "dirs-sys-next",
+    "version": "0.1.2",
+    "mode": "todo",
+    "target": "",
+    "start": 1.45,
+    "duration": 0.04,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      57
+    ]
+  },
+  {
+    "i": 57,
+    "name": "dirs-next",
+    "version": "2.0.0",
+    "mode": "todo",
+    "target": "",
+    "start": 1.49,
+    "duration": 0.03,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      62
+    ]
+  },
+  {
+    "i": 58,
+    "name": "regex-automata",
+    "version": "0.4.6",
+    "mode": "todo",
+    "target": "",
+    "start": 1.52,
+    "duration": 2.77,
+    "rmeta_time": 0.87,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      93
+    ]
+  },
+  {
+    "i": 59,
+    "name": "parking_lot_core",
+    "version": "0.9.10",
+    "mode": "todo",
+    "target": "",
+    "start": 1.53,
+    "duration": 0.16,
+    "rmeta_time": 0.07,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 60,
+    "name": "proc-macro-error-attr",
+    "version": "1.0.4",
+    "mode": "todo",
+    "target": "",
+    "start": 1.6,
+    "duration": 0.23,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 61,
+    "name": "lock_api",
+    "version": "0.4.12",
+    "mode": "todo",
+    "target": "",
+    "start": 1.67,
+    "duration": 0.09,
+    "rmeta_time": 0.08,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      64
+    ]
+  },
+  {
+    "i": 62,
+    "name": "term",
+    "version": "0.7.0",
+    "mode": "todo",
+    "target": "",
+    "start": 1.69,
+    "duration": 0.52,
+    "rmeta_time": 0.12,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      87
+    ]
+  },
+  {
+    "i": 63,
+    "name": "bare-metal",
+    "version": "0.2.5",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 1.7,
+    "duration": 0.63,
+    "rmeta_time": null,
+    "unlocked_units": [
+      90
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 64,
+    "name": "parking_lot",
+    "version": "0.12.3",
+    "mode": "todo",
+    "target": "",
+    "start": 1.76,
+    "duration": 0.22,
+    "rmeta_time": 0.08,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 65,
+    "name": "crunchy",
+    "version": "0.2.2",
+    "mode": "todo",
+    "target": "",
+    "start": 1.76,
+    "duration": 0.02,
+    "rmeta_time": 0.01,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 66,
+    "name": "vcell",
+    "version": "0.1.3",
+    "mode": "todo",
+    "target": "",
+    "start": 1.78,
+    "duration": 0.02,
+    "rmeta_time": 0.01,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      88
+    ]
+  },
+  {
+    "i": 67,
+    "name": "fixedbitset",
+    "version": "0.4.2",
+    "mode": "todo",
+    "target": "",
+    "start": 1.8,
+    "duration": 0.1,
+    "rmeta_time": 0.05,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      86
+    ]
+  },
+  {
+    "i": 68,
+    "name": "new_debug_unreachable",
+    "version": "1.0.6",
+    "mode": "todo",
+    "target": "",
+    "start": 1.83,
+    "duration": 0.02,
+    "rmeta_time": 0.01,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 69,
+    "name": "log",
+    "version": "0.4.21",
+    "mode": "todo",
+    "target": "",
+    "start": 1.84,
+    "duration": 0.08,
+    "rmeta_time": 0.05,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      84
+    ]
+  },
+  {
+    "i": 70,
+    "name": "either",
+    "version": "1.12.0",
+    "mode": "todo",
+    "target": "",
+    "start": 1.89,
+    "duration": 0.08,
+    "rmeta_time": 0.08,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      82
+    ]
+  },
+  {
+    "i": 71,
+    "name": "embassy-time-queue-driver",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 1.91,
+    "duration": 0.11,
+    "rmeta_time": null,
+    "unlocked_units": [
+      79
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 72,
+    "name": "bitflags",
+    "version": "1.3.2",
+    "mode": "todo",
+    "target": "",
+    "start": 1.93,
+    "duration": 0.02,
+    "rmeta_time": 0.01,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 73,
+    "name": "paste",
+    "version": "1.0.15",
+    "mode": "todo",
+    "target": " build script",
+    "start": 1.95,
+    "duration": 0.16,
+    "rmeta_time": null,
+    "unlocked_units": [
+      81
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 74,
+    "name": "bit-vec",
+    "version": "0.6.3",
+    "mode": "todo",
+    "target": "",
+    "start": 1.97,
+    "duration": 0.1,
+    "rmeta_time": 0.07,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      78
+    ]
+  },
+  {
+    "i": 75,
+    "name": "once_cell",
+    "version": "1.19.0",
+    "mode": "todo",
+    "target": "",
+    "start": 1.98,
+    "duration": 0.09,
+    "rmeta_time": 0.06,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 76,
+    "name": "cortex-m-rt",
+    "version": "0.7.3",
+    "mode": "todo",
+    "target": " build script",
+    "start": 2.01,
+    "duration": 0.14,
+    "rmeta_time": null,
+    "unlocked_units": [
+      83
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 77,
+    "name": "precomputed-hash",
+    "version": "0.1.1",
+    "mode": "todo",
+    "target": "",
+    "start": 2.06,
+    "duration": 0.02,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      80
+    ]
+  },
+  {
+    "i": 78,
+    "name": "bit-set",
+    "version": "0.5.3",
+    "mode": "todo",
+    "target": "",
+    "start": 2.07,
+    "duration": 0.06,
+    "rmeta_time": 0.05,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 79,
+    "name": "embassy-time-queue-driver",
+    "version": "0.1.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 2.08,
+    "duration": 0.37,
+    "rmeta_time": null,
+    "unlocked_units": [
+      125
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 80,
+    "name": "string_cache",
+    "version": "0.8.7",
+    "mode": "todo",
+    "target": "",
+    "start": 2.09,
+    "duration": 0.1,
+    "rmeta_time": 0.06,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 81,
+    "name": "paste",
+    "version": "1.0.15",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 2.12,
+    "duration": 0.47,
+    "rmeta_time": null,
+    "unlocked_units": [
+      103
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 82,
+    "name": "itertools",
+    "version": "0.10.5",
+    "mode": "todo",
+    "target": "",
+    "start": 2.13,
+    "duration": 0.61,
+    "rmeta_time": 0.54,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 83,
+    "name": "cortex-m-rt",
+    "version": "0.7.3",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 2.16,
+    "duration": 0.53,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 84,
+    "name": "ena",
+    "version": "0.14.3",
+    "mode": "todo",
+    "target": "",
+    "start": 2.19,
+    "duration": 0.09,
+    "rmeta_time": 0.08,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 85,
+    "name": "tiny-keccak",
+    "version": "2.0.2",
+    "mode": "todo",
+    "target": "",
+    "start": 2.2,
+    "duration": 0.09,
+    "rmeta_time": 0.07,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 86,
+    "name": "petgraph",
+    "version": "0.6.5",
+    "mode": "todo",
+    "target": "",
+    "start": 2.21,
+    "duration": 0.65,
+    "rmeta_time": 0.57,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 87,
+    "name": "ascii-canvas",
+    "version": "3.0.0",
+    "mode": "todo",
+    "target": "",
+    "start": 2.28,
+    "duration": 0.15,
+    "rmeta_time": 0.06,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 88,
+    "name": "volatile-register",
+    "version": "0.2.2",
+    "mode": "todo",
+    "target": "",
+    "start": 2.3,
+    "duration": 0.02,
+    "rmeta_time": 0.01,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 89,
+    "name": "is-terminal",
+    "version": "0.4.12",
+    "mode": "todo",
+    "target": "",
+    "start": 2.31,
+    "duration": 0.02,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 90,
+    "name": "bare-metal",
+    "version": "0.2.5",
+    "mode": "todo",
+    "target": "",
+    "start": 2.33,
+    "duration": 0.03,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 91,
+    "name": "bitfield",
+    "version": "0.13.2",
+    "mode": "todo",
+    "target": "",
+    "start": 2.34,
+    "duration": 0.1,
+    "rmeta_time": 0.09,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      105
+    ]
+  },
+  {
+    "i": 92,
+    "name": "cfg-if",
+    "version": "1.0.0",
+    "mode": "todo",
+    "target": "",
+    "start": 2.37,
+    "duration": 0.02,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      162
+    ]
+  },
+  {
+    "i": 93,
+    "name": "regex",
+    "version": "1.10.4",
+    "mode": "todo",
+    "target": "",
+    "start": 2.39,
+    "duration": 0.26,
+    "rmeta_time": 0.14,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      101
+    ]
+  },
+  {
+    "i": 94,
+    "name": "unicode-xid",
+    "version": "0.2.4",
+    "mode": "todo",
+    "target": "",
+    "start": 2.42,
+    "duration": 0.04,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 95,
+    "name": "byteorder",
+    "version": "1.5.0",
+    "mode": "todo",
+    "target": "",
+    "start": 2.43,
+    "duration": 0.08,
+    "rmeta_time": 0.06,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      104
+    ]
+  },
+  {
+    "i": 96,
+    "name": "litrs",
+    "version": "0.4.1",
+    "mode": "todo",
+    "target": "",
+    "start": 2.43,
+    "duration": 0.38,
+    "rmeta_time": 0.16,
+    "unlocked_units": [
+      110
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 97,
+    "name": "heapless",
+    "version": "0.8.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 2.45,
+    "duration": 0.2,
+    "rmeta_time": null,
+    "unlocked_units": [
+      102
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 98,
+    "name": "diff",
+    "version": "0.1.13",
+    "mode": "todo",
+    "target": "",
+    "start": 2.46,
+    "duration": 0.21,
+    "rmeta_time": 0.06,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 99,
+    "name": "regex-syntax",
+    "version": "0.6.29",
+    "mode": "todo",
+    "target": "",
+    "start": 2.5,
+    "duration": 1.75,
+    "rmeta_time": 0.8,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      129
+    ]
+  },
+  {
+    "i": 100,
+    "name": "proc-macro-error",
+    "version": "1.0.4",
+    "mode": "todo",
+    "target": "",
+    "start": 2.59,
+    "duration": 0.42,
+    "rmeta_time": 0.3,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 101,
+    "name": "lalrpop-util",
+    "version": "0.19.12",
+    "mode": "todo",
+    "target": "",
+    "start": 2.65,
+    "duration": 0.09,
+    "rmeta_time": 0.07,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 102,
+    "name": "heapless",
+    "version": "0.8.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 2.65,
+    "duration": 0.32,
+    "rmeta_time": null,
+    "unlocked_units": [
+      119
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 103,
+    "name": "paste",
+    "version": "1.0.15",
+    "mode": "todo",
+    "target": "",
+    "start": 2.68,
+    "duration": 0.47,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 104,
+    "name": "hash32",
+    "version": "0.3.1",
+    "mode": "todo",
+    "target": "",
+    "start": 2.69,
+    "duration": 0.07,
+    "rmeta_time": 0.05,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 105,
+    "name": "cortex-m",
+    "version": "0.7.7",
+    "mode": "todo",
+    "target": "",
+    "start": 2.74,
+    "duration": 0.08,
+    "rmeta_time": 0.06,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 106,
+    "name": "debug-helper",
+    "version": "0.3.13",
+    "mode": "todo",
+    "target": "",
+    "start": 2.74,
+    "duration": 0.05,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      124
+    ]
+  },
+  {
+    "i": 107,
+    "name": "pin-project-lite",
+    "version": "0.2.14",
+    "mode": "todo",
+    "target": "",
+    "start": 2.76,
+    "duration": 0.03,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 108,
+    "name": "embedded-hal",
+    "version": "1.0.0",
+    "mode": "todo",
+    "target": "",
+    "start": 2.79,
+    "duration": 0.07,
+    "rmeta_time": 0.06,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      178
+    ]
+  },
+  {
+    "i": 109,
+    "name": "stable_deref_trait",
+    "version": "1.2.0",
+    "mode": "todo",
+    "target": "",
+    "start": 2.79,
+    "duration": 0.04,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 110,
+    "name": "document-features",
+    "version": "0.2.8",
+    "mode": "todo",
+    "target": "",
+    "start": 2.82,
+    "duration": 0.5,
+    "rmeta_time": null,
+    "unlocked_units": [
+      132
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 111,
+    "name": "futures-core",
+    "version": "0.3.30",
+    "mode": "todo",
+    "target": "",
+    "start": 2.83,
+    "duration": 0.04,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 112,
+    "name": "embedded-io-async",
+    "version": "0.6.1",
+    "mode": "todo",
+    "target": " build script",
+    "start": 2.84,
+    "duration": 0.22,
+    "rmeta_time": null,
+    "unlocked_units": [
+      123
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 113,
+    "name": "embedded-hal-async",
+    "version": "1.0.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 2.86,
+    "duration": 0.19,
+    "rmeta_time": null,
+    "unlocked_units": [
+      122
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 114,
+    "name": "pin-utils",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": "",
+    "start": 2.87,
+    "duration": 0.02,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 115,
+    "name": "ident_case",
+    "version": "1.0.1",
+    "mode": "todo",
+    "target": "",
+    "start": 2.87,
+    "duration": 0.04,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 116,
+    "name": "futures-task",
+    "version": "0.3.30",
+    "mode": "todo",
+    "target": "",
+    "start": 2.89,
+    "duration": 0.06,
+    "rmeta_time": 0.04,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      121
+    ]
+  },
+  {
+    "i": 117,
+    "name": "strsim",
+    "version": "0.11.1",
+    "mode": "todo",
+    "target": "",
+    "start": 2.91,
+    "duration": 0.34,
+    "rmeta_time": 0.08,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      120
+    ]
+  },
+  {
+    "i": 118,
+    "name": "fnv",
+    "version": "1.0.7",
+    "mode": "todo",
+    "target": "",
+    "start": 2.95,
+    "duration": 0.04,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 119,
+    "name": "heapless",
+    "version": "0.8.0",
+    "mode": "todo",
+    "target": "",
+    "start": 2.97,
+    "duration": 0.23,
+    "rmeta_time": 0.22,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 120,
+    "name": "darling_core",
+    "version": "0.20.9",
+    "mode": "todo",
+    "target": "",
+    "start": 2.99,
+    "duration": 2.16,
+    "rmeta_time": 0.63,
+    "unlocked_units": [
+      187
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 121,
+    "name": "futures-util",
+    "version": "0.3.30",
+    "mode": "todo",
+    "target": "",
+    "start": 3.01,
+    "duration": 0.65,
+    "rmeta_time": 0.63,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 122,
+    "name": "embedded-hal-async",
+    "version": "1.0.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 3.05,
+    "duration": 0.14,
+    "rmeta_time": null,
+    "unlocked_units": [
+      140
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 123,
+    "name": "embedded-io-async",
+    "version": "0.6.1",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 3.06,
+    "duration": 0.25,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 124,
+    "name": "crc-any",
+    "version": "2.5.0",
+    "mode": "todo",
+    "target": "",
+    "start": 3.14,
+    "duration": 0.17,
+    "rmeta_time": 0.12,
+    "unlocked_units": [
+      136
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 125,
+    "name": "embassy-time-queue-driver",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": "",
+    "start": 3.2,
+    "duration": 0.04,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 126,
+    "name": "num-traits",
+    "version": "0.2.19",
+    "mode": "todo",
+    "target": " build script",
+    "start": 3.2,
+    "duration": 0.12,
+    "rmeta_time": null,
+    "unlocked_units": [
+      135
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 127,
+    "name": "embassy-sync",
+    "version": "0.6.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 3.24,
+    "duration": 0.31,
+    "rmeta_time": null,
+    "unlocked_units": [
+      137
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 128,
+    "name": "typenum",
+    "version": "1.17.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 3.25,
+    "duration": 0.38,
+    "rmeta_time": null,
+    "unlocked_units": [
+      139
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 129,
+    "name": "lalrpop",
+    "version": "0.19.12",
+    "mode": "todo",
+    "target": "",
+    "start": 3.31,
+    "duration": 4.16,
+    "rmeta_time": 2.18,
+    "unlocked_units": [
+      205
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 130,
+    "name": "embedded-io",
+    "version": "0.6.1",
+    "mode": "todo",
+    "target": "",
+    "start": 3.32,
+    "duration": 0.06,
+    "rmeta_time": 0.04,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      134
+    ]
+  },
+  {
+    "i": 131,
+    "name": "az",
+    "version": "1.2.1",
+    "mode": "todo",
+    "target": " build script",
+    "start": 3.32,
+    "duration": 0.23,
+    "rmeta_time": null,
+    "unlocked_units": [
+      138
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 132,
+    "name": "embassy-time-driver",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": "",
+    "start": 3.32,
+    "duration": 0.17,
+    "rmeta_time": 0.16,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 133,
+    "name": "arrayvec",
+    "version": "0.7.4",
+    "mode": "todo",
+    "target": "",
+    "start": 3.37,
+    "duration": 0.1,
+    "rmeta_time": 0.09,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 134,
+    "name": "embedded-io-async",
+    "version": "0.6.1",
+    "mode": "todo",
+    "target": "",
+    "start": 3.47,
+    "duration": 0.07,
+    "rmeta_time": 0.05,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 135,
+    "name": "num-traits",
+    "version": "0.2.19",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 3.49,
+    "duration": 0.19,
+    "rmeta_time": null,
+    "unlocked_units": [
+      161
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 136,
+    "name": "rp2040-boot2",
+    "version": "0.3.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 3.54,
+    "duration": 0.16,
+    "rmeta_time": null,
+    "unlocked_units": [
+      160
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 137,
+    "name": "embassy-sync",
+    "version": "0.6.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 3.55,
+    "duration": 0.21,
+    "rmeta_time": null,
+    "unlocked_units": [
+      158
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 138,
+    "name": "az",
+    "version": "1.2.1",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 3.55,
+    "duration": 0.34,
+    "rmeta_time": null,
+    "unlocked_units": [
+      149
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 139,
+    "name": "typenum",
+    "version": "1.17.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 3.64,
+    "duration": 0.43,
+    "rmeta_time": null,
+    "unlocked_units": [
+      154
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 140,
+    "name": "embedded-hal-async",
+    "version": "1.0.0",
+    "mode": "todo",
+    "target": "",
+    "start": 3.66,
+    "duration": 0.06,
+    "rmeta_time": 0.05,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      159
+    ]
+  },
+  {
+    "i": 141,
+    "name": "unicode-width",
+    "version": "0.1.13",
+    "mode": "todo",
+    "target": "",
+    "start": 3.69,
+    "duration": 0.05,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 142,
+    "name": "embassy-hal-internal",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 3.7,
+    "duration": 0.34,
+    "rmeta_time": null,
+    "unlocked_units": [
+      150
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 143,
+    "name": "embedded-storage",
+    "version": "0.3.1",
+    "mode": "todo",
+    "target": "",
+    "start": 3.72,
+    "duration": 0.06,
+    "rmeta_time": 0.04,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      157
+    ]
+  },
+  {
+    "i": 144,
+    "name": "portable-atomic",
+    "version": "1.6.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 3.74,
+    "duration": 0.33,
+    "rmeta_time": null,
+    "unlocked_units": [
+      153
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 145,
+    "name": "fixed",
+    "version": "1.27.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 3.75,
+    "duration": 0.13,
+    "rmeta_time": null,
+    "unlocked_units": [
+      155
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 146,
+    "name": "termcolor",
+    "version": "1.4.1",
+    "mode": "todo",
+    "target": "",
+    "start": 3.78,
+    "duration": 0.23,
+    "rmeta_time": 0.1,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      156
+    ]
+  },
+  {
+    "i": 147,
+    "name": "atomic-polyfill",
+    "version": "1.0.3",
+    "mode": "todo",
+    "target": " build script",
+    "start": 3.89,
+    "duration": 0.16,
+    "rmeta_time": null,
+    "unlocked_units": [
+      152
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 148,
+    "name": "rp-pac",
+    "version": "6.0.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 3.89,
+    "duration": 0.15,
+    "rmeta_time": null,
+    "unlocked_units": [
+      151
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 149,
+    "name": "az",
+    "version": "1.2.1",
+    "mode": "todo",
+    "target": "",
+    "start": 4.02,
+    "duration": 0.57,
+    "rmeta_time": 0.38,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 150,
+    "name": "embassy-hal-internal",
+    "version": "0.1.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 4.04,
+    "duration": 0.14,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 151,
+    "name": "rp-pac",
+    "version": "6.0.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 4.04,
+    "duration": 0.38,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 152,
+    "name": "atomic-polyfill",
+    "version": "1.0.3",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 4.04,
+    "duration": 0.26,
+    "rmeta_time": null,
+    "unlocked_units": [
+      177
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 153,
+    "name": "portable-atomic",
+    "version": "1.6.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 4.06,
+    "duration": 0.49,
+    "rmeta_time": null,
+    "unlocked_units": [
+      174
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 154,
+    "name": "typenum",
+    "version": "1.17.0",
+    "mode": "todo",
+    "target": "",
+    "start": 4.07,
+    "duration": 0.28,
+    "rmeta_time": 0.26,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 155,
+    "name": "fixed",
+    "version": "1.27.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 4.18,
+    "duration": 0.49,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 156,
+    "name": "codespan-reporting",
+    "version": "0.11.1",
+    "mode": "todo",
+    "target": "",
+    "start": 4.26,
+    "duration": 0.33,
+    "rmeta_time": 0.16,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 157,
+    "name": "embedded-storage-async",
+    "version": "0.4.1",
+    "mode": "todo",
+    "target": "",
+    "start": 4.29,
+    "duration": 0.04,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 158,
+    "name": "embassy-sync",
+    "version": "0.6.0",
+    "mode": "todo",
+    "target": "",
+    "start": 4.3,
+    "duration": 0.22,
+    "rmeta_time": 0.19,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 159,
+    "name": "embassy-time",
+    "version": "0.3.1",
+    "mode": "todo",
+    "target": "",
+    "start": 4.33,
+    "duration": 0.08,
+    "rmeta_time": 0.05,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 160,
+    "name": "rp2040-boot2",
+    "version": "0.3.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 4.35,
+    "duration": 0.45,
+    "rmeta_time": null,
+    "unlocked_units": [
+      175
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 161,
+    "name": "num-traits",
+    "version": "0.2.19",
+    "mode": "todo",
+    "target": "",
+    "start": 4.4,
+    "duration": 0.37,
+    "rmeta_time": 0.31,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 162,
+    "name": "half",
+    "version": "2.4.1",
+    "mode": "todo",
+    "target": "",
+    "start": 4.42,
+    "duration": 0.13,
+    "rmeta_time": 0.1,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 163,
+    "name": "embassy-executor",
+    "version": "0.5.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 4.53,
+    "duration": 0.35,
+    "rmeta_time": null,
+    "unlocked_units": [
+      179
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 164,
+    "name": "arrayvec",
+    "version": "0.7.4",
+    "mode": "todo",
+    "target": "",
+    "start": 4.55,
+    "duration": 0.1,
+    "rmeta_time": 0.09,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 165,
+    "name": "defmt-rtt",
+    "version": "0.4.1",
+    "mode": "todo",
+    "target": " build script",
+    "start": 4.55,
+    "duration": 0.15,
+    "rmeta_time": null,
+    "unlocked_units": [
+      171
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 166,
+    "name": "embassy-futures",
+    "version": "0.1.1",
+    "mode": "todo",
+    "target": "",
+    "start": 4.59,
+    "duration": 0.08,
+    "rmeta_time": 0.07,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      170
+    ]
+  },
+  {
+    "i": 167,
+    "name": "embassy-rp",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 4.59,
+    "duration": 0.14,
+    "rmeta_time": null,
+    "unlocked_units": [
+      173
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 168,
+    "name": "bytemuck",
+    "version": "1.16.0",
+    "mode": "todo",
+    "target": "",
+    "start": 4.65,
+    "duration": 0.09,
+    "rmeta_time": 0.07,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      172
+    ]
+  },
+  {
+    "i": 169,
+    "name": "panic-probe",
+    "version": "0.3.2",
+    "mode": "todo",
+    "target": " build script",
+    "start": 4.67,
+    "duration": 0.13,
+    "rmeta_time": null,
+    "unlocked_units": [
+      176
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 170,
+    "name": "embassy-embedded-hal",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": "",
+    "start": 4.67,
+    "duration": 0.19,
+    "rmeta_time": 0.17,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 171,
+    "name": "defmt-rtt",
+    "version": "0.4.1",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 4.7,
+    "duration": 0.21,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 172,
+    "name": "fixed",
+    "version": "1.27.0",
+    "mode": "todo",
+    "target": "",
+    "start": 4.73,
+    "duration": 4.07,
+    "rmeta_time": 3.66,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 173,
+    "name": "embassy-rp",
+    "version": "0.1.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 4.73,
+    "duration": 0.3,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 174,
+    "name": "portable-atomic",
+    "version": "1.6.0",
+    "mode": "todo",
+    "target": "",
+    "start": 4.78,
+    "duration": 0.26,
+    "rmeta_time": 0.22,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      185
+    ]
+  },
+  {
+    "i": 175,
+    "name": "rp2040-boot2",
+    "version": "0.3.0",
+    "mode": "todo",
+    "target": "",
+    "start": 4.79,
+    "duration": 0.03,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 176,
+    "name": "panic-probe",
+    "version": "0.3.2",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 4.8,
+    "duration": 0.36,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 177,
+    "name": "atomic-polyfill",
+    "version": "1.0.3",
+    "mode": "todo",
+    "target": "",
+    "start": 4.82,
+    "duration": 0.21,
+    "rmeta_time": 0.08,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 178,
+    "name": "embedded-hal-nb",
+    "version": "1.0.0",
+    "mode": "todo",
+    "target": "",
+    "start": 4.86,
+    "duration": 0.03,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 179,
+    "name": "embassy-executor",
+    "version": "0.5.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 4.88,
+    "duration": 0.42,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 180,
+    "name": "embassy-rp-examples",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": " build script",
+    "start": 4.9,
+    "duration": 0.13,
+    "rmeta_time": null,
+    "unlocked_units": [
+      184
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 181,
+    "name": "rand_core",
+    "version": "0.6.4",
+    "mode": "todo",
+    "target": "",
+    "start": 4.92,
+    "duration": 0.08,
+    "rmeta_time": 0.06,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 182,
+    "name": "num_enum_derive",
+    "version": "0.5.11",
+    "mode": "todo",
+    "target": "",
+    "start": 4.99,
+    "duration": 0.41,
+    "rmeta_time": null,
+    "unlocked_units": [
+      190,
+      191
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 183,
+    "name": "cortex-m-rt-macros",
+    "version": "0.7.0",
+    "mode": "todo",
+    "target": "",
+    "start": 5.0,
+    "duration": 0.31,
+    "rmeta_time": null,
+    "unlocked_units": [
+      188
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 184,
+    "name": "embassy-rp-examples",
+    "version": "0.1.0",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 5.03,
+    "duration": 0.31,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 185,
+    "name": "static_cell",
+    "version": "2.1.0",
+    "mode": "todo",
+    "target": "",
+    "start": 5.03,
+    "duration": 0.04,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 186,
+    "name": "thiserror-impl",
+    "version": "1.0.61",
+    "mode": "todo",
+    "target": "",
+    "start": 5.06,
+    "duration": 0.49,
+    "rmeta_time": null,
+    "unlocked_units": [
+      193
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 187,
+    "name": "darling_macro",
+    "version": "0.20.9",
+    "mode": "todo",
+    "target": "",
+    "start": 5.14,
+    "duration": 0.22,
+    "rmeta_time": null,
+    "unlocked_units": [
+      189
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 188,
+    "name": "cortex-m-rt",
+    "version": "0.7.3",
+    "mode": "todo",
+    "target": "",
+    "start": 5.31,
+    "duration": 0.16,
+    "rmeta_time": 0.16,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      192
+    ]
+  },
+  {
+    "i": 189,
+    "name": "darling",
+    "version": "0.20.9",
+    "mode": "todo",
+    "target": "",
+    "start": 5.36,
+    "duration": 0.23,
+    "rmeta_time": 0.23,
+    "unlocked_units": [
+      194
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 190,
+    "name": "num_enum",
+    "version": "0.5.11",
+    "mode": "todo",
+    "target": "",
+    "start": 5.4,
+    "duration": 0.33,
+    "rmeta_time": 0.32,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      195
+    ]
+  },
+  {
+    "i": 191,
+    "name": "num_enum",
+    "version": "0.5.11",
+    "mode": "todo",
+    "target": "",
+    "start": 5.4,
+    "duration": 0.33,
+    "rmeta_time": 0.32,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      196
+    ]
+  },
+  {
+    "i": 192,
+    "name": "rp-pac",
+    "version": "6.0.0",
+    "mode": "todo",
+    "target": "",
+    "start": 5.47,
+    "duration": 0.66,
+    "rmeta_time": 0.64,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 193,
+    "name": "thiserror",
+    "version": "1.0.61",
+    "mode": "todo",
+    "target": "",
+    "start": 5.55,
+    "duration": 0.31,
+    "rmeta_time": 0.3,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      197
+    ]
+  },
+  {
+    "i": 194,
+    "name": "embassy-executor-macros",
+    "version": "0.4.1",
+    "mode": "todo",
+    "target": "",
+    "start": 5.6,
+    "duration": 0.22,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 195,
+    "name": "pio",
+    "version": "0.2.1",
+    "mode": "todo",
+    "target": "",
+    "start": 5.73,
+    "duration": 0.31,
+    "rmeta_time": 0.29,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 196,
+    "name": "pio",
+    "version": "0.2.1",
+    "mode": "todo",
+    "target": "",
+    "start": 5.73,
+    "duration": 0.31,
+    "rmeta_time": 0.29,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 197,
+    "name": "defmt-parser",
+    "version": "0.3.4",
+    "mode": "todo",
+    "target": "",
+    "start": 5.85,
+    "duration": 0.12,
+    "rmeta_time": 0.07,
+    "unlocked_units": [
+      198
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 198,
+    "name": "defmt-macros",
+    "version": "0.3.9",
+    "mode": "todo",
+    "target": "",
+    "start": 5.97,
+    "duration": 0.7,
+    "rmeta_time": null,
+    "unlocked_units": [
+      199
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 199,
+    "name": "defmt",
+    "version": "0.3.8",
+    "mode": "todo",
+    "target": "",
+    "start": 6.67,
+    "duration": 0.3,
+    "rmeta_time": 0.25,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": [
+      202,
+      201,
+      203,
+      204,
+      200
+    ]
+  },
+  {
+    "i": 200,
+    "name": "embassy-usb-driver",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": "",
+    "start": 6.92,
+    "duration": 0.07,
+    "rmeta_time": 0.06,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 201,
+    "name": "embassy-hal-internal",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": "",
+    "start": 6.92,
+    "duration": 0.11,
+    "rmeta_time": 0.08,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 202,
+    "name": "panic-probe",
+    "version": "0.3.2",
+    "mode": "todo",
+    "target": "",
+    "start": 6.92,
+    "duration": 0.04,
+    "rmeta_time": 0.02,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 203,
+    "name": "defmt-rtt",
+    "version": "0.4.1",
+    "mode": "todo",
+    "target": "",
+    "start": 6.92,
+    "duration": 0.06,
+    "rmeta_time": 0.03,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 204,
+    "name": "embassy-executor",
+    "version": "0.5.0",
+    "mode": "todo",
+    "target": "",
+    "start": 6.96,
+    "duration": 0.26,
+    "rmeta_time": 0.22,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 205,
+    "name": "pio-parser",
+    "version": "0.2.2",
+    "mode": "todo",
+    "target": " build script",
+    "start": 7.47,
+    "duration": 0.12,
+    "rmeta_time": null,
+    "unlocked_units": [
+      206
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 206,
+    "name": "pio-parser",
+    "version": "0.2.2",
+    "mode": "run-custom-build",
+    "target": " build script (run)",
+    "start": 7.59,
+    "duration": 3.73,
+    "rmeta_time": null,
+    "unlocked_units": [
+      207
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 207,
+    "name": "pio-parser",
+    "version": "0.2.2",
+    "mode": "todo",
+    "target": "",
+    "start": 11.33,
+    "duration": 0.4,
+    "rmeta_time": 0.29,
+    "unlocked_units": [
+      208
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 208,
+    "name": "pio-proc",
+    "version": "0.2.2",
+    "mode": "todo",
+    "target": "",
+    "start": 11.73,
+    "duration": 0.28,
+    "rmeta_time": null,
+    "unlocked_units": [
+      209
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 209,
+    "name": "embassy-rp",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": "",
+    "start": 12.01,
+    "duration": 0.98,
+    "rmeta_time": 0.72,
+    "unlocked_units": [
+      210
+    ],
+    "unlocked_rmeta_units": []
+  },
+  {
+    "i": 210,
+    "name": "embassy-rp-examples",
+    "version": "0.1.0",
+    "mode": "todo",
+    "target": " bin \"embassy-rp-examples\"",
+    "start": 12.98,
+    "duration": 0.33,
+    "rmeta_time": null,
+    "unlocked_units": [],
+    "unlocked_rmeta_units": []
+  }
+];
+const CONCURRENCY_DATA = [
+  {
+    "t": 0.197885833,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 131
+  },
+  {
+    "t": 0.197908,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 131
+  },
+  {
+    "t": 0.198105833,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 131
+  },
+  {
+    "t": 0.200358458,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 131
+  },
+  {
+    "t": 0.201162375,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 131
+  },
+  {
+    "t": 0.203049458,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 131
+  },
+  {
+    "t": 0.20401125,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 131
+  },
+  {
+    "t": 0.229234083,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 131
+  },
+  {
+    "t": 0.236036375,
+    "active": 12,
+    "waiting": 69,
+    "inactive": 130
+  },
+  {
+    "t": 0.236443875,
+    "active": 12,
+    "waiting": 69,
+    "inactive": 130
+  },
+  {
+    "t": 0.24610175,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 130
+  },
+  {
+    "t": 0.247379375,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 130
+  },
+  {
+    "t": 0.250704875,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 130
+  },
+  {
+    "t": 0.255311583,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 130
+  },
+  {
+    "t": 0.267256125,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 130
+  },
+  {
+    "t": 0.274819166,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 130
+  },
+  {
+    "t": 0.275683458,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 130
+  },
+  {
+    "t": 0.2796835,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 129
+  },
+  {
+    "t": 0.286320916,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 129
+  },
+  {
+    "t": 0.288195791,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 129
+  },
+  {
+    "t": 0.377785375,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 128
+  },
+  {
+    "t": 0.377927708,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 127
+  },
+  {
+    "t": 0.380905458,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 127
+  },
+  {
+    "t": 0.383771791,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 126
+  },
+  {
+    "t": 0.384992416,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 126
+  },
+  {
+    "t": 0.396624083,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 125
+  },
+  {
+    "t": 0.396749541,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 125
+  },
+  {
+    "t": 0.420594333,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 124
+  },
+  {
+    "t": 0.420934875,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 123
+  },
+  {
+    "t": 0.424861333,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 122
+  },
+  {
+    "t": 0.425037833,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 122
+  },
+  {
+    "t": 0.427440208,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 122
+  },
+  {
+    "t": 0.427616583,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 122
+  },
+  {
+    "t": 0.439826291,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 120
+  },
+  {
+    "t": 0.440097916,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 120
+  },
+  {
+    "t": 0.441822,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 119
+  },
+  {
+    "t": 0.441987916,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 119
+  },
+  {
+    "t": 0.469227958,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 117
+  },
+  {
+    "t": 0.469318333,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 117
+  },
+  {
+    "t": 0.472942083,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 117
+  },
+  {
+    "t": 0.495019583,
+    "active": 12,
+    "waiting": 69,
+    "inactive": 116
+  },
+  {
+    "t": 0.509713708,
+    "active": 12,
+    "waiting": 69,
+    "inactive": 115
+  },
+  {
+    "t": 0.509793708,
+    "active": 12,
+    "waiting": 69,
+    "inactive": 115
+  },
+  {
+    "t": 0.522211208,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 115
+  },
+  {
+    "t": 0.522383375,
+    "active": 12,
+    "waiting": 68,
+    "inactive": 115
+  },
+  {
+    "t": 0.528486833,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 115
+  },
+  {
+    "t": 0.52855725,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 115
+  },
+  {
+    "t": 0.536547083,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 114
+  },
+  {
+    "t": 0.5365805,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 114
+  },
+  {
+    "t": 0.556990375,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 113
+  },
+  {
+    "t": 0.557059041,
+    "active": 12,
+    "waiting": 67,
+    "inactive": 113
+  },
+  {
+    "t": 0.568669125,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 113
+  },
+  {
+    "t": 0.568732875,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 113
+  },
+  {
+    "t": 0.569432125,
+    "active": 12,
+    "waiting": 66,
+    "inactive": 113
+  },
+  {
+    "t": 0.572390541,
+    "active": 12,
+    "waiting": 65,
+    "inactive": 113
+  },
+  {
+    "t": 0.572451041,
+    "active": 12,
+    "waiting": 65,
+    "inactive": 113
+  },
+  {
+    "t": 0.590120416,
+    "active": 12,
+    "waiting": 65,
+    "inactive": 113
+  },
+  {
+    "t": 0.592838208,
+    "active": 12,
+    "waiting": 64,
+    "inactive": 113
+  },
+  {
+    "t": 0.592882541,
+    "active": 12,
+    "waiting": 64,
+    "inactive": 112
+  },
+  {
+    "t": 0.592915125,
+    "active": 12,
+    "waiting": 64,
+    "inactive": 112
+  },
+  {
+    "t": 0.592927916,
+    "active": 12,
+    "waiting": 64,
+    "inactive": 112
+  },
+  {
+    "t": 0.653465333,
+    "active": 12,
+    "waiting": 63,
+    "inactive": 112
+  },
+  {
+    "t": 0.653527083,
+    "active": 12,
+    "waiting": 63,
+    "inactive": 112
+  },
+  {
+    "t": 0.665265958,
+    "active": 12,
+    "waiting": 63,
+    "inactive": 112
+  },
+  {
+    "t": 0.66938025,
+    "active": 12,
+    "waiting": 64,
+    "inactive": 111
+  },
+  {
+    "t": 0.673198791,
+    "active": 12,
+    "waiting": 63,
+    "inactive": 111
+  },
+  {
+    "t": 0.67326075,
+    "active": 12,
+    "waiting": 63,
+    "inactive": 111
+  },
+  {
+    "t": 0.674620166,
+    "active": 12,
+    "waiting": 62,
+    "inactive": 111
+  },
+  {
+    "t": 0.674667125,
+    "active": 12,
+    "waiting": 62,
+    "inactive": 111
+  },
+  {
+    "t": 0.686142333,
+    "active": 12,
+    "waiting": 62,
+    "inactive": 110
+  },
+  {
+    "t": 0.68616875,
+    "active": 12,
+    "waiting": 62,
+    "inactive": 110
+  },
+  {
+    "t": 0.739117375,
+    "active": 12,
+    "waiting": 62,
+    "inactive": 109
+  },
+  {
+    "t": 0.739165041,
+    "active": 12,
+    "waiting": 62,
+    "inactive": 109
+  },
+  {
+    "t": 0.773649291,
+    "active": 12,
+    "waiting": 61,
+    "inactive": 109
+  },
+  {
+    "t": 0.773715708,
+    "active": 12,
+    "waiting": 61,
+    "inactive": 109
+  },
+  {
+    "t": 0.823370083,
+    "active": 12,
+    "waiting": 61,
+    "inactive": 109
+  },
+  {
+    "t": 0.829564416,
+    "active": 12,
+    "waiting": 60,
+    "inactive": 109
+  },
+  {
+    "t": 0.8296085,
+    "active": 12,
+    "waiting": 60,
+    "inactive": 109
+  },
+  {
+    "t": 0.902422583,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 109
+  },
+  {
+    "t": 0.90251725,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 109
+  },
+  {
+    "t": 0.904474375,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 108
+  },
+  {
+    "t": 0.904531458,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 108
+  },
+  {
+    "t": 0.905579375,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 108
+  },
+  {
+    "t": 0.917021541,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 108
+  },
+  {
+    "t": 0.919731125,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 108
+  },
+  {
+    "t": 0.919796791,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 108
+  },
+  {
+    "t": 0.983668375,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 107
+  },
+  {
+    "t": 0.983724333,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 107
+  },
+  {
+    "t": 1.038025958,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 106
+  },
+  {
+    "t": 1.046716125,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 105
+  },
+  {
+    "t": 1.04676,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 105
+  },
+  {
+    "t": 1.051373416,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 105
+  },
+  {
+    "t": 1.051430458,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 105
+  },
+  {
+    "t": 1.116078875,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 104
+  },
+  {
+    "t": 1.116113833,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 104
+  },
+  {
+    "t": 1.141962083,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 103
+  },
+  {
+    "t": 1.158635791,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 103
+  },
+  {
+    "t": 1.158691541,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 103
+  },
+  {
+    "t": 1.164713041,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 103
+  },
+  {
+    "t": 1.164795875,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 103
+  },
+  {
+    "t": 1.2098919160000001,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 103
+  },
+  {
+    "t": 1.21841275,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 102
+  },
+  {
+    "t": 1.231597208,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 102
+  },
+  {
+    "t": 1.231696375,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 102
+  },
+  {
+    "t": 1.276750291,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 101
+  },
+  {
+    "t": 1.276798291,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 101
+  },
+  {
+    "t": 1.298856875,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 99
+  },
+  {
+    "t": 1.380930833,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 99
+  },
+  {
+    "t": 1.380985375,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 99
+  },
+  {
+    "t": 1.397822166,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 99
+  },
+  {
+    "t": 1.397991333,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 99
+  },
+  {
+    "t": 1.40101425,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 99
+  },
+  {
+    "t": 1.410915416,
+    "active": 12,
+    "waiting": 56,
+    "inactive": 99
+  },
+  {
+    "t": 1.411042708,
+    "active": 12,
+    "waiting": 56,
+    "inactive": 99
+  },
+  {
+    "t": 1.42350825,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 96
+  },
+  {
+    "t": 1.440348166,
+    "active": 12,
+    "waiting": 60,
+    "inactive": 95
+  },
+  {
+    "t": 1.446148625,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 95
+  },
+  {
+    "t": 1.446235583,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 95
+  },
+  {
+    "t": 1.46636625,
+    "active": 12,
+    "waiting": 60,
+    "inactive": 94
+  },
+  {
+    "t": 1.485509916,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 94
+  },
+  {
+    "t": 1.485568083,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 94
+  },
+  {
+    "t": 1.5047205,
+    "active": 12,
+    "waiting": 60,
+    "inactive": 93
+  },
+  {
+    "t": 1.517277291,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 93
+  },
+  {
+    "t": 1.517540875,
+    "active": 12,
+    "waiting": 59,
+    "inactive": 93
+  },
+  {
+    "t": 1.534027458,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 93
+  },
+  {
+    "t": 1.534122958,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 93
+  },
+  {
+    "t": 1.602118875,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 92
+  },
+  {
+    "t": 1.602168708,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 92
+  },
+  {
+    "t": 1.607953458,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 92
+  },
+  {
+    "t": 1.6646978749999999,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 91
+  },
+  {
+    "t": 1.667293875,
+    "active": 12,
+    "waiting": 58,
+    "inactive": 91
+  },
+  {
+    "t": 1.691643,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 91
+  },
+  {
+    "t": 1.691757333,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 91
+  },
+  {
+    "t": 1.702621583,
+    "active": 12,
+    "waiting": 56,
+    "inactive": 91
+  },
+  {
+    "t": 1.702736833,
+    "active": 12,
+    "waiting": 56,
+    "inactive": 91
+  },
+  {
+    "t": 1.7498927499999999,
+    "active": 12,
+    "waiting": 57,
+    "inactive": 90
+  },
+  {
+    "t": 1.7561216659999999,
+    "active": 12,
+    "waiting": 56,
+    "inactive": 90
+  },
+  {
+    "t": 1.756196,
+    "active": 12,
+    "waiting": 56,
+    "inactive": 90
+  },
+  {
+    "t": 1.760012416,
+    "active": 12,
+    "waiting": 56,
+    "inactive": 89
+  },
+  {
+    "t": 1.760155375,
+    "active": 12,
+    "waiting": 56,
+    "inactive": 89
+  },
+  {
+    "t": 1.773163625,
+    "active": 12,
+    "waiting": 56,
+    "inactive": 89
+  },
+  {
+    "t": 1.776001875,
+    "active": 12,
+    "waiting": 55,
+    "inactive": 89
+  },
+  {
+    "t": 1.7760622499999998,
+    "active": 12,
+    "waiting": 55,
+    "inactive": 89
+  },
+  {
+    "t": 1.790046708,
+    "active": 12,
+    "waiting": 56,
+    "inactive": 88
+  },
+  {
+    "t": 1.7952949999999999,
+    "active": 12,
+    "waiting": 55,
+    "inactive": 88
+  },
+  {
+    "t": 1.7954243330000001,
+    "active": 12,
+    "waiting": 55,
+    "inactive": 88
+  },
+  {
+    "t": 1.808643,
+    "active": 12,
+    "waiting": 56,
+    "inactive": 87
+  },
+  {
+    "t": 1.82910475,
+    "active": 12,
+    "waiting": 55,
+    "inactive": 87
+  },
+  {
+    "t": 1.829259916,
+    "active": 12,
+    "waiting": 55,
+    "inactive": 87
+  },
+  {
+    "t": 1.833881125,
+    "active": 12,
+    "waiting": 55,
+    "inactive": 87
+  },
+  {
+    "t": 1.841684291,
+    "active": 12,
+    "waiting": 55,
+    "inactive": 87
+  },
+  {
+    "t": 1.844621333,
+    "active": 12,
+    "waiting": 54,
+    "inactive": 87
+  },
+  {
+    "t": 1.844772625,
+    "active": 12,
+    "waiting": 54,
+    "inactive": 87
+  },
+  {
+    "t": 1.848601291,
+    "active": 12,
+    "waiting": 55,
+    "inactive": 86
+  },
+  {
+    "t": 1.8920085,
+    "active": 12,
+    "waiting": 54,
+    "inactive": 86
+  },
+  {
+    "t": 1.892158,
+    "active": 12,
+    "waiting": 54,
+    "inactive": 86
+  },
+  {
+    "t": 1.8922805,
+    "active": 12,
+    "waiting": 55,
+    "inactive": 85
+  },
+  {
+    "t": 1.9072530410000001,
+    "active": 12,
+    "waiting": 54,
+    "inactive": 85
+  },
+  {
+    "t": 1.907375,
+    "active": 12,
+    "waiting": 54,
+    "inactive": 85
+  },
+  {
+    "t": 1.929076125,
+    "active": 12,
+    "waiting": 53,
+    "inactive": 85
+  },
+  {
+    "t": 1.932582708,
+    "active": 12,
+    "waiting": 53,
+    "inactive": 85
+  },
+  {
+    "t": 1.946220791,
+    "active": 12,
+    "waiting": 53,
+    "inactive": 85
+  },
+  {
+    "t": 1.952079666,
+    "active": 12,
+    "waiting": 52,
+    "inactive": 85
+  },
+  {
+    "t": 1.952205208,
+    "active": 12,
+    "waiting": 52,
+    "inactive": 85
+  },
+  {
+    "t": 1.967768708,
+    "active": 12,
+    "waiting": 53,
+    "inactive": 84
+  },
+  {
+    "t": 1.974063166,
+    "active": 12,
+    "waiting": 52,
+    "inactive": 84
+  },
+  {
+    "t": 1.974175,
+    "active": 12,
+    "waiting": 52,
+    "inactive": 84
+  },
+  {
+    "t": 1.975759708,
+    "active": 12,
+    "waiting": 51,
+    "inactive": 84
+  },
+  {
+    "t": 1.9758821659999999,
+    "active": 12,
+    "waiting": 51,
+    "inactive": 84
+  },
+  {
+    "t": 2.01417,
+    "active": 12,
+    "waiting": 51,
+    "inactive": 83
+  },
+  {
+    "t": 2.014242666,
+    "active": 12,
+    "waiting": 51,
+    "inactive": 83
+  },
+  {
+    "t": 2.039825583,
+    "active": 12,
+    "waiting": 52,
+    "inactive": 82
+  },
+  {
+    "t": 2.062725416,
+    "active": 12,
+    "waiting": 51,
+    "inactive": 82
+  },
+  {
+    "t": 2.062792416,
+    "active": 12,
+    "waiting": 51,
+    "inactive": 82
+  },
+  {
+    "t": 2.069662875,
+    "active": 12,
+    "waiting": 50,
+    "inactive": 82
+  },
+  {
+    "t": 2.06976675,
+    "active": 12,
+    "waiting": 50,
+    "inactive": 82
+  },
+  {
+    "t": 2.080614,
+    "active": 12,
+    "waiting": 49,
+    "inactive": 82
+  },
+  {
+    "t": 2.0810195,
+    "active": 12,
+    "waiting": 49,
+    "inactive": 82
+  },
+  {
+    "t": 2.08228975,
+    "active": 12,
+    "waiting": 50,
+    "inactive": 81
+  },
+  {
+    "t": 2.087719,
+    "active": 12,
+    "waiting": 49,
+    "inactive": 81
+  },
+  {
+    "t": 2.087859541,
+    "active": 12,
+    "waiting": 49,
+    "inactive": 81
+  },
+  {
+    "t": 2.114914708,
+    "active": 12,
+    "waiting": 49,
+    "inactive": 80
+  },
+  {
+    "t": 2.115196458,
+    "active": 12,
+    "waiting": 49,
+    "inactive": 80
+  },
+  {
+    "t": 2.124019375,
+    "active": 12,
+    "waiting": 49,
+    "inactive": 80
+  },
+  {
+    "t": 2.128856625,
+    "active": 12,
+    "waiting": 48,
+    "inactive": 80
+  },
+  {
+    "t": 2.128921583,
+    "active": 12,
+    "waiting": 48,
+    "inactive": 80
+  },
+  {
+    "t": 2.1471597080000002,
+    "active": 12,
+    "waiting": 48,
+    "inactive": 80
+  },
+  {
+    "t": 2.158558833,
+    "active": 12,
+    "waiting": 48,
+    "inactive": 79
+  },
+  {
+    "t": 2.158691083,
+    "active": 12,
+    "waiting": 48,
+    "inactive": 79
+  },
+  {
+    "t": 2.189986,
+    "active": 12,
+    "waiting": 47,
+    "inactive": 79
+  },
+  {
+    "t": 2.190082416,
+    "active": 12,
+    "waiting": 47,
+    "inactive": 79
+  },
+  {
+    "t": 2.200366625,
+    "active": 12,
+    "waiting": 47,
+    "inactive": 78
+  },
+  {
+    "t": 2.200518291,
+    "active": 12,
+    "waiting": 47,
+    "inactive": 78
+  },
+  {
+    "t": 2.214587833,
+    "active": 12,
+    "waiting": 46,
+    "inactive": 78
+  },
+  {
+    "t": 2.214677333,
+    "active": 12,
+    "waiting": 46,
+    "inactive": 78
+  },
+  {
+    "t": 2.268873625,
+    "active": 12,
+    "waiting": 46,
+    "inactive": 78
+  },
+  {
+    "t": 2.274739333,
+    "active": 12,
+    "waiting": 46,
+    "inactive": 78
+  },
+  {
+    "t": 2.280989708,
+    "active": 12,
+    "waiting": 45,
+    "inactive": 78
+  },
+  {
+    "t": 2.281121416,
+    "active": 12,
+    "waiting": 45,
+    "inactive": 78
+  },
+  {
+    "t": 2.2950174580000002,
+    "active": 12,
+    "waiting": 44,
+    "inactive": 78
+  },
+  {
+    "t": 2.29513725,
+    "active": 12,
+    "waiting": 44,
+    "inactive": 78
+  },
+  {
+    "t": 2.309421083,
+    "active": 12,
+    "waiting": 44,
+    "inactive": 78
+  },
+  {
+    "t": 2.31264775,
+    "active": 12,
+    "waiting": 43,
+    "inactive": 78
+  },
+  {
+    "t": 2.312732875,
+    "active": 12,
+    "waiting": 43,
+    "inactive": 78
+  },
+  {
+    "t": 2.3301515,
+    "active": 12,
+    "waiting": 43,
+    "inactive": 78
+  },
+  {
+    "t": 2.332512958,
+    "active": 12,
+    "waiting": 43,
+    "inactive": 77
+  },
+  {
+    "t": 2.332738916,
+    "active": 12,
+    "waiting": 43,
+    "inactive": 77
+  },
+  {
+    "t": 2.335549125,
+    "active": 12,
+    "waiting": 42,
+    "inactive": 77
+  },
+  {
+    "t": 2.335691958,
+    "active": 12,
+    "waiting": 42,
+    "inactive": 77
+  },
+  {
+    "t": 2.345547416,
+    "active": 12,
+    "waiting": 42,
+    "inactive": 77
+  },
+  {
+    "t": 2.3554895,
+    "active": 12,
+    "waiting": 42,
+    "inactive": 77
+  },
+  {
+    "t": 2.364864458,
+    "active": 12,
+    "waiting": 41,
+    "inactive": 77
+  },
+  {
+    "t": 2.365016083,
+    "active": 12,
+    "waiting": 41,
+    "inactive": 77
+  },
+  {
+    "t": 2.38063875,
+    "active": 12,
+    "waiting": 42,
+    "inactive": 76
+  },
+  {
+    "t": 2.383958958,
+    "active": 12,
+    "waiting": 43,
+    "inactive": 75
+  },
+  {
+    "t": 2.386284041,
+    "active": 12,
+    "waiting": 42,
+    "inactive": 75
+  },
+  {
+    "t": 2.386422541,
+    "active": 12,
+    "waiting": 42,
+    "inactive": 75
+  },
+  {
+    "t": 2.419489708,
+    "active": 12,
+    "waiting": 41,
+    "inactive": 75
+  },
+  {
+    "t": 2.419574958,
+    "active": 12,
+    "waiting": 41,
+    "inactive": 75
+  },
+  {
+    "t": 2.4282500000000002,
+    "active": 12,
+    "waiting": 42,
+    "inactive": 74
+  },
+  {
+    "t": 2.428783041,
+    "active": 12,
+    "waiting": 41,
+    "inactive": 74
+  },
+  {
+    "t": 2.428919458,
+    "active": 12,
+    "waiting": 41,
+    "inactive": 74
+  },
+  {
+    "t": 2.433070791,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 74
+  },
+  {
+    "t": 2.4331805,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 74
+  },
+  {
+    "t": 2.447539291,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 73
+  },
+  {
+    "t": 2.447890875,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 73
+  },
+  {
+    "t": 2.463810958,
+    "active": 12,
+    "waiting": 39,
+    "inactive": 73
+  },
+  {
+    "t": 2.463923833,
+    "active": 12,
+    "waiting": 39,
+    "inactive": 73
+  },
+  {
+    "t": 2.492917541,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 72
+  },
+  {
+    "t": 2.50435525,
+    "active": 12,
+    "waiting": 39,
+    "inactive": 72
+  },
+  {
+    "t": 2.5047868749999997,
+    "active": 12,
+    "waiting": 39,
+    "inactive": 72
+  },
+  {
+    "t": 2.523062708,
+    "active": 12,
+    "waiting": 39,
+    "inactive": 72
+  },
+  {
+    "t": 2.52360125,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 71
+  },
+  {
+    "t": 2.571136333,
+    "active": 12,
+    "waiting": 41,
+    "inactive": 70
+  },
+  {
+    "t": 2.5857324999999998,
+    "active": 12,
+    "waiting": 41,
+    "inactive": 69
+  },
+  {
+    "t": 2.587763958,
+    "active": 12,
+    "waiting": 41,
+    "inactive": 69
+  },
+  {
+    "t": 2.591056125,
+    "active": 12,
+    "waiting": 41,
+    "inactive": 69
+  },
+  {
+    "t": 2.647360583,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 69
+  },
+  {
+    "t": 2.647425041,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 69
+  },
+  {
+    "t": 2.649938583,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 68
+  },
+  {
+    "t": 2.650058375,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 68
+  },
+  {
+    "t": 2.663713083,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 68
+  },
+  {
+    "t": 2.6703785,
+    "active": 12,
+    "waiting": 40,
+    "inactive": 68
+  },
+  {
+    "t": 2.676030416,
+    "active": 12,
+    "waiting": 39,
+    "inactive": 68
+  },
+  {
+    "t": 2.676124875,
+    "active": 12,
+    "waiting": 39,
+    "inactive": 68
+  },
+  {
+    "t": 2.692817291,
+    "active": 12,
+    "waiting": 38,
+    "inactive": 68
+  },
+  {
+    "t": 2.69335775,
+    "active": 12,
+    "waiting": 38,
+    "inactive": 68
+  },
+  {
+    "t": 2.719413916,
+    "active": 12,
+    "waiting": 38,
+    "inactive": 68
+  },
+  {
+    "t": 2.738913208,
+    "active": 12,
+    "waiting": 37,
+    "inactive": 68
+  },
+  {
+    "t": 2.741883583,
+    "active": 12,
+    "waiting": 37,
+    "inactive": 68
+  },
+  {
+    "t": 2.74242675,
+    "active": 12,
+    "waiting": 36,
+    "inactive": 68
+  },
+  {
+    "t": 2.742546333,
+    "active": 12,
+    "waiting": 36,
+    "inactive": 68
+  },
+  {
+    "t": 2.7612017079999998,
+    "active": 12,
+    "waiting": 35,
+    "inactive": 68
+  },
+  {
+    "t": 2.7613545,
+    "active": 12,
+    "waiting": 35,
+    "inactive": 68
+  },
+  {
+    "t": 2.763455416,
+    "active": 12,
+    "waiting": 36,
+    "inactive": 67
+  },
+  {
+    "t": 2.782130125,
+    "active": 12,
+    "waiting": 36,
+    "inactive": 67
+  },
+  {
+    "t": 2.7894361659999998,
+    "active": 12,
+    "waiting": 36,
+    "inactive": 67
+  },
+  {
+    "t": 2.794474,
+    "active": 12,
+    "waiting": 35,
+    "inactive": 67
+  },
+  {
+    "t": 2.794688208,
+    "active": 12,
+    "waiting": 34,
+    "inactive": 67
+  },
+  {
+    "t": 2.79477475,
+    "active": 12,
+    "waiting": 34,
+    "inactive": 67
+  },
+  {
+    "t": 2.805893791,
+    "active": 12,
+    "waiting": 34,
+    "inactive": 67
+  },
+  {
+    "t": 2.8154447080000002,
+    "active": 12,
+    "waiting": 34,
+    "inactive": 67
+  },
+  {
+    "t": 2.816562833,
+    "active": 12,
+    "waiting": 34,
+    "inactive": 66
+  },
+  {
+    "t": 2.8179448750000002,
+    "active": 12,
+    "waiting": 34,
+    "inactive": 66
+  },
+  {
+    "t": 2.826453708,
+    "active": 12,
+    "waiting": 33,
+    "inactive": 66
+  },
+  {
+    "t": 2.826636791,
+    "active": 12,
+    "waiting": 33,
+    "inactive": 66
+  },
+  {
+    "t": 2.837120125,
+    "active": 12,
+    "waiting": 32,
+    "inactive": 66
+  },
+  {
+    "t": 2.840806916,
+    "active": 12,
+    "waiting": 32,
+    "inactive": 66
+  },
+  {
+    "t": 2.856868833,
+    "active": 12,
+    "waiting": 32,
+    "inactive": 66
+  },
+  {
+    "t": 2.857349958,
+    "active": 12,
+    "waiting": 33,
+    "inactive": 65
+  },
+  {
+    "t": 2.862129541,
+    "active": 12,
+    "waiting": 32,
+    "inactive": 65
+  },
+  {
+    "t": 2.862217875,
+    "active": 12,
+    "waiting": 32,
+    "inactive": 65
+  },
+  {
+    "t": 2.865150458,
+    "active": 12,
+    "waiting": 31,
+    "inactive": 65
+  },
+  {
+    "t": 2.865222416,
+    "active": 12,
+    "waiting": 31,
+    "inactive": 65
+  },
+  {
+    "t": 2.8665612080000002,
+    "active": 12,
+    "waiting": 30,
+    "inactive": 65
+  },
+  {
+    "t": 2.867608625,
+    "active": 12,
+    "waiting": 30,
+    "inactive": 65
+  },
+  {
+    "t": 2.8811195,
+    "active": 12,
+    "waiting": 30,
+    "inactive": 65
+  },
+  {
+    "t": 2.884838791,
+    "active": 12,
+    "waiting": 30,
+    "inactive": 65
+  },
+  {
+    "t": 2.8885232910000003,
+    "active": 12,
+    "waiting": 29,
+    "inactive": 65
+  },
+  {
+    "t": 2.8886167499999997,
+    "active": 12,
+    "waiting": 29,
+    "inactive": 65
+  },
+  {
+    "t": 2.899275166,
+    "active": 12,
+    "waiting": 29,
+    "inactive": 65
+  },
+  {
+    "t": 2.908996541,
+    "active": 12,
+    "waiting": 28,
+    "inactive": 65
+  },
+  {
+    "t": 2.909133166,
+    "active": 12,
+    "waiting": 28,
+    "inactive": 65
+  },
+  {
+    "t": 2.927202,
+    "active": 12,
+    "waiting": 29,
+    "inactive": 64
+  },
+  {
+    "t": 2.946965666,
+    "active": 12,
+    "waiting": 28,
+    "inactive": 64
+  },
+  {
+    "t": 2.951962833,
+    "active": 12,
+    "waiting": 28,
+    "inactive": 64
+  },
+  {
+    "t": 2.967441833,
+    "active": 12,
+    "waiting": 28,
+    "inactive": 63
+  },
+  {
+    "t": 2.979225,
+    "active": 12,
+    "waiting": 28,
+    "inactive": 63
+  },
+  {
+    "t": 2.986969833,
+    "active": 12,
+    "waiting": 29,
+    "inactive": 62
+  },
+  {
+    "t": 2.988410833,
+    "active": 12,
+    "waiting": 28,
+    "inactive": 62
+  },
+  {
+    "t": 2.988689833,
+    "active": 12,
+    "waiting": 28,
+    "inactive": 62
+  },
+  {
+    "t": 3.010142166,
+    "active": 12,
+    "waiting": 27,
+    "inactive": 62
+  },
+  {
+    "t": 3.010790916,
+    "active": 12,
+    "waiting": 27,
+    "inactive": 62
+  },
+  {
+    "t": 3.048138208,
+    "active": 12,
+    "waiting": 27,
+    "inactive": 61
+  },
+  {
+    "t": 3.052709375,
+    "active": 12,
+    "waiting": 27,
+    "inactive": 61
+  },
+  {
+    "t": 3.059438958,
+    "active": 12,
+    "waiting": 27,
+    "inactive": 60
+  },
+  {
+    "t": 3.060755333,
+    "active": 12,
+    "waiting": 27,
+    "inactive": 60
+  },
+  {
+    "t": 3.144566458,
+    "active": 12,
+    "waiting": 26,
+    "inactive": 60
+  },
+  {
+    "t": 3.144663666,
+    "active": 12,
+    "waiting": 26,
+    "inactive": 60
+  },
+  {
+    "t": 3.187923458,
+    "active": 12,
+    "waiting": 26,
+    "inactive": 60
+  },
+  {
+    "t": 3.196552375,
+    "active": 12,
+    "waiting": 26,
+    "inactive": 59
+  },
+  {
+    "t": 3.197025833,
+    "active": 12,
+    "waiting": 26,
+    "inactive": 59
+  },
+  {
+    "t": 3.199706958,
+    "active": 12,
+    "waiting": 25,
+    "inactive": 59
+  },
+  {
+    "t": 3.19997075,
+    "active": 12,
+    "waiting": 25,
+    "inactive": 59
+  },
+  {
+    "t": 3.217271208,
+    "active": 12,
+    "waiting": 25,
+    "inactive": 59
+  },
+  {
+    "t": 3.234287458,
+    "active": 12,
+    "waiting": 24,
+    "inactive": 59
+  },
+  {
+    "t": 3.235238291,
+    "active": 12,
+    "waiting": 24,
+    "inactive": 59
+  },
+  {
+    "t": 3.2527533330000002,
+    "active": 12,
+    "waiting": 23,
+    "inactive": 59
+  },
+  {
+    "t": 3.254425375,
+    "active": 12,
+    "waiting": 23,
+    "inactive": 59
+  },
+  {
+    "t": 3.261947833,
+    "active": 12,
+    "waiting": 23,
+    "inactive": 59
+  },
+  {
+    "t": 3.303521208,
+    "active": 12,
+    "waiting": 24,
+    "inactive": 58
+  },
+  {
+    "t": 3.310743166,
+    "active": 12,
+    "waiting": 24,
+    "inactive": 57
+  },
+  {
+    "t": 3.312661458,
+    "active": 12,
+    "waiting": 24,
+    "inactive": 57
+  },
+  {
+    "t": 3.315124791,
+    "active": 12,
+    "waiting": 23,
+    "inactive": 57
+  },
+  {
+    "t": 3.315332291,
+    "active": 12,
+    "waiting": 23,
+    "inactive": 57
+  },
+  {
+    "t": 3.322714958,
+    "active": 12,
+    "waiting": 23,
+    "inactive": 55
+  },
+  {
+    "t": 3.322841708,
+    "active": 12,
+    "waiting": 23,
+    "inactive": 55
+  },
+  {
+    "t": 3.358389375,
+    "active": 12,
+    "waiting": 24,
+    "inactive": 54
+  },
+  {
+    "t": 3.373063375,
+    "active": 12,
+    "waiting": 23,
+    "inactive": 54
+  },
+  {
+    "t": 3.37316025,
+    "active": 12,
+    "waiting": 23,
+    "inactive": 54
+  },
+  {
+    "t": 3.461942541,
+    "active": 12,
+    "waiting": 23,
+    "inactive": 54
+  },
+  {
+    "t": 3.469656666,
+    "active": 12,
+    "waiting": 22,
+    "inactive": 54
+  },
+  {
+    "t": 3.469768416,
+    "active": 12,
+    "waiting": 22,
+    "inactive": 54
+  },
+  {
+    "t": 3.481939375,
+    "active": 12,
+    "waiting": 22,
+    "inactive": 54
+  },
+  {
+    "t": 3.491514166,
+    "active": 12,
+    "waiting": 21,
+    "inactive": 54
+  },
+  {
+    "t": 3.494608791,
+    "active": 12,
+    "waiting": 21,
+    "inactive": 54
+  },
+  {
+    "t": 3.51582675,
+    "active": 12,
+    "waiting": 21,
+    "inactive": 54
+  },
+  {
+    "t": 3.537114375,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 54
+  },
+  {
+    "t": 3.539062083,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 54
+  },
+  {
+    "t": 3.548197541,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 53
+  },
+  {
+    "t": 3.548580083,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 53
+  },
+  {
+    "t": 3.553219958,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 52
+  },
+  {
+    "t": 3.553344333,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 52
+  },
+  {
+    "t": 3.621356375,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 52
+  },
+  {
+    "t": 3.637639833,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 51
+  },
+  {
+    "t": 3.6377084159999997,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 51
+  },
+  {
+    "t": 3.645570958,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 51
+  },
+  {
+    "t": 3.661027458,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 51
+  },
+  {
+    "t": 3.661215541,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 51
+  },
+  {
+    "t": 3.6868584159999997,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 50
+  },
+  {
+    "t": 3.68703325,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 50
+  },
+  {
+    "t": 3.700809125,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 49
+  },
+  {
+    "t": 3.701697041,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 49
+  },
+  {
+    "t": 3.715184208,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 48
+  },
+  {
+    "t": 3.721304708,
+    "active": 12,
+    "waiting": 20,
+    "inactive": 48
+  },
+  {
+    "t": 3.723788333,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 48
+  },
+  {
+    "t": 3.723880041,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 48
+  },
+  {
+    "t": 3.736184416,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 48
+  },
+  {
+    "t": 3.73634525,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 48
+  },
+  {
+    "t": 3.753777166,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 47
+  },
+  {
+    "t": 3.7539145,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 47
+  },
+  {
+    "t": 3.7670367909999998,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 46
+  },
+  {
+    "t": 3.781534416,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 46
+  },
+  {
+    "t": 3.7816324999999997,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 46
+  },
+  {
+    "t": 3.881857125,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 45
+  },
+  {
+    "t": 3.886763791,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 44
+  },
+  {
+    "t": 3.887202416,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 44
+  },
+  {
+    "t": 3.890854833,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 43
+  },
+  {
+    "t": 3.891137541,
+    "active": 12,
+    "waiting": 19,
+    "inactive": 43
+  },
+  {
+    "t": 4.011883916,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 43
+  },
+  {
+    "t": 4.015125666,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 43
+  },
+  {
+    "t": 4.039141791,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 42
+  },
+  {
+    "t": 4.0415575,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 41
+  },
+  {
+    "t": 4.043198541,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 40
+  },
+  {
+    "t": 4.043626666,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 40
+  },
+  {
+    "t": 4.064146875,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 39
+  },
+  {
+    "t": 4.064263375,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 39
+  },
+  {
+    "t": 4.067898333,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 38
+  },
+  {
+    "t": 4.067979041,
+    "active": 12,
+    "waiting": 18,
+    "inactive": 38
+  },
+  {
+    "t": 4.180946291,
+    "active": 12,
+    "waiting": 17,
+    "inactive": 38
+  },
+  {
+    "t": 4.181036791,
+    "active": 12,
+    "waiting": 17,
+    "inactive": 38
+  },
+  {
+    "t": 4.257696416,
+    "active": 12,
+    "waiting": 16,
+    "inactive": 38
+  },
+  {
+    "t": 4.257832958,
+    "active": 12,
+    "waiting": 16,
+    "inactive": 38
+  },
+  {
+    "t": 4.290134958,
+    "active": 12,
+    "waiting": 15,
+    "inactive": 38
+  },
+  {
+    "t": 4.2902715,
+    "active": 12,
+    "waiting": 15,
+    "inactive": 38
+  },
+  {
+    "t": 4.301484333,
+    "active": 12,
+    "waiting": 15,
+    "inactive": 37
+  },
+  {
+    "t": 4.30172575,
+    "active": 12,
+    "waiting": 15,
+    "inactive": 37
+  },
+  {
+    "t": 4.314558541,
+    "active": 12,
+    "waiting": 15,
+    "inactive": 37
+  },
+  {
+    "t": 4.326316958,
+    "active": 12,
+    "waiting": 14,
+    "inactive": 37
+  },
+  {
+    "t": 4.326405583,
+    "active": 12,
+    "waiting": 14,
+    "inactive": 37
+  },
+  {
+    "t": 4.332569333,
+    "active": 12,
+    "waiting": 14,
+    "inactive": 37
+  },
+  {
+    "t": 4.345724958,
+    "active": 12,
+    "waiting": 13,
+    "inactive": 37
+  },
+  {
+    "t": 4.347434,
+    "active": 12,
+    "waiting": 13,
+    "inactive": 37
+  },
+  {
+    "t": 4.377289666,
+    "active": 12,
+    "waiting": 13,
+    "inactive": 37
+  },
+  {
+    "t": 4.390191958,
+    "active": 12,
+    "waiting": 13,
+    "inactive": 37
+  },
+  {
+    "t": 4.403852875,
+    "active": 12,
+    "waiting": 12,
+    "inactive": 37
+  },
+  {
+    "t": 4.403964791,
+    "active": 12,
+    "waiting": 12,
+    "inactive": 37
+  },
+  {
+    "t": 4.415424833,
+    "active": 12,
+    "waiting": 12,
+    "inactive": 37
+  },
+  {
+    "t": 4.422095458,
+    "active": 12,
+    "waiting": 11,
+    "inactive": 37
+  },
+  {
+    "t": 4.422184,
+    "active": 12,
+    "waiting": 11,
+    "inactive": 37
+  },
+  {
+    "t": 4.495289583,
+    "active": 12,
+    "waiting": 11,
+    "inactive": 37
+  },
+  {
+    "t": 4.518284958,
+    "active": 12,
+    "waiting": 11,
+    "inactive": 37
+  },
+  {
+    "t": 4.526425791,
+    "active": 12,
+    "waiting": 10,
+    "inactive": 37
+  },
+  {
+    "t": 4.526542208,
+    "active": 12,
+    "waiting": 10,
+    "inactive": 37
+  },
+  {
+    "t": 4.549725708,
+    "active": 12,
+    "waiting": 9,
+    "inactive": 37
+  },
+  {
+    "t": 4.549853375,
+    "active": 12,
+    "waiting": 9,
+    "inactive": 37
+  },
+  {
+    "t": 4.552643875,
+    "active": 12,
+    "waiting": 9,
+    "inactive": 36
+  },
+  {
+    "t": 4.552885958,
+    "active": 12,
+    "waiting": 9,
+    "inactive": 36
+  },
+  {
+    "t": 4.587325166,
+    "active": 12,
+    "waiting": 8,
+    "inactive": 36
+  },
+  {
+    "t": 4.587429041,
+    "active": 12,
+    "waiting": 8,
+    "inactive": 36
+  },
+  {
+    "t": 4.589450666,
+    "active": 12,
+    "waiting": 7,
+    "inactive": 36
+  },
+  {
+    "t": 4.589658833,
+    "active": 12,
+    "waiting": 7,
+    "inactive": 36
+  },
+  {
+    "t": 4.636432458,
+    "active": 12,
+    "waiting": 7,
+    "inactive": 36
+  },
+  {
+    "t": 4.645489166,
+    "active": 12,
+    "waiting": 6,
+    "inactive": 36
+  },
+  {
+    "t": 4.645601833,
+    "active": 12,
+    "waiting": 6,
+    "inactive": 36
+  },
+  {
+    "t": 4.652874541,
+    "active": 12,
+    "waiting": 7,
+    "inactive": 35
+  },
+  {
+    "t": 4.668301916,
+    "active": 12,
+    "waiting": 6,
+    "inactive": 35
+  },
+  {
+    "t": 4.670592458,
+    "active": 12,
+    "waiting": 6,
+    "inactive": 35
+  },
+  {
+    "t": 4.672545625,
+    "active": 12,
+    "waiting": 5,
+    "inactive": 35
+  },
+  {
+    "t": 4.67271875,
+    "active": 12,
+    "waiting": 5,
+    "inactive": 35
+  },
+  {
+    "t": 4.701603875,
+    "active": 12,
+    "waiting": 5,
+    "inactive": 34
+  },
+  {
+    "t": 4.704587458,
+    "active": 12,
+    "waiting": 5,
+    "inactive": 34
+  },
+  {
+    "t": 4.712432375,
+    "active": 12,
+    "waiting": 5,
+    "inactive": 34
+  },
+  {
+    "t": 4.7195365,
+    "active": 12,
+    "waiting": 6,
+    "inactive": 33
+  },
+  {
+    "t": 4.73088825,
+    "active": 12,
+    "waiting": 5,
+    "inactive": 33
+  },
+  {
+    "t": 4.730958875,
+    "active": 12,
+    "waiting": 5,
+    "inactive": 33
+  },
+  {
+    "t": 4.734379416,
+    "active": 12,
+    "waiting": 5,
+    "inactive": 32
+  },
+  {
+    "t": 4.734459416,
+    "active": 12,
+    "waiting": 5,
+    "inactive": 32
+  },
+  {
+    "t": 4.77692675,
+    "active": 12,
+    "waiting": 4,
+    "inactive": 32
+  },
+  {
+    "t": 4.777201208,
+    "active": 12,
+    "waiting": 4,
+    "inactive": 32
+  },
+  {
+    "t": 4.793018666,
+    "active": 12,
+    "waiting": 4,
+    "inactive": 31
+  },
+  {
+    "t": 4.793322333,
+    "active": 12,
+    "waiting": 4,
+    "inactive": 31
+  },
+  {
+    "t": 4.8033839579999995,
+    "active": 12,
+    "waiting": 4,
+    "inactive": 30
+  },
+  {
+    "t": 4.803531166,
+    "active": 12,
+    "waiting": 4,
+    "inactive": 30
+  },
+  {
+    "t": 4.812174083,
+    "active": 12,
+    "waiting": 4,
+    "inactive": 30
+  },
+  {
+    "t": 4.818528041,
+    "active": 12,
+    "waiting": 3,
+    "inactive": 30
+  },
+  {
+    "t": 4.818776125,
+    "active": 12,
+    "waiting": 3,
+    "inactive": 30
+  },
+  {
+    "t": 4.843490791,
+    "active": 12,
+    "waiting": 3,
+    "inactive": 30
+  },
+  {
+    "t": 4.863543166,
+    "active": 12,
+    "waiting": 2,
+    "inactive": 30
+  },
+  {
+    "t": 4.863652916,
+    "active": 12,
+    "waiting": 2,
+    "inactive": 30
+  },
+  {
+    "t": 4.879208,
+    "active": 12,
+    "waiting": 2,
+    "inactive": 29
+  },
+  {
+    "t": 4.879326333,
+    "active": 12,
+    "waiting": 2,
+    "inactive": 29
+  },
+  {
+    "t": 4.894254333,
+    "active": 12,
+    "waiting": 2,
+    "inactive": 29
+  },
+  {
+    "t": 4.898057208,
+    "active": 12,
+    "waiting": 1,
+    "inactive": 29
+  },
+  {
+    "t": 4.898148958,
+    "active": 12,
+    "waiting": 1,
+    "inactive": 29
+  },
+  {
+    "t": 4.900528166,
+    "active": 12,
+    "waiting": 1,
+    "inactive": 29
+  },
+  {
+    "t": 4.915295708,
+    "active": 12,
+    "waiting": 0,
+    "inactive": 29
+  },
+  {
+    "t": 4.9153783749999995,
+    "active": 12,
+    "waiting": 0,
+    "inactive": 29
+  },
+  {
+    "t": 4.97969425,
+    "active": 12,
+    "waiting": 0,
+    "inactive": 29
+  },
+  {
+    "t": 4.994357666,
+    "active": 12,
+    "waiting": 1,
+    "inactive": 27
+  },
+  {
+    "t": 4.994414583,
+    "active": 12,
+    "waiting": 1,
+    "inactive": 27
+  },
+  {
+    "t": 4.997733333,
+    "active": 12,
+    "waiting": 2,
+    "inactive": 26
+  },
+  {
+    "t": 4.998367291,
+    "active": 12,
+    "waiting": 1,
+    "inactive": 26
+  },
+  {
+    "t": 5.001518791,
+    "active": 12,
+    "waiting": 1,
+    "inactive": 26
+  },
+  {
+    "t": 5.025184833,
+    "active": 12,
+    "waiting": 1,
+    "inactive": 25
+  },
+  {
+    "t": 5.025374708,
+    "active": 12,
+    "waiting": 1,
+    "inactive": 25
+  },
+  {
+    "t": 5.027442666,
+    "active": 12,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.027515416,
+    "active": 12,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.03577925,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.035867083,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.036209375,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.036255375,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.036266625,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.036300708,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.036346,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.0363575,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.03642575,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.036571375,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.036652416,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.036945791,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037350625,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037396875,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037428875,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037463291,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037494916,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037526166,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037557458,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037588208,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037601625,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037613416,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037624833,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037636,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037647083,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037658458,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037669291,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037680458,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037691083,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037701791,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037712333,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037723,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037733666,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037744208,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037754708,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037765916,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037776791,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.0377875,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037798791,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037821166,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037841875,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037871541,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037886208,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037895666,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037904958,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037914666,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037928166,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037937333,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.037946375,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038007208,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038035458,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038066,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038083375,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038115458,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038190125,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038212583,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038225958,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038238208,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.03824975,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038261416,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038272541,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.0382835,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038294375,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038304916,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038315791,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038382208,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.03839325,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038409291,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038420291,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038491791,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038519791,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.0385339160000004,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038545083,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038555916,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038566625,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038577291,
+    "active": 11,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.038927166,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039029916,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039050916,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039062625,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039075708,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.0390865,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039097041,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039107458,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039117958,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039128333,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039138666,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039149041,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039159458,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039174,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.03919625,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039210958,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039223875,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039236541,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039249083,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039261583,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039273958,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039286291,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039298708,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039311083,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.03932325,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039335541,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039347833,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039360041,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039372208,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039384833,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039397291,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039409416,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039421708,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039434,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039446541,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039458916,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039471291,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039483583,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039495916,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039508208,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039531625,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039545875,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039556583,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039561666,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039566333,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039572,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.0395775,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.03958325,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039588791,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039594458,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039599958,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039605583,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039611166,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039616958,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039622458,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039628291,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039634041,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039639791,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039645625,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039651166,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039656708,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039662375,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039667916,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039673458,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039679041,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039684666,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039690166,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039695625,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039701125,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.039705583,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.056234541,
+    "active": 10,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.063360833,
+    "active": 9,
+    "waiting": 0,
+    "inactive": 25
+  },
+  {
+    "t": 5.064630041,
+    "active": 9,
+    "waiting": 0,
+    "inactive": 24
+  },
+  {
+    "t": 5.064801041,
+    "active": 9,
+    "waiting": 0,
+    "inactive": 24
+  },
+  {
+    "t": 5.144037166,
+    "active": 9,
+    "waiting": 0,
+    "inactive": 23
+  },
+  {
+    "t": 5.144108583,
+    "active": 9,
+    "waiting": 0,
+    "inactive": 23
+  },
+  {
+    "t": 5.158172583,
+    "active": 9,
+    "waiting": 0,
+    "inactive": 23
+  },
+  {
+    "t": 5.16726125,
+    "active": 8,
+    "waiting": 0,
+    "inactive": 23
+  },
+  {
+    "t": 5.296574458,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 23
+  },
+  {
+    "t": 5.312133625,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 22
+  },
+  {
+    "t": 5.312162041,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 22
+  },
+  {
+    "t": 5.312234458,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 22
+  },
+  {
+    "t": 5.336152125,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 22
+  },
+  {
+    "t": 5.363521916,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 21
+  },
+  {
+    "t": 5.363596791,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 21
+  },
+  {
+    "t": 5.403110791,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 19
+  },
+  {
+    "t": 5.403228166,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 19
+  },
+  {
+    "t": 5.469501625,
+    "active": 7,
+    "waiting": 1,
+    "inactive": 18
+  },
+  {
+    "t": 5.4695555,
+    "active": 8,
+    "waiting": 0,
+    "inactive": 18
+  },
+  {
+    "t": 5.469675291,
+    "active": 8,
+    "waiting": 0,
+    "inactive": 18
+  },
+  {
+    "t": 5.47669375,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 18
+  },
+  {
+    "t": 5.492050416,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 18
+  },
+  {
+    "t": 5.549959708,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 17
+  },
+  {
+    "t": 5.550013791,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 17
+  },
+  {
+    "t": 5.5922427500000005,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 17
+  },
+  {
+    "t": 5.596003208,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 16
+  },
+  {
+    "t": 5.596076875,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 16
+  },
+  {
+    "t": 5.725327541,
+    "active": 7,
+    "waiting": 1,
+    "inactive": 15
+  },
+  {
+    "t": 5.725489,
+    "active": 8,
+    "waiting": 0,
+    "inactive": 15
+  },
+  {
+    "t": 5.7257036249999995,
+    "active": 8,
+    "waiting": 0,
+    "inactive": 15
+  },
+  {
+    "t": 5.727451041,
+    "active": 8,
+    "waiting": 1,
+    "inactive": 14
+  },
+  {
+    "t": 5.727540333,
+    "active": 9,
+    "waiting": 0,
+    "inactive": 14
+  },
+  {
+    "t": 5.727808583,
+    "active": 9,
+    "waiting": 0,
+    "inactive": 14
+  },
+  {
+    "t": 5.73202725,
+    "active": 8,
+    "waiting": 0,
+    "inactive": 14
+  },
+  {
+    "t": 5.733014375,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 14
+  },
+  {
+    "t": 5.81838275,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 14
+  },
+  {
+    "t": 5.853049916,
+    "active": 6,
+    "waiting": 1,
+    "inactive": 13
+  },
+  {
+    "t": 5.853128708,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 5.853349125,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 5.856408458,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 5.920062083,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 13
+  },
+  {
+    "t": 5.9704915,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 12
+  },
+  {
+    "t": 5.9705395,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 12
+  },
+  {
+    "t": 6.014205416,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 12
+  },
+  {
+    "t": 6.015780458,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 12
+  },
+  {
+    "t": 6.031947,
+    "active": 5,
+    "waiting": 0,
+    "inactive": 12
+  },
+  {
+    "t": 6.034505333,
+    "active": 4,
+    "waiting": 0,
+    "inactive": 12
+  },
+  {
+    "t": 6.110603208,
+    "active": 4,
+    "waiting": 0,
+    "inactive": 12
+  },
+  {
+    "t": 6.127638791,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 12
+  },
+  {
+    "t": 6.635858791,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 12
+  },
+  {
+    "t": 6.669548166,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 11
+  },
+  {
+    "t": 6.669778291,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 11
+  },
+  {
+    "t": 6.920205541,
+    "active": 3,
+    "waiting": 5,
+    "inactive": 6
+  },
+  {
+    "t": 6.920449083,
+    "active": 7,
+    "waiting": 1,
+    "inactive": 6
+  },
+  {
+    "t": 6.920568666,
+    "active": 7,
+    "waiting": 1,
+    "inactive": 6
+  },
+  {
+    "t": 6.920605791,
+    "active": 7,
+    "waiting": 1,
+    "inactive": 6
+  },
+  {
+    "t": 6.920650708,
+    "active": 7,
+    "waiting": 1,
+    "inactive": 6
+  },
+  {
+    "t": 6.921584083,
+    "active": 7,
+    "waiting": 1,
+    "inactive": 6
+  },
+  {
+    "t": 6.943214666,
+    "active": 7,
+    "waiting": 1,
+    "inactive": 6
+  },
+  {
+    "t": 6.950913166,
+    "active": 7,
+    "waiting": 1,
+    "inactive": 6
+  },
+  {
+    "t": 6.959050583,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 6
+  },
+  {
+    "t": 6.959178541,
+    "active": 7,
+    "waiting": 0,
+    "inactive": 6
+  },
+  {
+    "t": 6.972100291,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 6
+  },
+  {
+    "t": 6.972276333,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 6
+  },
+  {
+    "t": 6.977168333,
+    "active": 6,
+    "waiting": 0,
+    "inactive": 6
+  },
+  {
+    "t": 6.981276166,
+    "active": 5,
+    "waiting": 0,
+    "inactive": 6
+  },
+  {
+    "t": 6.990809416,
+    "active": 4,
+    "waiting": 0,
+    "inactive": 6
+  },
+  {
+    "t": 6.996344708,
+    "active": 4,
+    "waiting": 0,
+    "inactive": 6
+  },
+  {
+    "t": 7.02628025,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 6
+  },
+  {
+    "t": 7.1741860410000005,
+    "active": 3,
+    "waiting": 0,
+    "inactive": 6
+  },
+  {
+    "t": 7.215628916,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 6
+  },
+  {
+    "t": 7.470515666,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 5
+  },
+  {
+    "t": 7.470566583,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 5
+  },
+  {
+    "t": 7.592674583,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 7.592720125,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 8.097765041,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 8.392492458,
+    "active": 2,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 8.796197083,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 9.301255166,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 9.806298875,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 10.311328416,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 10.816354666,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 11.321389083,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 4
+  },
+  {
+    "t": 11.327241416,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 3
+  },
+  {
+    "t": 11.327333625,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 3
+  },
+  {
+    "t": 11.621274041,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 3
+  },
+  {
+    "t": 11.7304205,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 2
+  },
+  {
+    "t": 11.730481291,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 2
+  },
+  {
+    "t": 12.005578416,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 1
+  },
+  {
+    "t": 12.005651625,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 1
+  },
+  {
+    "t": 12.510663916,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 1
+  },
+  {
+    "t": 12.722059625,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 1
+  },
+  {
+    "t": 12.982759208000001,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 0
+  },
+  {
+    "t": 12.982824083,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 0
+  },
+  {
+    "t": 13.003013458,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 0
+  },
+  {
+    "t": 13.007014541,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 0
+  },
+  {
+    "t": 13.00702825,
+    "active": 1,
+    "waiting": 0,
+    "inactive": 0
+  },
+  {
+    "t": 13.313125083,
+    "active": 0,
+    "waiting": 0,
+    "inactive": 0
+  }
+];
+const CPU_USAGE = [
+  [
+    0.200368666,
+    19.327731092436977
+  ],
+  [
+    0.377787333,
+    100.0
+  ],
+  [
+    0.495019916,
+    89.85507246376811
+  ],
+  [
+    0.65346675,
+    76.50273224043715
+  ],
+  [
+    0.773656875,
+    66.89655172413794
+  ],
+  [
+    0.90242475,
+    59.868421052631575
+  ],
+  [
+    1.038027666,
+    64.02439024390245
+  ],
+  [
+    1.141963375,
+    58.064516129032256
+  ],
+  [
+    1.276752,
+    62.42038216560509
+  ],
+  [
+    1.380930958,
+    68.29268292682927
+  ],
+  [
+    1.485509958,
+    71.77419354838709
+  ],
+  [
+    1.602120333,
+    75.177304964539
+  ],
+  [
+    1.70262325,
+    91.37931034482759
+  ],
+  [
+    1.808645166,
+    91.93548387096774
+  ],
+  [
+    1.929079333,
+    89.86486486486487
+  ],
+  [
+    2.039827666,
+    96.06299212598425
+  ],
+  [
+    2.147161958,
+    97.63779527559055
+  ],
+  [
+    2.268876708,
+    79.45205479452055
+  ],
+  [
+    2.38064125,
+    93.93939393939394
+  ],
+  [
+    2.492919791,
+    94.73684210526316
+  ],
+  [
+    2.647361041,
+    100.0
+  ],
+  [
+    2.7612035,
+    96.32352941176471
+  ],
+  [
+    2.8621299159999998,
+    100.0
+  ],
+  [
+    2.967442,
+    100.0
+  ],
+  [
+    3.144566875,
+    100.0
+  ],
+  [
+    3.252756875,
+    100.0
+  ],
+  [
+    3.358392291,
+    100.0
+  ],
+  [
+    3.461945,
+    100.0
+  ],
+  [
+    3.621358625,
+    100.0
+  ],
+  [
+    3.723788375,
+    99.18032786885246
+  ],
+  [
+    3.88186025,
+    100.0
+  ],
+  [
+    4.011886833,
+    100.0
+  ],
+  [
+    4.180949083,
+    100.0
+  ],
+  [
+    4.290136291,
+    95.48872180451127
+  ],
+  [
+    4.390192208,
+    95.04132231404958
+  ],
+  [
+    4.495292083,
+    95.1219512195122
+  ],
+  [
+    4.636435458,
+    97.0059880239521
+  ],
+  [
+    4.776928458,
+    100.0
+  ],
+  [
+    4.879208083,
+    99.2
+  ],
+  [
+    4.9796971249999995,
+    95.6896551724138
+  ],
+  [
+    5.144040291,
+    89.17525773195877
+  ],
+  [
+    5.296574833,
+    92.26519337016575
+  ],
+  [
+    5.403113625,
+    96.82539682539682
+  ],
+  [
+    5.54995975,
+    65.73033707865169
+  ],
+  [
+    5.725330125,
+    52.450980392156865
+  ],
+  [
+    5.853050083,
+    55.26315789473684
+  ],
+  [
+    5.970491541,
+    54.92957746478873
+  ],
+  [
+    6.110603375,
+    66.04938271604938
+  ],
+  [
+    6.635859166,
+    89.54041204437401
+  ],
+  [
+    6.920208916,
+    72.18934911242604
+  ],
+  [
+    7.026280333,
+    98.4
+  ],
+  [
+    7.174186291,
+    74.30167597765363
+  ],
+  [
+    7.470515708,
+    27.195467422096314
+  ],
+  [
+    7.592676875,
+    31.506849315068493
+  ],
+  [
+    8.09776825,
+    20.033112582781456
+  ],
+  [
+    8.392492791,
+    17.28045325779037
+  ],
+  [
+    8.796197291,
+    20.661157024793383
+  ],
+  [
+    9.301255375,
+    13.621262458471762
+  ],
+  [
+    9.806298916,
+    11.461794019933564
+  ],
+  [
+    10.311328458,
+    10.34482758620689
+  ],
+  [
+    10.816354708,
+    11.258278145695371
+  ],
+  [
+    11.321389083,
+    10.578512396694222
+  ],
+  [
+    11.621280458,
+    11.111111111111114
+  ],
+  [
+    11.7304205,
+    40.800000000000004
+  ],
+  [
+    12.005580875,
+    37.160120845921455
+  ],
+  [
+    12.510666875,
+    10.430463576158942
+  ],
+  [
+    12.722059875,
+    10.15625
+  ],
+  [
+    12.982759416,
+    9.385113268608407
+  ]
+];
+// Position of the vertical axis.
+const X_LINE = 50;
+// General-use margin size.
+const MARGIN = 5;
+// Position of the horizontal axis, relative to the bottom.
+const Y_LINE = 35;
+// Minimum distance between time tick labels.
+const MIN_TICK_DIST = 50;
+// Radius for rounded rectangle corners.
+const RADIUS = 3;
+// Height of unit boxes.
+const BOX_HEIGHT = 25;
+// Distance between Y tick marks on the unit graph.
+const Y_TICK_DIST = BOX_HEIGHT + 2;
+// Rects used for mouseover detection.
+// Objects of {x, y, x2, y2, i} where `i` is the index into UNIT_DATA.
+let HIT_BOXES = [];
+// Index into UNIT_DATA of the last unit hovered over by mouse.
+let LAST_HOVER = null;
+// Key is unit index, value is {x, y, width, rmeta_x} of the box.
+let UNIT_COORDS = {};
+// Map of unit index to the index it was unlocked by.
+let REVERSE_UNIT_DEPS = {};
+let REVERSE_UNIT_RMETA_DEPS = {};
+for (let n=0; n<UNIT_DATA.length; n++) {
+  let unit = UNIT_DATA[n];
+  for (let unlocked of unit.unlocked_units) {
+    REVERSE_UNIT_DEPS[unlocked] = n;
+  }
+  for (let unlocked of unit.unlocked_rmeta_units) {
+    REVERSE_UNIT_RMETA_DEPS[unlocked] = n;
+  }
+}
+
+function render_pipeline_graph() {
+  if (UNIT_DATA.length == 0) {
+    return;
+  }
+  let g = document.getElementById('pipeline-graph');
+  HIT_BOXES.length = 0;
+  g.onmousemove = pipeline_mousemove;
+  const min_time = document.getElementById('min-unit-time').valueAsNumber;
+
+  const units = UNIT_DATA.filter(unit => unit.duration >= min_time);
+
+  const graph_height = Y_TICK_DIST * units.length;
+  const {ctx, graph_width, canvas_width, canvas_height, px_per_sec} = draw_graph_axes('pipeline-graph', graph_height);
+  const container = document.getElementById('pipeline-container');
+  container.style.width = canvas_width;
+  container.style.height = canvas_height;
+
+  // Canvas for hover highlights. This is a separate layer to improve performance.
+  const linectx = setup_canvas('pipeline-graph-lines', canvas_width, canvas_height);
+  linectx.clearRect(0, 0, canvas_width, canvas_height);
+
+  // Draw Y tick marks.
+  for (let n=1; n<units.length; n++) {
+    const y = MARGIN + Y_TICK_DIST * n;
+    ctx.beginPath();
+    ctx.moveTo(X_LINE, y);
+    ctx.lineTo(X_LINE-5, y);
+    ctx.stroke();
+  }
+
+  // Draw Y labels.
+  ctx.textAlign = 'end';
+  ctx.textBaseline = 'middle';
+  for (let n=0; n<units.length; n++) {
+    let y = MARGIN + Y_TICK_DIST * n + Y_TICK_DIST / 2;
+    ctx.fillText(n+1, X_LINE-4, y);
+  }
+
+  // Draw the graph.
+  ctx.save();
+  ctx.translate(X_LINE, MARGIN);
+
+  // Compute x,y coordinate of each block.
+  // We also populate a map with the count of each unit name to disambiguate if necessary
+  const unitCount = new Map();
+  UNIT_COORDS = {};
+  for (i=0; i<units.length; i++) {
+    let unit = units[i];
+    let y = i * Y_TICK_DIST + 1;
+    let x = px_per_sec * unit.start;
+    let rmeta_x = null;
+    if (unit.rmeta_time != null) {
+      rmeta_x = x + px_per_sec * unit.rmeta_time;
+    }
+    let width = Math.max(px_per_sec * unit.duration, 1.0);
+    UNIT_COORDS[unit.i] = {x, y, width, rmeta_x};
+
+    const count = unitCount.get(unit.name) || 0;
+    unitCount.set(unit.name, count + 1);
+  }
+
+  // Draw the blocks.
+  for (i=0; i<units.length; i++) {
+    let unit = units[i];
+    let {x, y, width, rmeta_x} = UNIT_COORDS[unit.i];
+
+    HIT_BOXES.push({x: X_LINE+x, y:MARGIN+y, x2: X_LINE+x+width, y2: MARGIN+y+BOX_HEIGHT, i: unit.i});
+
+    ctx.beginPath();
+    ctx.fillStyle = unit.mode == 'run-custom-build' ? '#f0b165' : '#95cce8';
+    roundedRect(ctx, x, y, width, BOX_HEIGHT, RADIUS);
+    ctx.fill();
+
+    if (unit.rmeta_time != null) {
+      ctx.beginPath();
+      ctx.fillStyle = '#aa95e8';
+      let ctime = unit.duration - unit.rmeta_time;
+      roundedRect(ctx, rmeta_x, y, px_per_sec * ctime, BOX_HEIGHT, RADIUS);
+      ctx.fill();
+    }
+    ctx.fillStyle = "#000";
+    ctx.textAlign = 'start';
+    ctx.textBaseline = 'middle';
+    ctx.font = '14px sans-serif';
+
+    const labelName = (unitCount.get(unit.name) || 0) > 1 ? `${unit.name} (v${unit.version})${unit.target}` : `${unit.name}${unit.target}`;
+    const label = `${labelName}: ${unit.duration}s`;
+
+    const text_info = ctx.measureText(label);
+    const label_x = Math.min(x + 5.0, canvas_width - text_info.width - X_LINE);
+    ctx.fillText(label, label_x, y + BOX_HEIGHT / 2);
+    draw_dep_lines(ctx, unit.i, false);
+  }
+  ctx.restore();
+}
+
+// Draws lines from the given unit to the units it unlocks.
+function draw_dep_lines(ctx, unit_idx, highlighted) {
+  const unit = UNIT_DATA[unit_idx];
+  const {x, y, rmeta_x} = UNIT_COORDS[unit_idx];
+  ctx.save();
+  for (const unlocked of unit.unlocked_units) {
+    draw_one_dep_line(ctx, x, y, unlocked, highlighted);
+  }
+  for (const unlocked of unit.unlocked_rmeta_units) {
+    draw_one_dep_line(ctx, rmeta_x, y, unlocked, highlighted);
+  }
+  ctx.restore();
+}
+
+function draw_one_dep_line(ctx, from_x, from_y, to_unit, highlighted) {
+  if (to_unit in UNIT_COORDS) {
+    let {x: u_x, y: u_y} = UNIT_COORDS[to_unit];
+    ctx.strokeStyle = highlighted ? '#000' : '#ddd';
+    ctx.setLineDash([2]);
+    ctx.beginPath();
+    ctx.moveTo(from_x, from_y+BOX_HEIGHT/2);
+    ctx.lineTo(from_x-5, from_y+BOX_HEIGHT/2);
+    ctx.lineTo(from_x-5, u_y+BOX_HEIGHT/2);
+    ctx.lineTo(u_x, u_y+BOX_HEIGHT/2);
+    ctx.stroke();
+  }
+}
+
+function render_timing_graph() {
+  if (CONCURRENCY_DATA.length == 0) {
+    return;
+  }
+  const HEIGHT = 400;
+  const AXIS_HEIGHT = HEIGHT - MARGIN - Y_LINE;
+  const TOP_MARGIN = 10;
+  const GRAPH_HEIGHT = AXIS_HEIGHT - TOP_MARGIN;
+
+  const {canvas_width, graph_width, ctx} = draw_graph_axes('timing-graph', AXIS_HEIGHT);
+
+  // Draw Y tick marks and labels.
+  let max_v = 0;
+  for (c of CONCURRENCY_DATA) {
+    max_v = Math.max(max_v, c.active, c.waiting, c.inactive);
+  }
+  const px_per_v = GRAPH_HEIGHT / max_v;
+  const {step, tick_dist, num_ticks} = split_ticks(max_v, px_per_v, GRAPH_HEIGHT);
+  ctx.textAlign = 'end';
+  for (n=0; n<num_ticks; n++) {
+    let y = HEIGHT - Y_LINE - ((n + 1) * tick_dist);
+    ctx.beginPath();
+    ctx.moveTo(X_LINE, y);
+    ctx.lineTo(X_LINE-5, y);
+    ctx.stroke();
+    ctx.fillText((n+1) * step, X_LINE-10, y+5);
+  }
+
+  // Label the Y axis.
+  let label_y = (HEIGHT - Y_LINE) / 2;
+  ctx.save();
+  ctx.translate(15, label_y);
+  ctx.rotate(3*Math.PI/2);
+  ctx.textAlign = 'center';
+  ctx.fillText('# Units', 0, 0);
+  ctx.restore();
+
+  // Draw the graph.
+  ctx.save();
+  ctx.translate(X_LINE, MARGIN);
+
+  function coord(t, v) {
+    return {
+      x: graph_width * (t/DURATION),
+      y: TOP_MARGIN + GRAPH_HEIGHT * (1.0 - (v / max_v))
+    };
+  }
+
+  const cpuFillStyle = 'rgba(250, 119, 0, 0.2)';
+  if (CPU_USAGE.length > 1) {
+    ctx.beginPath();
+    ctx.fillStyle = cpuFillStyle;
+    let bottomLeft = coord(CPU_USAGE[0][0], 0);
+    ctx.moveTo(bottomLeft.x, bottomLeft.y);
+    for (let i=0; i < CPU_USAGE.length; i++) {
+      let [time, usage] = CPU_USAGE[i];
+      let {x, y} = coord(time, usage / 100.0 * max_v);
+      ctx.lineTo(x, y);
+    }
+    let bottomRight = coord(CPU_USAGE[CPU_USAGE.length - 1][0], 0);
+    ctx.lineTo(bottomRight.x, bottomRight.y);
+    ctx.fill();
+  }
+
+  function draw_line(style, key) {
+    let first = CONCURRENCY_DATA[0];
+    let last = coord(first.t, key(first));
+    ctx.strokeStyle = style;
+    ctx.beginPath();
+    ctx.moveTo(last.x, last.y);
+    for (let i=1; i<CONCURRENCY_DATA.length; i++) {
+      let c = CONCURRENCY_DATA[i];
+      let {x, y} = coord(c.t, key(c));
+      ctx.lineTo(x, last.y);
+      ctx.lineTo(x, y);
+      last = {x, y};
+    }
+    ctx.stroke();
+  }
+
+  draw_line('blue', function(c) {return c.inactive;});
+  draw_line('red', function(c) {return c.waiting;});
+  draw_line('green', function(c) {return c.active;});
+
+  // Draw a legend.
+  ctx.restore();
+  ctx.save();
+  ctx.translate(canvas_width-200, MARGIN);
+  // background
+  ctx.fillStyle = '#fff';
+  ctx.strokeStyle = '#000';
+  ctx.lineWidth = 1;
+  ctx.textBaseline = 'middle'
+  ctx.textAlign = 'start';
+  ctx.beginPath();
+  ctx.rect(0, 0, 150, 82);
+  ctx.stroke();
+  ctx.fill();
+
+  ctx.fillStyle = '#000'
+  ctx.beginPath();
+  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'red';
+  ctx.moveTo(5, 10);
+  ctx.lineTo(50, 10);
+  ctx.stroke();
+  ctx.fillText('Waiting', 54, 11);
+
+  ctx.beginPath();
+  ctx.strokeStyle = 'blue';
+  ctx.moveTo(5, 30);
+  ctx.lineTo(50, 30);
+  ctx.stroke();
+  ctx.fillText('Inactive', 54, 31);
+
+  ctx.beginPath();
+  ctx.strokeStyle = 'green';
+  ctx.moveTo(5, 50);
+  ctx.lineTo(50, 50);
+  ctx.stroke();
+  ctx.fillText('Active', 54, 51);
+
+  ctx.beginPath();
+  ctx.fillStyle = cpuFillStyle
+  ctx.fillRect(15, 60, 30, 15);
+  ctx.fill();
+  ctx.fillStyle = 'black';
+  ctx.fillText('CPU Usage', 54, 71);
+
+  ctx.restore();
+}
+
+function setup_canvas(id, width, height) {
+  let g = document.getElementById(id);
+  let dpr = window.devicePixelRatio || 1;
+  g.width = width * dpr;
+  g.height = height * dpr;
+  g.style.width = width;
+  g.style.height = height;
+  let ctx = g.getContext('2d');
+  ctx.scale(dpr, dpr);
+  return ctx;
+}
+
+function draw_graph_axes(id, graph_height) {
+  const scale = document.getElementById('scale').valueAsNumber;
+  // Cap the size of the graph. It is hard to view if it is too large, and
+  // browsers may not render a large graph because it takes too much memory.
+  // 4096 is still ridiculously large, and probably won't render on mobile
+  // browsers, but should be ok for many desktop environments.
+  const graph_width = Math.min(scale * DURATION, 4096);
+  const px_per_sec = graph_width / DURATION;
+  const canvas_width = Math.max(graph_width + X_LINE + 30, X_LINE + 250);
+  const canvas_height = graph_height + MARGIN + Y_LINE;
+  let ctx = setup_canvas(id, canvas_width, canvas_height);
+  ctx.fillStyle = '#f7f7f7';
+  ctx.fillRect(0, 0, canvas_width, canvas_height);
+
+  ctx.lineWidth = 2;
+  ctx.font = '16px sans-serif';
+  ctx.textAlign = 'center';
+
+  // Draw main axes.
+  ctx.beginPath();
+  ctx.moveTo(X_LINE, MARGIN);
+  ctx.lineTo(X_LINE, graph_height + MARGIN);
+  ctx.lineTo(X_LINE+graph_width+20, graph_height + MARGIN);
+  ctx.stroke();
+
+  // Draw X tick marks.
+  const {step, tick_dist, num_ticks} = split_ticks(DURATION, px_per_sec, graph_width);
+  ctx.fillStyle = '#303030';
+  for (let n=0; n<num_ticks; n++) {
+    const x = X_LINE + ((n + 1) * tick_dist);
+    ctx.beginPath();
+    ctx.moveTo(x, canvas_height-Y_LINE);
+    ctx.lineTo(x, canvas_height-Y_LINE+5);
+    ctx.stroke();
+
+    ctx.fillText(`${(n+1) * step}s`, x, canvas_height - Y_LINE + 20);
+  }
+
+  // Draw vertical lines.
+  ctx.strokeStyle = '#e6e6e6';
+  ctx.setLineDash([2, 4]);
+  for (n=0; n<num_ticks; n++) {
+    const x = X_LINE + ((n + 1) * tick_dist);
+    ctx.beginPath();
+    ctx.moveTo(x, MARGIN);
+    ctx.lineTo(x, MARGIN+graph_height);
+    ctx.stroke();
+  }
+  ctx.strokeStyle = '#000';
+  ctx.setLineDash([]);
+  return {canvas_width, canvas_height, graph_width, graph_height, ctx, px_per_sec};
+}
+
+// Determine the spacing and number of ticks along an axis.
+function split_ticks(max_value, px_per_v, max_px) {
+  const max_ticks = Math.floor(max_px / MIN_TICK_DIST);
+  if (max_ticks <= 1) {
+    // Graph is too small for even 1 tick.
+    return {step: max_value, tick_dist: max_px, num_ticks: 1};
+  }
+  let step;
+  if (max_value <= max_ticks) {
+    step = 1;
+  } else if (max_value <= max_ticks * 2) {
+    step = 2;
+  } else if (max_value <= max_ticks * 4) {
+    step = 4;
+  } else if (max_value <= max_ticks * 5) {
+    step = 5;
+  } else {
+    step = 10;
+    let count = 0;
+    while (true) {
+      if (count > 100) {
+        throw Error("tick loop too long");
+      }
+      count += 1;
+      if (max_value <= max_ticks * step) {
+        break;
+      }
+      step += 10;
+    }
+  }
+  const tick_dist = px_per_v * step;
+  const num_ticks = Math.floor(max_value / step);
+  return {step, tick_dist, num_ticks};
+}
+
+function codegen_time(unit) {
+  if (unit.rmeta_time == null) {
+    return null;
+  }
+  let ctime = unit.duration - unit.rmeta_time;
+  return [unit.rmeta_time, ctime];
+}
+
+function roundedRect(ctx, x, y, width, height, r) {
+  r = Math.min(r, width, height);
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.lineTo(x+width-r, y);
+  ctx.arc(x+width-r, y+r, r, 3*Math.PI/2, 0);
+  ctx.lineTo(x+width, y+height-r);
+  ctx.arc(x+width-r, y+height-r, r, 0, Math.PI/2);
+  ctx.lineTo(x+r, y+height);
+  ctx.arc(x+r, y+height-r, r, Math.PI/2, Math.PI);
+  ctx.lineTo(x, y-r);
+  ctx.arc(x+r, y+r, r, Math.PI, 3*Math.PI/2);
+  ctx.closePath();
+}
+
+function pipeline_mouse_hit(event) {
+  // This brute-force method can be optimized if needed.
+  for (let box of HIT_BOXES) {
+    if (event.offsetX >= box.x && event.offsetX <= box.x2 &&
+        event.offsetY >= box.y && event.offsetY <= box.y2) {
+      return box;
+    }
+  }
+}
+
+function pipeline_mousemove(event) {
+  // Highlight dependency lines on mouse hover.
+  let box = pipeline_mouse_hit(event);
+  if (box) {
+    if (box.i != LAST_HOVER) {
+      LAST_HOVER = box.i;
+      let g = document.getElementById('pipeline-graph-lines');
+      let ctx = g.getContext('2d');
+      ctx.clearRect(0, 0, g.width, g.height);
+      ctx.save();
+      ctx.translate(X_LINE, MARGIN);
+      ctx.lineWidth = 2;
+      draw_dep_lines(ctx, box.i, true);
+
+      if (box.i in REVERSE_UNIT_DEPS) {
+        const dep_unit = REVERSE_UNIT_DEPS[box.i];
+        if (dep_unit in UNIT_COORDS) {
+          const {x, y, rmeta_x} = UNIT_COORDS[dep_unit];
+          draw_one_dep_line(ctx, x, y, box.i, true);
+        }
+      }
+      if (box.i in REVERSE_UNIT_RMETA_DEPS) {
+        const dep_unit = REVERSE_UNIT_RMETA_DEPS[box.i];
+        if (dep_unit in UNIT_COORDS) {
+          const {x, y, rmeta_x} = UNIT_COORDS[dep_unit];
+          draw_one_dep_line(ctx, rmeta_x, y, box.i, true);
+        }
+      }
+      ctx.restore();
+    }
+  }
+}
+
+render_pipeline_graph();
+render_timing_graph();
+
+// Set up and handle controls.
+{
+  const range = document.getElementById('min-unit-time');
+  const time_output = document.getElementById('min-unit-time-output');
+  time_output.innerHTML = `${range.value}s`;
+  range.oninput = event => {
+    time_output.innerHTML = `${range.value}s`;
+    render_pipeline_graph();
+  };
+
+  const scale = document.getElementById('scale');
+  const scale_output = document.getElementById('scale-output');
+  scale_output.innerHTML = `${scale.value}`;
+  scale.oninput = event => {
+    scale_output.innerHTML = `${scale.value}`;
+    render_pipeline_graph();
+    render_timing_graph();
+  };
+}
+
+</script>
+</body>
+</html>
