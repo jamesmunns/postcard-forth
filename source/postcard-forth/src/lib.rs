@@ -558,6 +558,114 @@ pub mod impls {
         ];
     }
 
+    unsafe impl<T: Serialize, U: Serialize, V: Serialize, W: Serialize> Serialize for (T, U, V, W) {
+        const FIELDS: &'static [SerField] = &[
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W), 0),
+                func: impls::ser_fields::<T>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W), 1),
+                func: impls::ser_fields::<U>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W), 2),
+                func: impls::ser_fields::<V>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W), 3),
+                func: impls::ser_fields::<W>,
+            },
+        ];
+    }
+
+    unsafe impl<T: Serialize, U: Serialize, V: Serialize, W: Serialize, X: Serialize> Serialize for (T, U, V, W, X) {
+        const FIELDS: &'static [SerField] = &[
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X), 0),
+                func: impls::ser_fields::<T>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X), 1),
+                func: impls::ser_fields::<U>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X), 2),
+                func: impls::ser_fields::<V>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X), 3),
+                func: impls::ser_fields::<W>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X), 4),
+                func: impls::ser_fields::<X>,
+            },
+        ];
+    }
+
+    unsafe impl<T: Serialize, U: Serialize, V: Serialize, W: Serialize, X: Serialize, Y: Serialize> Serialize for (T, U, V, W, X, Y) {
+        const FIELDS: &'static [SerField] = &[
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 0),
+                func: impls::ser_fields::<T>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 1),
+                func: impls::ser_fields::<U>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 2),
+                func: impls::ser_fields::<V>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 3),
+                func: impls::ser_fields::<W>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 4),
+                func: impls::ser_fields::<X>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 5),
+                func: impls::ser_fields::<Y>,
+            },
+        ];
+    }
+
+    unsafe impl<T: Serialize, U: Serialize, V: Serialize, W: Serialize, X: Serialize, Y: Serialize, Z: Serialize> Serialize for (T, U, V, W, X, Y, Z) {
+        const FIELDS: &'static [SerField] = &[
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 0),
+                func: impls::ser_fields::<T>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 1),
+                func: impls::ser_fields::<U>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 2),
+                func: impls::ser_fields::<V>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 3),
+                func: impls::ser_fields::<W>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 4),
+                func: impls::ser_fields::<X>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 5),
+                func: impls::ser_fields::<Y>,
+            },
+            SerField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 6),
+                func: impls::ser_fields::<Z>,
+            },
+        ];
+    }
+
     #[inline]
     pub unsafe fn deser_nothing(_stream: &mut DeserStream, _base: NonNull<()>) -> Result<(), ()> {
         Ok(())
@@ -963,6 +1071,114 @@ pub mod impls {
             DeserField {
                 offset: core::mem::offset_of!((T, U, V), 2),
                 func: deser_fields::<V>,
+            },
+        ];
+    }
+
+    unsafe impl<T: Deserialize, U: Deserialize, V: Deserialize, W: Deserialize> Deserialize for (T, U, V, W) {
+        const FIELDS: &'static [DeserField] = &[
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W), 0),
+                func: deser_fields::<T>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W), 1),
+                func: deser_fields::<U>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W), 2),
+                func: deser_fields::<V>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W), 3),
+                func: deser_fields::<W>,
+            },
+        ];
+    }
+
+    unsafe impl<T: Deserialize, U: Deserialize, V: Deserialize, W: Deserialize, X: Deserialize> Deserialize for (T, U, V, W, X) {
+        const FIELDS: &'static [DeserField] = &[
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X), 0),
+                func: deser_fields::<T>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X), 1),
+                func: deser_fields::<U>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X), 2),
+                func: deser_fields::<V>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X), 3),
+                func: deser_fields::<W>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X), 4),
+                func: deser_fields::<X>,
+            },
+        ];
+    }
+
+    unsafe impl<T: Deserialize, U: Deserialize, V: Deserialize, W: Deserialize, X: Deserialize, Y: Deserialize> Deserialize for (T, U, V, W, X, Y) {
+        const FIELDS: &'static [DeserField] = &[
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 0),
+                func: deser_fields::<T>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 1),
+                func: deser_fields::<U>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 2),
+                func: deser_fields::<V>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 3),
+                func: deser_fields::<W>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 4),
+                func: deser_fields::<X>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y), 5),
+                func: deser_fields::<Y>,
+            },
+        ];
+    }
+
+    unsafe impl<T: Deserialize, U: Deserialize, V: Deserialize, W: Deserialize, X: Deserialize, Y: Deserialize, Z: Deserialize> Deserialize for (T, U, V, W, X, Y, Z) {
+        const FIELDS: &'static [DeserField] = &[
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 0),
+                func: deser_fields::<T>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 1),
+                func: deser_fields::<U>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 2),
+                func: deser_fields::<V>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 3),
+                func: deser_fields::<W>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 4),
+                func: deser_fields::<X>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 5),
+                func: deser_fields::<Y>,
+            },
+            DeserField {
+                offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 6),
+                func: deser_fields::<Z>,
             },
         ];
     }
