@@ -7,11 +7,11 @@
 | postcard-forth                | 128   | 111220    | 2664        | 15931          | 16.4s    | 3.14s      |
 | postcard-serde                | 512   | 640456    | 10244       | 181583         | 39.7s    | 25.95s     |
 | postcard-forth                | 512   | 395712    | 10244       | 60232          | 24.6s    | 11.82s     |
+| postcard-forth (inlined)      | 512   | 389944    | 10244       | 79471          | 24.8s    | 11.78s     |
 | postcard-serde (no enums)     | 512   | 550012    | 8248        | 72610          | 33.1s    | 19.7s      |
 | postcard-forth (no enums)     | 512   | 223492    | 8248        | 20594          | 19.6s    | 6.82s      |
 | postcard-serde (onlyprims)    | 512   | 610800    | 10248       | 177647         | 45.6s    | 32.4s      |
 | postcard-forth (onlyprims)    | 512   | 295704    | 10248       | 59645          | 22.3s    | 9.63s      |
-
 
 
 ## Steps
@@ -37,3 +37,4 @@
 
 * "no enums": Disabled `enum` generation in stress-gen
 * "onlyprims": Don't nest generated types - all generated types only include primitives
+* "inlined": After adding `ser_inliner` and `deser_inliner` functions and tweaking derive

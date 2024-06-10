@@ -3,12 +3,6 @@
 
 use core::{marker::PhantomData, mem::MaybeUninit, ptr::NonNull};
 
-pub struct Alpha {
-    pub a: u8,
-    pub b: u16,
-    pub c: u32,
-}
-
 pub struct SerStream<'a> {
     cur: *mut u8,
     end: *mut u8,
@@ -209,6 +203,28 @@ pub unsafe fn deser_fields<D: Deserialize>(
     base: NonNull<()>,
 ) -> Result<(), ()> {
     deser_fields_inner(stream, base, D::FIELDS)
+}
+
+pub const fn ser_inliner<T: Serialize>() -> SerFunc {
+    let fields = T::FIELDS;
+    if fields.is_empty() {
+        impls::ser_nothing
+    } else if fields.len() == 1 && fields[0].offset == 0 {
+        fields[0].func
+    } else {
+        ser_fields::<T>
+    }
+}
+
+pub const fn deser_inliner<T: Deserialize>() -> DeserFunc {
+    let fields = T::FIELDS;
+    if fields.is_empty() {
+        impls::deser_nothing
+    } else if fields.len() == 1 && fields[0].offset == 0 {
+        fields[0].func
+    } else {
+        deser_fields::<T>
+    }
 }
 
 pub mod impls {
@@ -528,7 +544,7 @@ pub mod impls {
     unsafe impl<T: Serialize> Serialize for (T,) {
         const FIELDS: &'static [SerField] = &[SerField {
             offset: core::mem::offset_of!((T,), 0),
-            func: impls::ser_fields::<T>,
+            func: ser_inliner::<T>(),
         }];
     }
 
@@ -536,11 +552,11 @@ pub mod impls {
         const FIELDS: &'static [SerField] = &[
             SerField {
                 offset: core::mem::offset_of!((T, U), 0),
-                func: impls::ser_fields::<T>,
+                func: ser_inliner::<T>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U), 1),
-                func: impls::ser_fields::<U>,
+                func: ser_inliner::<U>(),
             },
         ];
     }
@@ -549,15 +565,15 @@ pub mod impls {
         const FIELDS: &'static [SerField] = &[
             SerField {
                 offset: core::mem::offset_of!((T, U, V), 0),
-                func: impls::ser_fields::<T>,
+                func: ser_inliner::<T>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V), 1),
-                func: impls::ser_fields::<U>,
+                func: ser_inliner::<U>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V), 2),
-                func: impls::ser_fields::<V>,
+                func: ser_inliner::<V>(),
             },
         ];
     }
@@ -566,19 +582,19 @@ pub mod impls {
         const FIELDS: &'static [SerField] = &[
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W), 0),
-                func: impls::ser_fields::<T>,
+                func: ser_inliner::<T>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W), 1),
-                func: impls::ser_fields::<U>,
+                func: ser_inliner::<U>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W), 2),
-                func: impls::ser_fields::<V>,
+                func: ser_inliner::<V>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W), 3),
-                func: impls::ser_fields::<W>,
+                func: ser_inliner::<W>(),
             },
         ];
     }
@@ -589,23 +605,23 @@ pub mod impls {
         const FIELDS: &'static [SerField] = &[
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 0),
-                func: impls::ser_fields::<T>,
+                func: ser_inliner::<T>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 1),
-                func: impls::ser_fields::<U>,
+                func: ser_inliner::<U>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 2),
-                func: impls::ser_fields::<V>,
+                func: ser_inliner::<V>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 3),
-                func: impls::ser_fields::<W>,
+                func: ser_inliner::<W>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 4),
-                func: impls::ser_fields::<X>,
+                func: ser_inliner::<X>(),
             },
         ];
     }
@@ -616,27 +632,27 @@ pub mod impls {
         const FIELDS: &'static [SerField] = &[
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 0),
-                func: impls::ser_fields::<T>,
+                func: ser_inliner::<T>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 1),
-                func: impls::ser_fields::<U>,
+                func: ser_inliner::<U>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 2),
-                func: impls::ser_fields::<V>,
+                func: ser_inliner::<V>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 3),
-                func: impls::ser_fields::<W>,
+                func: ser_inliner::<W>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 4),
-                func: impls::ser_fields::<X>,
+                func: ser_inliner::<X>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 5),
-                func: impls::ser_fields::<Y>,
+                func: ser_inliner::<Y>(),
             },
         ];
     }
@@ -654,31 +670,31 @@ pub mod impls {
         const FIELDS: &'static [SerField] = &[
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 0),
-                func: impls::ser_fields::<T>,
+                func: ser_inliner::<T>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 1),
-                func: impls::ser_fields::<U>,
+                func: ser_inliner::<U>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 2),
-                func: impls::ser_fields::<V>,
+                func: ser_inliner::<V>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 3),
-                func: impls::ser_fields::<W>,
+                func: ser_inliner::<W>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 4),
-                func: impls::ser_fields::<X>,
+                func: ser_inliner::<X>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 5),
-                func: impls::ser_fields::<Y>,
+                func: ser_inliner::<Y>(),
             },
             SerField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 6),
-                func: impls::ser_fields::<Z>,
+                func: ser_inliner::<Z>(),
             },
         ];
     }
@@ -1062,7 +1078,7 @@ pub mod impls {
     unsafe impl<T: Deserialize> Deserialize for (T,) {
         const FIELDS: &'static [DeserField] = &[DeserField {
             offset: core::mem::offset_of!((T,), 0),
-            func: deser_fields::<T>,
+            func: deser_inliner::<T>(),
         }];
     }
 
@@ -1070,11 +1086,11 @@ pub mod impls {
         const FIELDS: &'static [DeserField] = &[
             DeserField {
                 offset: core::mem::offset_of!((T, U), 0),
-                func: deser_fields::<T>,
+                func: deser_inliner::<T>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U), 1),
-                func: deser_fields::<U>,
+                func: deser_inliner::<U>(),
             },
         ];
     }
@@ -1083,15 +1099,15 @@ pub mod impls {
         const FIELDS: &'static [DeserField] = &[
             DeserField {
                 offset: core::mem::offset_of!((T, U, V), 0),
-                func: deser_fields::<T>,
+                func: deser_inliner::<T>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V), 1),
-                func: deser_fields::<U>,
+                func: deser_inliner::<U>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V), 2),
-                func: deser_fields::<V>,
+                func: deser_inliner::<V>(),
             },
         ];
     }
@@ -1102,19 +1118,19 @@ pub mod impls {
         const FIELDS: &'static [DeserField] = &[
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W), 0),
-                func: deser_fields::<T>,
+                func: deser_inliner::<T>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W), 1),
-                func: deser_fields::<U>,
+                func: deser_inliner::<U>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W), 2),
-                func: deser_fields::<V>,
+                func: deser_inliner::<V>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W), 3),
-                func: deser_fields::<W>,
+                func: deser_inliner::<W>(),
             },
         ];
     }
@@ -1125,23 +1141,23 @@ pub mod impls {
         const FIELDS: &'static [DeserField] = &[
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 0),
-                func: deser_fields::<T>,
+                func: deser_inliner::<T>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 1),
-                func: deser_fields::<U>,
+                func: deser_inliner::<U>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 2),
-                func: deser_fields::<V>,
+                func: deser_inliner::<V>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 3),
-                func: deser_fields::<W>,
+                func: deser_inliner::<W>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X), 4),
-                func: deser_fields::<X>,
+                func: deser_inliner::<X>(),
             },
         ];
     }
@@ -1158,27 +1174,27 @@ pub mod impls {
         const FIELDS: &'static [DeserField] = &[
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 0),
-                func: deser_fields::<T>,
+                func: deser_inliner::<T>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 1),
-                func: deser_fields::<U>,
+                func: deser_inliner::<U>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 2),
-                func: deser_fields::<V>,
+                func: deser_inliner::<V>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 3),
-                func: deser_fields::<W>,
+                func: deser_inliner::<W>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 4),
-                func: deser_fields::<X>,
+                func: deser_inliner::<X>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y), 5),
-                func: deser_fields::<Y>,
+                func: deser_inliner::<Y>(),
             },
         ];
     }
@@ -1196,31 +1212,31 @@ pub mod impls {
         const FIELDS: &'static [DeserField] = &[
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 0),
-                func: deser_fields::<T>,
+                func: deser_inliner::<T>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 1),
-                func: deser_fields::<U>,
+                func: deser_inliner::<U>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 2),
-                func: deser_fields::<V>,
+                func: deser_inliner::<V>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 3),
-                func: deser_fields::<W>,
+                func: deser_inliner::<W>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 4),
-                func: deser_fields::<X>,
+                func: deser_inliner::<X>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 5),
-                func: deser_fields::<Y>,
+                func: deser_inliner::<Y>(),
             },
             DeserField {
                 offset: core::mem::offset_of!((T, U, V, W, X, Y, Z), 6),
-                func: deser_fields::<Z>,
+                func: deser_inliner::<Z>(),
             },
         ];
     }
@@ -1584,27 +1600,27 @@ mod test {
             // ser_fields even for primitives
             SerField {
                 offset: offset_of!(Beta, a),
-                func: impls::ser_u8,
+                func: ser_inliner::<u8>(),
             },
             SerField {
                 offset: offset_of!(Beta, b),
-                func: impls::ser_u16,
+                func: ser_inliner::<u16>(),
             },
             SerField {
                 offset: offset_of!(Beta, c),
-                func: impls::ser_u32,
+                func: ser_inliner::<u32>(),
             },
             SerField {
                 offset: offset_of!(Beta, d),
-                func: impls::ser_i8,
+                func: ser_inliner::<i8>(),
             },
             SerField {
                 offset: offset_of!(Beta, e),
-                func: impls::ser_i16,
+                func: ser_inliner::<i16>(),
             },
             SerField {
                 offset: offset_of!(Beta, f),
-                func: impls::ser_i32,
+                func: ser_inliner::<i32>(),
             },
         ];
     }
@@ -1646,27 +1662,27 @@ mod test {
             // deser_fields even for primitives
             DeserField {
                 offset: offset_of!(Beta, a),
-                func: impls::deser_u8,
+                func: deser_inliner::<u8>(),
             },
             DeserField {
                 offset: offset_of!(Beta, b),
-                func: impls::deser_u16,
+                func: deser_inliner::<u16>(),
             },
             DeserField {
                 offset: offset_of!(Beta, c),
-                func: impls::deser_u32,
+                func: deser_inliner::<u32>(),
             },
             DeserField {
                 offset: offset_of!(Beta, d),
-                func: impls::deser_i8,
+                func: deser_inliner::<i8>(),
             },
             DeserField {
                 offset: offset_of!(Beta, e),
-                func: impls::deser_i16,
+                func: deser_inliner::<i16>(),
             },
             DeserField {
                 offset: offset_of!(Beta, f),
-                func: impls::deser_i32,
+                func: deser_inliner::<i32>(),
             },
         ];
     }

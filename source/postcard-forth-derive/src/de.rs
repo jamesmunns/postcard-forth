@@ -112,26 +112,7 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
             let fields = fields.named.iter().map(|f| {
                 let ty = &f.ty;
                 let name = &f.ident;
-                let tystr = quote!( #ty ).to_string();
-                let deserf = match tystr.as_str() {
-                    // "u8" => quote!(::postcard_forth::impls::deser_u8),
-                    // "u16" => quote!(::postcard_forth::impls::deser_u16),
-                    // "u32" => quote!(::postcard_forth::impls::deser_u32),
-                    // "u64" => quote!(::postcard_forth::impls::deser_u64),
-                    // "u128" => quote!(::postcard_forth::impls::deser_u128),
-                    // "usize" => quote!(::postcard_forth::impls::deser_usize),
-                    // "i8" => quote!(::postcard_forth::impls::deser_i8),
-                    // "i16" => quote!(::postcard_forth::impls::deser_i16),
-                    // "i32" => quote!(::postcard_forth::impls::deser_i32),
-                    // "i64" => quote!(::postcard_forth::impls::deser_i64),
-                    // "i128" => quote!(::postcard_forth::impls::deser_i128),
-                    // "isize" => quote!(::postcard_forth::impls::deser_isize),
-                    // "String" => quote!(::postcard_forth::impls::deser_string),
-                    _other => {
-                        quote!(::postcard_forth::deser_fields::<#ty>)
-                    },
-                };
-                let out = quote_spanned!(f.span() => ::postcard_forth::DeserField { offset: ::core::mem::offset_of!(#tyname, #name), func: #deserf });
+                let out = quote_spanned!(f.span() => ::postcard_forth::DeserField { offset: ::core::mem::offset_of!(#tyname, #name), func: ::postcard_forth::deser_inliner::<#ty>() });
                 out
             });
             out.extend(quote! {
@@ -141,27 +122,8 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
         syn::Fields::Unnamed(fields) => {
             let fields = fields.unnamed.iter().enumerate().map(|(i, f)| {
                 let ty = &f.ty;
-                let tystr = quote!( #ty ).to_string();
-                let deserf = match tystr.as_str() {
-                    // "u8" => quote!(::postcard_forth::impls::deser_u8),
-                    // "u16" => quote!(::postcard_forth::impls::deser_u16),
-                    // "u32" => quote!(::postcard_forth::impls::deser_u32),
-                    // "u64" => quote!(::postcard_forth::impls::deser_u64),
-                    // "u128" => quote!(::postcard_forth::impls::deser_u128),
-                    // "usize" => quote!(::postcard_forth::impls::deser_usize),
-                    // "i8" => quote!(::postcard_forth::impls::deser_i8),
-                    // "i16" => quote!(::postcard_forth::impls::deser_i16),
-                    // "i32" => quote!(::postcard_forth::impls::deser_i32),
-                    // "i64" => quote!(::postcard_forth::impls::deser_i64),
-                    // "i128" => quote!(::postcard_forth::impls::deser_i128),
-                    // "isize" => quote!(::postcard_forth::impls::deser_isize),
-                    // "String" => quote!(::postcard_forth::impls::deser_string),
-                    _other => {
-                        quote!(::postcard_forth::deser_fields::<#ty>)
-                    },
-                };
                 let tupidx = syn::Index::from(i);
-                let out = quote_spanned!(f.span() => ::postcard_forth::DeserField { offset: ::core::mem::offset_of!(#tyname, #tupidx), func: #deserf });
+                let out = quote_spanned!(f.span() => ::postcard_forth::DeserField { offset: ::core::mem::offset_of!(#tyname, #tupidx), func: ::postcard_forth::deser_inliner::<#ty>() });
                 out
             });
             out.extend(quote! {
@@ -192,8 +154,11 @@ fn generate_arm(
                     // Deserialize the payload
                     #(
                         let mut #just_names = core::mem::MaybeUninit::<#just_tys>::uninit();
-                        if ::postcard_forth::deser_fields_ref(stream, &mut #just_names).is_err() {
-                            return Err(());
+                        {
+                            const FUNC: ::postcard_forth::DeserFunc = ::postcard_forth::deser_inliner::<#just_tys>();
+                            if (FUNC)(stream, core::ptr::NonNull::from(&mut #just_names).cast()).is_err() {
+                                return Err(());
+                            }
                         }
                     )*
 
@@ -228,9 +193,13 @@ fn generate_arm(
                 #idx => {
                     // Deserialize the payload
                     #(
+
                         let mut #just_names = core::mem::MaybeUninit::<#just_tys>::uninit();
-                        if ::postcard_forth::deser_fields_ref(stream, &mut #just_names).is_err() {
-                            return Err(());
+                        {
+                            const FUNC: ::postcard_forth::DeserFunc = ::postcard_forth::deser_inliner::<#just_tys>();
+                            if (FUNC)(stream, core::ptr::NonNull::from(&mut #just_names).cast()).is_err() {
+                                return Err(());
+                            }
                         }
                     )*
 

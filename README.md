@@ -34,7 +34,7 @@ Zero-copy deserialization libraries have an additional set of benchmarks:
 
 Some benchmark results may be italicized and followed by an asterisk. Mouse over these for more details on what situation was benchmarked. Other footnotes are located at the bottom.
 
-## Last updated: 2024-6-2 20:36:21
+## Last updated: 2024-6-10 9:0:50
 
 <details><summary>Runtime info</summary>
 
@@ -64,8 +64,8 @@ For operations, time per iteration; for size, bytes. Lower is better.
 
 | Crate | Serialize | Deserialize | Size | Zlib | Zstd | Zstd Time |
 |---|--:|--:|--:|--:|--:|--:|
-| [postcard 1.0.8][postcard] | 384.31 µs | 1.2600 ms | 724953 | 302399 | 253747 | 2.4216 ms |
-| [postcard_forth 0.1.0][postcard-forth] | 265.66 µs | 1.1349 ms | 724953 | 302399 | 253747 | 2.5798 ms |
+| [postcard 1.0.8][postcard] | 370.34 µs | 1.1861 ms | 724953 | 302399 | 253747 | 2.3519 ms |
+| [postcard_forth 0.1.0][postcard-forth] | 250.77 µs | 1.0742 ms | 724953 | 302399 | 253747 | 2.4021 ms |
 
 #### Zero-copy deserialization speed
 
@@ -80,8 +80,8 @@ Relative to best. Higher is better.
 
 | Crate | Serialize | Deserialize | Size | Zlib | Zstd | Zstd Time |
 |---|--:|--:|--:|--:|--:|--:|
-| [postcard 1.0.8][postcard] | 69.13% | 90.07% | 100.00% | 100.00% | 100.00% | 100.00% |
-| [postcard_forth 0.1.0][postcard-forth] | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 93.87% |
+| [postcard 1.0.8][postcard] | 67.71% | 90.57% | 100.00% | 100.00% | 100.00% | 100.00% |
+| [postcard_forth 0.1.0][postcard-forth] | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 97.91% |
 
 #### Zero-copy deserialization speed
 
@@ -100,8 +100,8 @@ For operations, time per iteration; for size, bytes. Lower is better.
 
 | Crate | Serialize | Deserialize | Size | Zlib | Zstd | Zstd Time |
 |---|--:|--:|--:|--:|--:|--:|
-| [postcard 1.0.8][postcard] | 335.42 µs | 1.2317 ms | 6000003 | 5378495 | 5345900 | 7.2406 ms |
-| [postcard_forth 0.1.0][postcard-forth] | 393.28 µs | 737.69 µs | 6000003 | 5378495 | 5345900 | 7.2910 ms |
+| [postcard 1.0.8][postcard] | 328.78 µs | 1.2508 ms | 6000003 | 5378495 | 5345900 | 6.4919 ms |
+| [postcard_forth 0.1.0][postcard-forth] | 391.09 µs | 705.90 µs | 6000003 | 5378495 | 5345900 | 6.4544 ms |
 
 #### Zero-copy deserialization speed
 
@@ -116,8 +116,8 @@ Relative to best. Higher is better.
 
 | Crate | Serialize | Deserialize | Size | Zlib | Zstd | Zstd Time |
 |---|--:|--:|--:|--:|--:|--:|
-| [postcard 1.0.8][postcard] | 100.00% | 59.89% | 100.00% | 100.00% | 100.00% | 100.00% |
-| [postcard_forth 0.1.0][postcard-forth] | 85.29% | 100.00% | 100.00% | 100.00% | 100.00% | 99.31% |
+| [postcard 1.0.8][postcard] | 100.00% | 56.44% | 100.00% | 100.00% | 100.00% | 99.42% |
+| [postcard_forth 0.1.0][postcard-forth] | 84.07% | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% |
 
 #### Zero-copy deserialization speed
 
@@ -136,8 +136,8 @@ For operations, time per iteration; for size, bytes. Lower is better.
 
 | Crate | Serialize | Deserialize | Size | Zlib | Zstd | Zstd Time |
 |---|--:|--:|--:|--:|--:|--:|
-| [postcard 1.0.8][postcard] | 375.38 µs | 1.1119 ms | 367489 | 221913 | 207344 | 1.7428 ms |
-| [postcard_forth 0.1.0][postcard-forth] | 257.64 µs | 950.03 µs | 367489 | 221913 | 207344 | 1.8475 ms |
+| [postcard 1.0.8][postcard] | 363.80 µs | 1.0675 ms | 367489 | 221913 | 207344 | 1.7195 ms |
+| [postcard_forth 0.1.0][postcard-forth] | 244.14 µs | 920.09 µs | 367489 | 221913 | 207344 | 1.7180 ms |
 
 #### Zero-copy deserialization speed
 
@@ -152,8 +152,8 @@ Relative to best. Higher is better.
 
 | Crate | Serialize | Deserialize | Size | Zlib | Zstd | Zstd Time |
 |---|--:|--:|--:|--:|--:|--:|
-| [postcard 1.0.8][postcard] | 68.63% | 85.44% | 100.00% | 100.00% | 100.00% | 100.00% |
-| [postcard_forth 0.1.0][postcard-forth] | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 94.33% |
+| [postcard 1.0.8][postcard] | 67.11% | 86.19% | 100.00% | 100.00% | 100.00% | 99.91% |
+| [postcard_forth 0.1.0][postcard-forth] | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% |
 
 #### Zero-copy deserialization speed
 
@@ -172,8 +172,8 @@ For operations, time per iteration; for size, bytes. Lower is better.
 
 | Crate | Serialize | Deserialize | Size | Zlib | Zstd | Zstd Time |
 |---|--:|--:|--:|--:|--:|--:|
-| [postcard 1.0.8][postcard] | 1.2014 ms | 2.4270 ms | 1279599 | 1058243 | 1016738 | 5.2347 ms |
-| [postcard_forth 0.1.0][postcard-forth] | 691.92 µs | 1.6302 ms | 1279599 | 1058243 | 1016738 | 5.2679 ms |
+| [postcard 1.0.8][postcard] | 1.1626 ms | 2.3392 ms | 1279599 | 1058243 | 1016738 | 5.1470 ms |
+| [postcard_forth 0.1.0][postcard-forth] | 674.91 µs | 1.5785 ms | 1279599 | 1058243 | 1016738 | 5.1563 ms |
 
 #### Zero-copy deserialization speed
 
@@ -188,8 +188,8 @@ Relative to best. Higher is better.
 
 | Crate | Serialize | Deserialize | Size | Zlib | Zstd | Zstd Time |
 |---|--:|--:|--:|--:|--:|--:|
-| [postcard 1.0.8][postcard] | 57.59% | 67.17% | 100.00% | 100.00% | 100.00% | 100.00% |
-| [postcard_forth 0.1.0][postcard-forth] | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 99.37% |
+| [postcard 1.0.8][postcard] | 58.05% | 67.48% | 100.00% | 100.00% | 100.00% | 100.00% |
+| [postcard_forth 0.1.0][postcard-forth] | 100.00% | 100.00% | 100.00% | 100.00% | 100.00% | 99.82% |
 
 #### Zero-copy deserialization speed
 

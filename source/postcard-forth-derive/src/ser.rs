@@ -95,29 +95,8 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
             let fields = fields.named.iter().map(|f| {
                 let ty = &f.ty;
                 let name = &f.ident;
-                let tystr = quote!( #ty ).to_string();
 
-                // This is probably not sound. Users could shadow real names with other types, breaking
-                // the safety guarantees.
-                let serf = match tystr.as_str() {
-                    // "u8" => quote!(::postcard_forth::impls::ser_u8),
-                    // "u16" => quote!(::postcard_forth::impls::ser_u16),
-                    // "u32" => quote!(::postcard_forth::impls::ser_u32),
-                    // "u64" => quote!(::postcard_forth::impls::ser_u64),
-                    // "u128" => quote!(::postcard_forth::impls::ser_u128),
-                    // "usize" => quote!(::postcard_forth::impls::ser_usize),
-                    // "i8" => quote!(::postcard_forth::impls::ser_i8),
-                    // "i16" => quote!(::postcard_forth::impls::ser_i16),
-                    // "i32" => quote!(::postcard_forth::impls::ser_i32),
-                    // "i64" => quote!(::postcard_forth::impls::ser_i64),
-                    // "i128" => quote!(::postcard_forth::impls::ser_i128),
-                    // "isize" => quote!(::postcard_forth::impls::ser_isize),
-                    // "String" => quote!(::postcard_forth::impls::ser_string),
-                    _other => {
-                        quote!(::postcard_forth::ser_fields::<#ty>)
-                    },
-                };
-                let out = quote_spanned!(f.span() => ::postcard_forth::SerField { offset: ::core::mem::offset_of!(#tyname, #name), func: #serf });
+                let out = quote_spanned!(f.span() => ::postcard_forth::SerField { offset: ::core::mem::offset_of!(#tyname, #name), func: ::postcard_forth::ser_inliner::<#ty>() });
                 out
             });
             out.extend(quote! {
@@ -127,31 +106,9 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
         syn::Fields::Unnamed(fields) => {
             let fields = fields.unnamed.iter().enumerate().map(|(i, f)| {
                 let ty = &f.ty;
-                // let name = &f.ident;
-                let tystr = quote!( #ty ).to_string();
 
-                // This is probably not sound. Users could shadow real names with other types, breaking
-                // the safety guarantees.
-                let serf = match tystr.as_str() {
-                    // "u8" => quote!(::postcard_forth::impls::ser_u8),
-                    // "u16" => quote!(::postcard_forth::impls::ser_u16),
-                    // "u32" => quote!(::postcard_forth::impls::ser_u32),
-                    // "u64" => quote!(::postcard_forth::impls::ser_u64),
-                    // "u128" => quote!(::postcard_forth::impls::ser_u128),
-                    // "usize" => quote!(::postcard_forth::impls::ser_usize),
-                    // "i8" => quote!(::postcard_forth::impls::ser_i8),
-                    // "i16" => quote!(::postcard_forth::impls::ser_i16),
-                    // "i32" => quote!(::postcard_forth::impls::ser_i32),
-                    // "i64" => quote!(::postcard_forth::impls::ser_i64),
-                    // "i128" => quote!(::postcard_forth::impls::ser_i128),
-                    // "isize" => quote!(::postcard_forth::impls::ser_isize),
-                    // "String" => quote!(::postcard_forth::impls::ser_string),
-                    _other => {
-                        quote!(::postcard_forth::ser_fields::<#ty>)
-                    },
-                };
                 let tupidx = syn::Index::from(i);
-                let out = quote_spanned!(f.span() => ::postcard_forth::SerField { offset: ::core::mem::offset_of!(#tyname, #tupidx), func: #serf });
+                let out = quote_spanned!(f.span() => ::postcard_forth::SerField { offset: ::core::mem::offset_of!(#tyname, #tupidx), func: ::postcard_forth::ser_inliner::<#ty>() });
                 out
             });
             out.extend(quote! {
@@ -172,8 +129,9 @@ fn generate_arm(
     match fields {
         syn::Fields::Named(fields) => {
             let just_names: Vec<_> = fields.named.iter().map(|f| &f.ident).collect();
-
             let just_names = just_names.as_slice();
+            let just_tys: Vec<_> = fields.named.iter().map(|f| &f.ty).collect();
+            let just_tys = just_tys.as_slice();
 
             quote! {
                 #tyident :: #varident { #(#just_names),* } => {
@@ -185,8 +143,12 @@ fn generate_arm(
 
                     // Serialize the payload
                     #(
-                        if ::postcard_forth::ser_fields_ref(stream, #just_names).is_err() {
-                            return Err(());
+                        {
+                            const FUNC: ::postcard_forth::SerFunc = ::postcard_forth::ser_inliner::<#just_tys>();
+                            let ptr: core::ptr::NonNull<#just_tys> = core::ptr::NonNull::from(#just_names);
+                            if (FUNC)(stream, ptr.cast()).is_err() {
+                                return Err(());
+                            }
                         }
                     )*
 
@@ -208,8 +170,9 @@ fn generate_arm(
                     quote_spanned! {f.span() => #name}
                 })
                 .collect();
-
             let just_names = just_names.as_slice();
+            let just_tys: Vec<_> = fields.unnamed.iter().map(|f| &f.ty).collect();
+            let just_tys = just_tys.as_slice();
 
             quote! {
                 #tyident :: #varident ( #(#just_names),* ) => {
@@ -221,8 +184,12 @@ fn generate_arm(
 
                     // Serialize the payload
                     #(
-                        if ::postcard_forth::ser_fields_ref(stream, #just_names).is_err() {
-                            return Err(());
+                        {
+                            const FUNC: ::postcard_forth::SerFunc = ::postcard_forth::ser_inliner::<#just_tys>();
+                            let ptr: core::ptr::NonNull<#just_tys> = core::ptr::NonNull::from(#just_names);
+                            if (FUNC)(stream, ptr.cast()).is_err() {
+                                return Err(());
+                            }
                         }
                     )*
 
