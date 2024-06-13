@@ -104,12 +104,12 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
             let fields = fields.named.iter().map(|f| {
                 let ty = &f.ty;
                 let name = &f.ident;
-                let out = quote_spanned!(f.span() => {
+                let out = quote_spanned!(f.span() =>
                     <#ty as ::postcard_forth::Deserialize>::deserialize(
                         unsafe { &mut *::core::ptr::addr_of_mut!((*me.as_mut_ptr()).#name).cast::<::core::mem::MaybeUninit<#ty>>() },
                         stream,
                     )?;
-                });
+                );
                 out
             });
             out.extend(quote! {
@@ -120,12 +120,12 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
             let fields = fields.unnamed.iter().enumerate().map(|(i, f)| {
                 let ty = &f.ty;
                 let tupidx = syn::Index::from(i);
-                let out = quote_spanned!(f.span() => {
+                let out = quote_spanned!(f.span() =>
                     <#ty as ::postcard_forth::Deserialize>::deserialize(
                         unsafe { &mut *::core::ptr::addr_of_mut!((*me.as_mut_ptr()).#tupidx).cast::<::core::mem::MaybeUninit<#ty>>() },
                         stream,
                     )?;
-                });
+                );
                 out
             });
             out.extend(quote! {

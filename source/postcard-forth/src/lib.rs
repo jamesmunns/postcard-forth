@@ -312,7 +312,6 @@ pub mod impls {
     impl<T: Serialize, const N: usize> Serialize for [T; N] {
         #[inline]
         fn serialize(&self, stream: &mut SerStream) -> Result<(), ()> {
-            N.serialize(stream)?;
             self.iter().try_for_each(|t| t.serialize(stream))
         }
     }

@@ -89,9 +89,9 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
             let fields = fields.named.iter().map(|f| {
                 let name = &f.ident;
 
-                let out = quote_spanned!(f.span() => {
+                let out = quote_spanned!(f.span() =>
                     self.#name.serialize(stream)?;
-                });
+                );
                 out
             });
             out.extend(quote! {
@@ -101,9 +101,9 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
         syn::Fields::Unnamed(fields) => {
             let fields = fields.unnamed.iter().enumerate().map(|(i, f)| {
                 let tupidx = syn::Index::from(i);
-                let out = quote_spanned!(f.span() => {
+                let out = quote_spanned!(f.span() =>
                     self.#tupidx.serialize(stream)?;
-                });
+                );
                 out
             });
             out.extend(quote! {
@@ -134,9 +134,7 @@ fn generate_arm(
 
                     // Serialize the payload
                     #(
-                        {
-                            #just_names.serialize(stream)?;
-                        }
+                        #just_names.serialize(stream)?;
                     )*
                 }
             }
@@ -164,9 +162,7 @@ fn generate_arm(
 
                     // Serialize the payload
                     #(
-                        {
-                            #just_names.serialize(stream)?;
-                        }
+                        #just_names.serialize(stream)?;
                     )*
                 }
             }

@@ -41,7 +41,7 @@ optional = true
 [profile.release]
 debug = 2
 lto = true
-opt-level = 'z'
+opt-level = 's'
 codegen-units = 1
 incremental = false
 
