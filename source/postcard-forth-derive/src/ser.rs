@@ -42,10 +42,11 @@ fn generate_type(
         Data::Struct(data) => {
             let ty = generate_struct(tyident.clone(), &data.fields);
             Ok(quote! {
-                unsafe impl #impl_generics ::postcard_forth::Serialize for #tyident #ty_generics #where_clause {
-                    const FIELDS: &'static [::postcard_forth::SerField] = &[
+                impl #impl_generics ::postcard_forth::Serialize for #tyident #ty_generics #where_clause {
+                    fn serialize(&self, stream: &mut ::postcard_forth::SerStream) -> Result<(), ()> {
                         #ty
-                    ];
+                        Ok(())
+                    }
                 }
             })
         }
@@ -62,20 +63,13 @@ fn generate_type(
             }
 
             let out = quote! {
-                #[allow(non_snake_case)]
-                #[inline]
-                pub unsafe fn #sername_ident(stream: &mut ::postcard_forth::SerStream, base: core::ptr::NonNull<()>) -> Result<(), ()> {
-                    let eref = base.cast::<#tyident>().as_ref();
-                    match eref {
-                        #arms
+                impl ::postcard_forth::Serialize for #tyident {
+                    fn serialize(&self, stream: &mut ::postcard_forth::SerStream) -> Result<(), ()> {
+                        match self {
+                            #arms
+                        }
+                        Ok(())
                     }
-                }
-
-                unsafe impl ::postcard_forth::Serialize for #tyident {
-                    const FIELDS: &'static [::postcard_forth::SerField] = &[::postcard_forth::SerField {
-                        offset: 0,
-                        func: #sername_ident,
-                    }];
                 }
             };
             Ok(out)
@@ -93,26 +87,27 @@ fn generate_struct(tyname: syn::Ident, fields: &Fields) -> TokenStream {
     match fields {
         syn::Fields::Named(fields) => {
             let fields = fields.named.iter().map(|f| {
-                let ty = &f.ty;
                 let name = &f.ident;
 
-                let out = quote_spanned!(f.span() => ::postcard_forth::SerField { offset: ::core::mem::offset_of!(#tyname, #name), func: ::postcard_forth::ser_inliner::<#ty>() });
+                let out = quote_spanned!(f.span() =>
+                    self.#name.serialize(stream)?;
+                );
                 out
             });
             out.extend(quote! {
-                #( #fields ),*
+                #( #fields )*
             });
         }
         syn::Fields::Unnamed(fields) => {
             let fields = fields.unnamed.iter().enumerate().map(|(i, f)| {
-                let ty = &f.ty;
-
                 let tupidx = syn::Index::from(i);
-                let out = quote_spanned!(f.span() => ::postcard_forth::SerField { offset: ::core::mem::offset_of!(#tyname, #tupidx), func: ::postcard_forth::ser_inliner::<#ty>() });
+                let out = quote_spanned!(f.span() =>
+                    self.#tupidx.serialize(stream)?;
+                );
                 out
             });
             out.extend(quote! {
-                #( #fields ),*
+                #( #fields )*
             });
         }
         syn::Fields::Unit => {}
@@ -130,30 +125,17 @@ fn generate_arm(
         syn::Fields::Named(fields) => {
             let just_names: Vec<_> = fields.named.iter().map(|f| &f.ident).collect();
             let just_names = just_names.as_slice();
-            let just_tys: Vec<_> = fields.named.iter().map(|f| &f.ty).collect();
-            let just_tys = just_tys.as_slice();
 
             quote! {
                 #tyident :: #varident { #(#just_names),* } => {
                     // serialize the discriminant as a u32
                     let var: u32 = #idx;
-                    if ::postcard_forth::impls::ser_u32(stream, core::ptr::NonNull::from(&var).cast()).is_err() {
-                        return Err(());
-                    }
+                    var.serialize(stream)?;
 
                     // Serialize the payload
                     #(
-                        {
-                            const FUNC: ::postcard_forth::SerFunc = ::postcard_forth::ser_inliner::<#just_tys>();
-                            let ptr: core::ptr::NonNull<#just_tys> = core::ptr::NonNull::from(#just_names);
-                            if (FUNC)(stream, ptr.cast()).is_err() {
-                                return Err(());
-                            }
-                        }
+                        #just_names.serialize(stream)?;
                     )*
-
-                    Ok(())
-
                 }
             }
         }
@@ -171,30 +153,17 @@ fn generate_arm(
                 })
                 .collect();
             let just_names = just_names.as_slice();
-            let just_tys: Vec<_> = fields.unnamed.iter().map(|f| &f.ty).collect();
-            let just_tys = just_tys.as_slice();
 
             quote! {
                 #tyident :: #varident ( #(#just_names),* ) => {
                     // serialize the discriminant as a u32
                     let var: u32 = #idx;
-                    if ::postcard_forth::impls::ser_u32(stream, core::ptr::NonNull::from(&var).cast()).is_err() {
-                        return Err(());
-                    }
+                    var.serialize(stream)?;
 
                     // Serialize the payload
                     #(
-                        {
-                            const FUNC: ::postcard_forth::SerFunc = ::postcard_forth::ser_inliner::<#just_tys>();
-                            let ptr: core::ptr::NonNull<#just_tys> = core::ptr::NonNull::from(#just_names);
-                            if (FUNC)(stream, ptr.cast()).is_err() {
-                                return Err(());
-                            }
-                        }
+                        #just_names.serialize(stream)?;
                     )*
-
-                    Ok(())
-
                 }
             }
         }
@@ -202,7 +171,7 @@ fn generate_arm(
             quote! {
                 #tyident :: #varident => {
                     let var: u32 = #idx;
-                    ::postcard_forth::impls::ser_u32(stream, core::ptr::NonNull::from(&var).cast())
+                    var.serialize(stream)?;
                 }
             }
         }
