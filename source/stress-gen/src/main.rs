@@ -92,9 +92,7 @@ fn deserialize<T: ::postcard_forth::Deserialize>(
 ) -> Result<T, ()> {{
     let mut desers = ::postcard_forth::DeserStream::from(in_buf);
     let mut out = core::mem::MaybeUninit::<T>::uninit();
-    unsafe {{
-        ::postcard_forth::deser_fields_ref(&mut desers, &mut out).map_err(drop)?;
-    }}
+    T::deserialize(&mut out, &mut desers)?;
     Ok(unsafe {{ out.assume_init() }})
 }}
 
@@ -115,9 +113,7 @@ fn serialize<T: ::postcard_forth::Serialize>(
 ) -> Result<usize, ()> {{
     let olen = out_buf.len();
     let mut sers = ::postcard_forth::SerStream::from(out_buf);
-    unsafe {{
-        ::postcard_forth::ser_fields_ref(&mut sers, t).map_err(drop)?;
-    }}
+    t.serialize(&mut sers)?;
     let remain = sers.remain();
     let used = olen - remain;
     Ok(used)
